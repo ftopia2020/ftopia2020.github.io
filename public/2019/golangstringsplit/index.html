@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://example.com/2019/iframe/" />
+    <link rel="next" href="https://example.com/2019/codesandbox/" />
+    <link rel="canonical" href="https://example.com/2019/golangstringsplit/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             Golang 使用 string.split 切割字符串并返回数组 | Ftopia
+         
+    </title>
+    <meta name="title" content="Golang 使用 string.split 切割字符串并返回数组 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "Golang 使用 string.split 切割字符串并返回数组",
+    "headline" : "Golang 使用 string.split 切割字符串并返回数组",
+    "description" : "Why 在很多业务需求或数据处理中，我们需要将某一字符串根据某分隔符一一隔开并置于数组中，像是已知 Id 字符串 3,7,123 ，需要将 3、7、123 存入数组。在 golang 中",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-11 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-11 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/golangstringsplit\/",
+    "wordCount" : "389",
+    "keywords" : [ "Golang","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Golang 使用 string.split 切割字符串并返回数组</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://example.com/categories/%E5%90%8E%E7%AB%AF/"> 后端 </a>
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2019-09-11
+                    itemprop="datePublished">
+                    2019-09-11</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 389 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="why">Why</h2>
+<p>在很多业务需求或数据处理中，我们需要将某一字符串根据某分隔符一一隔开并置于数组中，像是已知 Id 字符串 <code>3,7,123</code> ，需要将 3、7、123 存入数组。在 golang 中，我们如何对此进行处理？下文将对此问题进行解答。</p>
+<h2 id="what">What</h2>
+<p>在 Golang 中，我们可通过 <code>strings</code> 包的 <code>Split</code> 进行切割，并返回相应的数组，基础示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;strings&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Split</span>(<span style="color:#e6db74">&#34;a,b,c&#34;</span>, <span style="color:#e6db74">&#34;,&#34;</span>)
+    <span style="color:#75715e">// s := strings.Split(&#34;a b c&#34;, &#34; &#34;)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// s := strings.Split(&#34;a|b|c&#34;, &#34;|&#34;)
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// s := strings.Split(&#34;&#34;, &#34;,&#34;)
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s</span>)
+}
+</code></pre></div><p>以上示例输出为 <code>[a b c]</code></p>
+<h2 id="how">How</h2>
+<p>上述示例已经可满足基本使用（注掉的代码可测试不同分隔符效果，以及空数组返回），该函数定义如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Split</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">sep</span> <span style="color:#66d9ef">string</span>) []<span style="color:#66d9ef">string</span>        
+<span style="color:#75715e">// s   - 需要分割的字符串
+</span><span style="color:#75715e">// sep - 分隔符
+</span></code></pre></div><p>更多，可参考官方文档：https://golang.org/pkg/strings/#Split</p>
+<p>另外，提供了同类的分隔函数以适应不同的业务需要，如下：</p>
+<ul>
+<li>func <a href="https://golang.org/pkg/strings/#SplitN">SplitN</a> 加入返回数量限制</li>
+<li>func <a href="https://golang.org/src/strings/strings.go?#SplitAfter">SplitAfter</a> 包含分隔符</li>
+<li>func <a href="https://golang.org/src/strings/strings.go?#SplitAfterN">SplitAfterN</a> 包含分隔符 &amp; 加入返回数量限制</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#a6e22e">The</span> <span style="color:#a6e22e">count</span> <span style="color:#a6e22e">determines</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">number</span> <span style="color:#a6e22e">of</span> <span style="color:#a6e22e">substrings</span> <span style="color:#a6e22e">to</span> <span style="color:#66d9ef">return</span>:
+<span style="color:#a6e22e">n</span> &gt; <span style="color:#ae81ff">0</span>: <span style="color:#a6e22e">at</span> <span style="color:#a6e22e">most</span> <span style="color:#a6e22e">n</span> <span style="color:#a6e22e">substrings</span>; <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">last</span> <span style="color:#a6e22e">substring</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">unsplit</span> <span style="color:#a6e22e">remainder</span>.
+<span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>: <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">result</span> <span style="color:#a6e22e">is</span> <span style="color:#66d9ef">nil</span> (<span style="color:#a6e22e">zero</span> <span style="color:#a6e22e">substrings</span>)
+<span style="color:#a6e22e">n</span> &lt; <span style="color:#ae81ff">0</span>: <span style="color:#a6e22e">all</span> <span style="color:#a6e22e">substrings</span>
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://example.com/tags/golang/">
+                    #Golang</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/iframe/" class="prev" rel="prev" title="如何在页面中优雅地内嵌 iframe ？"><i
+                class="iconfont icon-left"></i>&nbsp;如何在页面中优雅地内嵌 iframe ？</a>
+        
+        
+        <a href="https://example.com/2019/codesandbox/" class="next" rel="next"
+            title="前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用）">前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用）&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+     </div>
+  
+  </body>
+</html>

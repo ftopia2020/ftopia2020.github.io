@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>效率UP on Ftopia</title>
+    <link>https://example.com/categories/%E6%95%88%E7%8E%87up/</link>
+    <description>Recent content in 效率UP on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/%E6%95%88%E7%8E%87up/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>康奈尔/5R 笔记法</title>
+      <link>https://example.com/2019/cornell/</link>
+      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/cornell/</guid>
+      <description>Why 学习乃至工作后，我们都需要记笔记，常见的场景有讲授的听课、个人阅读或者各种培训。 一个科学的笔记方法将使你事半功倍，而其中记录方法的佼佼者就</description>
+    </item>
+    
+  </channel>
+</rss>

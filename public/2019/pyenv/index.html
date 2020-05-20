@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://example.com/2019/golangcron/" />
+    <link rel="next" href="https://example.com/2019/iframe/" />
+    <link rel="canonical" href="https://example.com/2019/pyenv/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             Python 版本管理器 —— pyenv 简介及使用 | Ftopia
+         
+    </title>
+    <meta name="title" content="Python 版本管理器 —— pyenv 简介及使用 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "Python 版本管理器 —— pyenv 简介及使用",
+    "headline" : "Python 版本管理器 —— pyenv 简介及使用",
+    "description" : "Why !注意：若你使用的是Windows，请忽略本文，pyenv不支持Windows，原因是作者大神不想浪费时间 I\x26rsquo;m no longer using Windows. I don\x26rsquo;t like to waste my time with such thing. 若",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-02 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-02 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/pyenv\/",
+    "wordCount" : "1829",
+    "keywords" : [ "Python","pyenv","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a>
+      <ul>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#common-commands">Common Commands</a></li>
+        <li><a href="#qa">Q&amp;A</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Python 版本管理器 —— pyenv 简介及使用</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://example.com/categories/%E5%90%8E%E7%AB%AF/"> 后端 </a>
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2019-09-02
+                    itemprop="datePublished">
+                    2019-09-02</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1829 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="why">Why</h2>
+<p><strong>!注意：若你使用的是Windows，请忽略本文，pyenv不支持Windows，原因是作者大神不想浪费时间</strong></p>
+<blockquote>
+<p>I&rsquo;m no longer using Windows. I don&rsquo;t like to waste my time with such thing.
+若是Windows系统，可使用 virtualenv 及 virtualenvwrapper</p>
+</blockquote>
+<p>Python执行环境问题，可能常常遇到这样的情况：</p>
+<ul>
+<li>系统自带的 Python 是 2.x，而自己需要 Python 3.x</li>
+<li>需要测试不同Python版本的代码</li>
+</ul>
+<p>Python2.X 和 3.X 版本，甚至众多Python版本共存于一个系统，如何简单优雅地切换Python环境？</p>
+<p>目前一个比较成熟的方式，就是 <strong>pyenv</strong>。</p>
+<p>解决了多版本问题，势必又有另一个棘手的环境问题出现，即三方库版本问题，如何确保Python独立开发环境？相信大多人会选择大名鼎鼎的virtualenv。而 pyenv 的插件 <strong>pyenv-virtualenv</strong> 可以同步解决这个问题。</p>
+<h2 id="what">What</h2>
+<p><a href="https://github.com/pyenv/pyenv"><strong>pyenv</strong></a> 是一个简易的Python版本管理器 （Simple Python Version Management）</p>
+<blockquote>
+<p>pyenv lets you easily switch between multiple versions of Python. It&rsquo;s simple, unobtrusive, and follows the UNIX tradition of single-purpose tools that do one thing well.</p>
+</blockquote>
+<p><strong>pyenv does&hellip;</strong></p>
+<ul>
+<li>用户级别的全局 Python 版本切换</li>
+<li>单项目提供多个 Python 版本切换</li>
+<li>使用环境变量来重写 Python 版本</li>
+<li>同一时间对不同版本执行命令搜索</li>
+</ul>
+<blockquote>
+<ul>
+<li>Let you <strong>change the global Python version</strong> on a per-user basis.</li>
+<li>Provide support for <strong>per-project Python versions</strong>.</li>
+<li>Allow you to <strong>override the Python version</strong> with an environment variable.</li>
+<li>Search commands from <strong>multiple versions of Python at a time</strong>. This may be helpful to test across Python versions with <a href="https://pypi.python.org/pypi/tox">tox</a>.</li>
+</ul>
+</blockquote>
+<p><a href="https://github.com/pyenv/pyenv-virtualenv">pyenv-virtualenv</a> 是pyenv用来管理虚拟环境的插件，pyenv + pyenv-virtualenv 配合使用可以让我们随意切换多版本多环境下的Python项目。</p>
+<blockquote>
+<p>pyenv-virtualenv is a <a href="https://github.com/pyenv/pyenv">pyenv</a> plugin that provides features to manage virtualenvs and conda environments for Python on UNIX-like systems.</p>
+<p>(NOTICE: If you are an existing user of <a href="http://pypi.python.org/pypi/virtualenvwrapper">virtualenvwrapper</a> and you love it, <a href="https://github.com/pyenv/pyenv-virtualenvwrapper">pyenv-virtualenvwrapper</a> may help you (additionally) to manage your virtualenvs.)</p>
+</blockquote>
+<h2 id="how">How</h2>
+<h3 id="install">Install</h3>
+<p>具体的安装就不介绍了，详见 <a href="https://github.com/pyenv/pyenv#installation">pyenv install</a>，<a href="https://github.com/pyenv/pyenv-virtualenv#installation">pyenv-virtualenv install</a></p>
+<h3 id="how-it-works">How it works</h3>
+<p>pyenv的工作原理还是比较简单的：即修改系统环境变量<code>PATH</code>，如有兴趣可查阅 <a href="https://github.com/pyenv/pyenv#how-it-works">How it works</a></p>
+<p>而pyenv-virtualenv则是作为插件集成了virtualenv的功能</p>
+<h3 id="common-commands">Common Commands</h3>
+<h4 id="pyenv">pyenv</h4>
+<p>列出pyenv常用命令，详情请查阅 <a href="https://github.com/pyenv/pyenv/blob/master/COMMANDS.md">官方CMDs</a></p>
+<table>
+<thead>
+<tr>
+<th>CMD</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pyenv commands</td>
+<td>列出所有pyenv支持的命令</td>
+</tr>
+<tr>
+<td>pyenv CMD &ndash;help / pyenv CMD -h</td>
+<td>CMD命令帮助信息</td>
+</tr>
+<tr>
+<td>pyenv version</td>
+<td>查看当前使用的Python版本，包含设置的信息</td>
+</tr>
+<tr>
+<td>pyenv versions</td>
+<td>列出当前pyenv所有可用的Python版本，*标时当前使用的版本</td>
+</tr>
+<tr>
+<td>pyenv install &ndash; list / pyenv install - l</td>
+<td>列出可安装的所有Python版本信息</td>
+</tr>
+<tr>
+<td>pyenv install PYTHON_VERSION</td>
+<td>安装指定的Python版本</td>
+</tr>
+<tr>
+<td>pyenv uninstall PYTHON_VERSION</td>
+<td>卸载指定的Python版本</td>
+</tr>
+<tr>
+<td>pyenv rehash</td>
+<td>更新hash；在安装Python版本或其他可执行模块后需执行更新</td>
+</tr>
+<tr>
+<td>pyenv global PYTHON_VERSION</td>
+<td>设置全局的 python 版本</td>
+</tr>
+<tr>
+<td>pyenv local PYTHON_VERSION</td>
+<td>设置本地的 python 版本</td>
+</tr>
+</tbody>
+</table>
+<p>日常使用示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pyenv install 3.6.0		<span style="color:#75715e"># 安装python3.6.0版本</span>
+pyenv global 3.6.0		<span style="color:#75715e"># !慎用，设置全局Python版本为3.6.0</span> 
+pyenv version			<span style="color:#75715e"># 查看当前使用的Python版本</span>
+pyenv local 3.6.0		<span style="color:#75715e"># 设置本地(即当前目录下)Python版本为3.6.0</span> 
+</code></pre></div><h4 id="pyenv-virtualenv">pyenv-virtualenv</h4>
+<blockquote>
+<p>熟悉virtualenv的用起来毫无难度</p>
+</blockquote>
+<ul>
+<li>从当前版本创建virtualenv</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pyenv virtualenv venv36		<span style="color:#75715e"># 当前Python版本下创建虚拟环境 venv36</span>
+</code></pre></div><ul>
+<li>指定版本创建virtualenv</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  pyenv virtualenv 2.7.12 projectX_2.7.12	  <span style="color:#75715e"># 2.7.12版本下创建虚拟环境projectX_2.7.12</span>
+</code></pre></div><ul>
+<li>设置虚拟环境</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pyenv local projectX_2.7.12		<span style="color:#75715e"># local设置为虚拟环境projectX_2.7.12</span>
+</code></pre></div><p>设置成功后，shell命令行路径前会出现  <code>(projectX_2.7.12)</code> 标识，表示当前目录在该虚拟环境下</p>
+<p>可试着切换目录，会发现离开了此环境；若再次回到该目录，会发现仍是在此环境下</p>
+<p>若我们需要临时使用某个环境或是做多环境下的项目测试，可用activate及deactivate来临时使用虚拟环境，此时切换路径不会改变环境，此环境选择的优先级高于目录local设置环境</p>
+<ul>
+<li>激活虚拟环境</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pyenv activate projectX_2.7.12		<span style="color:#75715e"># 激活当前运行环境为projectX_2.7.12</span>
+</code></pre></div><ul>
+<li>离开激活的虚拟环境</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pyenv deactivate	<span style="color:#75715e"># 离开激活的虚拟环境</span>
+</code></pre></div><h3 id="qa">Q&amp;A</h3>
+<p><strong>Q：</strong> <code>pyenv install PYTHON_VERSION</code> 安装时很慢，甚至于超时，如何解决</p>
+<p><strong>A：</strong> 自行下载对应的安装包并拷贝至 ~/.pyenv/cache 目录下（通常第一次需自己新建）；于缓存中安装该版本，使用命令 <code>pyenv install PYTHON_VERSION -v</code></p>
+<p><strong>Q：</strong> Mac使用pyenv切换版本后，发现仍只是使用了系统Python版本</p>
+<p><strong>A：</strong> 原因为找不到通过 pyenv 安装的 Python；这是homebrew安装pyenv留的一个坑。。。需要在安装pyenv后更改 ~/.bash_profile 文件（若无需新建），增加语句如下：</p>
+<pre><code>if which pyenv &gt; /dev/null; then eval &quot;$(pyenv init -)&quot;; fi
+</code></pre><p>安装的时候相关提示：</p>
+<blockquote>
+<p>Then follow the rest of the post-installation steps under <a href="https://github.com/pyenv/pyenv#basic-github-checkout">Basic GitHub Checkout</a> above, starting with #3 (&ldquo;Add <code>pyenv init</code> to your shell to enable shims and autocompletion&rdquo;).</p>
+</blockquote>
+<p><strong>Q：</strong> global 版本、local版本的区分，优先级？</p>
+<p><strong>A：</strong> <code>pyenv version</code>的结果 () 内可区分出为哪种设置， ~/.pyenv/version 为全局的配置文件；优先local，若无后取global；local的配置文件为 {LOCAL_PATH}/.python-version，若手动删除该文件，local版本就失效了</p>
+<p><strong>Q：</strong> MacOS pyenv install 报错，Missing the OpenSSL lib?</p>
+<p><strong>A：</strong> 由于Mac系统更新，而pyenv版本不是最新的导致报错，<code>brew update pyenv</code> 后解决该问题。</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://example.com/tags/python/">
+                    #Python</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/pyenv/">
+                    #pyenv</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/golangcron/" class="prev" rel="prev" title="Golang 实现定时任务"><i
+                class="iconfont icon-left"></i>&nbsp;Golang 实现定时任务</a>
+        
+        
+        <a href="https://example.com/2019/iframe/" class="next" rel="next"
+            title="如何在页面中优雅地内嵌 iframe ？">如何在页面中优雅地内嵌 iframe ？&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+     </div>
+  
+  </body>
+</html>

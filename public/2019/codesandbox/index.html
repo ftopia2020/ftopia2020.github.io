@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://example.com/2019/golangstringsplit/" />
+    <link rel="next" href="https://example.com/2019/reactrouter4/" />
+    <link rel="canonical" href="https://example.com/2019/codesandbox/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用） | Ftopia
+         
+    </title>
+    <meta name="title" content="前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用） | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用）",
+    "headline" : "前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用）",
+    "description" : "Why 我们在前端学习或者项目开发中，时常会敲些 demo 来查看效果或者做些新鲜的尝试，这通常需要引入各种依赖以及加入不同的三方库。 如果都在自己的项目或者",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/codesandbox\/",
+    "wordCount" : "975",
+    "keywords" : [ "CodeSandBox","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用）</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://example.com/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2019-09-17
+                    itemprop="datePublished">
+                    2019-09-17</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 975 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="why">Why</h2>
+<p>我们在前端学习或者项目开发中，时常会敲些 demo 来查看效果或者做些新鲜的尝试，这通常需要引入各种依赖以及加入不同的三方库。
+如果都在自己的项目或者干脆启新项目，难免造成干扰或不便捷。如能直接在线敲Demo并即时查看效果，那该多好~</p>
+<h2 id="what">What</h2>
+<p>在线编辑器其实大家并不陌生，教程类网站通常会结合在线编辑器，简单的如 w3schools。</p>
+<p>这里，个人推荐一款强大的前端在线编辑平台 —— CodeSandBox，官网地址：<a href="https://codesandbox.io/">https://codesandbox.io</a></p>
+<p>正如标题所言，CodeSandBox 已经不仅仅是编辑器，而是一个开箱即用的Web在线IDE，目前提供了几乎全部的主流框架，参考下图（Before 2019.9）</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/CodeSandBox_Templates.png" alt="CodeSandBox_Templates" class="lazyload"><figcaption class="image-caption">CodeSandBox_Templates</figcaption></figure></p>
+<p>通过选择不同的模板，我们可以直接使用不同框架（React、Vue、Angular等）下的环境并进行预览和测试。</p>
+<p>在各个项目中，通过 Add Dependency，可以引入各种不同版本的依赖库，并且可以方便的分享及加入团队合作等（部分功能需要付费，个人使用完全够用了）。</p>
+<blockquote>
+<p>更多类似平台可参考：<a href="https://zhuanlan.zhihu.com/p/37490345">前端必知 - 各种在线 web 编辑器平台简要对比介绍 From 知乎</a></p>
+</blockquote>
+<h2 id="how">How</h2>
+<p>那我们如何使用 CodeSandBox 呢？如果不是前端初学者，使用上应该不难理解，当然英文界面可能会对英文不好的同学造成一些阻碍。</p>
+<p>我们需要一个账号登录，可使用 Github 账号联合登录。之后在个人 Dashboard 中，可创建新的 SandBox，或者对 SandBoxes 进行管理或再次编辑。</p>
+<p>尝试创建一个新的 React SandBox，稍加等待后，我们可看到一个 Hello 的示例。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/CodeSandBox_new.png" alt="CodeSandBox_new" class="lazyload"><figcaption class="image-caption">CodeSandBox_new</figcaption></figure></p>
+<p>默认界面分为三部分，风格类似很多IDE，如VSCode等：</p>
+<ul>
+<li>左侧一栏包含SandBox基础信息，如私有/公开，名称等，这些都可以进行设置。下方 Files &amp; Dependencies 可方便的管理文件及依赖。</li>
+<li>编辑界面为默认选中的文件，可通过点选打开对应文件，双击保留文件并支持多Tab切换，可支持分屏。</li>
+<li>默认右侧栏显示浏览器预览界面，可关闭/展开。Tests可执行写入的单元测试及测试集。</li>
+</ul>
+<p>可尝试修改某些参数，查看预览显示来初步体验，预览是跟随编辑实时更新的，而非保存后更新。编辑器中支持代码美化、提示联想等（使用体验和IDE真没多大差），甚至支持 Eslint。</p>
+<p>最后，再举个例子，https://codesandbox.io/s/rro676q08p 。打开页面后，我们可以看到一个基于 antd的示例，实际上目前所有 antd 组件的示例都可于 COdeSandBox 中打开，如果使用此组件集，可以很方便的调试。</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://example.com/tags/codesandbox/">
+                    #CodeSandBox</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/golangstringsplit/" class="prev" rel="prev" title="Golang 使用 string.split 切割字符串并返回数组"><i
+                class="iconfont icon-left"></i>&nbsp;Golang 使用 string.split 切割字符串并返回数组</a>
+        
+        
+        <a href="https://example.com/2019/reactrouter4/" class="next" rel="next"
+            title="使用 react-router ^4.0  创建 404 页面">使用 react-router ^4.0  创建 404 页面&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+     </div>
+  
+  </body>
+</html>

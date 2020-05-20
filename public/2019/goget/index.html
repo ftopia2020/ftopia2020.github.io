@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://example.com/2019/reactproblem/" />
+    <link rel="next" href="https://example.com/2020/homebrew/" />
+    <link rel="canonical" href="https://example.com/2019/goget/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             解决 go get 下载包失败的问题 | Ftopia
+         
+    </title>
+    <meta name="title" content="解决 go get 下载包失败的问题 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "解决 go get 下载包失败的问题",
+    "headline" : "解决 go get 下载包失败的问题",
+    "description" : "What 在使用 go get, go mod 等命令时，会自动下载相应的包或依赖包。但由于被墙，如 golang.org\/x\/... 的包会出现下载失败的情况。嗯 \x26hellip; timeout How 手动下载 常见包如 golang.org\/x\/... 的包，通常在 github 上都",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-22 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-10-22 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/goget\/",
+    "wordCount" : "569",
+    "keywords" : [ "Golang","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a>
+      <ul>
+        <li><a href="#手动下载">手动下载</a></li>
+        <li><a href="#设置代理">设置代理</a></li>
+        <li><a href="#go-mod-replace">go mod replace</a></li>
+        <li><a href="#更改环境变量为共用代理服务">更改环境变量为共用代理服务</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">解决 go get 下载包失败的问题</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://example.com/categories/%E5%90%8E%E7%AB%AF/"> 后端 </a>
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2019-10-22
+                    itemprop="datePublished">
+                    2019-10-22</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 569 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="what">What</h2>
+<p>在使用 <code>go get</code>, <code>go mod</code> 等命令时，会自动下载相应的包或依赖包。但由于被墙，如 <code>golang.org/x/...</code> 的包会出现下载失败的情况。嗯 &hellip; <code>timeout</code></p>
+<h2 id="how">How</h2>
+<h3 id="手动下载">手动下载</h3>
+<p>常见包如 <code>golang.org/x/...</code> 的包，通常在 github 上都有官方对应的镜像仓库，我们可以手动下载或 clone 对应 Github 仓库至指定目录下，如<code>golang.org/x/</code>，需手动创建，参考代码操作如下：</p>
+<pre><code>mkdir $GOPATH/src/golang.org/x
+cd $GOPATH/src/golang.org/x
+git clone git@github.com:golang/text.git
+rm -rf text/.git
+</code></pre><h3 id="设置代理">设置代理</h3>
+<p>如果你有代理，可设置对应的环境变量：</p>
+<pre><code>export http_proxy=http://proxyAddress:port
+export https_proxy=http://proxyAddress:port
+</code></pre><p>或直接用 all_proxy：</p>
+<pre><code>export all_proxy=http://proxyAddress:port
+</code></pre><h3 id="go-mod-replace">go mod replace</h3>
+<p>Go 1.11 版本开始，新增支持 <code>go modules</code> 用于解决包依赖管理的问题。该工具提供了 <code>replace</code>，就是为了解决包的别名问题。</p>
+<blockquote>
+<p>由于 <code>go mod</code> 使用不在本篇讨论范围，可参考此文 <a href="https://blog.golang.org/using-go-modules">The Go Blog: Using Go Modules</a>
+有打算之后写篇专门介绍 <code>go mod</code> 的</p>
+</blockquote>
+<p><strong>注意：</strong></p>
+<ol>
+<li>小于 Go 1.11 的版本不支持，请使用上面的方式</li>
+<li>如果你的代码库在 $GOPATH 中，功能是默认不开启的，需通过环境变量开启：<code>export GO111MODULE=on</code>。</li>
+</ol>
+<h3 id="更改环境变量为共用代理服务">更改环境变量为共用代理服务</h3>
+<p>其实上述方法都有其不方便之处，从 Go 1.11 版本开始，官方除了支持<code>go mod</code>，还新增了 <code>GOPROXY</code> 环境变量。如果设置了该变量，下载源代码时将会通过这个环境变量设置的代理地址，并且提供了公用的代理服务 <code>https://goproxy.io</code>，我们只需设置该环境变量即可正常下载被墙的源码包了：</p>
+<pre><code>export GOPROXY=https://goproxy.io
+</code></pre><p>对于 Windows 用户，可以在 PowerShell 中设置 (本人未尝试，参考使用)：</p>
+<pre><code>$env:GOPROXY = &quot;https://goproxy.io&quot;
+</code></pre><p><strong>注意：</strong> 注意点同上</p>
+<p>P.S 七牛也提供了国内代理 <code>goproxy.cn</code>，大家也可使用</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://example.com/tags/golang/">
+                    #Golang</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/reactproblem/" class="prev" rel="prev" title="react style !important 失效问题的解决方案"><i
+                class="iconfont icon-left"></i>&nbsp;react style !important 失效问题的解决方案</a>
+        
+        
+        <a href="https://example.com/2020/homebrew/" class="next" rel="next"
+            title="Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)">Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+
+     </div>
+  
+  </body>
+</html>

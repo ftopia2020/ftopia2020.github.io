@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>YAML on Ftopia</title>
+    <link>https://example.com/tags/yaml/</link>
+    <description>Recent content in YAML on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang 使用 go-yaml 解析 YAML 文件</title>
+      <link>https://example.com/2019/golanggoyaml/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/golanggoyaml/</guid>
+      <description>Why 在项目中，难免会用到配置文件，而 YAML 格式的配置文件较 xml、json 等有其特有的优势，目前比较流行，那我们用 Golang 如何来解析 YAML 文件呢？ What YAML YAML 是 &amp;ldquo;YAML</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,55 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ftopia on Ftopia</title>
+    <link>https://example.com/</link>
+    <description>Recent content in Ftopia on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://example.com/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Posts</title>
+      <link>https://example.com/posts/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>关于 ...</title>
+      <link>https://example.com/about/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about/</guid>
+      <description>&lt;h2 id=&#34;关于本站&#34;&gt;关于本站&lt;/h2&gt;
+&lt;p&gt;这是一个记录 Web 开发技术的个人博客（Blog），沿用之前的域名 ftopia.cn。&lt;/p&gt;
+&lt;p&gt;建站初衷，记录工作中解决一些问题的经验、归档原创博文、总结技术教程等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;除非文章内特别说明，您可以转载 Ftopia 的文章，但请加入其出处。谢谢。&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最初想到了 Utopia（乌托邦），而笔者名字 F 开头，于是拼接下，Ftopia 就这么来了 ~&lt;/p&gt;
+&lt;p&gt;P.S. ftopia.com 为国外一个云存储产品网站，与本站无关，仅域名雷同，特此声明&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本人&#34;&gt;关于本人&lt;/h2&gt;
+&lt;p&gt;略&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;之前的博客记录略汗颜，「记于 2016年6月10日，不忘初心，不断更 (=ﾟωﾟ)ﾉ 」（蓝鹅现在都 9012 了）&lt;/p&gt;
+&lt;p&gt;育有可爱女娃一枚，不排除之后此博客会加入很多育儿篇章 ~&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;ftopia-v20&#34;&gt;Ftopia V2.0&lt;/h2&gt;
+&lt;p&gt;博客改版的根本原因是想专心于写博客，而不是建站（虽然也没干啥 😂 ）&lt;/p&gt;
+&lt;p&gt;1.0：采用了动态API方式获取内容及相关数据（前后端均自写），但实际&amp;hellip; 没几篇文章那、站点也不更新&lt;/p&gt;
+&lt;p&gt;所以，抛弃 1.0，直接走静态博客生成 =》个人后端技术栈 GO，Hexo 之前用过但生成速度太慢，所以选择了 Hugo 来生成 Ftopia V2.0&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P.S. 静态博客的优势：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问快，SEO 友好&lt;/li&gt;
+&lt;li&gt;成熟解决方案：Hexo、Jekyll、Hugo （均支持很多博客功能且主题精美）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

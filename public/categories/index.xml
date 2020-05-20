@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Ftopia</title>
+    <link>https://example.com/categories/</link>
+    <description>Recent content in Categories on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ftopia</title>
+      <link>https://example.com/categories/ftopia/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/ftopia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>系统&amp;工具</title>
+      <link>https://example.com/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>后端</title>
+      <link>https://example.com/categories/%E5%90%8E%E7%AB%AF/</link>
+      <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/%E5%90%8E%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>前端</title>
+      <link>https://example.com/categories/%E5%89%8D%E7%AB%AF/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/%E5%89%8D%E7%AB%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>效率UP</title>
+      <link>https://example.com/categories/%E6%95%88%E7%8E%87up/</link>
+      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/%E6%95%88%E7%8E%87up/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

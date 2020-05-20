@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://example.com/2019/cornell/" />
+    <link rel="next" href="https://example.com/2019/reactproblem/" />
+    <link rel="canonical" href="https://example.com/2019/mysqlprocedure/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             MySQL 存储过程的简单使用 | Ftopia
+         
+    </title>
+    <meta name="title" content="MySQL 存储过程的简单使用 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "MySQL 存储过程的简单使用",
+    "headline" : "MySQL 存储过程的简单使用",
+    "description" : "Why 如果你是数据库老手，对存储过程应该不陌生，在商业数据库应用中，例如金融、企业、政府等等，存储过程的使用非常广泛。然而，MySQL 存储过程的",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-10-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/mysqlprocedure\/",
+    "wordCount" : "2184",
+    "keywords" : [ "MySQL","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a>
+      <ul>
+        <li><a href="#创建存储过程">创建存储过程</a></li>
+        <li><a href="#调用存储过程">调用存储过程</a></li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#条件判断">条件判断</a></li>
+        <li><a href="#循环语句">循环语句</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">MySQL 存储过程的简单使用</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://example.com/categories/%E5%90%8E%E7%AB%AF/"> 后端 </a>
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2019-10-12
+                    itemprop="datePublished">
+                    2019-10-12</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 2184 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 5 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="why">Why</h2>
+<p>如果你是数据库老手，对存储过程应该不陌生，在商业数据库应用中，例如金融、企业、政府等等，存储过程的使用非常广泛。然而，MySQL 存储过程的功能相较 Oracle等商用数据库来说很弱，且性能也差。</p>
+<p>那用 MySQL 存储过程干嘛呢？在个人工作中，难免需要拉点数据、批量创建或更改些数据（通常是本地测试）。当然，代码直写也可，像是 Python 或是新宠 Go 都还算方便，但是如果只是 SQL语句+变量或逻辑控制，直写 SQL 语句因其不需要语言环境就方便得多，且团队中复用性强（不会写存储过程的产品经理不是好的 DBA，啊哈哈）。</p>
+<p>然而，个人不赞成将 MySQL存储过程用于项目中，尤其是迭代快的互联网应用，参考如下：</p>
+<p><a href="https://www.zhihu.com/question/54408187/answer/139275947">存储过程在实际项目中用的多吗？- From 知乎</a></p>
+<p><a href="https://www.zhihu.com/question/57545650/answer/325422160">为什么阿里巴巴Java开发手册里要求禁止使用存储过程？</a></p>
+<p>所以，本文只是介绍 「如何简单使用 MySQL 存储过程」而已。</p>
+<blockquote>
+<p>对于批量创建/更改测试数据，存储过程真的很方便啊 ~</p>
+<p>我五年前做系统测试，还能看看写写 SQL Server 的冗长存储过程和视图（原东家大型.net电商网站，10+表JOIN 那酸爽你懂的），虽然现在该技能已被磨成 0</p>
+</blockquote>
+<h2 id="what">What</h2>
+<p>MySQL 5.0 版本开始支持存储过程。</p>
+<p>存储过程（Procedure）完成了特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。</p>
+<p>存储过程思想上很简单，就是数据库 SQL 语言层面的代码封装与重用。</p>
+<h2 id="how">How</h2>
+<p>下面将具体介绍 <strong>创建存储过程、调用存储过程</strong>，存储过程语句中用到的<strong>变量、条件及循环语句</strong>也会简单提及。</p>
+<h3 id="创建存储过程">创建存储过程</h3>
+<p>官方文档：<a href="https://dev.mysql.com/doc/refman/8.0/en/create-procedure.html">CREATE PROCEDURE and CREATE FUNCTION Syntax</a></p>
+<p>以下为官方示例，(运行前提需要存在 t 表)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mysql&gt; delimiter //
+
+mysql&gt; CREATE PROCEDURE simpleproc <span style="color:#f92672">(</span>OUT param1 INT<span style="color:#f92672">)</span>
+    -&gt; BEGIN
+    -&gt;   SELECT COUNT<span style="color:#f92672">(</span>*<span style="color:#f92672">)</span> INTO param1 FROM t;
+    -&gt; END//
+Query OK, <span style="color:#ae81ff">0</span> rows affected <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
+
+mysql&gt; delimiter ;
+</code></pre></div><p>基础语法剖析如下（官方语法简化）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql">DELIMITER <span style="color:#f92672">//</span>
+ <span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">PROCEDURE</span> <span style="color:#a6e22e">sp_name</span> ([proc_parameter[,...]])
+   BEGIN
+　　[statement_list]
+　　　　<span style="color:#960050;background-color:#1e0010">……</span>
+     END <span style="color:#f92672">//</span>
+DELIMITER ;
+</code></pre></div><ol>
+<li>
+<p>外层 <code>DELIMITER //</code> 更改分隔符为 // <code>END //</code>表示结束 <code>DELIMITER ;</code> 将将分隔符更改回分号</p>
+</li>
+<li>
+<p><code>CREATE PROCEDURE</code> 语句创建新的存储过程，语句之后指定存储过程名称，括号内可指定输入、输出参数，参数可定义如下：官方示例指定输出为 INT 类型的 param1 变量</p>
+<pre><code>proc_parameter:
+    [ IN | OUT | INOUT ] param_name type
+</code></pre></li>
+<li>
+<p><code>BEGIN</code> 和 <code>END</code> 之间为存储过程主体，将声明性 SQL 语句放在主体中处理业务逻辑。示例中将 t 表数量返回。</p>
+</li>
+</ol>
+<p>在 MySQL客户端工具中编写存储过程非常繁琐，特别是当存储过程复杂时。 大多数用于MySQL的GUI工具允许您通过直观的界面创建新的存储过程。以 Navicat 为例，functions 右键可直接快捷创建，生成简单示例如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/mysql_navicat_proc_sample.png" alt="mysql_navicat_proc_sample" class="lazyload"><figcaption class="image-caption">mysql_navicat_proc_sample</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/mysql_navicat_proc_sample2.png" alt="mysql_navicat_proc_sample2" class="lazyload"><figcaption class="image-caption">mysql_navicat_proc_sample2</figcaption></figure></p>
+<p>工具使用上应该不难理解，窗体按钮可操作保存、执行等，下方可定义参数及返回类型。</p>
+<h3 id="调用存储过程">调用存储过程</h3>
+<p>调用存储过程，可使用以下 SQL命令：</p>
+<pre><code>CALL sp_name ([proc_parameter[IN]])
+mysql&gt; CALL simpleproc(@a);
+Query OK, 0 rows affected (0.00 sec)
+
+mysql&gt; SELECT @a;
++------+
+| @a   |
++------+
+| 3    |
++------+
+1 row in set (0.00 sec)
+</code></pre><p>示例执行如上，客户端的执行通常只要点击按钮即可。</p>
+<p>客户端创建、查看及修改存储过程比较方便，不是很建议命令行操作，实际上即使项目中应用存储过程，研发中也是先使用工具在测试环境编写及测试，然后将测试过的存储过程进行发布的。</p>
+<h3 id="变量">变量</h3>
+<p>变量是一个命名数据对象，变量的值可以在存储过程执行期间更改。</p>
+<blockquote>
+<p>注意：变量必须先声明后，才能使用它。</p>
+</blockquote>
+<p>要在存储过程中声明一个变量，可以使用 <code>DECLARE</code>语句，使用 <code>SET</code> 进行变量赋值，如下所示：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#66d9ef">DECLARE</span> variable_name <span style="color:#a6e22e">datatype</span>(size) <span style="color:#66d9ef">DEFAULT</span> default_value;
+<span style="color:#66d9ef">SET</span> variable_name <span style="color:#f92672">=</span> set_value;
+BEGIN
+    <span style="color:#66d9ef">DECLARE</span> total_count <span style="color:#66d9ef">INT</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">SET</span> total_count<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>;
+    <span style="color:#66d9ef">SELECT</span> total_count;
+END
+</code></pre></div><p>尝试以上示例并保存，调用后如下：</p>
+<pre><code>mysql&gt; call simpleproc();
++-------------+
+| total_count |
++-------------+
+|          10 |
++-------------+
+1 row in set (0.01 sec)
+</code></pre><p>一个变量有自己的范围(作用域)，它用来定义它的生命周期。 如果在存储过程中声明一个变量，那么当达到存储过程的 <code>END</code> 语句时，它将超出范围，因此在其它代码块中无法访问。</p>
+<p>以 <code>@</code> 符号开头的变量是会话变量。直到会话结束前它可用和可访问，如最初的示例中 <code>@a</code>。</p>
+<p>存储过程中可加入使用 SQL 语法的流程控制，像是条件判断 IF / CASE、WHILE 循环等，下面将对此进行一些简单的介绍。</p>
+<h3 id="条件判断">条件判断</h3>
+<p>假设 t 表中数据如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mysql&gt; <span style="color:#66d9ef">select</span> * from t;
++----+-------+-------+
+| Id | Name  | Score |
++----+-------+-------+
+|  <span style="color:#ae81ff">1</span> | John  |    <span style="color:#ae81ff">78</span> |
+|  <span style="color:#ae81ff">2</span> | Macy  |    <span style="color:#ae81ff">90</span> |
+|  <span style="color:#ae81ff">3</span> | Mary  |    <span style="color:#ae81ff">85</span> |
+|  <span style="color:#ae81ff">4</span> | Ted   |    <span style="color:#ae81ff">97</span> |
+|  <span style="color:#ae81ff">5</span> | Ada   |    <span style="color:#ae81ff">65</span> |
+|  <span style="color:#ae81ff">7</span> | Peter |    <span style="color:#ae81ff">92</span> |
++----+-------+-------+
+<span style="color:#ae81ff">6</span> rows in set <span style="color:#f92672">(</span>0.00 sec<span style="color:#f92672">)</span>
+</code></pre></div><p>如果我们需要统计&gt;=85分的人数，如果人数多于总数的一半，则评价为 A，否则为 B，这个需求用代码完成不算困难，用 MySQL 存储过程也是如此，参考如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql">BEGIN
+    <span style="color:#66d9ef">DECLARE</span> result <span style="color:#66d9ef">CHAR</span>(<span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">DECLARE</span> highCount <span style="color:#66d9ef">INT</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">DECLARE</span> totalCount <span style="color:#66d9ef">INT</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">SELECT</span> <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">INTO</span> totalCount <span style="color:#66d9ef">FROM</span> t;
+    <span style="color:#66d9ef">SELECT</span> <span style="color:#a6e22e">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">INTO</span> highCount <span style="color:#66d9ef">FROM</span> t <span style="color:#66d9ef">WHERE</span> Score<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">85</span>;
+    <span style="color:#66d9ef">SET</span> result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;B&#39;</span>;
+    <span style="color:#66d9ef">IF</span> highCount<span style="color:#f92672">&gt;</span>(totalCount<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>) <span style="color:#66d9ef">THEN</span>
+        <span style="color:#66d9ef">SET</span> result <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;A&#39;</span>;
+    END <span style="color:#66d9ef">IF</span>;
+    <span style="color:#66d9ef">SELECT</span> totalCount<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span> <span style="color:#66d9ef">AS</span> <span style="color:#e6db74">&#39;halfCount&#39;</span>, highCount, result;
+END
+</code></pre></div><p>你可以先不看下文，猜测下调用结果会是如何？</p>
+<pre><code>mysql&gt; call simpleproc();
++-----------+-----------+--------+
+| halfCount | highCount | result |
++-----------+-----------+--------+
+|    3.0000 |         4 | A      |
++-----------+-----------+--------+
+1 row in set (0.01 sec)
+</code></pre><p>如果你跟着示例进行测试，可以增改数据再尝试下</p>
+<p>CASE 语句这边就不提了，感觉就是 IF ELSE 的简单写法，最下方参考教程里面有。</p>
+<h3 id="循环语句">循环语句</h3>
+<p>循环可是创建测试数据的利器，不可不会系列，接上例，如果我们需要批量创建如 100 条名称及成绩数据，成绩 &lt; =100，你会如何实现？使用 MySQL 存储过程试下吧，参考如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql">BEGIN
+    <span style="color:#66d9ef">DECLARE</span> i <span style="color:#66d9ef">INT</span> <span style="color:#66d9ef">DEFAULT</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">WHILE</span> i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">100</span> DO  
+        <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> sample.<span style="color:#a6e22e">t</span> (<span style="color:#f92672">`</span>NAME<span style="color:#f92672">`</span>, <span style="color:#f92672">`</span>Score<span style="color:#f92672">`</span>)<span style="color:#66d9ef">VALUES</span>(<span style="color:#a6e22e">CONCAT</span>(<span style="color:#e6db74">&#39;SNAME_&#39;</span>, <span style="color:#a6e22e">CAST</span>(i <span style="color:#66d9ef">AS</span> <span style="color:#66d9ef">CHAR</span>)), <span style="color:#a6e22e">RAND</span>()<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>);
+        <span style="color:#66d9ef">SET</span> i<span style="color:#f92672">=</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;
+    END <span style="color:#66d9ef">WHILE</span>;
+END
+</code></pre></div><p>新建存储过程，然后调用看下吧~ 之后查询 t 表结果如下（过长省略）：</p>
+<pre><code>mysql&gt; select * from t limit 100;
++-----+----------+-------+
+| Id  | Name     | Score |
++-----+----------+-------+
+|   1 | John     |    78 |
+|   2 | Macy     |    90 |
+|   3 | Mary     |    85 |
+|   4 | Ted      |    97 |
+|   5 | Ada      |    65 |
+|   7 | Peter    |    92 |
+|   8 | SNAME_0  |    51 |
+|   9 | SNAME_1  |    75 |
+|  10 | SNAME_2  |    23 |
+|  11 | SNAME_3  |    90 |
+|  12 | SNAME_4  |    82 |
+|  13 | SNAME_5  |    38 |
+|  14 | SNAME_6  |    44 |
+|  15 | SNAME_7  |     7 |
+|  16 | SNAME_8  |     3 |
+|  17 | SNAME_9  |    94 |
+……
+</code></pre><p>示例相对简单（初学者需要适当 Google 一下里面的函数使用），实际使用上语句会更复杂，且会加入更多函数或计算等，本文就不深入研究了，自行探索吧~</p>
+<h3 id="参考">参考</h3>
+<p>本文只是简单介绍 MySQL 存储过程的使用，如果你想了解更多，建议参考：</p>
+<ul>
+<li><a href="https://necan.gitbooks.io/mysql-tutorial/content/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/%E7%AE%80%E4%BB%8B.html">MySQL教程——第三章 存储过程</a></li>
+<li><a href="https://www.runoob.com/w3cnote/mysql-stored-procedure.html">runoob.com MySQL 存储过程</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://example.com/tags/mysql/">
+                    #MySQL</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/cornell/" class="prev" rel="prev" title="康奈尔/5R 笔记法"><i
+                class="iconfont icon-left"></i>&nbsp;康奈尔/5R 笔记法</a>
+        
+        
+        <a href="https://example.com/2019/reactproblem/" class="next" rel="next"
+            title="react style !important 失效问题的解决方案">react style !important 失效问题的解决方案&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+     </div>
+  
+  </body>
+</html>

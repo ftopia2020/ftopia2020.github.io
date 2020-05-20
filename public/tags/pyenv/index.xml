@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pyenv on Ftopia</title>
+    <link>https://example.com/tags/pyenv/</link>
+    <description>Recent content in pyenv on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/pyenv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python 版本管理器 —— pyenv 简介及使用</title>
+      <link>https://example.com/2019/pyenv/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/pyenv/</guid>
+      <description>Why !注意：若你使用的是Windows，请忽略本文，pyenv不支持Windows，原因是作者大神不想浪费时间 I&amp;rsquo;m no longer using Windows. I don&amp;rsquo;t like to waste my time with such thing. 若</description>
+    </item>
+    
+  </channel>
+</rss>

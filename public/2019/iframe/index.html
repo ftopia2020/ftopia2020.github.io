@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://example.com/2019/pyenv/" />
+    <link rel="next" href="https://example.com/2019/golangstringsplit/" />
+    <link rel="canonical" href="https://example.com/2019/iframe/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             如何在页面中优雅地内嵌 iframe ？ | Ftopia
+         
+    </title>
+    <meta name="title" content="如何在页面中优雅地内嵌 iframe ？ | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "如何在页面中优雅地内嵌 iframe ？",
+    "headline" : "如何在页面中优雅地内嵌 iframe ？",
+    "description" : "Why 在一些业务中，我们可能需要用到 iframe 来实现一些特定的需求，而如何在页面中嵌入 iframe 页面？通过本文，我们将稍加了解，至于为何强调了优雅？主要由于内嵌",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-09 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-09 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/iframe\/",
+    "wordCount" : "705",
+    "keywords" : [ "HTML","iframe","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a>
+      <ul>
+        <li><a href="#基本使用">基本使用</a></li>
+        <li><a href="#显示处理">显示处理</a></li>
+        <li><a href="#其他问题">其他问题</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">如何在页面中优雅地内嵌 iframe ？</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://example.com/categories/%E5%89%8D%E7%AB%AF/"> 前端 </a>
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2019-09-09
+                    itemprop="datePublished">
+                    2019-09-09</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 705 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="why">Why</h2>
+<p>在一些业务中，我们可能需要用到 iframe 来实现一些特定的需求，而如何在页面中嵌入 iframe 页面？通过本文，我们将稍加了解，至于为何强调了优雅？主要由于内嵌页面可能会在展示上有点突兀。对此，本文也进行了一些尝试，如去边框等。</p>
+<h2 id="what">What</h2>
+<p><strong>iframe ？</strong> <strong>HTML内联框架元素()</strong> 表示嵌套的 <a href="https://developer.mozilla.org/en-US/docs/Glossary/browsing_context">browsing context</a>。它能够将另一个HTML页面嵌入到当前页面中。</p>
+<p>具体，可参考：https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe</p>
+<h2 id="how">How</h2>
+<h3 id="基本使用">基本使用</h3>
+<p>使用 <code>iframe</code> 标签，可将另一 HTML页面内嵌于当前页面中，基本使用示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./main.html&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+
+&lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mainIframe&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mainIframe&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">scrolling</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;auto&#34;</span> &gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</code></pre></div><p>以下列举了一些 iframe 常用属性：
+| 属性 | 值 | 描述 |
+| &mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; |
+| src | <em>URL</em> | 定义 iframe 中显示的文档的 URL |
+| width | <em>pixels</em> <em>%</em> | 定义 iframe 的宽度 |
+| height | <em>pixels</em> <em>%</em> | 定义 iframe 的高度 |
+| name | <em>frame_name</em> | 定义 iframe 的名称 |
+| frameborder |1 0 | 规定是否显示框架周围的边框 |
+| marginheight |<em>pixels</em> | 定义 iframe 的顶部和底部的边距。 |
+| marginwidth |<em>pixels</em> | 定义 iframe 的左侧和右侧的边距 |
+| scrolling |yes no auto | 规定是否在 iframe 中显示滚动条 |
+| srcdoc (HTML5) | <em>HTML_code</em> | 定义在 <!-- raw HTML omitted --> 中显示的页面的 HTML 内容。 |
+| sandbox (HTML5) | &quot;&rdquo; allow-form sallow-same-origin allow-scripts allow-top-navigation | 启用一系列对 <!-- raw HTML omitted --> 中内容的额外限制 |</p>
+<h3 id="显示处理">显示处理</h3>
+<p>通常我们需要对内嵌的 iframe 页面做一些样式上的调整，如下例：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/iframe_ex1.png" alt="iframe_ex1" class="lazyload"><figcaption class="image-caption">iframe_ex1</figcaption></figure></p>
+<p>借用 <a href="https://www.w3school.com.cn/tiy/t.asp?f=html_iframe">w3school</a> 代码沙箱，我们尝试内嵌 wap.baidu 页面，调整了了高度、宽度，并将边框去除</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/iframe_ex3.png" alt="iframe_ex3" class="lazyload"><figcaption class="image-caption">iframe_ex3</figcaption></figure></p>
+<p>处理过后，基本上和我们的页面融为一体了，如果不查看 html 源码，并不会注意到是通过 iframe 内嵌的。</p>
+<h3 id="其他问题">其他问题</h3>
+<h4 id="跨域">跨域</h4>
+<p>iframe 间可能存在跨域问题，如何实现 iframe 间通信以及一些相关问题？</p>
+<p>这个问题与本文主要讨论的有点偏离，可参考 <a href="https://juejin.im/post/5cc4fc445188252e83434c32">iframe跨域的几种常用方法</a> 加以了解。</p>
+<h3 id="参考">参考</h3>
+<p>更多 iframe 相关内容，可参考：</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/20653055">iframe 有什么好处，有什么坏处 &hellip; From 知乎</a></li>
+<li><a href="https://segmentfault.com/a/1190000004502619">iframe,我们来谈一谈 From 掘金</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://example.com/tags/html/">
+                    #HTML</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/iframe/">
+                    #iframe</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/pyenv/" class="prev" rel="prev" title="Python 版本管理器 —— pyenv 简介及使用"><i
+                class="iconfont icon-left"></i>&nbsp;Python 版本管理器 —— pyenv 简介及使用</a>
+        
+        
+        <a href="https://example.com/2019/golangstringsplit/" class="next" rel="next"
+            title="Golang 使用 string.split 切割字符串并返回数组">Golang 使用 string.split 切割字符串并返回数组&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+     </div>
+  
+  </body>
+</html>

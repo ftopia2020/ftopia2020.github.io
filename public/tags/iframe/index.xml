@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iframe on Ftopia</title>
+    <link>https://example.com/tags/iframe/</link>
+    <description>Recent content in iframe on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/iframe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何在页面中优雅地内嵌 iframe ？</title>
+      <link>https://example.com/2019/iframe/</link>
+      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/iframe/</guid>
+      <description>Why 在一些业务中，我们可能需要用到 iframe 来实现一些特定的需求，而如何在页面中嵌入 iframe 页面？通过本文，我们将稍加了解，至于为何强调了优雅？主要由于内嵌</description>
+    </item>
+    
+  </channel>
+</rss>

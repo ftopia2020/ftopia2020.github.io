@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://example.com/2019/reactrouter4/" />
+    <link rel="next" href="https://example.com/2019/bugrecord1/" />
+    <link rel="canonical" href="https://example.com/2019/golanggoyaml/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             Golang 使用 go-yaml 解析 YAML 文件 | Ftopia
+         
+    </title>
+    <meta name="title" content="Golang 使用 go-yaml 解析 YAML 文件 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "Golang 使用 go-yaml 解析 YAML 文件",
+    "headline" : "Golang 使用 go-yaml 解析 YAML 文件",
+    "description" : "Why 在项目中，难免会用到配置文件，而 YAML 格式的配置文件较 xml、json 等有其特有的优势，目前比较流行，那我们用 Golang 如何来解析 YAML 文件呢？ What YAML YAML 是 \x26ldquo;YAML",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-25 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-25 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/2019\/golanggoyaml\/",
+    "wordCount" : "479",
+    "keywords" : [ "Golang","YAML","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a>
+      <ul>
+        <li><a href="#yaml">YAML</a></li>
+        <li><a href="#go-yaml">go-yaml</a></li>
+      </ul>
+    </li>
+    <li><a href="#how">HOW</a>
+      <ul>
+        <li><a href="#安装-go-yaml">安装 go-yaml</a></li>
+        <li><a href="#解析-yaml">解析 YAML</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Golang 使用 go-yaml 解析 YAML 文件</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://example.com/categories/%E5%90%8E%E7%AB%AF/"> 后端 </a>
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2019-09-25
+                    itemprop="datePublished">
+                    2019-09-25</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 479 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="why">Why</h2>
+<p>在项目中，难免会用到配置文件，而 YAML 格式的配置文件较 xml、json 等有其特有的优势，目前比较流行，那我们用 Golang 如何来解析 YAML 文件呢？</p>
+<h2 id="what">What</h2>
+<h3 id="yaml">YAML</h3>
+<p>YAML 是 &ldquo;YAML Ain&rsquo;t a Markup Language&rdquo;（YAML不是一种置标语言）的递归缩写。YAML 以数据为中心，使用空白，缩进，分行组织数据，从而使得表示更加简洁易读。一个典型的 YAML 如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">title</span>: YAML support for the Go language
+<span style="color:#66d9ef">category</span>: Golang
+<span style="color:#66d9ef">tag</span>:
+- GoLang
+- YAML
+</code></pre></div><p>基本语法为：</p>
+<ul>
+<li>使用缩进表示层级关系</li>
+<li>禁止使用tab缩进，只能使用空格键</li>
+<li>缩进长度没有限制，只要元素对齐就表示这些元素属于一个层级</li>
+</ul>
+<h3 id="go-yaml">go-yaml</h3>
+<p>go-yaml 是支持 golang 解析 YAML 的三方库，github地址为： <a href="https://link.zhihu.com/?target=https%3A//github.com/go-yaml/yaml">https://github.com/go-yaml/yaml</a></p>
+<h2 id="how">HOW</h2>
+<p>学习之前，你可能需要了解：</p>
+<ul>
+<li>yaml 语言基础（上方仅简单介绍）</li>
+<li>Golang 基础使用、io/ioutil 标准库的基础了解</li>
+</ul>
+<h3 id="安装-go-yaml">安装 go-yaml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go get gopkg.in/yaml.v2
+</code></pre></div><h3 id="解析-yaml">解析 YAML</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;log&#34;</span>
+
+	<span style="color:#e6db74">&#34;gopkg.in/yaml.v2&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">yamlContent</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`title: YAML support for the Go language
+</span><span style="color:#e6db74">category: Golang
+</span><span style="color:#e6db74">tag:
+</span><span style="color:#e6db74">- GoLang
+</span><span style="color:#e6db74">- YAML`</span>
+	<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{})
+
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">yaml</span>.<span style="color:#a6e22e">Unmarshal</span>([]byte(<span style="color:#a6e22e">yamlContent</span>), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">result</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;error: %v&#34;</span>, <span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">result</span>)
+}
+
+</code></pre></div><p>使用 <code>yaml.Unmarsha1</code>  来解析 yaml 源数据，并赋值 map；上述示例仅供学习理解</p>
+<p>实际项目中，我们需要定义返回的结构体 struct，并且使用 <code>io/ioutil</code> 进行文件读取，改写参考如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/go_yaml_demo.png" alt="go_yaml_demo" class="lazyload"><figcaption class="image-caption">go_yaml_demo</figcaption></figure></p>
+<p>嵌套的 YAML 需要 struct 定义正确，解析基本就没问题，须注意数据类型！！</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/go_yaml_demo2.png" alt="go_yaml_demo2" class="lazyload"><figcaption class="image-caption">go_yaml_demo2</figcaption></figure></p>
+<p>以上示例解析了一个简单的嵌套。</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://example.com/tags/golang/">
+                    #Golang</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/yaml/">
+                    #YAML</a></span>
+            
+            <span class="tag"><a href="https://example.com/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/2019/reactrouter4/" class="prev" rel="prev" title="使用 react-router ^4.0  创建 404 页面"><i
+                class="iconfont icon-left"></i>&nbsp;使用 react-router ^4.0  创建 404 页面</a>
+        
+        
+        <a href="https://example.com/2019/bugrecord1/" class="next" rel="next"
+            title="记一个前端 moment.js 时区取错的 Bug">记一个前端 moment.js 时区取错的 Bug&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <link crossorigin="anonymous" integrity="sha384-yziQACfvCVwLqVFLqkWBYRO3XeA4EqzfXKGwaWnenYn5XzqfJFlFdKEmvutIQdKb" href="https://lib.baomitu.com/lightgallery/1.6.12/css/lightgallery.min.css" rel="stylesheet">
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+
+
+     </div>
+  
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react on Ftopia</title>
+    <link>https://example.com/tags/react/</link>
+    <description>Recent content in react on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>react style !important 失效问题的解决方案</title>
+      <link>https://example.com/2019/reactproblem/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/reactproblem/</guid>
+      <description>What 在 react 项目中，发现 style 加上 !important 后未生效，参考 codesandBox 示例如下： css 里面已有定义 !important ，故需要在 style 里面加上强制，官方建议不加!important故不做支持，且</description>
+    </item>
+    
+    <item>
+      <title>使用 react-router ^4.0  创建 404 页面</title>
+      <link>https://example.com/2019/reactrouter4/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/reactrouter4/</guid>
+      <description>Why 经常访问网站的你们对 404 应该不陌生。404，通俗点讲就是网页找不到了。比如一个博客网站，删除了某篇文章对应的页面，而用户仍使用原URL进入，</description>
+    </item>
+    
+  </channel>
+</rss>

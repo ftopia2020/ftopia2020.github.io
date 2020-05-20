@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JS on Ftopia</title>
+    <link>https://example.com/tags/js/</link>
+    <description>Recent content in JS on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 27 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JS 包管理工具 —— Yarn 简介及使用</title>
+      <link>https://example.com/2019/yarn/</link>
+      <pubDate>Tue, 27 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/2019/yarn/</guid>
+      <description>What Yarn 是由 Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS包管理工具。 更多的具体特性介绍可参考：Yarn 官网 Why 官网标</description>
+    </item>
+    
+  </channel>
+</rss>
