@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on Ftopia</title>
-    <link>https://example.com/tags/golang/</link>
+    <link>https://ftopia2020.github.io/tags/golang/</link>
     <description>Recent content in Golang on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 22 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>解决 go get 下载包失败的问题</title>
-      <link>https://example.com/2019/goget/</link>
+      <link>https://ftopia2020.github.io/2019/goget/</link>
       <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/goget/</guid>
+      <guid>https://ftopia2020.github.io/2019/goget/</guid>
       <description>What 在使用 go get, go mod 等命令时，会自动下载相应的包或依赖包。但由于被墙，如 golang.org/x/... 的包会出现下载失败的情况。嗯 &amp;hellip; timeout How 手动下载 常见包如 golang.org/x/... 的包，通常在 github 上都</description>
     </item>
     
     <item>
       <title>Golang 使用 go-yaml 解析 YAML 文件</title>
-      <link>https://example.com/2019/golanggoyaml/</link>
+      <link>https://ftopia2020.github.io/2019/golanggoyaml/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/golanggoyaml/</guid>
+      <guid>https://ftopia2020.github.io/2019/golanggoyaml/</guid>
       <description>Why 在项目中，难免会用到配置文件，而 YAML 格式的配置文件较 xml、json 等有其特有的优势，目前比较流行，那我们用 Golang 如何来解析 YAML 文件呢？ What YAML YAML 是 &amp;ldquo;YAML</description>
     </item>
     
     <item>
       <title>Golang 使用 string.split 切割字符串并返回数组</title>
-      <link>https://example.com/2019/golangstringsplit/</link>
+      <link>https://ftopia2020.github.io/2019/golangstringsplit/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/golangstringsplit/</guid>
+      <guid>https://ftopia2020.github.io/2019/golangstringsplit/</guid>
       <description>Why 在很多业务需求或数据处理中，我们需要将某一字符串根据某分隔符一一隔开并置于数组中，像是已知 Id 字符串 3,7,123 ，需要将 3、7、123 存入数组。在 golang 中</description>
     </item>
     
     <item>
       <title>Golang 实现定时任务</title>
-      <link>https://example.com/2019/golangcron/</link>
+      <link>https://ftopia2020.github.io/2019/golangcron/</link>
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/golangcron/</guid>
+      <guid>https://ftopia2020.github.io/2019/golangcron/</guid>
       <description>Why 在应用开发中，经常需要一些周期性的操作，如：在每天凌晨分析前一天的日志、每隔5分钟检查某些业务情况并触发告警等等。这些功能需要使用定时任务</description>
     </item>
     

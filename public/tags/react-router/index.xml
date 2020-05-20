@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>react-router on Ftopia</title>
-    <link>https://example.com/tags/react-router/</link>
+    <link>https://ftopia2020.github.io/tags/react-router/</link>
     <description>Recent content in react-router on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/react-router/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/tags/react-router/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用 react-router ^4.0  创建 404 页面</title>
-      <link>https://example.com/2019/reactrouter4/</link>
+      <link>https://ftopia2020.github.io/2019/reactrouter4/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/reactrouter4/</guid>
+      <guid>https://ftopia2020.github.io/2019/reactrouter4/</guid>
       <description>Why 经常访问网站的你们对 404 应该不陌生。404，通俗点讲就是网页找不到了。比如一个博客网站，删除了某篇文章对应的页面，而用户仍使用原URL进入，</description>
     </item>
     

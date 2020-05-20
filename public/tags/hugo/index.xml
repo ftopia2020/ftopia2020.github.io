@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Ftopia</title>
-    <link>https://example.com/tags/hugo/</link>
+    <link>https://ftopia2020.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://example.com/2020/getting-started-with-hugo/</link>
+      <link>https://ftopia2020.github.io/2020/getting-started-with-hugo/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2020/getting-started-with-hugo/</guid>
+      <guid>https://ftopia2020.github.io/2020/getting-started-with-hugo/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture. Save it somewhere specific as we will be using it in the next step. More complete instructions are available at installing hugo Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now. Follow the following steps: Clone the hugo</description>
     </item>
     
     <item>
       <title>关于 ...</title>
-      <link>https://example.com/about/</link>
+      <link>https://ftopia2020.github.io/about/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/about/</guid>
+      <guid>https://ftopia2020.github.io/about/</guid>
       <description>关于本站 这是一个记录 Web 开发技术的个人博客（Blog），沿用之前的域名 ftopia.cn。 建站初衷，记录工作中解决一些问题的经验、归档原创博文</description>
     </item>
     

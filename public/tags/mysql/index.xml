@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MySQL on Ftopia</title>
-    <link>https://example.com/tags/mysql/</link>
+    <link>https://ftopia2020.github.io/tags/mysql/</link>
     <description>Recent content in MySQL on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MySQL 存储过程的简单使用</title>
-      <link>https://example.com/2019/mysqlprocedure/</link>
+      <link>https://ftopia2020.github.io/2019/mysqlprocedure/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/mysqlprocedure/</guid>
+      <guid>https://ftopia2020.github.io/2019/mysqlprocedure/</guid>
       <description>Why 如果你是数据库老手，对存储过程应该不陌生，在商业数据库应用中，例如金融、企业、政府等等，存储过程的使用非常广泛。然而，MySQL 存储过程的</description>
     </item>
     

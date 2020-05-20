@@ -2,7 +2,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://example.com/categories/</loc>
+      <loc>https://ftopia2020.github.io/categories/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -12,7 +12,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/ftopia/</loc>
+      <loc>https://ftopia2020.github.io/tags/ftopia/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -22,7 +22,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/categories/ftopia/</loc>
+      <loc>https://ftopia2020.github.io/categories/ftopia/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -32,7 +32,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/</loc>
+      <loc>https://ftopia2020.github.io/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -42,7 +42,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2020/getting-started-with-hugo/</loc>
+      <loc>https://ftopia2020.github.io/2020/getting-started-with-hugo/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -52,7 +52,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/hugo/</loc>
+      <loc>https://ftopia2020.github.io/tags/hugo/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -62,7 +62,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/posts/</loc>
+      <loc>https://ftopia2020.github.io/posts/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -72,7 +72,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/</loc>
+      <loc>https://ftopia2020.github.io/tags/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -82,7 +82,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/about/</loc>
+      <loc>https://ftopia2020.github.io/about/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -92,7 +92,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/%E8%BD%AC%E8%BD%BD/</loc>
+      <loc>https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/</loc>
       
       <lastmod>2020-05-20T00:00:00+00:00</lastmod>
       
@@ -102,7 +102,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/homebrew/</loc>
+      <loc>https://ftopia2020.github.io/tags/homebrew/</loc>
       
       <lastmod>2020-01-14T00:00:00+00:00</lastmod>
       
@@ -112,7 +112,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/mac/</loc>
+      <loc>https://ftopia2020.github.io/tags/mac/</loc>
       
       <lastmod>2020-01-14T00:00:00+00:00</lastmod>
       
@@ -122,7 +122,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2020/homebrew/</loc>
+      <loc>https://ftopia2020.github.io/2020/homebrew/</loc>
       
       <lastmod>2020-01-14T00:00:00+00:00</lastmod>
       
@@ -132,7 +132,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/%E5%8E%9F%E5%88%9B/</loc>
+      <loc>https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/</loc>
       
       <lastmod>2020-01-14T00:00:00+00:00</lastmod>
       
@@ -142,7 +142,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/</loc>
+      <loc>https://ftopia2020.github.io/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/</loc>
       
       <lastmod>2020-01-14T00:00:00+00:00</lastmod>
       
@@ -152,7 +152,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/golang/</loc>
+      <loc>https://ftopia2020.github.io/tags/golang/</loc>
       
       <lastmod>2019-10-22T00:00:00+00:00</lastmod>
       
@@ -162,7 +162,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/categories/%E5%90%8E%E7%AB%AF/</loc>
+      <loc>https://ftopia2020.github.io/categories/%E5%90%8E%E7%AB%AF/</loc>
       
       <lastmod>2019-10-22T00:00:00+00:00</lastmod>
       
@@ -172,7 +172,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/goget/</loc>
+      <loc>https://ftopia2020.github.io/2019/goget/</loc>
       
       <lastmod>2019-10-22T00:00:00+00:00</lastmod>
       
@@ -182,7 +182,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/react/</loc>
+      <loc>https://ftopia2020.github.io/tags/react/</loc>
       
       <lastmod>2019-10-17T00:00:00+00:00</lastmod>
       
@@ -192,7 +192,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/reactproblem/</loc>
+      <loc>https://ftopia2020.github.io/2019/reactproblem/</loc>
       
       <lastmod>2019-10-17T00:00:00+00:00</lastmod>
       
@@ -202,7 +202,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/categories/%E5%89%8D%E7%AB%AF/</loc>
+      <loc>https://ftopia2020.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2019-10-17T00:00:00+00:00</lastmod>
       
@@ -212,7 +212,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/mysql/</loc>
+      <loc>https://ftopia2020.github.io/tags/mysql/</loc>
       
       <lastmod>2019-10-12T00:00:00+00:00</lastmod>
       
@@ -222,7 +222,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/mysqlprocedure/</loc>
+      <loc>https://ftopia2020.github.io/2019/mysqlprocedure/</loc>
       
       <lastmod>2019-10-12T00:00:00+00:00</lastmod>
       
@@ -232,7 +232,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</loc>
+      <loc>https://ftopia2020.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/</loc>
       
       <lastmod>2019-10-09T00:00:00+00:00</lastmod>
       
@@ -242,7 +242,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/cornell/</loc>
+      <loc>https://ftopia2020.github.io/2019/cornell/</loc>
       
       <lastmod>2019-10-09T00:00:00+00:00</lastmod>
       
@@ -252,7 +252,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/categories/%E6%95%88%E7%8E%87up/</loc>
+      <loc>https://ftopia2020.github.io/categories/%E6%95%88%E7%8E%87up/</loc>
       
       <lastmod>2019-10-09T00:00:00+00:00</lastmod>
       
@@ -262,7 +262,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/bug%E8%AE%B0%E5%BD%95/</loc>
+      <loc>https://ftopia2020.github.io/tags/bug%E8%AE%B0%E5%BD%95/</loc>
       
       <lastmod>2019-10-08T00:00:00+00:00</lastmod>
       
@@ -272,7 +272,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/moment.js/</loc>
+      <loc>https://ftopia2020.github.io/tags/moment.js/</loc>
       
       <lastmod>2019-10-08T00:00:00+00:00</lastmod>
       
@@ -282,7 +282,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/%E6%97%B6%E5%8C%BA/</loc>
+      <loc>https://ftopia2020.github.io/tags/%E6%97%B6%E5%8C%BA/</loc>
       
       <lastmod>2019-10-08T00:00:00+00:00</lastmod>
       
@@ -292,7 +292,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/bugrecord1/</loc>
+      <loc>https://ftopia2020.github.io/2019/bugrecord1/</loc>
       
       <lastmod>2019-10-08T00:00:00+00:00</lastmod>
       
@@ -302,7 +302,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/golanggoyaml/</loc>
+      <loc>https://ftopia2020.github.io/2019/golanggoyaml/</loc>
       
       <lastmod>2019-09-25T00:00:00+00:00</lastmod>
       
@@ -312,7 +312,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/react-router/</loc>
+      <loc>https://ftopia2020.github.io/tags/react-router/</loc>
       
       <lastmod>2019-09-25T00:00:00+00:00</lastmod>
       
@@ -322,7 +322,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/yaml/</loc>
+      <loc>https://ftopia2020.github.io/tags/yaml/</loc>
       
       <lastmod>2019-09-25T00:00:00+00:00</lastmod>
       
@@ -332,7 +332,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/reactrouter4/</loc>
+      <loc>https://ftopia2020.github.io/2019/reactrouter4/</loc>
       
       <lastmod>2019-09-25T00:00:00+00:00</lastmod>
       
@@ -342,7 +342,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/codesandbox/</loc>
+      <loc>https://ftopia2020.github.io/tags/codesandbox/</loc>
       
       <lastmod>2019-09-17T00:00:00+00:00</lastmod>
       
@@ -352,7 +352,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/codesandbox/</loc>
+      <loc>https://ftopia2020.github.io/2019/codesandbox/</loc>
       
       <lastmod>2019-09-17T00:00:00+00:00</lastmod>
       
@@ -362,7 +362,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/golangstringsplit/</loc>
+      <loc>https://ftopia2020.github.io/2019/golangstringsplit/</loc>
       
       <lastmod>2019-09-11T00:00:00+00:00</lastmod>
       
@@ -372,7 +372,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/html/</loc>
+      <loc>https://ftopia2020.github.io/tags/html/</loc>
       
       <lastmod>2019-09-09T00:00:00+00:00</lastmod>
       
@@ -382,7 +382,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/iframe/</loc>
+      <loc>https://ftopia2020.github.io/tags/iframe/</loc>
       
       <lastmod>2019-09-09T00:00:00+00:00</lastmod>
       
@@ -392,7 +392,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/iframe/</loc>
+      <loc>https://ftopia2020.github.io/2019/iframe/</loc>
       
       <lastmod>2019-09-09T00:00:00+00:00</lastmod>
       
@@ -402,7 +402,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/pyenv/</loc>
+      <loc>https://ftopia2020.github.io/tags/pyenv/</loc>
       
       <lastmod>2019-09-02T00:00:00+00:00</lastmod>
       
@@ -412,7 +412,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/python/</loc>
+      <loc>https://ftopia2020.github.io/tags/python/</loc>
       
       <lastmod>2019-09-02T00:00:00+00:00</lastmod>
       
@@ -422,7 +422,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/pyenv/</loc>
+      <loc>https://ftopia2020.github.io/2019/pyenv/</loc>
       
       <lastmod>2019-09-02T00:00:00+00:00</lastmod>
       
@@ -432,7 +432,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/golangcron/</loc>
+      <loc>https://ftopia2020.github.io/2019/golangcron/</loc>
       
       <lastmod>2019-08-29T00:00:00+00:00</lastmod>
       
@@ -442,7 +442,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/%E5%AE%9A%E6%97%B6/</loc>
+      <loc>https://ftopia2020.github.io/tags/%E5%AE%9A%E6%97%B6/</loc>
       
       <lastmod>2019-08-29T00:00:00+00:00</lastmod>
       
@@ -452,7 +452,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/javascript/</loc>
+      <loc>https://ftopia2020.github.io/tags/javascript/</loc>
       
       <lastmod>2019-08-27T00:00:00+00:00</lastmod>
       
@@ -462,7 +462,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/js/</loc>
+      <loc>https://ftopia2020.github.io/tags/js/</loc>
       
       <lastmod>2019-08-27T00:00:00+00:00</lastmod>
       
@@ -472,7 +472,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/2019/yarn/</loc>
+      <loc>https://ftopia2020.github.io/2019/yarn/</loc>
       
       <lastmod>2019-08-27T00:00:00+00:00</lastmod>
       
@@ -482,7 +482,7 @@
     </url>
   
     <url>
-      <loc>https://example.com/tags/yarn/</loc>
+      <loc>https://ftopia2020.github.io/tags/yarn/</loc>
       
       <lastmod>2019-08-27T00:00:00+00:00</lastmod>
       

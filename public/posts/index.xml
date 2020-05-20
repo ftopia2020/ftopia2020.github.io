@@ -2,147 +2,147 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Ftopia</title>
-    <link>https://example.com/posts/</link>
+    <link>https://ftopia2020.github.io/posts/</link>
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://example.com/2020/getting-started-with-hugo/</link>
+      <link>https://ftopia2020.github.io/2020/getting-started-with-hugo/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2020/getting-started-with-hugo/</guid>
+      <guid>https://ftopia2020.github.io/2020/getting-started-with-hugo/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture. Save it somewhere specific as we will be using it in the next step. More complete instructions are available at installing hugo Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now. Follow the following steps: Clone the hugo</description>
     </item>
     
     <item>
       <title>Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)</title>
-      <link>https://example.com/2020/homebrew/</link>
+      <link>https://ftopia2020.github.io/2020/homebrew/</link>
       <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2020/homebrew/</guid>
+      <guid>https://ftopia2020.github.io/2020/homebrew/</guid>
       <description>What Homebrew 简称 brew，是 Mac OSX 上的软件包管理工具，支持在 Mac 中方便的安装软件或者卸载软件，可以说 Homebrew 就是 mac 下的 apt-get、yum神器。 Homebrew 官网：ht</description>
     </item>
     
     <item>
       <title>解决 go get 下载包失败的问题</title>
-      <link>https://example.com/2019/goget/</link>
+      <link>https://ftopia2020.github.io/2019/goget/</link>
       <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/goget/</guid>
+      <guid>https://ftopia2020.github.io/2019/goget/</guid>
       <description>What 在使用 go get, go mod 等命令时，会自动下载相应的包或依赖包。但由于被墙，如 golang.org/x/... 的包会出现下载失败的情况。嗯 &amp;hellip; timeout How 手动下载 常见包如 golang.org/x/... 的包，通常在 github 上都</description>
     </item>
     
     <item>
       <title>react style !important 失效问题的解决方案</title>
-      <link>https://example.com/2019/reactproblem/</link>
+      <link>https://ftopia2020.github.io/2019/reactproblem/</link>
       <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/reactproblem/</guid>
+      <guid>https://ftopia2020.github.io/2019/reactproblem/</guid>
       <description>What 在 react 项目中，发现 style 加上 !important 后未生效，参考 codesandBox 示例如下： css 里面已有定义 !important ，故需要在 style 里面加上强制，官方建议不加!important故不做支持，且</description>
     </item>
     
     <item>
       <title>MySQL 存储过程的简单使用</title>
-      <link>https://example.com/2019/mysqlprocedure/</link>
+      <link>https://ftopia2020.github.io/2019/mysqlprocedure/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/mysqlprocedure/</guid>
+      <guid>https://ftopia2020.github.io/2019/mysqlprocedure/</guid>
       <description>Why 如果你是数据库老手，对存储过程应该不陌生，在商业数据库应用中，例如金融、企业、政府等等，存储过程的使用非常广泛。然而，MySQL 存储过程的</description>
     </item>
     
     <item>
       <title>康奈尔/5R 笔记法</title>
-      <link>https://example.com/2019/cornell/</link>
+      <link>https://ftopia2020.github.io/2019/cornell/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/cornell/</guid>
+      <guid>https://ftopia2020.github.io/2019/cornell/</guid>
       <description>Why 学习乃至工作后，我们都需要记笔记，常见的场景有讲授的听课、个人阅读或者各种培训。 一个科学的笔记方法将使你事半功倍，而其中记录方法的佼佼者就</description>
     </item>
     
     <item>
       <title>记一个前端 moment.js 时区取错的 Bug</title>
-      <link>https://example.com/2019/bugrecord1/</link>
+      <link>https://ftopia2020.github.io/2019/bugrecord1/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/bugrecord1/</guid>
+      <guid>https://ftopia2020.github.io/2019/bugrecord1/</guid>
       <description>What 国庆前一天，内部系统反馈一个前端Bug，选择本周的开始时间错误导致数据拉取为空。经测试可每次复现，奇怪的此页面发布后三个月来没发现且最近无</description>
     </item>
     
     <item>
       <title>Golang 使用 go-yaml 解析 YAML 文件</title>
-      <link>https://example.com/2019/golanggoyaml/</link>
+      <link>https://ftopia2020.github.io/2019/golanggoyaml/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/golanggoyaml/</guid>
+      <guid>https://ftopia2020.github.io/2019/golanggoyaml/</guid>
       <description>Why 在项目中，难免会用到配置文件，而 YAML 格式的配置文件较 xml、json 等有其特有的优势，目前比较流行，那我们用 Golang 如何来解析 YAML 文件呢？ What YAML YAML 是 &amp;ldquo;YAML</description>
     </item>
     
     <item>
       <title>使用 react-router ^4.0  创建 404 页面</title>
-      <link>https://example.com/2019/reactrouter4/</link>
+      <link>https://ftopia2020.github.io/2019/reactrouter4/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/reactrouter4/</guid>
+      <guid>https://ftopia2020.github.io/2019/reactrouter4/</guid>
       <description>Why 经常访问网站的你们对 404 应该不陌生。404，通俗点讲就是网页找不到了。比如一个博客网站，删除了某篇文章对应的页面，而用户仍使用原URL进入，</description>
     </item>
     
     <item>
       <title>前端在线IDE —— CodeSandBox，不仅是在线代码编辑器（非广告贴，包含简介及使用）</title>
-      <link>https://example.com/2019/codesandbox/</link>
+      <link>https://ftopia2020.github.io/2019/codesandbox/</link>
       <pubDate>Tue, 17 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/codesandbox/</guid>
+      <guid>https://ftopia2020.github.io/2019/codesandbox/</guid>
       <description>Why 我们在前端学习或者项目开发中，时常会敲些 demo 来查看效果或者做些新鲜的尝试，这通常需要引入各种依赖以及加入不同的三方库。 如果都在自己的项目或者</description>
     </item>
     
     <item>
       <title>Golang 使用 string.split 切割字符串并返回数组</title>
-      <link>https://example.com/2019/golangstringsplit/</link>
+      <link>https://ftopia2020.github.io/2019/golangstringsplit/</link>
       <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/golangstringsplit/</guid>
+      <guid>https://ftopia2020.github.io/2019/golangstringsplit/</guid>
       <description>Why 在很多业务需求或数据处理中，我们需要将某一字符串根据某分隔符一一隔开并置于数组中，像是已知 Id 字符串 3,7,123 ，需要将 3、7、123 存入数组。在 golang 中</description>
     </item>
     
     <item>
       <title>如何在页面中优雅地内嵌 iframe ？</title>
-      <link>https://example.com/2019/iframe/</link>
+      <link>https://ftopia2020.github.io/2019/iframe/</link>
       <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/iframe/</guid>
+      <guid>https://ftopia2020.github.io/2019/iframe/</guid>
       <description>Why 在一些业务中，我们可能需要用到 iframe 来实现一些特定的需求，而如何在页面中嵌入 iframe 页面？通过本文，我们将稍加了解，至于为何强调了优雅？主要由于内嵌</description>
     </item>
     
     <item>
       <title>Python 版本管理器 —— pyenv 简介及使用</title>
-      <link>https://example.com/2019/pyenv/</link>
+      <link>https://ftopia2020.github.io/2019/pyenv/</link>
       <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/pyenv/</guid>
+      <guid>https://ftopia2020.github.io/2019/pyenv/</guid>
       <description>Why !注意：若你使用的是Windows，请忽略本文，pyenv不支持Windows，原因是作者大神不想浪费时间 I&amp;rsquo;m no longer using Windows. I don&amp;rsquo;t like to waste my time with such thing. 若</description>
     </item>
     
     <item>
       <title>Golang 实现定时任务</title>
-      <link>https://example.com/2019/golangcron/</link>
+      <link>https://ftopia2020.github.io/2019/golangcron/</link>
       <pubDate>Thu, 29 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/golangcron/</guid>
+      <guid>https://ftopia2020.github.io/2019/golangcron/</guid>
       <description>Why 在应用开发中，经常需要一些周期性的操作，如：在每天凌晨分析前一天的日志、每隔5分钟检查某些业务情况并触发告警等等。这些功能需要使用定时任务</description>
     </item>
     
     <item>
       <title>JS 包管理工具 —— Yarn 简介及使用</title>
-      <link>https://example.com/2019/yarn/</link>
+      <link>https://ftopia2020.github.io/2019/yarn/</link>
       <pubDate>Tue, 27 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2019/yarn/</guid>
+      <guid>https://ftopia2020.github.io/2019/yarn/</guid>
       <description>What Yarn 是由 Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS包管理工具。 更多的具体特性介绍可参考：Yarn 官网 Why 官网标</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mac on Ftopia</title>
-    <link>https://example.com/tags/mac/</link>
+    <link>https://ftopia2020.github.io/tags/mac/</link>
     <description>Recent content in mac on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)</title>
-      <link>https://example.com/2020/homebrew/</link>
+      <link>https://ftopia2020.github.io/2020/homebrew/</link>
       <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/2020/homebrew/</guid>
+      <guid>https://ftopia2020.github.io/2020/homebrew/</guid>
       <description>What Homebrew 简称 brew，是 Mac OSX 上的软件包管理工具，支持在 Mac 中方便的安装软件或者卸载软件，可以说 Homebrew 就是 mac 下的 apt-get、yum神器。 Homebrew 官网：ht</description>
     </item>
     
