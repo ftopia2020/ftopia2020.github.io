@@ -59,7 +59,15 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;站点部署&#34;&gt;站点部署&lt;/h3&gt;
-&lt;p&gt;个人使用 shell 脚本部署，分为个人服务器 domain 及 githubPages&lt;/p&gt;
+&lt;p&gt;个人使用 shell 脚本部署，分为个人服务器 domain 及 githubPages，参考脚本如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://image.ftopia.cn/blog/blog_deco2.png&#34; alt=&#34;blog_deco2.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解释如下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 rsync 将站点静态文件同步至服务器（本地应有权限）&lt;/li&gt;
+&lt;li&gt;使用 git push 至对应 github master分支（public 文件夹已配置对应的 git）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     
