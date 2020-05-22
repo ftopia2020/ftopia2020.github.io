@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blog on Ftopia</title>
-    <link>https://ftopia2020.github.io/tags/blog/</link>
-    <description>Recent content in blog on Ftopia</description>
+    <title>博客相关 on Ftopia</title>
+    <link>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</link>
+    <description>Recent content in 博客相关 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 22 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ftopia2020.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://ftopia2020.github.io/2020/whichblog/</guid>
       <description>作者：灵魂画手 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 文章中的图片可能存在加载不出，可 查阅原文 有很多技</description>
-    </item>
-    
-    <item>
-      <title>【转】为什么用静态博客</title>
-      <link>https://ftopia2020.github.io/2020/staticblog/</link>
-      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/2020/staticblog/</guid>
-      <description>作者： Harbor Zeng 采用 知识共享署名 4.0 国际许可协议 进行许可。 文章中的图片可能存在加载不出，可 查阅原文 个人认为作者最后 Hexo 较好的想法有失偏颇，至少其编译速</description>
     </item>
     
   </channel>

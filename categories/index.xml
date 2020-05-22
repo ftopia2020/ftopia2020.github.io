@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>博客相关</title>
+      <link>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2%E7%9B%B8%E5%85%B3/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Ftopia</title>

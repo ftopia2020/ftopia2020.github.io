@@ -48,7 +48,7 @@
     "articleSection" : "",
     "name" : "博客打造记",
     "headline" : "博客打造记",
-    "description" : "V1 ftopia.cn 最早是 Hexo 生成的静态博客站点，姑且称为 V0 版本（其实就是几篇MD文章） 到了19年10月，作为一名伪Web全栈，开启个站的目标 —— 前后端均自建",
+    "description" : "V2 博客基于 Hugo 生成，主题选用 LeaveIt，并加入了一些个人的改动，折腾见下（配置更改略去） 主题相关 样式风格 \x26amp; Bug Fix 少女风 (～￣▽￣)～ =》采用",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -59,8 +59,8 @@
     "datePublished": "2020-05-21 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-05-21 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/blogdecorate\/",
-    "wordCount" : "564",
-    "keywords" : [  "Ftopia"]
+    "wordCount" : "619",
+    "keywords" : [ "Ftopia","Hugo", "Ftopia"]
 }
 </script>
 
@@ -73,13 +73,14 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#v1">V1</a></li>
     <li><a href="#v2">V2</a>
       <ul>
         <li><a href="#主题相关">主题相关</a></li>
         <li><a href="#站点部署">站点部署</a></li>
+        <li><a href="#todo-list">ToDo List</a></li>
       </ul>
     </li>
+    <li><a href="#v1">V1</a></li>
   </ul>
 </nav>
 </aside>
@@ -146,13 +147,7 @@
 <div class="post-warp archive">
     <h2 class="post-title" style="text-align:right;padding-bottom:2em">博客打造记</h2>
     <div class="post-content">
-        <h2 id="v1">V1</h2>
-<p>ftopia.cn 最早是 Hexo 生成的静态博客站点，姑且称为 V0 版本（其实就是几篇MD文章）</p>
-<p>到了19年10月，作为一名伪Web全栈，开启个站的目标 —— 前后端均自建且采用API实现实时数据交互。然而，想法是美好的，现实是残酷的。一来博客没写几篇，二来站点功能也不再迭代  &hellip;</p>
-<p>转眼又过了半年，又想折腾了，还是觉得博客采用静态为王道，对比了下选了 Hugo</p>
-<p>下图祭奠下之前的 V1 &hellip; &hellip;</p>
-<p><img src="http://image.ftopia.cn/blog/blog_deco1.png" alt="blog_deco1.png"></p>
-<h2 id="v2">V2</h2>
+        <h2 id="v2">V2</h2>
 <blockquote>
 <p>博客基于 Hugo 生成，主题选用 <a href="https://raw.githubusercontent.com/liuzc/LeaveIt/">LeaveIt</a>，并加入了一些个人的改动，折腾见下（配置更改略去）</p>
 </blockquote>
@@ -166,7 +161,7 @@
 <ul>
 <li>相关信息更改</li>
 <li>目录样式更改</li>
-<li>图片放大效果（原 img 正则 re 貌似有点问题，Fixed）</li>
+<li>图片放大效果（原 img 正则re貌似有点问题，Fixed）</li>
 <li>加阅读进度条（参考 <a href="https://mogeko.me/2019/070/">https://mogeko.me/2019/070/</a>）</li>
 </ul>
 </li>
@@ -187,12 +182,28 @@
 <blockquote>
 <p>解释如下：</p>
 <ul>
-<li>使用 rsync 将站点静态文件同步至服务器（服务器应配置本地 rsync 权限）</li>
-<li>使用 git push 至对应 github master分支（public 文件夹已配置对应  git）</li>
+<li>使用 <code>rsync</code> 将站点静态文件同步至服务器（服务器应配置本地 rsync 权限）</li>
+<li>使用 <code>git push</code> 至对应 github master 分支（public 文件夹已配置对应  git）</li>
 </ul>
 <p>插赞一句，hugo 编译真的很快，比 hexo 快了不止一个级别 ~</p>
 </blockquote>
-<h4 id="置顶文章的同步">置顶文章的同步</h4>
+<h3 id="todo-list">ToDo List</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 首页置顶文章优化</li>
+<li><input disabled="" type="checkbox"> 文章类目大体确定</li>
+<li><input disabled="" type="checkbox"> 各页部分样式优化</li>
+<li><input disabled="" type="checkbox"> 加入三方评论系统</li>
+<li><input disabled="" type="checkbox"> 加入更多社区分享</li>
+</ul>
+<blockquote>
+<p>祭奠下之前的 V1 &hellip; &hellip;</p>
+</blockquote>
+<h2 id="v1">V1</h2>
+<p>ftopia.cn 最早是 Hexo 生成的静态博客站点，姑且称为 V0 版本（其实就是几篇MD文章）</p>
+<p>到了19年10月，作为一名伪Web全栈，开启个站的目标 —— 前后端均自建且采用API实现实时数据交互。然而，想法是美好的，现实是残酷的。一来博客没写几篇，二来站点功能也不再迭代  &hellip;</p>
+<p>转眼又过了半年，又想折腾了，还是觉得博客采用静态为王道，对比了下选了 Hugo</p>
+<p><img src="http://image.ftopia.cn/blog/blog_deco1.png" alt="blog_deco1.png"></p>
+<p>上图为V1主页，和现在风格完全不一样，科技感暗黑风 😎</p>
 
     </div>
 </div>

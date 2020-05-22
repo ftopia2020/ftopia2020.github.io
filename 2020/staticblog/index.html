@@ -48,7 +48,7 @@
     "articleSection" : "posts",
     "name" : "【转】为什么用静态博客",
     "headline" : "【转】为什么用静态博客",
-    "description" : "什么是静态博客 所谓静态博客，即 通过工具，直接将作者所书写的博文编译成最终的 html，css，js 等文件。作者\/博主，只需将生成的文件部署在静",
+    "description" : "作者： Harbor Zeng 采用 知识共享署名 4.0 国际许可协议 进行许可。 文章中的图片可能存在加载不出，可 查阅原文 个人认为作者最后 Hexo 较好的想法有失偏颇，至少其编译速",
     "inLanguage" : "en-us",
     "author" : "转载",
     "creator" : "转载",
@@ -59,7 +59,7 @@
     "datePublished": "2020-05-19 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-05-19 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2020\/staticblog\/",
-    "wordCount" : "1573",
+    "wordCount" : "1653",
     "keywords" : [ "blog","Hexo","Hugo","转载", "Ftopia"]
 }
 </script>
@@ -73,16 +73,17 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#什么是静态博客"><strong>什么是静态博客</strong></a></li>
-    <li><a href="#静态博客的好处"><strong>静态博客的好处</strong></a></li>
-    <li><a href="#有哪些静态博客"><strong>有哪些静态博客？</strong></a>
+    <li><a href="#什么是静态博客">什么是静态博客</a></li>
+    <li><a href="#静态博客的好处">静态博客的好处</a></li>
+    <li><a href="#有哪些静态博客">有哪些静态博客？</a>
       <ul>
-        <li><a href="#hexo"><strong>Hexo</strong></a></li>
-        <li><a href="#jekyll"><strong>Jekyll</strong></a></li>
-        <li><a href="#hugo"><strong>Hugo</strong></a></li>
+        <li><a href="#hexo">Hexo</a></li>
+        <li><a href="#jekyll">Jekyll</a></li>
+        <li><a href="#hugo">Hugo</a></li>
       </ul>
     </li>
-    <li><a href="#总结"><strong>总结</strong></a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav>
 </aside>
@@ -166,7 +167,7 @@
                     2020-05-19</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 1573 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1653 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
 
@@ -190,67 +191,73 @@
           
           
 
-          <h2 id="什么是静态博客"><strong>什么是静态博客</strong></h2>
-<p>所谓静态博客，即 <strong>通过工具，直接将作者所书写的博文编译成最终的</strong> <strong>html</strong>，<strong>css</strong>，<strong>js</strong> 等文件。作者/博主，只需将生成的文件部署在静态server上面即可被在互联网中访问。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog1.jpg" alt="staticblog1.jpg" class="lazyload"><figcaption class="image-caption">staticblog1.jpg</figcaption></figure>
-<strong>静态博客流程图</strong></p>
+          <blockquote>
+<p>作者： <a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/">Harbor Zeng</a>  采用 <a href="https://creativecommons.org/licenses/by/4.0/deed.zh">知识共享署名 4.0 国际许可协议 </a>进行许可。</p>
+<p>文章中的图片可能存在加载不出，可 <a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/">查阅原文</a></p>
+<p><em>个人认为作者最后 Hexo 较好的想法有失偏颇，至少其编译速度比 Hugo 慢太多</em></p>
+</blockquote>
+<h2 id="什么是静态博客">什么是静态博客</h2>
+<p>所谓静态博客，即<strong>通过工具，直接将作者所书写的博文编译成最终的<code>html</code>，<code>css</code>，<code>js</code>等文件</strong>。作者/博主，只需将生成的文件部署在静态server上面即可被在互联网中访问。</p>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9duhjbj20nt0czt94.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9duhjbj20nt0czt94.jpg" alt="静态博客流程图" class="lazyload"><figcaption class="image-caption">静态博客流程图</figcaption></figure></a></p>
+<p><strong>静态博客流程图</strong></p>
 <p>而传统的数据库型博客对服务器的要求就比较大了</p>
-<p>[<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog2.jpg" alt="staticblog2.jpg" class="lazyload"><figcaption class="image-caption">staticblog2.jpg</figcaption></figure>
-<strong>传统型博客流程图</strong></p>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9dpgznj20nj06nt93.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9dpgznj20nj06nt93.jpg" alt="传统型博客流程图" class="lazyload"><figcaption class="image-caption">传统型博客流程图</figcaption></figure></a></p>
+<p><strong>传统型博客流程图</strong></p>
 <p>使用静态博客生成工具</p>
-<p>[<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog3.jpg" alt="staticblog3.jpg" class="lazyload"><figcaption class="image-caption">staticblog3.jpg</figcaption></figure></p>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9dh9b3j20co07ct8t.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9dh9b3j20co07ct8t.jpg" alt="静态博客生成工具生成网页的过程" class="lazyload"><figcaption class="image-caption">静态博客生成工具生成网页的过程</figcaption></figure></a></p>
 <p><strong>静态博客生成工具生成网页的过程</strong></p>
 <p>用户通过浏览器访问服务器，直接就回获得已编译的静态资源。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog4.jpg" alt="staticblog4.jpg" class="lazyload"><figcaption class="image-caption">staticblog4.jpg</figcaption></figure>
-<strong>用户直接通过浏览器获得静态资源</strong></p>
-<h2 id="静态博客的好处"><strong>静态博客的好处</strong></h2>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9dzerhj214m07i0th.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9dzerhj214m07i0th.jpg" alt="用户直接通过浏览器获得静态资源" class="lazyload"><figcaption class="image-caption">用户直接通过浏览器获得静态资源</figcaption></figure></a></p>
+<p><strong>用户直接通过浏览器获得静态资源</strong></p>
+<h2 id="静态博客的好处">静态博客的好处</h2>
 <ol>
-<li>因为用户在浏览器上访问博客时，只用从服务器（如nginx）拿来编译好的静态资源即可，无需实时从数据库获取博文、图片、评论、访问量等资源，效率极高，<strong>打开网站的速度会非常快速 ！</strong></li>
+<li>因为用户在浏览器上访问博客时，只用从服务器（如<code>nginx</code>）拿来编译好的静态资源即可，无需实时从数据库获取博文、图片、评论、访问量等资源，效率极高，<strong>打开网站的速度会非常快速 ！</strong></li>
 <li>用户<strong>可以专心写博客</strong>，<strong>不用管服务器维护等琐事</strong>，够省心。</li>
 <li>部署方便，很多静态博客生成器都有一键部署的模块或脚本，可以<strong>省心部署到GitHub Pages等服务器</strong>上去，<strong>避免购买服务器的花费。</strong></li>
 <li>静态博客<strong>对SEO天生有优势</strong>，各大搜索引擎收录速度比较快。</li>
 </ol>
-<p>由于是静态博客，所以自然无法支持原生评论，访问量统计，注册登录等功能。但是可以通过js在前端调用第三方评论工具，著名的解决方案也有很多；统计量也是有解决方案的，我们后面再细细讲述。</p>
+<p>由于是静态博客，所以自然无法支持原生评论，访问量统计，注册登录等功能。但是可以通过<code>js</code>在前端调用第三方评论工具，著名的解决方案也有很多；统计量也是有解决方案的，我们后面再细细讲述。</p>
 <p>所以<strong>评论，代码高亮，数学公式，页面PV (page view) 统计等常用功能</strong>都是有的。</p>
-<h2 id="有哪些静态博客"><strong>有哪些静态博客？</strong></h2>
-<h3 id="hexo"><strong>Hexo</strong></h3>
+<h2 id="有哪些静态博客">有哪些静态博客？</h2>
+<h3 id="hexo">Hexo</h3>
 <ul>
 <li><strong>作者</strong>：tommy351</li>
 <li><strong>主页</strong>：https://hexo.io/</li>
-<li><strong>简介</strong>： Hexo是一款基于 <strong>node.js</strong> 开发的博客程序，拥有简单的服务器，可用作简单的动态博客使用。也有生成器，生成的静态文件可以一键部署到Github Pages上，也可以部署到任意静态文件服务器上。它相当简约，并且可使用Markdown来编写文章！</li>
+<li><strong>简介</strong>： Hexo是一款基于<code>node.js</code>开发的博客程序，拥有简单的服务器，可用作简单的动态博客使用。也有生成器，生成的静态文件可以一键部署到Github Pages上，也可以部署到任意静态文件服务器上。它相当简约，并且可使用Markdown来编写文章！</li>
 </ul>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog5.jpg" alt="staticblog5.jpg" class="lazyload"><figcaption class="image-caption">staticblog5.jpg</figcaption></figure>
-<strong>hexo主页截图</strong></p>
-<h3 id="jekyll"><strong>Jekyll</strong></h3>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9eecogj21660pw40h.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9eecogj21660pw40h.jpg" alt="hexo主页截图" class="lazyload"><figcaption class="image-caption">hexo主页截图</figcaption></figure></a></p>
+<p><strong>hexo主页截图</strong></p>
+<h3 id="jekyll">Jekyll</h3>
 <ul>
 <li><strong>作者</strong>：Tom Preston-Werner，Nick 等</li>
 <li><strong>主页</strong>：https://jekyllrb.com/</li>
-<li><strong>简介</strong>： Jekyll 是一种基于Ruby开发的、适用于博客的静态网站生成引擎。使用一个模板目录作为网站布局的基础框架，提供了模板、变量、插件等功能，最终生成一个完整的静态Web站点。即只要安装Jekyll的规范和结构，不需写html，便可生成网站。</li>
+<li><strong>简介</strong>： Jekyll 是一种基于<code>Ruby</code>开发的、适用于博客的静态网站生成引擎。使用一个模板目录作为网站布局的基础框架，提供了模板、变量、插件等功能，最终生成一个完整的静态Web站点。即只要安装Jekyll的规范和结构，不需写html，便可生成网站。</li>
 </ul>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog6.jpg" alt="staticblog6.jpg" class="lazyload"><figcaption class="image-caption">staticblog6.jpg</figcaption></figure></p>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9eofigj210c0pstf7.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9eofigj210c0pstf7.jpg" alt="Jekyll主页截图" class="lazyload"><figcaption class="image-caption">Jekyll主页截图</figcaption></figure></a></p>
 <p><strong>Jekyll主页截图</strong></p>
-<h3 id="hugo"><strong>Hugo</strong></h3>
+<h3 id="hugo">Hugo</h3>
 <ul>
 <li><strong>作者</strong>：<a href="https://github.com/bep">bep</a>, <a href="http://spf13.com/">spf13</a>等</li>
 <li><strong>主页</strong>：https://gohugo.io/</li>
-<li><strong>简介</strong>：Hugo是一个用Go语言编写的静态网站生成器，它使用起来非常简单，相对于Jekyll复杂的安装设置来说，Hugo仅需要一个二进制文件hugo(hugo.exe)即可轻松用于本地调试和生成静态页面。</li>
+<li><strong>简介</strong>：Hugo是一个用<code>Go</code>语言编写的静态网站生成器，它使用起来非常简单，相对于Jekyll复杂的安装设置来说，Hugo仅需要一个二进制文件hugo(hugo.exe)即可轻松用于本地调试和生成静态页面。</li>
 </ul>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog7.jpg" alt="staticblog7.jpg" class="lazyload"><figcaption class="image-caption">staticblog7.jpg</figcaption></figure></p>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9e453pj20tr0hutac.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9e453pj20tr0hutac.jpg" alt="Hugo主页截图" class="lazyload"><figcaption class="image-caption">Hugo主页截图</figcaption></figure></a></p>
 <p><strong>Hugo主页截图</strong></p>
-<h2 id="总结"><strong>总结</strong></h2>
+<h2 id="总结">总结</h2>
 <p>以上所列举的三个是比较常用的静态博客生成器，还有其他大量如雨后春笋一样多的生成器，可以参考『参考资料[<a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fn:2">2]</a>』</p>
-<p>作为一个博客，谁最了解博客，谁最在意博客的UI？那当然是前端的宝宝们了，所以hexo就是当仁不让的不二之选。</p>
-<p>而且hexo<strong>插件丰富</strong>，<strong>主题繁多</strong>，多到琳琅满目，应接不暇。而且使用的中国人超级多，很容易就能寻得帮助。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog8.jpg" alt="staticblog8.jpg" class="lazyload"><figcaption class="image-caption">staticblog8.jpg</figcaption></figure>
-<strong>不仅是hexo群聊很多，某些主题也会建立自己的群聊</strong></p>
-<p>笔者使用过hugo，使用过程太过复杂，概念生僻；全程英文；遇到问题基本处于孤立无援状态；而且主题大部分都其丑无比，没有满意的效果。</p>
-<p>反观hexo，使用相对而言简单很多，而且主题很漂亮炫酷。故此我们本教程选用hexo来作为静态博客生成器。</p>
-<h1 id="参考资料"><strong>参考资料</strong></h1>
+<p>作为一个博客，谁最了解博客，谁最在意博客的UI？那当然是前端的宝宝们了，所以<code>hexo</code>就是当仁不让的不二之选。</p>
+<p>而且<code>hexo</code><strong>插件丰富</strong>，<strong>主题繁多</strong>，多到琳琅满目，应接不暇。而且使用的中国人超级多，很容易就能寻得帮助。</p>
+<p><a href="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9ea70kj20li0f9jsv.jpg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://tellyouwhat-static-1251995834.cos.ap-chongqing.myqcloud.com/blogimg/bd61005egy1g0cv9ea70kj20li0f9jsv.jpg" alt="不仅是hexo群聊很多，某些主题也会建立自己的群聊" class="lazyload"><figcaption class="image-caption">不仅是hexo群聊很多，某些主题也会建立自己的群聊</figcaption></figure></a></p>
+<p><strong>不仅是hexo群聊很多，某些主题也会建立自己的群聊</strong></p>
+<p>笔者使用过<code>hugo</code>，使用过程太过复杂，概念生僻；全程英文；遇到问题基本处于孤立无援状态；而且主题大部分都其丑无比，没有满意的效果。</p>
+<p>反观<code>hexo</code>，使用相对而言简单很多，而且主题很漂亮炫酷。故此我们本教程选用<code>hexo</code>来作为静态博客生成器。</p>
+<h2 id="参考资料">参考资料</h2>
 <hr>
 <ol>
 <li>What is a Static Website? <a href="http://nilclass.com/courses/what-is-a-static-website/%5B">http://nilclass.com/courses/what-is-a-static-website/[</a> ↩](<a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:1">https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:1</a>)</li>
 <li>A definitive list of tools for generating static websites <a href="https://github.com/pinceladasdaweb/Static-Site-Generators%5B">https://github.com/pinceladasdaweb/Static-Site-Generators[</a> ↩](<a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:2">https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:2</a>)</li>
 </ol>
+<hr>
 
     </div>
 
