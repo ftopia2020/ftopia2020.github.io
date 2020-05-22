@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/homebrew/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/getting-started-with-hugo/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/staticblog/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】为什么用静态博客 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】为什么用静态博客 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】为什么用静态博客",
+    "headline" : "【转】为什么用静态博客",
+    "description" : "什么是静态博客 所谓静态博客，即 通过工具，直接将作者所书写的博文编译成最终的 html，css，js 等文件。作者\/博主，只需将生成的文件部署在静",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-19 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-05-19 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/staticblog\/",
+    "wordCount" : "1573",
+    "keywords" : [ "blog","Hexo","Hugo","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是静态博客"><strong>什么是静态博客</strong></a></li>
+    <li><a href="#静态博客的好处"><strong>静态博客的好处</strong></a></li>
+    <li><a href="#有哪些静态博客"><strong>有哪些静态博客？</strong></a>
+      <ul>
+        <li><a href="#hexo"><strong>Hexo</strong></a></li>
+        <li><a href="#jekyll"><strong>Jekyll</strong></a></li>
+        <li><a href="#hugo"><strong>Hugo</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#总结"><strong>总结</strong></a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+        <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://ftopia2020.github.io/">Ftopia</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+        <div class="top-scroll-bar"></div>
+    
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】为什么用静态博客</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                <a href="https://ftopia2020.github.io/categories/ftopia/"> Ftopia </a>
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-05-19
+                    itemprop="datePublished">
+                    2020-05-19</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1573 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="什么是静态博客"><strong>什么是静态博客</strong></h2>
+<p>所谓静态博客，即 <strong>通过工具，直接将作者所书写的博文编译成最终的</strong> <strong>html</strong>，<strong>css</strong>，<strong>js</strong> 等文件。作者/博主，只需将生成的文件部署在静态server上面即可被在互联网中访问。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog1.jpg" alt="staticblog1.jpg" class="lazyload"><figcaption class="image-caption">staticblog1.jpg</figcaption></figure>
+<strong>静态博客流程图</strong></p>
+<p>而传统的数据库型博客对服务器的要求就比较大了</p>
+<p>[<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog2.jpg" alt="staticblog2.jpg" class="lazyload"><figcaption class="image-caption">staticblog2.jpg</figcaption></figure>
+<strong>传统型博客流程图</strong></p>
+<p>使用静态博客生成工具</p>
+<p>[<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog3.jpg" alt="staticblog3.jpg" class="lazyload"><figcaption class="image-caption">staticblog3.jpg</figcaption></figure></p>
+<p><strong>静态博客生成工具生成网页的过程</strong></p>
+<p>用户通过浏览器访问服务器，直接就回获得已编译的静态资源。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog4.jpg" alt="staticblog4.jpg" class="lazyload"><figcaption class="image-caption">staticblog4.jpg</figcaption></figure>
+<strong>用户直接通过浏览器获得静态资源</strong></p>
+<h2 id="静态博客的好处"><strong>静态博客的好处</strong></h2>
+<ol>
+<li>因为用户在浏览器上访问博客时，只用从服务器（如nginx）拿来编译好的静态资源即可，无需实时从数据库获取博文、图片、评论、访问量等资源，效率极高，<strong>打开网站的速度会非常快速 ！</strong></li>
+<li>用户<strong>可以专心写博客</strong>，<strong>不用管服务器维护等琐事</strong>，够省心。</li>
+<li>部署方便，很多静态博客生成器都有一键部署的模块或脚本，可以<strong>省心部署到GitHub Pages等服务器</strong>上去，<strong>避免购买服务器的花费。</strong></li>
+<li>静态博客<strong>对SEO天生有优势</strong>，各大搜索引擎收录速度比较快。</li>
+</ol>
+<p>由于是静态博客，所以自然无法支持原生评论，访问量统计，注册登录等功能。但是可以通过js在前端调用第三方评论工具，著名的解决方案也有很多；统计量也是有解决方案的，我们后面再细细讲述。</p>
+<p>所以<strong>评论，代码高亮，数学公式，页面PV (page view) 统计等常用功能</strong>都是有的。</p>
+<h2 id="有哪些静态博客"><strong>有哪些静态博客？</strong></h2>
+<h3 id="hexo"><strong>Hexo</strong></h3>
+<ul>
+<li><strong>作者</strong>：tommy351</li>
+<li><strong>主页</strong>：https://hexo.io/</li>
+<li><strong>简介</strong>： Hexo是一款基于 <strong>node.js</strong> 开发的博客程序，拥有简单的服务器，可用作简单的动态博客使用。也有生成器，生成的静态文件可以一键部署到Github Pages上，也可以部署到任意静态文件服务器上。它相当简约，并且可使用Markdown来编写文章！</li>
+</ul>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog5.jpg" alt="staticblog5.jpg" class="lazyload"><figcaption class="image-caption">staticblog5.jpg</figcaption></figure>
+<strong>hexo主页截图</strong></p>
+<h3 id="jekyll"><strong>Jekyll</strong></h3>
+<ul>
+<li><strong>作者</strong>：Tom Preston-Werner，Nick 等</li>
+<li><strong>主页</strong>：https://jekyllrb.com/</li>
+<li><strong>简介</strong>： Jekyll 是一种基于Ruby开发的、适用于博客的静态网站生成引擎。使用一个模板目录作为网站布局的基础框架，提供了模板、变量、插件等功能，最终生成一个完整的静态Web站点。即只要安装Jekyll的规范和结构，不需写html，便可生成网站。</li>
+</ul>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog6.jpg" alt="staticblog6.jpg" class="lazyload"><figcaption class="image-caption">staticblog6.jpg</figcaption></figure></p>
+<p><strong>Jekyll主页截图</strong></p>
+<h3 id="hugo"><strong>Hugo</strong></h3>
+<ul>
+<li><strong>作者</strong>：<a href="https://github.com/bep">bep</a>, <a href="http://spf13.com/">spf13</a>等</li>
+<li><strong>主页</strong>：https://gohugo.io/</li>
+<li><strong>简介</strong>：Hugo是一个用Go语言编写的静态网站生成器，它使用起来非常简单，相对于Jekyll复杂的安装设置来说，Hugo仅需要一个二进制文件hugo(hugo.exe)即可轻松用于本地调试和生成静态页面。</li>
+</ul>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog7.jpg" alt="staticblog7.jpg" class="lazyload"><figcaption class="image-caption">staticblog7.jpg</figcaption></figure></p>
+<p><strong>Hugo主页截图</strong></p>
+<h2 id="总结"><strong>总结</strong></h2>
+<p>以上所列举的三个是比较常用的静态博客生成器，还有其他大量如雨后春笋一样多的生成器，可以参考『参考资料[<a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fn:2">2]</a>』</p>
+<p>作为一个博客，谁最了解博客，谁最在意博客的UI？那当然是前端的宝宝们了，所以hexo就是当仁不让的不二之选。</p>
+<p>而且hexo<strong>插件丰富</strong>，<strong>主题繁多</strong>，多到琳琅满目，应接不暇。而且使用的中国人超级多，很容易就能寻得帮助。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/staticblog8.jpg" alt="staticblog8.jpg" class="lazyload"><figcaption class="image-caption">staticblog8.jpg</figcaption></figure>
+<strong>不仅是hexo群聊很多，某些主题也会建立自己的群聊</strong></p>
+<p>笔者使用过hugo，使用过程太过复杂，概念生僻；全程英文；遇到问题基本处于孤立无援状态；而且主题大部分都其丑无比，没有满意的效果。</p>
+<p>反观hexo，使用相对而言简单很多，而且主题很漂亮炫酷。故此我们本教程选用hexo来作为静态博客生成器。</p>
+<h1 id="参考资料"><strong>参考资料</strong></h1>
+<hr>
+<ol>
+<li>What is a Static Website? <a href="http://nilclass.com/courses/what-is-a-static-website/%5B">http://nilclass.com/courses/what-is-a-static-website/[</a> ↩](<a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:1">https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:1</a>)</li>
+<li>A definitive list of tools for generating static websites <a href="https://github.com/pinceladasdaweb/Static-Site-Generators%5B">https://github.com/pinceladasdaweb/Static-Site-Generators[</a> ↩](<a href="https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:2">https://tellyouwhat.cn/p/why-static-blog-the-most-complete-hexo-static-blog-building-tutorial-in-history/#fnref:2</a>)</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/blog/">
+                    #blog</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/hexo/">
+                    #Hexo</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/hugo/">
+                    #Hugo</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/homebrew/" class="prev" rel="prev" title="Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)"><i
+                class="iconfont icon-left"></i>&nbsp;Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2020/getting-started-with-hugo/" class="next" rel="next"
+            title="Getting Started with Hugo">Getting Started with Hugo&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path =  null 
+    var home_Path =  null   
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

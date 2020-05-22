@@ -6,10 +6,28 @@
     <description>Recent content on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/ftopia/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>博客打造记</title>
+      <link>https://ftopia2020.github.io/blogdecorate/</link>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/blogdecorate/</guid>
+      <description>V1 ftopia.cn 最早其实是 Hexo 生成的静态博客站点，姑且称为 V0 版本（其实就是几篇MD文章） 到了19年10月，作为一名伪Web全栈，开启个站的目标 —— 前后端均</description>
+    </item>
+    
+    <item>
+      <title>博客打造记</title>
+      <link>https://ftopia2020.github.io/2020/blogdecorate/</link>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogdecorate/</guid>
+      <description>V1 ftopia.cn 最早其实是 Hexo 生成的静态博客站点，姑且称为 V0 版本（其实就是几篇MD文章） 到了19年10月，作为一名伪Web全栈，开启个站的目标 —— 前后端均</description>
+    </item>
     
     <item>
       <title>Getting Started with Hugo</title>
@@ -27,6 +45,15 @@
       
       <guid>https://ftopia2020.github.io/about/</guid>
       <description>关于本站 这是一个记录 Web 开发技术的个人博客（Blog），沿用之前的域名 ftopia.cn。 建站初衷，记录工作中解决一些问题的经验、归档原创博文</description>
+    </item>
+    
+    <item>
+      <title>【转】为什么用静态博客</title>
+      <link>https://ftopia2020.github.io/2020/staticblog/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/staticblog/</guid>
+      <description>什么是静态博客 所谓静态博客，即 通过工具，直接将作者所书写的博文编译成最终的 html，css，js 等文件。作者/博主，只需将生成的文件部署在静</description>
     </item>
     
   </channel>

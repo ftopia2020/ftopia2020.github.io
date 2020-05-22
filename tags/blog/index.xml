@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/blog/</link>
+    <description>Recent content in blog on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【转】为什么用静态博客</title>
+      <link>https://ftopia2020.github.io/2020/staticblog/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/staticblog/</guid>
+      <description>什么是静态博客 所谓静态博客，即 通过工具，直接将作者所书写的博文编译成最终的 html，css，js 等文件。作者/博主，只需将生成的文件部署在静</description>
+    </item>
+    
+  </channel>
+</rss>

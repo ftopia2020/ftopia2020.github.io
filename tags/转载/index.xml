@@ -20,5 +20,14 @@
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture. Save it somewhere specific as we will be using it in the next step. More complete instructions are available at installing hugo Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now. Follow the following steps: Clone the hugo</description>
     </item>
     
+    <item>
+      <title>【转】为什么用静态博客</title>
+      <link>https://ftopia2020.github.io/2020/staticblog/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/staticblog/</guid>
+      <description>什么是静态博客 所谓静态博客，即 通过工具，直接将作者所书写的博文编译成最终的 html，css，js 等文件。作者/博主，只需将生成的文件部署在静</description>
+    </item>
+    
   </channel>
 </rss>

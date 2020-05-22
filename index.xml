@@ -5,16 +5,60 @@
     <description>Recent content in Ftopia on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ftopia2020.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Posts</title>
       <link>https://ftopia2020.github.io/posts/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/posts/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>博客打造记</title>
+      <link>https://ftopia2020.github.io/blogdecorate/</link>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/blogdecorate/</guid>
+      <description>&lt;h2 id=&#34;v1&#34;&gt;V1&lt;/h2&gt;
+&lt;p&gt;ftopia.cn 最早其实是 Hexo 生成的静态博客站点，姑且称为 V0 版本（其实就是几篇MD文章）&lt;/p&gt;
+&lt;p&gt;到了19年10月，作为一名伪Web全栈，开启个站的目标 —— 前后端均自建且采用API实现实时数据交互。然而，想法是美好的，现实是残酷的。一来博客没写几篇，二来站点功能也不再迭代  &amp;hellip;&lt;/p&gt;
+&lt;p&gt;转眼又过了半年，又想折腾了，还是觉得博客采用静态为王道，对比了下选了 Hugo&lt;/p&gt;
+&lt;p&gt;下图祭奠下之前的 V1 &amp;hellip; &amp;hellip;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://image.ftopia.cn/blog/blog_deco1.png&#34; alt=&#34;blog_deco1.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;v2&#34;&gt;V2&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;博客基于 Hugo 生成，主题选用 &lt;a href=&#34;https://raw.githubusercontent.com/liuzc/LeaveIt/&#34;&gt;LeaveIt&lt;/a&gt;，并加入了一些个人的改动，折腾见下（配置更改略去）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;主题相关&#34;&gt;主题相关&lt;/h3&gt;
+&lt;h4 id=&#34;样式风格--bug-fix&#34;&gt;样式风格 &amp;amp; Bug Fix&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;少女风 (～￣▽￣)～   =》采用了粉、紫等配色&lt;/li&gt;
+&lt;li&gt;暗黑模式适配&lt;/li&gt;
+&lt;li&gt;live2d 看板娘&lt;/li&gt;
+&lt;li&gt;文章内页
+&lt;ul&gt;
+&lt;li&gt;相关信息更改&lt;/li&gt;
+&lt;li&gt;目录样式更改&lt;/li&gt;
+&lt;li&gt;图片放大效果（原 img 正则 re 貌似有点问题，Fixed）&lt;/li&gt;
+&lt;li&gt;加阅读进度条（参考 &lt;a href=&#34;https://mogeko.me/2019/070/&#34;&gt;https://mogeko.me/2019/070/&lt;/a&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;主页-posts-展示&#34;&gt;主页 posts 展示&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;改造 &lt;code&gt;home_mode = &amp;quot;post&amp;quot;&lt;/code&gt;  方式下的主页，内容为置顶文章及 posts 入口
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;featured_image&lt;/code&gt; 展示样式&lt;/li&gt;
+&lt;li&gt;增加 &lt;code&gt;desc&lt;/code&gt; 参数展示文章内容（去除内容截取，置顶的文章注意加上此项）&lt;/li&gt;
+&lt;li&gt;点击 「文章标题+图+描述」区域可进入该文章&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -39,7 +83,7 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;ftopia-v20&#34;&gt;Ftopia V2.0&lt;/h2&gt;
 &lt;p&gt;博客改版的根本原因是想专心于写博客，而不是建站（虽然也没干啥 😂 ）&lt;/p&gt;
-&lt;p&gt;1.0：采用了动态API方式获取内容及相关数据（前后端均自写），但实际&amp;hellip; 没几篇文章那、站点也不更新&lt;/p&gt;
+&lt;p&gt;1.0：采用了动态API方式获取内容及相关数据（前后端均自写），但实际&amp;hellip; 没几篇文章、站点也不更新&lt;/p&gt;
 &lt;p&gt;所以，抛弃 1.0，直接走静态博客生成 =》个人后端技术栈 GO，Hexo 之前用过但生成速度太慢，所以选择了 Hugo 来生成 Ftopia V2.0&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P.S. 静态博客的优势：&lt;/p&gt;
