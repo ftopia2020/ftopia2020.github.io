@@ -58,6 +58,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;站点部署&#34;&gt;站点部署&lt;/h3&gt;
+&lt;p&gt;个人使用 shell 脚本部署，分为个人服务器 domain 及 githubPages&lt;/p&gt;
 </description>
     </item>
     
