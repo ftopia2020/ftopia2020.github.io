@@ -11,7 +11,7 @@
     <item>
       <title>Posts</title>
       <link>https://ftopia2020.github.io/posts/</link>
-      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/posts/</guid>
       <description></description>
@@ -65,8 +65,8 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;todo-list&#34;&gt;ToDo List&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 首页置顶文章优化&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 文章类目大体确定&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 首页置顶文章优化&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 文章类目大体确定&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 各页部分样式优化&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 加入三方评论系统&lt;/li&gt;
 &lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 加入更多社区分享&lt;/li&gt;
@@ -110,7 +110,7 @@
 &lt;h2 id=&#34;关于-v20&#34;&gt;关于 V2.0&lt;/h2&gt;
 &lt;p&gt;博客改版的根本原因是想专心于写博客，而不是建站（虽然也没干啥 😂 ）&lt;/p&gt;
 &lt;p&gt;1.0：采用了动态API方式获取内容及相关数据（前后端均自写），但实际&amp;hellip; 没几篇文章、站点也不更新&lt;/p&gt;
-&lt;p&gt;所以，抛弃 1.0，直接走静态博客生成 =》个人后端技术栈 GO，Hexo 之前用过但生成速度太慢，所以选择了 Hugo 来生成 Ftopia V2.0&lt;/p&gt;
+&lt;p&gt;所以，抛弃 1.0，直接走静态博客生成 =》个人后端技术栈 GO，Hexo 之前用过但生成速度太慢，所以选择了 Hugo 来生成 Ftopia V2.0，可参考 &lt;a href=&#34;https://ftopia2020.github.io/blogdecorate&#34;&gt;博客打造记&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;P.S. 静态博客的优势：&lt;/p&gt;
 &lt;ul&gt;

@@ -6,10 +6,19 @@
     <description>Recent content in Hugo on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】Hugo 文章日期设定上的小问题</title>
+      <link>https://ftopia2020.github.io/2020/blogdate/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogdate/</guid>
+      <description>作者： Steven | 查阅原文 Hugo 文章日期设定上的小问题 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。</description>
+    </item>
     
     <item>
       <title>博客打造记</title>
@@ -21,12 +30,12 @@
     </item>
     
     <item>
-      <title>Getting Started with Hugo</title>
+      <title>【官】Getting Started with Hugo</title>
       <link>https://ftopia2020.github.io/2020/getting-started-with-hugo/</link>
       <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2020/getting-started-with-hugo/</guid>
-      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture. Save it somewhere specific as we will be using it in the next step. More complete instructions are available at installing hugo Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now. Follow the following steps: Clone the hugo</description>
+      <description>摘取自官方文档：https://gohugo.io/getting-started/quick-start/ Quick Start Create a Hugo site using the beautiful Ananke theme. This quick start uses macOS</description>
     </item>
     
     <item>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客 X 个人 on Ftopia</title>
+    <link>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</link>
+    <description>Recent content in 博客 X 个人 on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【转】Hugo 文章日期设定上的小问题</title>
+      <link>https://ftopia2020.github.io/2020/blogdate/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogdate/</guid>
+      <description>作者： Steven | 查阅原文 Hugo 文章日期设定上的小问题 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。</description>
+    </item>
+    
+    <item>
+      <title>博客计划</title>
+      <link>https://ftopia2020.github.io/2020/blogplan/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogplan/</guid>
+      <description>博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 &amp;amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve</description>
+    </item>
+    
+    <item>
+      <title>【转】知乎回答 - 如何开始写技术博客，怎么选择？</title>
+      <link>https://ftopia2020.github.io/2020/whichblog/</link>
+      <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/whichblog/</guid>
+      <description>作者：灵魂画手 来源：知乎 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 文章中的图片可能存在加载不出，可 查阅原文 有很多技</description>
+    </item>
+    
+    <item>
+      <title>博客打造记</title>
+      <link>https://ftopia2020.github.io/blogdecorate/</link>
+      <pubDate>Thu, 21 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/blogdecorate/</guid>
+      <description>V2 博客基于 Hugo 生成，主题选用 LeaveIt，并加入了一些个人的改动，折腾见下（配置更改略去） 主题相关 样式风格 &amp;amp; Bug Fix 少女风 (～￣▽￣)～ =》采用</description>
+    </item>
+    
+    <item>
+      <title>【官】Getting Started with Hugo</title>
+      <link>https://ftopia2020.github.io/2020/getting-started-with-hugo/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/getting-started-with-hugo/</guid>
+      <description>摘取自官方文档：https://gohugo.io/getting-started/quick-start/ Quick Start Create a Hugo site using the beautiful Ananke theme. This quick start uses macOS</description>
+    </item>
+    
+    <item>
+      <title>关于 ...</title>
+      <link>https://ftopia2020.github.io/about/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/about/</guid>
+      <description>关于本站 这是一个记录 Web 开发技术的个人博客（Blog），沿用之前的域名 ftopia.cn。 建站初衷，记录工作中解决一些问题的经验、归档原创博文</description>
+    </item>
+    
+    <item>
+      <title>【转】为什么用静态博客</title>
+      <link>https://ftopia2020.github.io/2020/staticblog/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/staticblog/</guid>
+      <description>作者： Harbor Zeng 采用 知识共享署名 4.0 国际许可协议 进行许可。 文章中的图片可能存在加载不出，可 查阅原文 个人认为作者最后 Hexo 较好的想法有失偏颇，至少其编译速</description>
+    </item>
+    
+  </channel>
+</rss>

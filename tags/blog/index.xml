@@ -6,10 +6,28 @@
     <description>Recent content in blog on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】Hugo 文章日期设定上的小问题</title>
+      <link>https://ftopia2020.github.io/2020/blogdate/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogdate/</guid>
+      <description>作者： Steven | 查阅原文 Hugo 文章日期设定上的小问题 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。</description>
+    </item>
+    
+    <item>
+      <title>博客计划</title>
+      <link>https://ftopia2020.github.io/2020/blogplan/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogplan/</guid>
+      <description>博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 &amp;amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve</description>
+    </item>
     
     <item>
       <title>【转】知乎回答 - 如何开始写技术博客，怎么选择？</title>
