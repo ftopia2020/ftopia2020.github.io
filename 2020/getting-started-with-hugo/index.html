@@ -81,9 +81,9 @@
     <li><a href="#step-6-customize-the-theme">Step 6: Customize the Theme</a>
       <ul>
         <li><a href="#site-configuration">Site Configuration</a></li>
-        <li><a href="#step-7-build-static-pages">Step 7: Build static pages</a></li>
       </ul>
     </li>
+    <li><a href="#step-7-build-static-pages">Step 7: Build static pages</a></li>
     <li><a href="#see-also">See Also</a></li>
   </ul>
 </nav>
@@ -93,49 +93,60 @@
     <div class="wrapper">
         <nav class="navbar">
     
-        <div class="top-scroll-bar"></div>
+    <div class="top-scroll-bar"></div>
     
     <div class="container">
         <div class="navbar-header header-logo">
-        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://ftopia2020.github.io/">Ftopia</a>
+            
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">Ftopia</a>
         </div>
         <div class="menu navbar-right">
-                
-                
-                <a class="menu-item" href="/posts/" title="">Blog</a>
-                
-                <a class="menu-item" href="/categories/" title="">Categories</a>
-                
-                <a class="menu-item" href="/tags/" title="">Tags</a>
-                
-                <a class="menu-item" href="/about/" title="">About</a>
-                
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="far fa-sun"></i></a>
         </div>
     </div>
 </nav>
 <nav class="navbar-mobile" id="nav-mobile" style="display: none">
     
-        <div class="top-scroll-bar"></div>
+    <div class="top-scroll-bar"></div>
     
-     <div class="container">
+    <div class="container">
         <div class="navbar-header">
-            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
             <div class="menu-toggle">
                 <span></span><span></span><span></span>
             </div>
         </div>
-     
-          <div class="menu" id="mobile-menu">
-                
-                
-                <a class="menu-item" href="/posts/" title="">Blog</a>
-                
-                <a class="menu-item" href="/categories/" title="">Categories</a>
-                
-                <a class="menu-item" href="/tags/" title="">Tags</a>
-                
-                <a class="menu-item" href="/about/" title="">About</a>
-                
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
         </div>
     </div>
 </nav>
@@ -266,7 +277,7 @@ theme = &quot;ananke&quot;
 <p><strong>Tip:</strong> Make the changes to the site configuration or any other file in your site while the Hugo server is running, and you will see the changes in the browser right away, though you may need to <a href="https://kb.iu.edu/d/ahic">clear your cache</a>.</p>
 <p>For theme specific configuration options, see the <a href="https://github.com/budparr/gohugo-theme-ananke">theme site</a>.</p>
 <p><strong>For further theme customization, see <a href="https://gohugo.io/themes/customizing/">Customize a Theme</a>.</strong></p>
-<h3 id="step-7-build-static-pages">Step 7: Build static pages</h3>
+<h2 id="step-7-build-static-pages">Step 7: Build static pages</h2>
 <p>It is simple. Just call:</p>
 <pre><code>hugo -D
 </code></pre><p>Output will be in <code>./public/</code> directory by default (<code>-d</code>/<code>--destination</code> flag to change it, or set <code>publishdir</code> in the config file).</p>
