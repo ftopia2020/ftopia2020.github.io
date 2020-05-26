@@ -75,7 +75,7 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#使用---buildfuture-参数">使用 <code>--buildFuture</code> 参数</a></li>
       </ul>
     </li>
   </ul>
@@ -203,7 +203,7 @@
 <p>不过，借助万能的 Google，我还是找到了原因。</p>
 <p>Hugo 在生成静态页面的时候，不会生成超过当前时间的文章；而 Hugo 默认采用的是 <a href="https://zh.wikipedia.org/wiki/%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%E6%A8%99%E6%BA%96%E6%99%82%E9%96%93">格林尼治平时</a> (GMT)，比北京时间 (UTC+8) 晚了 8 个小时。也就是说，当北京时间在 08:00 之前，而你又将文章发布日期设在当天时，Hugo 就默认不会生成这个页面。</p>
 <p>至于解决方案，有两种方法。一是使用 Hugo 的 <code>--buildFuture</code> 参数，二是在文章的 Markdown 文件中指定时区，下文详细解释一下。</p>
-<h4 id="使用---buildfuture-参数">使用 <code>--buildFuture</code> 参数</h4>
+<h3 id="使用---buildfuture-参数">使用 <code>--buildFuture</code> 参数</h3>
 <p>这是比较简单的方式，你只需要在用 Hugo 生成页面时加上 <code>--buildFuture</code> 参数即可：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo --buildFuture
 </code></pre></div><p>用 Hugo 本地服务器预览页面时，也可以使用本参数：</p>
