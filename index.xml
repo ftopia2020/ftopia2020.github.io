@@ -9,11 +9,11 @@
     <atom:link href="https://ftopia2020.github.io/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Plans</title>
-      <link>https://ftopia2020.github.io/plan/</link>
+      <title>Plans &amp; Summaries</title>
+      <link>https://ftopia2020.github.io/plans-summary/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ftopia2020.github.io/plan/</guid>
+      <guid>https://ftopia2020.github.io/plans-summary/</guid>
       <description></description>
     </item>
     
@@ -72,23 +72,16 @@
 &lt;/ul&gt;
 &lt;p&gt;插赞一句，hugo 编译真的很快，比 hexo 快了不止一个级别 ~&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;todo-list&#34;&gt;ToDo List&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 文章类目大体确定&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 各页部分样式优化&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 首页置顶文章优化&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 加入三方评论系统&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; 加入更多社区分享&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;祭奠下之前的 V1 &amp;hellip; &amp;hellip;&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;h2 id=&#34;v1&#34;&gt;V1&lt;/h2&gt;
 &lt;p&gt;ftopia.cn 最早是 Hexo 生成的静态博客站点，姑且称为 V0 版本（其实就是几篇 &amp;hellip;）&lt;/p&gt;
 &lt;p&gt;到了19年10月，作为一名伪Web全栈，开启个站的目标 —— 前后端均自建且采用API实现实时数据交互。然而，想法是美好的，现实是残酷的。一来博客没写几篇，二来站点功能也不再迭代  &amp;hellip;&lt;/p&gt;
 &lt;p&gt;转眼又过了半年，又想折腾了，还是觉得博客采用静态为王道，对比了下选了 Hugo&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://image.ftopia.cn/blog/blog_deco1.png&#34; alt=&#34;blog_deco1.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;上图为V1主页，和现在风格完全不一样，科技感暗黑风 😎&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;祭奠下之前的 V1 &amp;hellip;  上图为V1主页，和现在风格完全不一样，科技感暗黑风 😎&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;博客-to-do-list&#34;&gt;博客 To-Do List&lt;/h3&gt;
+&lt;p&gt;查看 &lt;a href=&#34;https://ftopia2020.github.io/plan/blogtodo/&#34;&gt;博客 To-Do List&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

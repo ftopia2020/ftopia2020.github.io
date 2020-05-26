@@ -22,7 +22,7 @@
     </url>
   
     <url>
-      <loc>https://ftopia2020.github.io/plan/</loc>
+      <loc>https://ftopia2020.github.io/plans-summary/</loc>
       
       <lastmod>2020-05-26T00:00:00+00:00</lastmod>
       
@@ -72,6 +72,16 @@
     </url>
   
     <url>
+      <loc>https://ftopia2020.github.io/plans-summary/blogtodo/</loc>
+      
+      <lastmod>2020-05-26T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</loc>
       
       <lastmod>2020-05-26T00:00:00+00:00</lastmod>
@@ -83,16 +93,6 @@
   
     <url>
       <loc>https://ftopia2020.github.io/tags/%E8%AE%A1%E5%88%92/</loc>
-      
-      <lastmod>2020-05-26T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/plan/blogtodo/</loc>
       
       <lastmod>2020-05-26T00:00:00+00:00</lastmod>
       
@@ -142,7 +142,7 @@
     </url>
   
     <url>
-      <loc>https://ftopia2020.github.io/plan/blogplan/</loc>
+      <loc>https://ftopia2020.github.io/plans-summary/blogplan/</loc>
       
       <lastmod>2020-05-25T00:00:00+00:00</lastmod>
       
