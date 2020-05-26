@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2020/whichblog/" />
-    <link rel="next" href="https://ftopia2020.github.io/2020/slowsqladv/" />
-    <link rel="canonical" href="https://ftopia2020.github.io/2020/blogdate/" />
+    
+    <link rel="next" href="https://ftopia2020.github.io/plan/blogtodo/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/plan/blogplan/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             【转】Hugo 文章日期设定上的小问题 | Ftopia
+             博客计划 | Ftopia
          
     </title>
-    <meta name="title" content="【转】Hugo 文章日期设定上的小问题 | Ftopia">
+    <meta name="title" content="博客计划 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,22 +45,22 @@
          "@type": "WebPage",
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
-    "articleSection" : "posts",
-    "name" : "【转】Hugo 文章日期设定上的小问题",
-    "headline" : "【转】Hugo 文章日期设定上的小问题",
-    "description" : "作者： Steven | 查阅原文 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。 不过，借助万能的 Goog",
+    "articleSection" : "plan",
+    "name" : "博客计划",
+    "headline" : "博客计划",
+    "description" : "博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 \x26amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve",
     "inLanguage" : "en-us",
-    "author" : "转载",
-    "creator" : "转载",
-    "publisher": "转载",
-    "accountablePerson" : "转载",
-    "copyrightHolder" : "转载",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
     "copyrightYear" : "2020",
     "datePublished": "2020-05-25 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-05-25 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/2020\/blogdate\/",
-    "wordCount" : "389",
-    "keywords" : [ "blog","Hugo","转载", "Ftopia"]
+    "url" : "https:\/\/ftopia2020.github.io\/plan\/blogplan\/",
+    "wordCount" : "177",
+    "keywords" : [ "blog","计划","原创", "Ftopia"]
 }
 </script>
 
@@ -73,11 +73,8 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#记录--整理">记录 &amp; 整理</a></li>
+    <li><a href="#更新--扩展">更新 &amp; 扩展</a></li>
   </ul>
 </nav>
 </aside>
@@ -154,7 +151,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">【转】Hugo 文章日期设定上的小问题</h1>
+        <h1 class="post-title" itemprop="name headline">博客计划</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -162,7 +159,7 @@
                 
             </span>
             &nbsp;
-            By 转载 ♥
+            By me ♥
             &nbsp;
             <span class="post-time">
                 <i class="far fa-calendar-alt"></i>
@@ -171,7 +168,7 @@
                     2020-05-25</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 389 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 177 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
 
@@ -180,6 +177,8 @@
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -194,38 +193,30 @@
           
 
           <blockquote>
-<p>作者： <a href="https://blog.hly0928.com/">Steven</a>  |  <a href="https://blog.hly0928.com/post/hugo-post-date-issue/">查阅原文</a></p>
+<p>博客重建已完成，然重要的是<strong>内容</strong>，梳理下后期如何维护博客吧 ~</p>
 </blockquote>
-<p>今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。</p>
-<p>不过，借助万能的 Google，我还是找到了原因。</p>
-<p>Hugo 在生成静态页面的时候，不会生成超过当前时间的文章；而 Hugo 默认采用的是 <a href="https://zh.wikipedia.org/wiki/%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%E6%A8%99%E6%BA%96%E6%99%82%E9%96%93">格林尼治平时</a> (GMT)，比北京时间 (UTC+8) 晚了 8 个小时。也就是说，当北京时间在 08:00 之前，而你又将文章发布日期设在当天时，Hugo 就默认不会生成这个页面。</p>
-<p>至于解决方案，有两种方法。一是使用 Hugo 的 <code>--buildFuture</code> 参数，二是在文章的 Markdown 文件中指定时区，下文详细解释一下。</p>
-<h4 id="使用---buildfuture-参数">使用 <code>--buildFuture</code> 参数</h4>
-<p>这是比较简单的方式，你只需要在用 Hugo 生成页面时加上 <code>--buildFuture</code> 参数即可：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo --buildFuture
-</code></pre></div><p>用 Hugo 本地服务器预览页面时，也可以使用本参数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server --buildFuture
-</code></pre></div><h4 id="指定文章时区">指定文章时区</h4>
-<p>以本文为例，如果不指定时区，那么 Markdown 文件头的格式是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
-...
-date: 2019-05-12
-...
----
-</code></pre></div><p>指定为 UTC+8 时区的写法是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
-...
-date: 2019-05-12T00:00:00+08:00
-...
----
-</code></pre></div><p>或者也可以用 timezone 指定时区：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
-...
-date: 2019-05-12
-timezone: UTC+8
-...
----
-</code></pre></div><p>你可以查看 Hugo 的 <a href="https://gohugo.io/functions/format/">官方文档</a> 了解更多信息。</p>
+<h2 id="记录--整理">记录 &amp; 整理</h2>
+<ul>
+<li>文档：Typora 直接记录<code>.md</code> 文件，文件夹目录整理即可</li>
+<li>预览：<code>hugo serve</code>  本地预览</li>
+<li>部署：脚本部署，多端同步</li>
+<li>其他：类目精简，信息精准</li>
+</ul>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/blogPlan1.png" alt="文档方式" class="lazyload"><figcaption class="image-caption">文档方式</figcaption></figure></p>
+<h2 id="更新--扩展">更新 &amp; 扩展</h2>
+<ul>
+<li>计划 <strong>每周</strong> 至少 1 + 1 （原创 + 转载）
+<ul>
+<li>转载标题加【转】，官方文档 +【官】；tags 加入 <code>原创</code> 和 <code>转载</code> 区分及统计</li>
+</ul>
+</li>
+<li>站点功能扩展提上日程，核心目标：
+<ul>
+<li>自己有用</li>
+<li>利于他人</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -242,11 +233,11 @@ timezone: UTC+8
             <span class="tag"><a href="https://ftopia2020.github.io/tags/blog/">
                     #blog</a></span>
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/hugo/">
-                    #Hugo</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%AE%A1%E5%88%92/">
+                    #计划</a></span>
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
-                    #转载</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
             
         </section>
         
@@ -258,12 +249,9 @@ timezone: UTC+8
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2020/whichblog/" class="prev" rel="prev" title="【转】知乎回答 - 如何开始写技术博客，怎么选择？"><i
-                class="iconfont icon-left"></i>&nbsp;【转】知乎回答 - 如何开始写技术博客，怎么选择？</a>
         
-        
-        <a href="https://ftopia2020.github.io/2020/slowsqladv/" class="next" rel="next"
-            title="【转】MySQL索引原理及慢查询优化">【转】MySQL索引原理及慢查询优化&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://ftopia2020.github.io/plan/blogtodo/" class="next" rel="next"
+            title="记录目录尝试">记录目录尝试&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -318,8 +306,9 @@ timezone: UTC+8
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
 
 

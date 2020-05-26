@@ -12,12 +12,21 @@
     
     
     <item>
-      <title>【转】Hugo 文章日期设定上的小问题</title>
-      <link>https://ftopia2020.github.io/2020/blogdate/</link>
+      <title>【转】MySQL索引原理及慢查询优化</title>
+      <link>https://ftopia2020.github.io/2020/slowsqladv/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
+      <guid>https://ftopia2020.github.io/2020/slowsqladv/</guid>
+      <description>作者: NeverMore 文章链接 背景 MySQL凭借着出色的性能、低廉的成本、丰富的资源，已经成为绝大多数互联网公司的首选关系型数据库。虽然性能出色，但所谓“</description>
+    </item>
+    
+    <item>
+      <title>【转】Hugo 文章日期设定上的小问题</title>
+      <link>https://ftopia2020.github.io/2020/blogdate/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      
       <guid>https://ftopia2020.github.io/2020/blogdate/</guid>
-      <description>作者： Steven | 查阅原文 Hugo 文章日期设定上的小问题 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。</description>
+      <description>作者： Steven | 查阅原文 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。 不过，借助万能的 Goog</description>
     </item>
     
     <item>

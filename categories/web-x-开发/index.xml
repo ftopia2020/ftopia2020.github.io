@@ -6,10 +6,19 @@
     <description>Recent content in Web X 开发 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/web-x-%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】MySQL索引原理及慢查询优化</title>
+      <link>https://ftopia2020.github.io/2020/slowsqladv/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/slowsqladv/</guid>
+      <description>作者: NeverMore 文章链接 背景 MySQL凭借着出色的性能、低廉的成本、丰富的资源，已经成为绝大多数互联网公司的首选关系型数据库。虽然性能出色，但所谓“</description>
+    </item>
     
     <item>
       <title>Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)</title>

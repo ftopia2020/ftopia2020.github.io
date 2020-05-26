@@ -6,7 +6,7 @@
     <description>Recent content in Hugo on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,10 +14,10 @@
     <item>
       <title>【转】Hugo 文章日期设定上的小问题</title>
       <link>https://ftopia2020.github.io/2020/blogdate/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2020/blogdate/</guid>
-      <description>作者： Steven | 查阅原文 Hugo 文章日期设定上的小问题 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。</description>
+      <description>作者： Steven | 查阅原文 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。 不过，借助万能的 Goog</description>
     </item>
     
     <item>
