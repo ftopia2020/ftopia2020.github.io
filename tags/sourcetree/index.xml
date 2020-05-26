@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sourcetree on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/sourcetree/</link>
+    <description>Recent content in Sourcetree on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/sourcetree/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【转】你确定你能记住那么多的Git命令吗？快试试Sourcetree吧</title>
+      <link>https://ftopia2020.github.io/2019/sourcetree/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2019/sourcetree/</guid>
+      <description>作者：邵磊 分布式实验室 2019-11-21 原文链接：https://juejin.im/post/59bc944d51882519777c5e07 /作为使用S</description>
+    </item>
+    
+  </channel>
+</rss>

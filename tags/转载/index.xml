@@ -56,5 +56,23 @@
       <description>作者： Harbor Zeng 采用 知识共享署名 4.0 国际许可协议 进行许可。 文章中的图片可能存在加载不出，可 查阅原文 个人认为作者最后 Hexo 较好的想法有失偏颇，至少其编译速</description>
     </item>
     
+    <item>
+      <title>【转】冯诺依曼体系结构</title>
+      <link>https://ftopia2020.github.io/2020/vonneumann/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/vonneumann/</guid>
+      <description>作者： 李子恒 | 查阅原文 冯·诺依曼体系结构概述 数学家冯·诺依曼提出了计算机制造的三个基本原则（采用二进制、程序存储、顺序执行），以及计算机的五</description>
+    </item>
+    
+    <item>
+      <title>【转】你确定你能记住那么多的Git命令吗？快试试Sourcetree吧</title>
+      <link>https://ftopia2020.github.io/2019/sourcetree/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2019/sourcetree/</guid>
+      <description>作者：邵磊 分布式实验室 2019-11-21 原文链接：https://juejin.im/post/59bc944d51882519777c5e07 /作为使用S</description>
+    </item>
+    
   </channel>
 </rss>

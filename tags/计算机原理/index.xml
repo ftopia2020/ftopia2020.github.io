@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机原理 on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/</link>
+    <description>Recent content in 计算机原理 on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【转】冯诺依曼体系结构</title>
+      <link>https://ftopia2020.github.io/2020/vonneumann/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/vonneumann/</guid>
+      <description>作者： 李子恒 | 查阅原文 冯·诺依曼体系结构概述 数学家冯·诺依曼提出了计算机制造的三个基本原则（采用二进制、程序存储、顺序执行），以及计算机的五</description>
+    </item>
+    
+  </channel>
+</rss>

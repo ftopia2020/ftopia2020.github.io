@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>.gitignore 使用简介</title>
+      <link>https://ftopia2020.github.io/2020/gitignore/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/gitignore/</guid>
+      <description>WHY WHAT HOW git rm与git rm &amp;ndash;cached 当我们需要删除暂存区或分支上的文件, 同时工作区也不需要这个文件了, 可以使用 1 git rm file_path 2 git commit -m &#39;delete somefile&#39; 3 git push 当我们需要删除暂</description>
+    </item>
     
     <item>
       <title>【转】MySQL索引原理及慢查询优化</title>
@@ -57,12 +66,30 @@
     </item>
     
     <item>
+      <title>【转】冯诺依曼体系结构</title>
+      <link>https://ftopia2020.github.io/2020/vonneumann/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/vonneumann/</guid>
+      <description>作者： 李子恒 | 查阅原文 冯·诺依曼体系结构概述 数学家冯·诺依曼提出了计算机制造的三个基本原则（采用二进制、程序存储、顺序执行），以及计算机的五</description>
+    </item>
+    
+    <item>
       <title>Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)</title>
       <link>https://ftopia2020.github.io/2020/homebrew/</link>
       <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2020/homebrew/</guid>
       <description>What Homebrew 简称 brew，是 Mac OSX 上的软件包管理工具，支持在 Mac 中方便的安装软件或者卸载软件，可以说 Homebrew 就是 mac 下的 apt-get、yum神器。 Homebrew 官网：ht</description>
+    </item>
+    
+    <item>
+      <title>【转】你确定你能记住那么多的Git命令吗？快试试Sourcetree吧</title>
+      <link>https://ftopia2020.github.io/2019/sourcetree/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2019/sourcetree/</guid>
+      <description>作者：邵磊 分布式实验室 2019-11-21 原文链接：https://juejin.im/post/59bc944d51882519777c5e07 /作为使用S</description>
     </item>
     
     <item>
