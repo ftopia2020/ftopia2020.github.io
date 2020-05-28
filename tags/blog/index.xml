@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>博客计划</title>
-      <link>https://ftopia2020.github.io/plans-summary/blogplan/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/plans-summary/blogplan/</guid>
-      <description>博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 &amp;amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve</description>
-    </item>
-    
-    <item>
       <title>【转】知乎回答 - 如何开始写技术博客，怎么选择？</title>
       <link>https://ftopia2020.github.io/2020/whichblog/</link>
       <pubDate>Fri, 22 May 2020 00:00:00 +0000</pubDate>

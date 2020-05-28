@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2020/whichblog/" />
-    <link rel="next" href="https://ftopia2020.github.io/2020/slowsqladv/" />
-    <link rel="canonical" href="https://ftopia2020.github.io/2020/blogdate/" />
+    
+    <link rel="next" href="https://ftopia2020.github.io/plans-summary/blogtodo/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/plans-summary/blog_2020/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             【转】Hugo 文章日期设定上的小问题 | Ftopia
+             博客 2020 | Ftopia
          
     </title>
-    <meta name="title" content="【转】Hugo 文章日期设定上的小问题 | Ftopia">
+    <meta name="title" content="博客 2020 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,22 +45,22 @@
          "@type": "WebPage",
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
-    "articleSection" : "posts",
-    "name" : "【转】Hugo 文章日期设定上的小问题",
-    "headline" : "【转】Hugo 文章日期设定上的小问题",
-    "description" : "作者： Steven | 查阅原文 今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。 不过，借助万能的 Goog",
+    "articleSection" : "plans \x26 Summary",
+    "name" : "博客 2020",
+    "headline" : "博客 2020",
+    "description" : "为了增加博客的产出，将计划准备写的记录于此，并总结之前的博客。 From 2020\/01\/01 ~ 2020\/12\/31 To Do 记一个不寻常的 input checkbox 样式调整优化 .gitignore 使用简介 微前端框架探索 有关 HTTPS \x26amp; SS",
     "inLanguage" : "en-us",
-    "author" : "转载",
-    "creator" : "转载",
-    "publisher": "转载",
-    "accountablePerson" : "转载",
-    "copyrightHolder" : "转载",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
     "copyrightYear" : "2020",
-    "datePublished": "2020-05-25 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2020-05-25 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/2020\/blogdate\/",
-    "wordCount" : "389",
-    "keywords" : [ "blog","Hugo","转载", "Ftopia"]
+    "datePublished": "2020-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/plans-summary\/blog_2020\/",
+    "wordCount" : "226",
+    "keywords" : [ "计划", "Ftopia"]
 }
 </script>
 
@@ -73,9 +73,11 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#to-do">To Do</a></li>
+    <li><a href="#done">Done</a>
       <ul>
-        <li><a href="#使用---buildfuture-参数">使用 <code>--buildFuture</code> 参数</a></li>
+        <li><a href="#posts">Posts</a></li>
+        <li><a href="#plans--summaries">Plans &amp; Summaries</a></li>
       </ul>
     </li>
   </ul>
@@ -157,7 +159,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">【转】Hugo 文章日期设定上的小问题</h1>
+        <h1 class="post-title" itemprop="name headline">博客 2020</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -165,16 +167,16 @@
                 
             </span>
             &nbsp;
-            By 转载 ♥
+            By me ♥
             &nbsp;
             <span class="post-time">
                 <i class="far fa-calendar-alt"></i>
-                <time datetime=2020-05-25
+                <time datetime=2020-01-01
                     itemprop="datePublished">
-                    2020-05-25</time>
+                    2020-01-01</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 389 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 226 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
 
@@ -197,38 +199,35 @@
           
 
           <blockquote>
-<p>作者： <a href="https://blog.hly0928.com/">Steven</a>  |  <a href="https://blog.hly0928.com/post/hugo-post-date-issue/">查阅原文</a></p>
+<p>为了增加博客的产出，将计划准备写的记录于此，并总结之前的博客。</p>
+<p>From 2020/01/01 ~ 2020/12/31</p>
 </blockquote>
-<p>今天在用 Hugo 生成静态页面的时候，遇到了一个小问题 —— 文章的发布日期只要标记为今天，就无法生成该页面。</p>
-<p>不过，借助万能的 Google，我还是找到了原因。</p>
-<p>Hugo 在生成静态页面的时候，不会生成超过当前时间的文章；而 Hugo 默认采用的是 <a href="https://zh.wikipedia.org/wiki/%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%E6%A8%99%E6%BA%96%E6%99%82%E9%96%93">格林尼治平时</a> (GMT)，比北京时间 (UTC+8) 晚了 8 个小时。也就是说，当北京时间在 08:00 之前，而你又将文章发布日期设在当天时，Hugo 就默认不会生成这个页面。</p>
-<p>至于解决方案，有两种方法。一是使用 Hugo 的 <code>--buildFuture</code> 参数，二是在文章的 Markdown 文件中指定时区，下文详细解释一下。</p>
-<h3 id="使用---buildfuture-参数">使用 <code>--buildFuture</code> 参数</h3>
-<p>这是比较简单的方式，你只需要在用 Hugo 生成页面时加上 <code>--buildFuture</code> 参数即可：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo --buildFuture
-</code></pre></div><p>用 Hugo 本地服务器预览页面时，也可以使用本参数：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo server --buildFuture
-</code></pre></div><h4 id="指定文章时区">指定文章时区</h4>
-<p>以本文为例，如果不指定时区，那么 Markdown 文件头的格式是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
-...
-date: 2019-05-12
-...
----
-</code></pre></div><p>指定为 UTC+8 时区的写法是：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
-...
-date: 2019-05-12T00:00:00+08:00
-...
----
-</code></pre></div><p>或者也可以用 timezone 指定时区：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">---
-...
-date: 2019-05-12
-timezone: UTC+8
-...
----
-</code></pre></div><p>你可以查看 Hugo 的 <a href="https://gohugo.io/functions/format/">官方文档</a> 了解更多信息。</p>
+<h2 id="to-do">To Do</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 记一个不寻常的 input checkbox 样式调整优化</li>
+<li><input disabled="" type="checkbox"> <a href="/2020/gitignore/">.gitignore 使用简介</a></li>
+<li><input disabled="" type="checkbox"> 微前端框架探索</li>
+<li><input disabled="" type="checkbox"> 有关 HTTPS &amp; SSL证书 的那些事</li>
+<li><input disabled="" type="checkbox"> 【转】【育儿书籍阅读】父母的语言 | 小土刀 2.0</li>
+</ul>
+<hr>
+<h2 id="done">Done</h2>
+<h3 id="posts">Posts</h3>
+<ul>
+<li><a href="/2020/slowsqladv/">【转】MySQL索引原理及慢查询优化</a></li>
+<li><a href="/2020/blogdate/">【转】Hugo 文章日期设定上的小问题</a></li>
+<li><a href="/2020/whichblog/">【转】知乎回答 - 如何开始写技术博客，怎么选择？</a></li>
+<li><a href="/2020/getting-started-with-hugo/">【官】Getting Started with Hugo</a></li>
+<li><a href="/2020/staticblog/">【转】为什么用静态博客</a></li>
+<li><a href="/2020/vonneumann/">【转】冯诺依曼体系结构</a></li>
+<li><a href="/2020/homebrew/">Mac 安装和使用 brew (Homebrew —— Mac 包管理工具)</a></li>
+</ul>
+<h3 id="plans--summaries">Plans &amp; Summaries</h3>
+<ul>
+<li><a href="/plans-summary/blogtodo/">博客 To-Do</a></li>
+<li><a href="/plans-summary/blogplan/">博客计划</a></li>
+<li><a href="/blogdecorate/">博客打造记</a></li>
+</ul>
 
     </div>
 
@@ -243,7 +242,7 @@ timezone: UTC+8
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://ftopia2020.github.io/2020/blogdate/>https://ftopia2020.github.io/2020/blogdate/</span>
+                    <a href=https://ftopia2020.github.io/plans-summary/blog_2020/>https://ftopia2020.github.io/plans-summary/blog_2020/</span>
             </p>
             
              
@@ -259,14 +258,8 @@ timezone: UTC+8
         <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/blog/">
-                    #blog</a></span>
-            
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/hugo/">
-                    #Hugo</a></span>
-            
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
-                    #转载</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%AE%A1%E5%88%92/">
+                    #计划</a></span>
             
         </section>
         
@@ -278,12 +271,9 @@ timezone: UTC+8
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2020/whichblog/" class="prev" rel="prev" title="【转】知乎回答 - 如何开始写技术博客，怎么选择？"><i
-                class="iconfont icon-left"></i>&nbsp;【转】知乎回答 - 如何开始写技术博客，怎么选择？</a>
         
-        
-        <a href="https://ftopia2020.github.io/2020/slowsqladv/" class="next" rel="next"
-            title="【转】MySQL索引原理及慢查询优化">【转】MySQL索引原理及慢查询优化&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://ftopia2020.github.io/plans-summary/blogtodo/" class="next" rel="next"
+            title="博客 To-Do">博客 To-Do&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

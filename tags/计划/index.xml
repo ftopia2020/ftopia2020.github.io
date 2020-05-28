@@ -12,21 +12,21 @@
     
     
     <item>
-      <title>博客 To-Do List</title>
+      <title>博客 To-Do</title>
       <link>https://ftopia2020.github.io/plans-summary/blogtodo/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/plans-summary/blogtodo/</guid>
-      <description>To-Do List 文章类目大体确定 各页部分样式调整 首页置顶文章优化 加入三方评论系统 加入更多社区分享 加入更多功能扩展 类目 格式：{} x {}，目前暂定以下: Web x</description>
+      <description>博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 &amp;amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve</description>
     </item>
     
     <item>
-      <title>博客计划</title>
-      <link>https://ftopia2020.github.io/plans-summary/blogplan/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      <title>博客 2020</title>
+      <link>https://ftopia2020.github.io/plans-summary/blog_2020/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ftopia2020.github.io/plans-summary/blogplan/</guid>
-      <description>博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 &amp;amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve</description>
+      <guid>https://ftopia2020.github.io/plans-summary/blog_2020/</guid>
+      <description>为了增加博客的产出，将计划准备写的记录于此，并总结之前的博客。 From 2020/01/01 ~ 2020/12/31 To Do 记一个不寻常的 input checkbox 样式调整优化 .gitignore 使用简介 微前端框架探索 有关 HTTPS &amp;amp; SS</description>
     </item>
     
   </channel>
