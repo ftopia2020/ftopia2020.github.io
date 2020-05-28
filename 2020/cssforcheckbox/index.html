@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/slowsqladv/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/cssforcheckbox/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             记一次不寻常的 input checkbox 样式调整优化 | Ftopia
+         
+    </title>
+    <meta name="title" content="记一次不寻常的 input checkbox 样式调整优化 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "记一次不寻常的 input checkbox 样式调整优化",
+    "headline" : "记一次不寻常的 input checkbox 样式调整优化",
+    "description" : "WHY 「背景」博客文章支持 - [ ] 渲染为 checkbox，但样式不尽如人意 ↓ （浏览器默认样式，mac 已经不错了，windows 更惨） 查看 html 代码，如",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-28 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-05-28 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/cssforcheckbox\/",
+    "wordCount" : "468",
+    "keywords" : [ "git","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">WHY</a></li>
+    <li><a href="#how">HOW</a></li>
+    <li><a href="#what">WHAT</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">记一次不寻常的 input checkbox 样式调整优化</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-05-28
+                    itemprop="datePublished">
+                    2020-05-28</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 468 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="why">WHY</h2>
+<p>「背景」博客文章支持 <code>- [ ] </code> 渲染为 checkbox，但样式不尽如人意 ↓ （浏览器默认样式，mac 已经不错了，windows 更惨）</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/cssForCheckbox1.png" alt="原 CheckBox 样式" class="lazyload"><figcaption class="image-caption">原 CheckBox 样式</figcaption></figure></p>
+<p>查看 html 代码，如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">ul</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span>&gt; 文章类目大体确定&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span>&gt; 各页部分样式调整&lt;/<span style="color:#f92672">li</span>&gt;
+  &lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span>&gt; 首页置顶文章优化&lt;/<span style="color:#f92672">li</span>&gt;
+   ...
+&lt;/<span style="color:#f92672">ul</span>&gt;
+</code></pre></div><p>通常 <code>input checkbox </code> 优化得有 label 加持从而调整样式（这里并没有），且如何能隐藏父级的 <code>&lt;li&gt; </code>原点呢？（文章主体中的 li 还是希望能以原点形式呈现的）</p>
+<h2 id="how">HOW</h2>
+<p>直接上完成后的样子吧 ~</p>
+<blockquote>
+<p>只关注 chrome 的样式 😂，Firefox IE 可能不一样，会丑</p>
+</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/cssForCheckbox2.png" alt="现样式" class="lazyload"><figcaption class="image-caption">现样式</figcaption></figure></p>
+<p>list-style-type 保留了原有 · ，调整了下颜色，checkbox 做了较大的调整，整体效果本人还是很满意的。</p>
+<blockquote>
+<p>Talk is cheap, show me the code.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">post-warp</span> <span style="color:#f92672">input</span><span style="color:#f92672">[</span><span style="color:#f92672">type</span><span style="color:#f92672">=</span><span style="color:#f92672">checkbox</span><span style="color:#f92672">]</span>:<span style="color:#a6e22e">checked</span> {
+    <span style="color:#66d9ef">content</span>: <span style="color:#66d9ef">none</span>;
+}
+.<span style="color:#a6e22e">post-warp</span> <span style="color:#f92672">input</span><span style="color:#f92672">[</span><span style="color:#f92672">type</span><span style="color:#f92672">=</span><span style="color:#f92672">checkbox</span><span style="color:#f92672">]</span>:<span style="color:#a6e22e">disabled</span> {
+    <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">-2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">-1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">#dd5a5e</span>;
+    <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+    <span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">-9</span><span style="color:#66d9ef">px</span>;
+    <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">transform</span>: rotate(<span style="color:#ae81ff">10</span><span style="color:#66d9ef">deg</span>)scale(<span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">transform</span>: rotate(<span style="color:#ae81ff">10</span><span style="color:#66d9ef">deg</span>)scale(<span style="color:#ae81ff">1</span>);
+}
+.<span style="color:#a6e22e">post-warp</span> <span style="color:#f92672">input</span><span style="color:#f92672">[</span><span style="color:#f92672">type</span><span style="color:#f92672">=</span><span style="color:#f92672">checkbox</span><span style="color:#f92672">]</span>:<span style="color:#a6e22e">checked</span>:<span style="color:#a6e22e">after</span> {
+    <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#34;\2713&#34;</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#dd5a5e</span>;
+    <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bolder</span>;
+}
+</code></pre></div><ul>
+<li>既然改不了父类样式那就藏起来 😏  =》<code>margin-left: 9px</code></li>
+<li>调整 <code>input[type=checkbox]</code>
+<ul>
+<li>伪选择器 <code>:disabled</code> 样式（md 文件渲染出来必为 disabled）⭕️ =》<code>border-radius:50%</code></li>
+<li><code>box-shadow</code> 阴影调整为合适的像素</li>
+<li><code>checkd:after</code> 选中的勾勾也调整下</li>
+</ul>
+</li>
+</ul>
+<p><strong>Done ~</strong></p>
+<h2 id="what">WHAT</h2>
+<p>调整其实不难，重点在于思考 =》样式优化的方式之一：<strong>改不了，藏起来</strong></p>
+
+    </div>
+
+    <div class="post-copyright">
+         
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Faye.Fei </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://ftopia2020.github.io/2020/cssforcheckbox/>https://ftopia2020.github.io/2020/cssforcheckbox/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/git/">
+                    #git</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/slowsqladv/" class="prev" rel="prev" title="【转】MySQL索引原理及慢查询优化"><i
+                class="iconfont icon-left"></i>&nbsp;【转】MySQL索引原理及慢查询优化</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> | </span> 
+         
+
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

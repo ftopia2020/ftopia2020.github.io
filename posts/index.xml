@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>记一次不寻常的 input checkbox 样式调整优化</title>
+      <link>https://ftopia2020.github.io/2020/cssforcheckbox/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/cssforcheckbox/</guid>
+      <description>WHY 「背景」博客文章支持 - [ ] 渲染为 checkbox，但样式不尽如人意 ↓ （浏览器默认样式，mac 已经不错了，windows 更惨） 查看 html 代码，如</description>
+    </item>
     
     <item>
       <title>【转】MySQL索引原理及慢查询优化</title>
