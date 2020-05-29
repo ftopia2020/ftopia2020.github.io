@@ -75,12 +75,12 @@
     </item>
     
     <item>
-      <title>博客 2020</title>
+      <title>博文 2020</title>
       <link>https://ftopia2020.github.io/plans-summary/blog_2020/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/plans-summary/blog_2020/</guid>
-      <description>为了增加博客的产出，将计划准备写的记录于此，并总结之前的博客。 From 2020/01/01 ~ 2020/12/31 To Do 记一次不寻常的 input checkbox 样式调整优化 .gitignore 使用简介 微前端框架探索 有关 HTTPS &amp;amp; SS</description>
+      <description>为了增加博客的产出，将计划准备写的博文标题记录于此，并整理之前的博文目录。 From 2020/01/01 ~ 2020/12/31 To Do 纯 CSS 实现打印机效果 .gitignore 使用简介 微前端框架探索 有关 HTTPS &amp;amp; SS</description>
     </item>
     
   </channel>
