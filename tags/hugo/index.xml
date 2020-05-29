@@ -6,10 +6,19 @@
     <description>Recent content in Hugo on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】Hugo添加Valine评论系统 以LeaveIt主题为例</title>
+      <link>https://ftopia2020.github.io/2020/addvaline/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/addvaline/</guid>
+      <description>作者： Wyane 原文： https://huaien.co/technology/valine-to-hugo-with-leaveit/ 最近将博客的生成器由Hexo转回到Hugo了，在这之后选了一些主题，试过Even,Jane,mainroad等等，最后还是选</description>
+    </item>
     
     <item>
       <title>【转】Hugo 文章日期设定上的小问题</title>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/cssforcheckbox/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/addvaline/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】Hugo添加Valine评论系统 以LeaveIt主题为例 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】Hugo添加Valine评论系统 以LeaveIt主题为例 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】Hugo添加Valine评论系统 以LeaveIt主题为例",
+    "headline" : "【转】Hugo添加Valine评论系统 以LeaveIt主题为例",
+    "description" : "作者： Wyane 原文： https:\/\/huaien.co\/technology\/valine-to-hugo-with-leaveit\/ 最近将博客的生成器由Hexo转回到Hugo了，在这之后选了一些主题，试过Even,Jane,mainroad等等，最后还是选",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-05-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-05-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/addvaline\/",
+    "wordCount" : "1862",
+    "keywords" : [ "blog","Hugo","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#方法1只加入valine">方法1：只加入Valine</a>
+      <ul>
+        <li><a href="#修改站点配置文件">修改站点配置文件</a></li>
+        <li><a href="#2主题的文章页模板添加valine">2.主题的文章页模板添加Valine</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法2同时加入多个评论系统的配置">方法2：同时加入多个评论系统的配置</a>
+      <ul>
+        <li><a href="#1主题模板下新建commentshtml">1.主题模板下新建comments.html</a></li>
+        <li><a href="#2在文章页模板中调用上面新建的评论模板">2.在文章页模板中调用上面新建的评论模板</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考来源">参考来源</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】Hugo添加Valine评论系统 以LeaveIt主题为例</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-05-29
+                    itemprop="datePublished">
+                    2020-05-29</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1862 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者： <a href="https://huaien.co/">Wyane</a></p>
+<p>原文： <a href="https://huaien.co/technology/valine-to-hugo-with-leaveit/">https://huaien.co/technology/valine-to-hugo-with-leaveit/</a></p>
+</blockquote>
+<p>最近将博客的生成器由Hexo转回到Hugo了，在这之后选了一些主题，试过Even,Jane,mainroad等等，最后还是选了v2上有人发布的这个LeaveIt主题。主要是因为这个主题简洁又不缺乏华丽的感觉。不过有点不足的是这个主题并不能直接用评论系统，在查看了相关教程之后，终于添加了原来使用的Valine评论系统。</p>
+<p>今天参考了Even主题和Jane主题的源码，并且看了@5km的教程，尝试了好久，一直无法添加成功，最后在该教程的评论区，有其他人请教了和我一样的主题的问题，最后通过@5km的解答，终于成功实现了Valine评论系统的添加。</p>
+<h2 id="方法1只加入valine">方法1：只加入Valine</h2>
+<p>由于LeaveIt主题并没有自带任何一个评论系统，所以如果只要Valine评论就直接修改下面文件即可。</p>
+<h3 id="修改站点配置文件">修改站点配置文件</h3>
+<p>首先先在站点的配置文件<code>config.toml</code>里面添加下面的配置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">  <span style="color:#75715e"># Valine.</span>
+  <span style="color:#75715e"># You can get your appid and appkey from https://leancloud.cn</span>
+  <span style="color:#75715e"># more info please open https://valine.js.org</span>
+  [<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">valine</span>]
+    <span style="color:#a6e22e">enable</span> = <span style="color:#66d9ef">true</span> <span style="color:#75715e">#开关</span>
+    <span style="color:#a6e22e">appId</span> = <span style="color:#e6db74">&#39;你的appId&#39;</span>
+    <span style="color:#a6e22e">appKey</span> = <span style="color:#e6db74">&#39;你的appKey&#39;</span>
+    <span style="color:#a6e22e">notify</span> = <span style="color:#66d9ef">false</span>  <span style="color:#75715e"># mail notifier , https://github.com/xCss/Valine/wiki</span>
+    <span style="color:#a6e22e">verify</span> = <span style="color:#66d9ef">false</span> <span style="color:#75715e"># Verification code</span>
+    <span style="color:#a6e22e">avatar</span> = <span style="color:#e6db74">&#39;mp&#39;</span> <span style="color:#75715e">#神秘人(一个灰白头像) </span>
+    <span style="color:#a6e22e">placeholder</span> = <span style="color:#e6db74">&#39;说点什么吧...&#39;</span> <span style="color:#75715e">#在评论框显示的温馨提示等</span>
+    <span style="color:#a6e22e">visitor</span> = <span style="color:#66d9ef">true</span> <span style="color:#75715e">#访问量统计</span>
+</code></pre></div><h3 id="2主题的文章页模板添加valine">2.主题的文章页模板添加Valine</h3>
+<p>另外在LeaveIt的主题下的 <code>layouts/_default/single.html</code> 找到第97行的 `` 代码块中的判断Disqus略称后的 <code>{{ end }}</code> 后面，插入Valine代码，插入后的效果如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-comment&#34;</span>&gt;
+       {{ if ( .Params.showComments | default true ) }}
+             {{ if ne .Site.DisqusShortname &#34;&#34; }}
+                 {{ template &#34;_internal/disqus.html&#34; . }}
+             {{ end }}
+             <span style="color:#75715e">&lt;!-- valine --&gt;</span>
+             {{- if .Site.Params.valine.enable -}}
+             <span style="color:#75715e">&lt;!-- id 将作为查询条件 --&gt;</span>
+             &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL | relURL }}&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;leancloud_visitors&#34;</span> <span style="color:#a6e22e">data-flag-title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Title }}&#34;</span>&gt;
+                 &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-meta-item-text&#34;</span>&gt;访问量 &lt;/<span style="color:#f92672">span</span>&gt;
+                 &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;leancloud-visitors-count&#34;</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+                 &lt;<span style="color:#f92672">p</span>&gt;&lt;/<span style="color:#f92672">p</span>&gt;
+             &lt;/<span style="color:#f92672">span</span>&gt;
+             &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vcomments&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+             &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn1.lncld.net/static/js/3.0.4/av-min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+             &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;//unpkg.com/valine/dist/Valine.min.js&#39;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+             &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+                 <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Valine</span>({
+                     <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#vcomments&#39;</span> ,
+                     <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appId }}&#39;</span>,
+                     <span style="color:#a6e22e">appKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appKey }}&#39;</span>,
+                     <span style="color:#a6e22e">notify</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">notify</span> }},
+                     <span style="color:#a6e22e">verify</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">verify</span> }},
+                     <span style="color:#a6e22e">avatar</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;{{ .Site.Params.valine.avatar }}&#39;</span>,
+                     <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.placeholder }}&#39;</span>,
+                     <span style="color:#a6e22e">visitor</span><span style="color:#f92672">:</span> {{ .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">visitor</span> }}
+                 });
+             &lt;/<span style="color:#f92672">script</span>&gt;
+             {{- end }}
+       {{ end }}
+ &lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>其实这样已经可以实现了。回到博客文章下方就可以看到已经显示出来了。当然前提是你已经配置好过Valine了，就是在Leancloud上注册等等。相关可以查看<a href="https://valine.js.org/quickstart.html">Valine官方文档</a>。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ww1.sinaimg.cn/large/007i4MEmgy1g27o6azai0j30m30dzweo.jpg" alt="Valine已经可以用了" class="lazyload"><figcaption class="image-caption">Valine已经可以用了</figcaption></figure>Valine已经可以用了</p>
+<h2 id="方法2同时加入多个评论系统的配置">方法2：同时加入多个评论系统的配置</h2>
+<p>这样是很多主题的做法，为了方便切换评论系统直接内置多个评论系统，这样做的话可以直接在站点配置文件里面修改即可使用。</p>
+<h3 id="1主题模板下新建commentshtml">1.主题模板下新建comments.html</h3>
+<p>在LeaveIt主题的/themes/LeaveIt/layouts/partials下新建comments.html模板（如有，则不需新建，直接修改内容即可。）在comments.html里面添加下面的内容。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#a6e22e">if</span> <span style="color:#a6e22e">and</span> .<span style="color:#a6e22e">IsPage</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">ne</span> .<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">comment</span> <span style="color:#66d9ef">false</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">-}}</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;!--</span> <span style="color:#a6e22e">valine</span> <span style="color:#960050;background-color:#1e0010">--&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">{{-</span> <span style="color:#a6e22e">if</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">enable</span> <span style="color:#960050;background-color:#1e0010">-}}</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;!--</span> <span style="color:#a6e22e">id</span> <span style="color:#a6e22e">将作为查询条件</span> <span style="color:#960050;background-color:#1e0010">--&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">id</span>=<span style="color:#e6db74">&#34;{{ .URL | relURL }}&#34;</span> <span style="color:#a6e22e">class</span>=<span style="color:#e6db74">&#34;leancloud_visitors&#34;</span> <span style="color:#a6e22e">data</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">flag</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">title</span>=<span style="color:#e6db74">&#34;{{ .Title }}&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">class</span>=<span style="color:#e6db74">&#34;post-meta-item-text&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;</span><span style="color:#a6e22e">阅读量</span> <span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">span</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">class</span>=<span style="color:#e6db74">&#34;leancloud-visitors-count&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;/</span><span style="color:#a6e22e">span</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;/</span><span style="color:#a6e22e">p</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">span</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span>=<span style="color:#e6db74">&#34;vcomments&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span>=<span style="color:#e6db74">&#34;//cdn1.lncld.net/static/js/3.0.4/av-min.js&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;/</span><span style="color:#a6e22e">script</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">src</span>=<span style="color:#e6db74">&#39;//unpkg.com/valine/dist/Valine.min.js&#39;</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;/</span><span style="color:#a6e22e">script</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">type</span>=<span style="color:#e6db74">&#34;text/javascript&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+    <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">Valine</span><span style="color:#960050;background-color:#1e0010">({</span>
+        <span style="color:#a6e22e">el</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#39;#vcomments&#39;</span> ,
+        <span style="color:#a6e22e">appId</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appId }}&#39;</span>,
+        <span style="color:#a6e22e">appKey</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appKey }}&#39;</span>,
+        <span style="color:#a6e22e">notify</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">notify</span> <span style="color:#960050;background-color:#1e0010">}}</span>, 
+        <span style="color:#a6e22e">verify</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">valine</span>.<span style="color:#a6e22e">verify</span> <span style="color:#960050;background-color:#1e0010">}}</span>, 
+        <span style="color:#a6e22e">avatar</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#e6db74">&#39;{{ .Site.Params.valine.avatar }}&#39;</span>, 
+        <span style="color:#a6e22e">placeholder</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.placeholder }}&#39;</span>,
+        <span style="color:#a6e22e">visitor</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.visitor }}&#39;</span>
+    <span style="color:#960050;background-color:#1e0010">});</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">script</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">{{-</span> <span style="color:#a6e22e">end</span> <span style="color:#960050;background-color:#1e0010">}}</span>
+  <span style="color:#960050;background-color:#1e0010">&lt;!--</span> <span style="color:#a6e22e">Disqus</span> <span style="color:#960050;background-color:#1e0010">--&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">{{-</span> <span style="color:#a6e22e">if</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">DisqusShortname</span> <span style="color:#960050;background-color:#1e0010">-}}</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">id</span>=<span style="color:#e6db74">&#34;disqus_thread&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;/</span><span style="color:#a6e22e">div</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">type</span>=<span style="color:#e6db74">&#34;text/javascript&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+    <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">function</span><span style="color:#960050;background-color:#1e0010">()</span> <span style="color:#960050;background-color:#1e0010">{</span>
+      <span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#a6e22e">Don</span><span style="color:#e6db74">&#39;t ever inject Disqus on localhost--it creates unwanted
+</span><span style="color:#e6db74">      // discussions from &#39;</span><span style="color:#a6e22e">localhost</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">1313</span><span style="color:#e6db74">&#39; on your Disqus account...
+</span><span style="color:#e6db74">      if (window.location.hostname === &#39;</span><span style="color:#a6e22e">localhost</span><span style="color:#e6db74">&#39;) return;
+</span><span style="color:#e6db74">      var dsq = document.createElement(&#39;</span><span style="color:#a6e22e">script</span><span style="color:#e6db74">&#39;); dsq.type = &#39;</span><span style="color:#a6e22e">text</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">javascript</span><span style="color:#e6db74">&#39;; dsq.async = true;
+</span><span style="color:#e6db74">      var disqus_shortname = &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">DisqusShortname</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;;
+</span><span style="color:#e6db74">      dsq.src = &#39;</span><span style="color:#960050;background-color:#1e0010">//</span><span style="color:#e6db74">&#39; + disqus_shortname + &#39;</span>.<span style="color:#a6e22e">disqus</span>.<span style="color:#a6e22e">com</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">embed</span>.<span style="color:#a6e22e">js</span><span style="color:#e6db74">&#39;;
+</span><span style="color:#e6db74">      (document.getElementsByTagName(&#39;</span><span style="color:#a6e22e">head</span><span style="color:#e6db74">&#39;)[0] || document.getElementsByTagName(&#39;</span><span style="color:#a6e22e">body</span><span style="color:#e6db74">&#39;)[0]).appendChild(dsq);
+</span><span style="color:#e6db74">    })();
+</span><span style="color:#e6db74">    &lt;/script&gt;
+</span><span style="color:#e6db74">    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&#34;http://disqus.com/?ref_noscript&#34;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+</span><span style="color:#e6db74">  {{- end -}}
+</span><span style="color:#e6db74">  &lt;!-- changyan --&gt;
+</span><span style="color:#e6db74">  {{- if and .Site.Params.changyanAppid .Site.Params.changyanAppkey -}}
+</span><span style="color:#e6db74">    &lt;div id=&#34;SOHUCS&#34; sid=&#34;{{ .URL }}&#34;&gt;&lt;/div&gt;
+</span><span style="color:#e6db74">    &lt;script type=&#34;text/javascript&#34;&gt;
+</span><span style="color:#e6db74">    (function(){
+</span><span style="color:#e6db74">      if (window.location.hostname === &#39;</span><span style="color:#a6e22e">localhost</span><span style="color:#e6db74">&#39;) return;
+</span><span style="color:#e6db74">      var appid = &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">changyanAppid</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;;
+</span><span style="color:#e6db74">      var conf = &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">changyanAppkey</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;;
+</span><span style="color:#e6db74">      var width = window.innerWidth || document.documentElement.clientWidth; 
+</span><span style="color:#e6db74">      if (width &lt; 960) {window.document.write(&#39;</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">id</span>=<span style="color:#e6db74">&#34;changyan_mobile_js&#34;</span> <span style="color:#a6e22e">charset</span>=<span style="color:#e6db74">&#34;utf-8&#34;</span> <span style="color:#a6e22e">type</span>=<span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">src</span>=<span style="color:#e6db74">&#34;https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=&#39; + appid + &#39;&amp;conf=&#39; + conf + &#39;&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;\/</span><span style="color:#a6e22e">script</span><span style="color:#960050;background-color:#1e0010">&gt;</span><span style="color:#e6db74">&#39;); } else { var loadJs=function(d,a){var c=document.getElementsByTagName(&#34;head&#34;)[0]||document.head||document.documentElement;var b=document.createElement(&#34;script&#34;);b.setAttribute(&#34;type&#34;,&#34;text/javascript&#34;);b.setAttribute(&#34;charset&#34;,&#34;UTF-8&#34;);b.setAttribute(&#34;src&#34;,d);if(typeof a===&#34;function&#34;){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e===&#34;loaded&#34;||e===&#34;complete&#34;){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs(&#34;https://changyan.sohu.com/upload/changyan.js&#34;,function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+</span><span style="color:#e6db74">    })();
+</span><span style="color:#e6db74">    &lt;/script&gt;
+</span><span style="color:#e6db74">  {{- end -}}
+</span><span style="color:#e6db74">  &lt;!-- LiveRe --&gt;
+</span><span style="color:#e6db74">  {{- if .Site.Params.livereUID -}}
+</span><span style="color:#e6db74">    &lt;div id=&#34;lv-container&#34; data-id=&#34;city&#34; data-uid=&#34;{{ .Site.Params.livereUID }}&#34;&gt;
+</span><span style="color:#e6db74">    &lt;script type=&#34;text/javascript&#34;&gt;
+</span><span style="color:#e6db74">      (function(d, s) {
+</span><span style="color:#e6db74">        var j, e = d.getElementsByTagName(s)[0];
+</span><span style="color:#e6db74">        if (typeof LivereTower === &#39;</span><span style="color:#a6e22e">function</span><span style="color:#e6db74">&#39;) { return; }
+</span><span style="color:#e6db74">        j = d.createElement(s);
+</span><span style="color:#e6db74">        j.src = &#39;</span><span style="color:#a6e22e">https</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">cdn</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">city</span>.<span style="color:#a6e22e">livere</span>.<span style="color:#a6e22e">com</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">js</span><span style="color:#960050;background-color:#1e0010">/</span><span style="color:#a6e22e">embed</span>.<span style="color:#a6e22e">dist</span>.<span style="color:#a6e22e">js</span><span style="color:#e6db74">&#39;;
+</span><span style="color:#e6db74">        j.async = true;
+</span><span style="color:#e6db74">        e.parentNode.insertBefore(j, e);
+</span><span style="color:#e6db74">      })(document, &#39;</span><span style="color:#a6e22e">script</span><span style="color:#e6db74">&#39;);
+</span><span style="color:#e6db74">    &lt;/script&gt;
+</span><span style="color:#e6db74">    &lt;noscript&gt;Please enable JavaScript to view the comments powered by &lt;a href=&#34;https://livere.com/&#34;&gt;LiveRe.&lt;/a&gt;&lt;/noscript&gt;
+</span><span style="color:#e6db74">    &lt;/div&gt;
+</span><span style="color:#e6db74">  {{- end -}}
+</span><span style="color:#e6db74">  &lt;!-- gitment --&gt;
+</span><span style="color:#e6db74">  {{- if .Site.Params.gitment.owner -}}
+</span><span style="color:#e6db74">    &lt;div id=&#34;comments-gitment&#34;&gt;&lt;/div&gt;
+</span><span style="color:#e6db74">    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css&#34; crossorigin=&#34;anonymous&#34;&gt;
+</span><span style="color:#e6db74">    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+</span><span style="color:#e6db74">    &lt;script type=&#34;text/javascript&#34;&gt;
+</span><span style="color:#e6db74">      var gitment = new Gitment({
+</span><span style="color:#e6db74">        id: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Date</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        title: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Title</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        link: decodeURI(location.href),
+</span><span style="color:#e6db74">        desc: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Summary</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        owner: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitment</span>.<span style="color:#a6e22e">owner</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        repo: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitment</span>.<span style="color:#a6e22e">repo</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        oauth: {
+</span><span style="color:#e6db74">          client_id: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitment</span>.<span style="color:#a6e22e">clientId</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">          client_secret: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitment</span>.<span style="color:#a6e22e">clientSecret</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">        }
+</span><span style="color:#e6db74">      });
+</span><span style="color:#e6db74">      gitment.render(&#39;</span><span style="color:#a6e22e">comments</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">gitment</span><span style="color:#e6db74">&#39;);
+</span><span style="color:#e6db74">    &lt;/script&gt;
+</span><span style="color:#e6db74">    &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&#34;https://github.com/imsun/gitment&#34;&gt;comments powered by gitment.&lt;/a&gt;&lt;/noscript&gt;
+</span><span style="color:#e6db74">  {{- end -}}
+</span><span style="color:#e6db74">  &lt;!-- gitalk --&gt;
+</span><span style="color:#e6db74">  {{- if .Site.Params.gitalk.owner -}}
+</span><span style="color:#e6db74">    &lt;div id=&#34;gitalk-container&#34;&gt;&lt;/div&gt;
+</span><span style="color:#e6db74">    &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&#34; crossorigin=&#34;anonymous&#34;&gt;
+</span><span style="color:#e6db74">    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&#34; crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+</span><span style="color:#e6db74">    &lt;script type=&#34;text/javascript&#34;&gt;
+</span><span style="color:#e6db74">      var gitalk = new Gitalk({
+</span><span style="color:#e6db74">        id: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Date</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        title: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Title</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        clientID: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitalk</span>.<span style="color:#a6e22e">clientId</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        clientSecret: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitalk</span>.<span style="color:#a6e22e">clientSecret</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        repo: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitalk</span>.<span style="color:#a6e22e">repo</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        owner: &#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitalk</span>.<span style="color:#a6e22e">owner</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;,
+</span><span style="color:#e6db74">        admin: [&#39;</span><span style="color:#960050;background-color:#1e0010">{{</span> .<span style="color:#a6e22e">Site</span>.<span style="color:#a6e22e">Params</span>.<span style="color:#a6e22e">gitalk</span>.<span style="color:#a6e22e">owner</span> <span style="color:#960050;background-color:#1e0010">}}</span><span style="color:#e6db74">&#39;],
+</span><span style="color:#e6db74">        body: decodeURI(location.href)
+</span><span style="color:#e6db74">      });
+</span><span style="color:#e6db74">      gitalk.render(&#39;</span><span style="color:#a6e22e">gitalk</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">container</span><span style="color:#960050;background-color:#1e0010">&#39;);</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">script</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+    <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">noscript</span><span style="color:#960050;background-color:#1e0010">&gt;</span><span style="color:#a6e22e">Please</span> <span style="color:#a6e22e">enable</span> <span style="color:#a6e22e">JavaScript</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">view</span> <span style="color:#a6e22e">the</span> <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">a</span> <span style="color:#a6e22e">href</span>=<span style="color:#e6db74">&#34;https://github.com/gitalk/gitalk&#34;</span><span style="color:#960050;background-color:#1e0010">&gt;</span><span style="color:#a6e22e">comments</span> <span style="color:#a6e22e">powered</span> <span style="color:#a6e22e">by</span> <span style="color:#a6e22e">gitalk</span>.<span style="color:#960050;background-color:#1e0010">&lt;/</span><span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">&gt;&lt;/</span><span style="color:#a6e22e">noscript</span><span style="color:#960050;background-color:#1e0010">&gt;</span>
+  <span style="color:#960050;background-color:#1e0010">{{-</span> <span style="color:#a6e22e">end</span> <span style="color:#960050;background-color:#1e0010">}}</span>
+ 
+ <span style="color:#960050;background-color:#1e0010">{{-</span> <span style="color:#a6e22e">end</span> <span style="color:#960050;background-color:#1e0010">}}</span>
+</code></pre></div><h3 id="2在文章页模板中调用上面新建的评论模板">2.在文章页模板中调用上面新建的评论模板</h3>
+<p>例如本站用的LeaveIt主题是在<code>layouts/_default/single.html</code> 找到第97行的`` 代码块中的判断Disqus略称后的 <code>{{ end }}</code>后面，插入调用代码。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ partial &#34;comments.html&#34; . }}
+</code></pre></div><p>其实就是方法1的第二步，只是方法一是直接将评论代码加到文章页模板中，而这个是将评论代码统统放在comments.html模板下，再在文章页模板通过代码调用这个comments.html，只要站点配置文件config.toml里面存在相关开关配置，则评论系统就会被正常调用。</p>
+<p>方法二参考的是其他的主题Even等，Valine评论系统是可以正常被调用，但是其他的没有测试过。</p>
+<h2 id="参考来源">参考来源</h2>
+<p><a href="https://www.smslit.top/2018/07/08/hugo-valine/">hugo博客添加评论系统Valine</a></p>
+<p><a href="https://valine.js.org/quickstart.html">Valine官方文档</a></p>
+<p><a href="https://huaien.co/">Wyane</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/addvaline/>https://ftopia2020.github.io/2020/addvaline/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/blog/">
+                    #blog</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/hugo/">
+                    #Hugo</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/cssforcheckbox/" class="prev" rel="prev" title="记一次不寻常的 input checkbox 样式调整优化"><i
+                class="iconfont icon-left"></i>&nbsp;记一次不寻常的 input checkbox 样式调整优化</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
