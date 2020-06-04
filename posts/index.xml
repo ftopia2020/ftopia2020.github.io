@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>纯 CSS3 实现打字/输入的效果</title>
+      <link>https://ftopia2020.github.io/2020/cssforprinter/</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/cssforprinter/</guid>
+      <description>WHAT 若在网页总实现打字/输入效果，可使用纯CSS的方式实现，不多说，动图效果如下： 适用场景：页面中希望被注意的文字，标题、引文、博客标语等；H</description>
+    </item>
     
     <item>
       <title>【转】Hugo添加Valine评论系统 以LeaveIt主题为例</title>

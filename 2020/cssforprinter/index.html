@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/plans-summary/blog_2020/" />
+    <link rel="prev" href="https://ftopia2020.github.io/2020/addvaline/" />
     
-    <link rel="canonical" href="https://ftopia2020.github.io/plans-summary/blogtodo/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/cssforprinter/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             博客 To-Do | Ftopia
+             纯 CSS3 实现打字/输入的效果 | Ftopia
          
     </title>
-    <meta name="title" content="博客 To-Do | Ftopia">
+    <meta name="title" content="纯 CSS3 实现打字/输入的效果 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -45,10 +45,10 @@
          "@type": "WebPage",
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
-    "articleSection" : "plans \x26 Summary",
-    "name" : "博客 To-Do",
-    "headline" : "博客 To-Do",
-    "description" : "博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 \x26amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve",
+    "articleSection" : "posts",
+    "name" : "纯 CSS3 实现打字\/输入的效果",
+    "headline" : "纯 CSS3 实现打字\/输入的效果",
+    "description" : "WHAT 若在网页总实现打字\/输入效果，可使用纯CSS的方式实现，不多说，动图效果如下： 适用场景：页面中希望被注意的文字，标题、引文、博客标语等；H",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -56,11 +56,11 @@
     "accountablePerson" : "me",
     "copyrightHolder" : "me",
     "copyrightYear" : "2020",
-    "datePublished": "2020-05-26 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2020-05-26 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/plans-summary\/blogtodo\/",
-    "wordCount" : "402",
-    "keywords" : [ "计划", "Ftopia"]
+    "datePublished": "2020-06-04 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-06-04 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/cssforprinter\/",
+    "wordCount" : "539",
+    "keywords" : [ "CSS3","animation","原创", "Ftopia"]
 }
 </script>
 
@@ -73,16 +73,11 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#记录--整理">记录 &amp; 整理</a></li>
-    <li><a href="#更新--扩展">更新 &amp; 扩展</a></li>
-    <li><a href="#to-do-list">To-Do List</a>
+    <li><a href="#what">WHAT</a></li>
+    <li><a href="#how">HOW</a>
       <ul>
-        <li><a href="#类目">类目</a></li>
-        <li><a href="#样式">样式</a></li>
-        <li><a href="#首页">首页</a></li>
-        <li><a href="#评论">评论</a></li>
-        <li><a href="#分享">分享</a></li>
-        <li><a href="#扩展">扩展</a></li>
+        <li><a href="#代码实现">代码实现</a></li>
+        <li><a href="#扩展应用">扩展应用</a></li>
       </ul>
     </li>
   </ul>
@@ -164,7 +159,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">博客 To-Do</h1>
+        <h1 class="post-title" itemprop="name headline">纯 CSS3 实现打字/输入的效果</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -176,14 +171,14 @@
             &nbsp;
             <span class="post-time">
                 <i class="far fa-calendar-alt"></i>
-                <time datetime=2020-05-26
+                <time datetime=2020-06-04
                     itemprop="datePublished">
-                    2020-05-26</time>
+                    2020-06-04</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 402 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 539 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
         </div>
     </header>
@@ -205,72 +200,62 @@
         
         
 
-        <blockquote>
-<p>博客重建已完成，然重要的是<strong>内容</strong>，梳理下后期如何维护博客吧 ~</p>
+        <h2 id="what">WHAT</h2>
+<p>若在网页总实现打字/输入效果，可使用纯CSS的方式实现，不多说，动图效果如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/cssForPrinter.gif" alt="cssForPrinter" class="lazyload"><figcaption class="image-caption">cssForPrinter</figcaption></figure></p>
+<p>适用场景：页面中希望被注意的文字，标题、引文、博客标语等；HTML5 中炫酷的打字效果实现 ~</p>
+<h2 id="how">HOW</h2>
+<blockquote>
+<p>参考文章： <a href="https://www.zhangxinxu.com/wordpress/2019/01/css-typewriter-effect/">小tips: 纯CSS实现打字动画效果 By 张鑫旭</a></p>
+<p>Talk is cheap. Show me the code.  不想看文章的直接  →_→   <a href="https://codesandbox.io/s/css-for-typing-l652n?file=/index.css">CodeSandBox Example</a></p>
 </blockquote>
-<h2 id="记录--整理">记录 &amp; 整理</h2>
+<h3 id="代码实现">代码实现</h3>
+<p>示例中区分了纯中文 &amp; 中英文混合两种，原因在于中英文（符号）的字符宽度不同，中英文混合的代码参考如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;typing-e&#34;</span>&gt;中英文 Printer 效果，字符宽度 18.5&lt;/<span style="color:#f92672">p</span>&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">typing-e</span> {
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">18.5</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">1.25</span><span style="color:#66d9ef">em</span>;
+  <span style="color:#66d9ef">border-right</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">transparent</span>;
+  <span style="color:#66d9ef">animation</span>: typing-e <span style="color:#ae81ff">3.5</span><span style="color:#66d9ef">s</span> steps(<span style="color:#ae81ff">37</span>, <span style="color:#66d9ef">end</span>), <span style="color:#66d9ef">blink</span><span style="color:#f92672">-</span><span style="color:#66d9ef">caret</span> <span style="color:#ae81ff">0.75</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">step-end</span> <span style="color:#66d9ef">infinite</span>;
+  <span style="color:#66d9ef">font-family</span>: Consolas, Monaco;
+  <span style="color:#66d9ef">word-break</span>: break-all;
+  <span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;
+}
+
+@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">typing-e</span> {
+  <span style="color:#f92672">from</span> {
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">0</span>;
+  }
+  <span style="color:#f92672">to</span> {
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">18.5</span><span style="color:#66d9ef">em</span>;
+  }
+}
+
+@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">blink-caret</span> {
+  <span style="color:#f92672">from</span><span style="color:#f92672">,</span>
+  <span style="color:#f92672">to</span> {
+    <span style="color:#66d9ef">border-color</span>: <span style="color:#66d9ef">transparent</span>;
+  }
+  <span style="color:#f92672">50</span><span style="color:#f92672">%</span> {
+    <span style="color:#66d9ef">border-color</span>: <span style="color:#66d9ef">currentColor</span>;
+  }
+}
+
+</code></pre></div><p>可以看出实现还是相对简单的，纯 CSS 实现需要定下字符宽度（示例中为 18.5em）。</p>
+<p>原理？通过改变容器宽度实现，border-right 实现光标样式，加之 CSS3 animation 的动画实现效果。</p>
+<p>列出相关的技术点：</p>
 <ul>
-<li>文档：Typora 直接记录<code>.md</code> 文件，文件夹目录整理即可</li>
-<li>预览：<code>hugo serve</code>  本地预览</li>
-<li>部署：脚本部署，多端同步</li>
-<li>其他：类目精简，信息精准</li>
+<li><code>font-family: Consolas, Monaco;</code>  等宽字体便于宽度计算</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation">animation</a>  <code>&lt;step-timing-function&gt;</code> 方式实现</li>
 </ul>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/blogPlan1.png" alt="记录文档方式" class="lazyload"><figcaption class="image-caption">记录文档方式</figcaption></figure></p>
-<h2 id="更新--扩展">更新 &amp; 扩展</h2>
-<ul>
-<li>每周至少 <strong>1 + 1</strong> （原创 + 转载）</li>
-<li>转载标题加【转】，官方文档 +【官】；tags 加入 <code>原创</code> 和 <code>转载</code> 区分及统计</li>
-<li>站点功能扩展提上日程，核心目标：
-<ul>
-<li>自己有用</li>
-<li>利于他人</li>
+<pre><code>&lt;step-timing-function&gt; = step-start | step-end | steps(&lt;integer&gt;[, &lt;step-position&gt;]?)
+</code></pre><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@keyframes">@keyframes 关键帧</a> 实现改变容器宽度 &amp; 边框颜色渐变</li>
 </ul>
-</li>
-<li>具体记录于下方</li>
-</ul>
-<h2 id="to-do-list">To-Do List</h2>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 文章类目大体确定</li>
-<li><input checked="" disabled="" type="checkbox"> 各页部分样式调整</li>
-<li><input disabled="" type="checkbox"> 首页置顶文章优化</li>
-<li><input checked="" disabled="" type="checkbox"> 加入三方评论系统</li>
-<li><input disabled="" type="checkbox"> 加入更多社区分享</li>
-<li><input disabled="" type="checkbox"> 加入更多功能扩展</li>
-</ul>
-<p><strong>小功能优化：</strong></p>
-<ul>
-<li><input disabled="" type="checkbox"> 文章内部链接新窗口打开</li>
-</ul>
-<h3 id="类目">类目</h3>
-<p>格式：{} x {}，目前暂定以下:</p>
-<ul>
-<li>Web x 开发</li>
-<li>效率 x 学习</li>
-<li>博客 x 个人</li>
-<li>育儿 x 早教</li>
-</ul>
-<h3 id="样式">样式</h3>
-<p>大致列出更改项：</p>
-<ul>
-<li>header: favicon；样式; 主题切换按钮</li>
-<li>single: 文章信息；目录样式</li>
-<li>others: 主要是一些间距调整</li>
-</ul>
-<h3 id="首页">首页</h3>
-<p>To-Do</p>
-<h3 id="评论">评论</h3>
-<ul>
-<li>目前仅加入 <a href="https://valine.js.org/">Valine</a> 三方评论</li>
-<li>参考文档：<a href="/2020/addvaline/">【转】Hugo添加Valine评论系统 以LeaveIt主题为例</a></li>
-</ul>
-<h3 id="分享">分享</h3>
-<p>To-Do</p>
-<h3 id="扩展">扩展</h3>
-<ul>
-<li><input disabled="" type="checkbox"> 全站搜索</li>
-<li><input disabled="" type="checkbox"> 站点统计</li>
-<li><input disabled="" type="checkbox"> 专栏系列</li>
-</ul>
+<h3 id="扩展应用">扩展应用</h3>
+<p>上述仅仅是实现了<strong>单行定宽</strong>文字的效果，可考虑研究下多行的效果呈现（如古诗词、名人名言等 ✨）</p>
+<p>配合 JS、Less 等可实现较为通用的方式/方法（不用确认宽度，自动计算）</p>
+<p>如需更炫酷，可考虑加文字变大 or 色彩动画等（但觉得可能会过犹不及）</p>
 
     </div>
 
@@ -285,7 +270,7 @@
         
         <p class="copyright-item">
             <span>Link:</span>
-            <a href=https://ftopia2020.github.io/plans-summary/blogtodo/>https://ftopia2020.github.io/plans-summary/blogtodo/</span>
+            <a href=https://ftopia2020.github.io/2020/cssforprinter/>https://ftopia2020.github.io/2020/cssforprinter/</span>
         </p>
         
         
@@ -301,8 +286,14 @@
         <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%AE%A1%E5%88%92/">
-                    #计划</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/css3/">
+                    #CSS3</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/animation/">
+                    #animation</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
             
         </section>
         
@@ -314,8 +305,8 @@
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/plans-summary/blog_2020/" class="prev" rel="prev" title="博文 2020"><i
-                class="iconfont icon-left"></i>&nbsp;博文 2020</a>
+        <a href="https://ftopia2020.github.io/2020/addvaline/" class="prev" rel="prev" title="【转】Hugo添加Valine评论系统 以LeaveIt主题为例"><i
+                class="iconfont icon-left"></i>&nbsp;【转】Hugo添加Valine评论系统 以LeaveIt主题为例</a>
         
         
     </div>
@@ -324,7 +315,7 @@
         
         
         
-        <span id="/plans-summary/blogtodo/" class="leancloud_visitors" data-flag-title="博客 To-Do">
+        <span id="/2020/cssforprinter/" class="leancloud_visitors" data-flag-title="纯 CSS3 实现打字/输入的效果">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>
