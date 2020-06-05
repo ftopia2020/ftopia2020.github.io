@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/cssforprinter/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/hugoaddcomment/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索",
+    "headline" : "【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索",
+    "description" : "作者： ZhaoQiang | 查阅原文 前言 很多的 Hugo 主题是没有自带搜索功能的，但是们为了方便用户浏览和查找内容是需要在网站上提供搜索功能。大家可以查看 Hugo 官方推荐的",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-06-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-06-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/hugoaddcomment\/",
+    "wordCount" : "1574",
+    "keywords" : [ "blog","Hugo","Algolia","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#在algolia-端创建应用和索引">在Algolia 端创建应用和索引</a>
+      <ul>
+        <li><a href="#application">Application</a></li>
+        <li><a href="#indices--index">Indices &amp; Index</a></li>
+        <li><a href="#api-keys">API Keys</a></li>
+      </ul>
+    </li>
+    <li><a href="#在本地生成索引">在本地生成索引</a>
+      <ul>
+        <li><a href="#configyaml">config.yaml</a></li>
+        <li><a href="#hugo-aligolia">hugo-aligolia</a></li>
+      </ul>
+    </li>
+    <li><a href="#页面展示">页面展示</a>
+      <ul>
+        <li><a href="#新建searchhtml">新建search.html</a></li>
+        <li><a href="#添加searchjs">添加search.js</a></li>
+        <li><a href="#添加searchcss文件">添加search.css文件</a></li>
+        <li><a href="#在baseofhtml中添加代码">在baseof.html中添加代码</a></li>
+        <li><a href="#引用css文件和js文件">引用css文件和js文件</a></li>
+        <li><a href="#添加锚点">添加锚点</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-06-05
+                    itemprop="datePublished">
+                    2020-06-05</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1574 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者： <a href="https://www.nashome.cn/">ZhaoQiang </a>  |  <a href="https://www.nashome.cn/post/hugo-algolia/">查阅原文</a></p>
+</blockquote>
+<h2 id="前言">前言</h2>
+<p>很多的 <code>Hugo</code> 主题是没有自带搜索功能的，但是们为了方便用户浏览和查找内容是需要在网站上提供搜索功能。大家可以查看 <a href="https://gohugo.io/tools/search/">Hugo 官方推荐的搜索方案</a> ，这里我选择的是 <a href="https://www.algolia.com/">Algolia</a> ， 折腾了很久，主题也从<code>EVEN</code>更新到了现在的<code>LOVEIT</code>，发现也并非很繁琐，以下是折腾后的成果。</p>
+<h2 id="在algolia-端创建应用和索引">在Algolia 端创建应用和索引</h2>
+<h3 id="application">Application</h3>
+<p>点击<strong>NEW APPLICATION</strong>，<strong>Name</strong>可选，方案选择<strong>FREE</strong>，然后创建，随后的地区选择邻近地区即可；</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://nashome-image-bucket.oss-accelerate.aliyuncs.com/Images/Algolia/1.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<h3 id="indices--index">Indices &amp; Index</h3>
+<p>点击侧栏的<strong>Indices</strong>，然后点击<strong>Create Index</strong>，<strong>Index name</strong>自定义（例如自己的域名）</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://nashome-image-bucket.oss-accelerate.aliyuncs.com/Images/Algolia/0.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://nashome-image-bucket.oss-accelerate.aliyuncs.com/Images/Algolia/2.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<h3 id="api-keys">API Keys</h3>
+<p>点击侧栏<strong>API Keys</strong>，记住以下的 <strong>Keys</strong>，之后都会用到；</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://nashome-image-bucket.oss-accelerate.aliyuncs.com/Images/Algolia/3.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<h2 id="在本地生成索引">在本地生成索引</h2>
+<h3 id="configyaml">config.yaml</h3>
+<p>在<code>themes</code>同级添加<code>config.yaml</code>文件,注意这里的<code>key</code>是<strong>Admin API Key</strong>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
+<span style="color:#66d9ef">baseurl</span>: <span style="color:#e6db74">&#34;https://www.nashome.cn/&#34;</span>
+<span style="color:#66d9ef">DefaultContentLanguage</span>: <span style="color:#e6db74">&#34;zh-cn&#34;</span>
+<span style="color:#66d9ef">hasCJKLanguage</span>: <span style="color:#66d9ef">true</span>
+<span style="color:#66d9ef">languageCode</span>: <span style="color:#e6db74">&#34;zh-cn&#34;</span>
+<span style="color:#66d9ef">title</span>: <span style="color:#e6db74">&#34;zhaoqiang&#39;s blog&#34;</span>
+<span style="color:#66d9ef">theme</span>: <span style="color:#e6db74">&#34;loveit&#34;</span>
+<span style="color:#66d9ef">metaDataFormat</span>: <span style="color:#e6db74">&#34;yaml&#34;</span>
+<span style="color:#66d9ef">algolia</span>:
+  <span style="color:#66d9ef">index</span>: <span style="color:#e6db74">&#34;**blogloveit&#34;</span>
+  <span style="color:#66d9ef">key</span>: <span style="color:#e6db74">&#34;*****9748e4cf6b&#34;</span>
+  <span style="color:#66d9ef">appID</span>: <span style="color:#e6db74">&#34;***KWB5&#34;</span>
+---
+</code></pre></div><h3 id="hugo-aligolia">hugo-aligolia</h3>
+<p>我们这里使用一个<code>hugo-algolia</code>的插件来完成我们的数据同步工作,要安装<code>hugo-aligolia</code>我们需要先确保我们已经安装了 <code>npm</code> 或者 <code>yarn</code> 包管理工具。</p>
+<p>使用下面的命令安装即可：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ npm install hugo-algolia -g
+</code></pre></div><p>配置完成以后，在根目录下面执行下面的命令：</p>
+<pre><code>$ hugo-algolia -s
+JSON index file was created in public/algolia.json
+{ updatedAt: '2020-01-23T02:36:09.480Z', taskID: 249063848950 }
+</code></pre><p>这个时候我们在 <strong>dashboard</strong> 中打开 <strong>Indices</strong>，可以看到已经有几十条数据了。</p>
+<p>如果某篇文章不想被索引的话，我们只需要在文件的最前面设置 index 参数为 false 即可。</p>
+<h2 id="页面展示">页面展示</h2>
+<h3 id="新建searchhtml">新建search.html</h3>
+<p>在<code>themes\LoveIt\layouts\partials</code>新建<code>search.html</code>并添加如下代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aa-input-container&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aa-input-container&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aa-search-input&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aa-input-search&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search for titles or URIs...&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">autocomplete</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;off&#34;</span> /&gt;
+    &lt;<span style="color:#f92672">svg</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;aa-input-icon&#34;</span> <span style="color:#a6e22e">viewBox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;654 -372 1664 1664&#34;</span>&gt;
+        &lt;<span style="color:#f92672">path</span> <span style="color:#a6e22e">d</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;M1806,332c0-123.3-43.8-228.8-131.5-316.5C1586.8-72.2,1481.3-116,1358-116s-228.8,43.8-316.5,131.5  C953.8,103.2,910,208.7,910,332s43.8,228.8,131.5,316.5C1129.2,736.2,1234.7,780,1358,780s228.8-43.8,316.5-131.5  C1762.2,560.8,1806,455.3,1806,332z M2318,1164c0,34.7-12.7,64.7-38,90s-55.3,38-90,38c-36,0-66-12.7-90-38l-343-342  c-119.3,82.7-252.3,124-399,124c-95.3,0-186.5-18.5-273.5-55.5s-162-87-225-150s-113-138-150-225S654,427.3,654,332  s18.5-186.5,55.5-273.5s87-162,150-225s138-113,225-150S1262.7-372,1358-372s186.5,18.5,273.5,55.5s162,87,225,150s113,138,150,225  S2062,236.7,2062,332c0,146.7-41.3,279.7-124,399l343,343C2305.7,1098.7,2318,1128.7,2318,1164z&#34;</span> /&gt;
+    &lt;/<span style="color:#f92672">svg</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><h3 id="添加searchjs">添加search.js</h3>
+<p>在<code>themes\LoveIt\assets\js</code>下添加<code>search.js</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">function</span>() {
+  <span style="color:#75715e">// 替换成自己的algolia信息
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">algoliasearch</span>(<span style="color:#e6db74">&#34;***KWB5&#34;</span>, <span style="color:#e6db74">&#34;7139d*****9748e4cf6bc36ab191d&#34;</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">initIndex</span>(<span style="color:#e6db74">&#34;**blogloveit&#34;</span>);
+  <span style="color:#a6e22e">autocomplete</span>(
+    <span style="color:#e6db74">&#34;#aa-search-input&#34;</span>,
+    { <span style="color:#a6e22e">hint</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> },
+    {
+      <span style="color:#a6e22e">source</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">autocomplete</span>.<span style="color:#a6e22e">sources</span>.<span style="color:#a6e22e">hits</span>(<span style="color:#a6e22e">index</span>, { <span style="color:#a6e22e">hitsPerPage</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">8</span> }),
+      <span style="color:#a6e22e">displayKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;name&#34;</span>,
+      <span style="color:#a6e22e">templates</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">suggestion</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">suggestion</span>) {
+          <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">suggestion</span>);
+          <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">search</span>;
+          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">suggestion</span>.<span style="color:#a6e22e">search</span>) {
+            <span style="color:#a6e22e">search</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">suggestion</span>.<span style="color:#a6e22e">search</span>;
+          } <span style="color:#66d9ef">else</span> {
+            <span style="color:#a6e22e">search</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">suggestion</span>.<span style="color:#a6e22e">uri</span>;
+          }
+          <span style="color:#66d9ef">return</span> (
+            <span style="color:#e6db74">&#34;&lt;span&gt;&#34;</span> <span style="color:#f92672">+</span>
+            <span style="color:#e6db74">&#39;&lt;a href=&#34;/&#39;</span> <span style="color:#f92672">+</span>
+            <span style="color:#a6e22e">search</span> <span style="color:#f92672">+</span>
+            <span style="color:#e6db74">&#39;&#34;&gt;&#39;</span> <span style="color:#f92672">+</span>
+            <span style="color:#a6e22e">suggestion</span>.<span style="color:#a6e22e">_highlightResult</span>.<span style="color:#a6e22e">title</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">+</span>
+            <span style="color:#e6db74">&#34;&lt;/a&gt;&lt;/span&gt;&#34;</span>
+          );
+        }
+      }
+    }
+  );
+
+
+  <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#e6db74">&#34;.aa-suggestion&#34;</span>, <span style="color:#66d9ef">function</span> () { 
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">aa</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">find</span>(<span style="color:#e6db74">&#34;a&#34;</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#34;href&#34;</span>);
+    window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">aa</span>;
+  })
+});
+</code></pre></div><h3 id="添加searchcss文件">添加search.css文件</h3>
+<p>在<code>themes\LoveIt\assets\css</code>路径下添加<code>search.css</code>样式文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;https://fonts.googleapis.com/css?family=Montserrat:400,700&#39;</span>;
+.<span style="color:#a6e22e">aa-input-container</span> {
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">inline</span><span style="color:#f92672">-</span><span style="color:#66d9ef">block</span>;
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">relative</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+}
+.<span style="color:#a6e22e">aa-input-container</span> <span style="color:#f92672">span</span><span style="color:#f92672">,</span>.<span style="color:#a6e22e">aa-input-container</span> <span style="color:#f92672">input</span> {
+    <span style="color:#66d9ef">width</span>: <span style="color:#66d9ef">inherit</span>;
+}
+.<span style="color:#a6e22e">aa-input-search</span> {
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">300</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">28</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border</span>:<span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#e4e4e4</span>;
+  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">transition</span>: <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+  <span style="color:#66d9ef">transition</span>: <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;Montserrat&#34;</span>, <span style="color:#66d9ef">sans-serif</span>;
+  <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> rgba(<span style="color:#ae81ff">241</span>, <span style="color:#ae81ff">241</span>, <span style="color:#ae81ff">241</span>, <span style="color:#ae81ff">0.35</span>);
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">11</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">box-sizing</span>: <span style="color:#66d9ef">border-box</span>;
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">black</span>;
+  <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">appearance</span>: <span style="color:#66d9ef">none</span>;
+  <span style="color:#66d9ef">-moz-</span><span style="color:#66d9ef">appearance</span>: <span style="color:#66d9ef">none</span>;
+  <span style="color:#66d9ef">appearance</span>: <span style="color:#66d9ef">none</span>;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;
+}
+.<span style="color:#a6e22e">aa-input-search</span>::<span style="color:#a6e22e">-webkit-search-decoration</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">aa-input-search</span>::<span style="color:#a6e22e">-webkit-search-cancel-button</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">aa-input-search</span>::<span style="color:#a6e22e">-webkit-search-results-button</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">aa-input-search</span>::<span style="color:#a6e22e">-webkit-search-results-decoration</span> {
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">none</span>;
+}
+.<span style="color:#a6e22e">aa-input-search</span>:<span style="color:#a6e22e">focus</span> {
+    <span style="color:#66d9ef">outline</span>: <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">border-color</span>: <span style="color:#ae81ff">#D3D3D3</span>;
+    <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> rgba(<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">150</span>, <span style="color:#ae81ff">207</span>, <span style="color:#ae81ff">0.1</span>);
+}
+.<span style="color:#a6e22e">aa-input-icon</span> {
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">16</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">transform</span>: translateY(<span style="color:#ae81ff">-50</span><span style="color:#66d9ef">%</span>);
+          <span style="color:#66d9ef">transform</span>: translateY(<span style="color:#ae81ff">-50</span><span style="color:#66d9ef">%</span>);
+  fill: <span style="color:#ae81ff">#e4e4e4</span>;
+}
+.<span style="color:#a6e22e">aa-hint</span> {
+  <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">yellow</span>;
+}
+.<span style="color:#a6e22e">aa-dropdown-menu</span> {
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> rgba(<span style="color:#ae81ff">228</span>, <span style="color:#ae81ff">228</span>, <span style="color:#ae81ff">228</span>, <span style="color:#ae81ff">0.6</span>);
+  <span style="color:#66d9ef">border-top-width</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;Montserrat&#34;</span>, <span style="color:#66d9ef">sans-serif</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">300</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> rgba(<span style="color:#ae81ff">241</span>, <span style="color:#ae81ff">241</span>, <span style="color:#ae81ff">241</span>, <span style="color:#ae81ff">0.35</span>);
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">11</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">4</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">box-sizing</span>: <span style="color:#66d9ef">border-box</span>;
+}
+.<span style="color:#a6e22e">aa-suggestion</span> {
+  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border-top</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#66d9ef">gray</span>;
+  <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+  <span style="color:#66d9ef">-webkit-</span><span style="color:#66d9ef">transition</span>: <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+  <span style="color:#66d9ef">transition</span>: <span style="color:#ae81ff">.2</span><span style="color:#66d9ef">s</span>;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">-webkit-</span>box;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">-ms-</span>flexbox;
+  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+  <span style="color:#66d9ef">-webkit-</span>box-pack: <span style="color:#66d9ef">justify</span>;
+      <span style="color:#66d9ef">-ms-</span>flex-pack: <span style="color:#66d9ef">justify</span>;
+          <span style="color:#66d9ef">justify-content</span>: <span style="color:#66d9ef">space</span><span style="color:#f92672">-</span>between;
+  <span style="color:#66d9ef">-webkit-</span>box-align: <span style="color:#66d9ef">center</span>;
+      <span style="color:#66d9ef">-ms-</span>flex-align: <span style="color:#66d9ef">center</span>;
+          <span style="color:#66d9ef">align-items</span>: <span style="color:#66d9ef">center</span>;
+}
+<span style="color:#75715e">/* 背景色 */</span>
+.<span style="color:#a6e22e">aa-suggestion</span>:<span style="color:#a6e22e">hover</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">aa-suggestion</span>.<span style="color:#a6e22e">aa-cursor</span> {
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#F5F5F5</span>;
+}
+.<span style="color:#a6e22e">aa-suggestion</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">span</span>:<span style="color:#a6e22e">first-child</span> {
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#000</span>;
+}
+.<span style="color:#a6e22e">aa-suggestion</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">span</span>:<span style="color:#a6e22e">last-child</span> {
+    <span style="color:#66d9ef">text-transform</span>: <span style="color:#66d9ef">uppercase</span>;
+    <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#000</span>;
+}
+.<span style="color:#a6e22e">aa-suggestion</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">span</span>:<span style="color:#a6e22e">first-child</span> <span style="color:#f92672">em</span><span style="color:#f92672">,</span> .<span style="color:#a6e22e">aa-suggestion</span> <span style="color:#f92672">&gt;</span> <span style="color:#f92672">span</span>:<span style="color:#a6e22e">last-child</span> <span style="color:#f92672">em</span> {
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#ae81ff">700</span>;
+  <span style="color:#66d9ef">font-style</span>: <span style="color:#66d9ef">normal</span>;
+  <span style="color:#66d9ef">background-color</span>: rgba(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.1</span>);
+  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">2</span><span style="color:#66d9ef">px</span>;
+}
+
+.<span style="color:#a6e22e">aa-suggestion</span> <span style="color:#f92672">a</span>{
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#000</span>;
+  <span style="color:#66d9ef">font-weight</span>:<span style="color:#66d9ef">bold</span>;
+}
+.<span style="color:#a6e22e">aa-suggestion</span> <span style="color:#f92672">a</span>:<span style="color:#a6e22e">hover</span>{
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#4B89DC</span>;
+}
+</code></pre></div><h3 id="在baseofhtml中添加代码">在baseof.html中添加代码</h3>
+<p>在<code>themes\LoveIt\layouts\_default\baseof.html</code>中添加代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ if ne .Site.Params.version &#34;5.x&#34; -}}
+{{ errorf &#34;\n\nThere are two possible situations that led to this error:\n  1. You haven&#39;t copied the config.toml yet. See https://github.com/dillonzq/LoveIt#installation \n  2. You have an incompatible update. See https://github.com//dillonzq/LoveIt/blob/master/CHANGELOG.md \n\n有两种可能的情况会导致这个错误发生:\n  1. 你还没有复制 config.toml 参考 https://github.com/dillonzq/LoveIt#installation \n  2. 你进行了一次不兼容的更新 参考 https://github.com//dillonzq/LoveIt/blob/master/CHANGELOG.md \n&#34; -}}
+{{ end -}}
+<span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Site.LanguageCode }}&#34;</span>&gt;
+
+&lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;utf-8&#34;</span>&gt;
+    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">http-equiv</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;X-UA-Compatible&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;IE=edge,chrome=1&#34;</span>&gt;
+    &lt;<span style="color:#f92672">title</span>&gt;{{ block &#34;title&#34; . }}{{ .Site.Title }}{{ end }}&lt;/<span style="color:#f92672">title</span>&gt;
+    {{- partial &#34;head.html&#34; . }}
+&lt;/<span style="color:#f92672">head</span>&gt;
+
+&lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">script</span>&gt;
+        window.<span style="color:#a6e22e">isDark</span> <span style="color:#f92672">=</span> (window.<span style="color:#a6e22e">localStorage</span> <span style="color:#f92672">&amp;&amp;</span> window.<span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;theme&#39;</span>)) <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;dark&#39;</span>;
+        window.<span style="color:#a6e22e">isDark</span> <span style="color:#f92672">&amp;&amp;</span> document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#39;dark-theme&#39;</span>);
+    &lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrapper&#34;</span>&gt;
+        {{ partial &#34;header.html&#34; . -}}
+        &lt;<span style="color:#f92672">main</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;main&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+                {{ block &#34;content&#34; . }}{{ end -}}
+            &lt;/<span style="color:#f92672">div</span>&gt;
+        &lt;/<span style="color:#f92672">main</span>&gt;
+        {{ partial &#34;footer.html&#34; . -}}
+        {{ partial &#34;scripts.html&#34; . -}}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dynamic-to-top&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dynamic-to-top&#34;</span> <span style="color:#a6e22e">data-scroll</span>&gt;&lt;<span style="color:#f92672">span</span>&gt;&amp;nbsp;&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
+
+<span style="color:#75715e">&lt;!-- 添加的代码  --&gt;</span>
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ex1&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal&#34;</span>&gt;
+        {{ partial &#34;search.html&#34; . }}
+    &lt;/<span style="color:#f92672">div</span>&gt;
+<span style="color:#75715e">&lt;!-- 添加代码结束 --&gt;</span>
+&lt;/<span style="color:#f92672">body</span>&gt;
+
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="引用css文件和js文件">引用css文件和js文件</h3>
+<p>在head.html中添加如下代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ $res := resources.Get &#34;css/search.css&#34; | resources.Minify -}}
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $res.RelPermalink }}&#34;</span>&gt;
+
+&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css&#34;</span> /&gt;
+
+</code></pre></div><p>在scripts.html中添加如下代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+<span style="color:#75715e">&lt;!-- jQuery Modal --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/algoliasearch.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://res.cloudinary.com/jimmysong/raw/upload/rootsongjc-hugo/autocomplete.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+
+ {{ $res := resources.Get &#34;/js/search.js&#34; }}
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{{ $res.RelPermalink }}&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><h3 id="添加锚点">添加锚点</h3>
+<p>在header.html中添加如下代码(手机端和桌面端两个地方都要添加代码)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;navbar-menu&#34;</span>&gt;
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;menu-item{{ if or ($currentPage.IsMenuCurrent &#34;</span><span style="color:#a6e22e">main</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">.)</span> <span style="color:#960050;background-color:#1e0010">($</span><span style="color:#a6e22e">currentPage</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">HasMenuCurrent</span> <span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#a6e22e">main</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#960050;background-color:#1e0010">.)</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">or</span> <span style="color:#960050;background-color:#1e0010">(</span><span style="color:#a6e22e">eq</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#a6e22e">currentPage</span><span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">RelPermalink</span> <span style="color:#960050;background-color:#1e0010">.</span><span style="color:#a6e22e">URL</span><span style="color:#960050;background-color:#1e0010">)</span> <span style="color:#960050;background-color:#1e0010">}}</span> <span style="color:#a6e22e">active</span><span style="color:#960050;background-color:#1e0010">{{</span> <span style="color:#a6e22e">end</span> <span style="color:#960050;background-color:#1e0010">}}&#34;</span>
+                <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL | absLangURL }}&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .Title }}&#34;</span>&gt;{{ .Name | safeHTML }}&lt;/<span style="color:#f92672">a</span>&gt;
+            {{ end }}
+            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;javascript:void(0);&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;theme-switch&#34;</span>&gt;&lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-adjust fa-rotate-180 fa-fw&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
+            <span style="color:#75715e">&lt;!-- 添加的代码 --&gt;</span>
+            &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#ex1&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal:open&#34;</span>&gt;&lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fas fa-search fa-fw&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;&lt;/<span style="color:#f92672">a</span>&gt;
+            <span style="color:#75715e">&lt;!-- 添加代码结束 --&gt;</span>
+        &lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>本文于 2020-02-18 更新</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/hugoaddcomment/>https://ftopia2020.github.io/2020/hugoaddcomment/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/blog/">
+                    #blog</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/hugo/">
+                    #Hugo</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/algolia/">
+                    #Algolia</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/cssforprinter/" class="prev" rel="prev" title="纯 CSS3 实现打字/输入的效果"><i
+                class="iconfont icon-left"></i>&nbsp;纯 CSS3 实现打字/输入的效果</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/hugoaddcomment/" class="leancloud_visitors" data-flag-title="【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

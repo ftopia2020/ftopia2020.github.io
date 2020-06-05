@@ -6,10 +6,19 @@
     <description>Recent content in blog on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索</title>
+      <link>https://ftopia2020.github.io/2020/hugoaddcomment/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/hugoaddcomment/</guid>
+      <description>作者： ZhaoQiang | 查阅原文 前言 很多的 Hugo 主题是没有自带搜索功能的，但是们为了方便用户浏览和查找内容是需要在网站上提供搜索功能。大家可以查看 Hugo 官方推荐的</description>
+    </item>
     
     <item>
       <title>【转】Hugo添加Valine评论系统 以LeaveIt主题为例</title>

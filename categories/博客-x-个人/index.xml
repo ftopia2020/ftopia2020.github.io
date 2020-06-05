@@ -6,10 +6,19 @@
     <description>Recent content in 博客 X 个人 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索</title>
+      <link>https://ftopia2020.github.io/2020/hugoaddcomment/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/hugoaddcomment/</guid>
+      <description>作者： ZhaoQiang | 查阅原文 前言 很多的 Hugo 主题是没有自带搜索功能的，但是们为了方便用户浏览和查找内容是需要在网站上提供搜索功能。大家可以查看 Hugo 官方推荐的</description>
+    </item>
     
     <item>
       <title>【转】Hugo添加Valine评论系统 以LeaveIt主题为例</title>
@@ -89,7 +98,7 @@
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/plans-summary/blog_2020/</guid>
-      <description>为了增加博客的产出，将计划准备写的博文标题记录于此，并整理之前的博文目录。 From 2020/01/01 ~ 2020/12/31 To Do 纯 CSS3 实现打字/输入的效果 .gitignore 使用简介 微前端框架探索 有关 HTTPS</description>
+      <description>为了增加博客的产出，将计划准备写的博文标题记录于此，并整理之前的博文目录。 From 2020/01/01 ~ 2020/12/31 To Do 纯 CSS3 实现打字/输入的效果 【转】用 Hugo 配合 Algolia 实现高效美观的</description>
     </item>
     
   </channel>
