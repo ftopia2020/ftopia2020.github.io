@@ -6,10 +6,19 @@
     <description>Recent content in Web X 开发 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/web-x-%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>纯 CSS3 实现3D翻书效果</title>
+      <link>https://ftopia2020.github.io/2020/cssfor3dbook/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/cssfor3dbook/</guid>
+      <description>WHAT 想在博客中加入读书笔记，并想呈现出书本的展示，如果可以加入翻书动画展示就更棒了~ 如果是寻求一个较为成熟的多页翻书效果，可使用 turn.js (Make a flip book with HTML5)</description>
+    </item>
     
     <item>
       <title>纯 CSS3 实现打字/输入的效果</title>

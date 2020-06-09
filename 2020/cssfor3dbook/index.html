@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/hugoaddcomment/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/cssfor3dbook/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             纯 CSS3 实现3D翻书效果 | Ftopia
+         
+    </title>
+    <meta name="title" content="纯 CSS3 实现3D翻书效果 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "纯 CSS3 实现3D翻书效果",
+    "headline" : "纯 CSS3 实现3D翻书效果",
+    "description" : "WHAT 想在博客中加入读书笔记，并想呈现出书本的展示，如果可以加入翻书动画展示就更棒了~ 如果是寻求一个较为成熟的多页翻书效果，可使用 turn.js (Make a flip book with HTML5)",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-06-09 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-06-09 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/cssfor3dbook\/",
+    "wordCount" : "680",
+    "keywords" : [ "CSS3","animation","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what">WHAT</a></li>
+    <li><a href="#how">HOW</a>
+      <ul>
+        <li><a href="#代码实现">代码实现</a></li>
+        <li><a href="#扩展应用">扩展应用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">纯 CSS3 实现3D翻书效果</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-06-09
+                    itemprop="datePublished">
+                    2020-06-09</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 680 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="what">WHAT</h2>
+<p>想在博客中加入读书笔记，并想呈现出书本的展示，如果可以加入翻书动画展示就更棒了~</p>
+<blockquote>
+<p>如果是寻求一个较为成熟的多页翻书效果，可使用 <a href="http://www.turnjs.com/">turn.js</a>  (Make a flip book with HTML5)</p>
+</blockquote>
+<p>若不想加入复杂的 jQuery 等插件，索性尝试下纯 CSS3 的实现吧~ 经尝试，动图效果如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/cssFor3DBook.gif" alt="cssFor3DBook" class="lazyload"><figcaption class="image-caption">cssFor3DBook</figcaption></figure></p>
+<p>适用场景：类仿真书本的前端呈现，封面以及内页可定制 ~</p>
+<h2 id="how">HOW</h2>
+<blockquote>
+<p>Talk is cheap. Show me the code.  不想看文章的直接  →_→   <a href="https://codesandbox.io/s/cssforbook-5x8do">CodeSandBox Example</a></p>
+</blockquote>
+<h3 id="代码实现">代码实现</h3>
+<p>示例分为两个，代码差不多，不同点在于最后是否呈现打开，HTML 结构如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;book preserve-3d border-round&#34;</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flip-animation-1 point&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;book-page first-page border-round&#34;</span>&gt;
+          &lt;<span style="color:#f92672">p</span>&gt;Note 1&lt;/<span style="color:#f92672">p</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;book preserve-3d book2 border-round&#34;</span>&gt;
+      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flip-animation-2 point&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;book-page first-page border-round&#34;</span>&gt;
+          &lt;<span style="color:#f92672">p</span>&gt;Note 2&lt;/<span style="color:#f92672">p</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>CSS 相关代码如下（内页背景借用了 baidu 的 logo）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">book</span> {
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#fff</span>
+    url(<span style="color:#e6db74">&#34;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&#34;</span>)
+    <span style="color:#66d9ef">no-repeat</span>;
+  <span style="color:#66d9ef">background-size</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">40</span><span style="color:#66d9ef">%</span>;
+  <span style="color:#66d9ef">transform</span>: rotateX(<span style="color:#ae81ff">30</span><span style="color:#66d9ef">deg</span>);
+}
+
+.<span style="color:#a6e22e">book2</span> {
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span> <span style="color:#75715e">!important</span>;
+}
+
+.<span style="color:#a6e22e">border-round</span> {
+  <span style="color:#66d9ef">border-top-right-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border-bottom-right-radius</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+}
+
+<span style="color:#75715e">/*内容样式*/</span>
+.<span style="color:#a6e22e">book-page</span> {
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#ae81ff">#777</span>;
+  <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#fff</span>;
+}
+.<span style="color:#a6e22e">book-page</span> <span style="color:#f92672">p</span> {
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">color</span>: rgb(<span style="color:#ae81ff">236</span>, <span style="color:#ae81ff">67</span>, <span style="color:#ae81ff">67</span>);
+  <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+}
+
+<span style="color:#75715e">/*封面样式*/</span>
+.<span style="color:#a6e22e">first-page</span> {
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#ae81ff">#777</span>;
+}
+.<span style="color:#a6e22e">first-page</span> <span style="color:#f92672">p</span> {
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#dedef3</span><span style="color:#ae81ff">99</span>;
+  <span style="color:#66d9ef">margin-top</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+}
+
+<span style="color:#75715e">/*动画部分*/</span>
+.<span style="color:#a6e22e">flip-animation-1</span> {
+  <span style="color:#66d9ef">animation</span>: flipBook1 <span style="color:#ae81ff">2</span><span style="color:#66d9ef">s</span>;
+  <span style="color:#66d9ef">animation-fill-mode</span>: <span style="color:#66d9ef">forwards</span>;
+}
+
+@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">flipBook1</span> {
+  <span style="color:#f92672">from</span> {
+    <span style="color:#66d9ef">transform</span>: rotateY(<span style="color:#ae81ff">0</span><span style="color:#66d9ef">deg</span>);
+  }
+  <span style="color:#f92672">to</span> {
+    <span style="color:#66d9ef">transform</span>: rotateY(<span style="color:#ae81ff">-160</span><span style="color:#66d9ef">deg</span>);
+  }
+}
+
+.<span style="color:#a6e22e">flip-animation-2</span> {
+  <span style="color:#66d9ef">animation</span>: flipBook2 <span style="color:#ae81ff">4</span><span style="color:#66d9ef">s</span>;
+}
+
+@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">flipBook2</span> {
+  <span style="color:#f92672">0</span><span style="color:#f92672">%</span> {
+    <span style="color:#66d9ef">transform</span>: rotateY(<span style="color:#ae81ff">0</span><span style="color:#66d9ef">deg</span>);
+  }
+  <span style="color:#f92672">50</span><span style="color:#f92672">%</span> {
+    <span style="color:#66d9ef">transform</span>: rotateY(<span style="color:#ae81ff">-160</span><span style="color:#66d9ef">deg</span>);
+  }
+}
+
+<span style="color:#75715e">/*维持3D效果：即显示出rotateZ轴的效果*/</span>
+.<span style="color:#a6e22e">preserve-3d</span> {
+  <span style="color:#66d9ef">transform-style</span>: <span style="color:#66d9ef">preserve-3d</span>;
+}
+
+<span style="color:#75715e">/*绕某点转动：即 “绕某点转动” + “绕Y轴转动” 两个效果叠加后 实现了每页绕书的左边缘转动*/</span>
+.<span style="color:#a6e22e">point</span> {
+  <span style="color:#66d9ef">transform-origin</span>: <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+}
+
+</code></pre></div><p>原理很简单，只是实现了 div 层的旋转（需加 .point 绕侧边旋转，可以试着把 point class 去掉理解，如下）</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/cssFor3DBook.png" alt="cssFor3DBook" class="lazyload"><figcaption class="image-caption">cssFor3DBook</figcaption></figure></p>
+<p>列出相关的技术点：</p>
+<ul>
+<li>呈现 3D 效果 <code>transform-style: preserve-3d</code>  （<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style">transform-style</a>）</li>
+<li>实现绕轴转动 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/transform-origin">transform-origin</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation">animation</a> 可通过 <code>animation-fill-mode</code> 设置不同效果 (<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation-fill-mode">animation-fill-mode</a>)</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@keyframes">@keyframes 关键帧</a> 改变 div <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform</a> 属性</li>
+</ul>
+<h3 id="扩展应用">扩展应用</h3>
+<p>本文只是提供一个动画效果纯 CSS 实现的思路，代码比较简单，可加入实现鼠标移上翻开，移出关闭等效果</p>
+<p>更多可参考 <a href="https://juejin.im/post/5b82ac63e51d4538c362233f">怎么实现一个3d翻书效果 From 掘金</a> ；门的动效也类似，可参考 <a href="https://www.zhangxinxu.com/wordpress/2018/06/css-css3-3d-open-door-animation/">CSS CSS3实现3D开门动画效果</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/cssfor3dbook/>https://ftopia2020.github.io/2020/cssfor3dbook/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/css3/">
+                    #CSS3</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/animation/">
+                    #animation</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/hugoaddcomment/" class="prev" rel="prev" title="【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索"><i
+                class="iconfont icon-left"></i>&nbsp;【转】用 Hugo 配合 Algolia 实现高效美观的站内搜索</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/cssfor3dbook/" class="leancloud_visitors" data-flag-title="纯 CSS3 实现3D翻书效果">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
