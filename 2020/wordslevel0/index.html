@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2020/reactaddurllistener/" />
-    
-    <link rel="canonical" href="https://ftopia2020.github.io/2020/gitignore/" />
+    <link rel="prev" href="https://ftopia2020.github.io/2020/childreading/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/reactaddurllistener/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/wordslevel0/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             .gitignore 使用简介 | Ftopia
+             叽里呱啦 呱呱美语课 Level0 单词整理 | Ftopia
          
     </title>
-    <meta name="title" content=".gitignore 使用简介 | Ftopia">
+    <meta name="title" content="叽里呱啦 呱呱美语课 Level0 单词整理 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : ".gitignore 使用简介",
-    "headline" : ".gitignore 使用简介",
-    "description" : "WHY WHAT HOW git rm与git rm \x26ndash;cached 当我们需要删除暂存区或分支上的文件, 同时工作区也不需要这个文件了, 可以使用 1 git rm file_path 2 git commit -m \x27delete somefile\x27 3 git push 当我们需要删除暂",
+    "name" : "叽里呱啦 呱呱美语课 Level0 单词整理",
+    "headline" : "叽里呱啦 呱呱美语课 Level0 单词整理",
+    "description" : "课程单词汇总 周数 单词 \/ 词组 分类 试听课 Bubble Play 试听课 Bee Animals 第 1 周 Apple Fruits 第 1 周 Banana Fruits 第 1 周 Red Colors 第 2 周 Pear Fruits 第 2 周 Yellow Colors 第 2 周 Green Colors 第 3 周 Car Play 第 3 周 Ball Play 第 3 周 Play Play",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -58,9 +58,9 @@
     "copyrightYear" : "2020",
     "datePublished": "2020-06-10 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-06-10 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/2020\/gitignore\/",
-    "wordCount" : "289",
-    "keywords" : [ "git","原创", "Ftopia"]
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/wordslevel0\/",
+    "wordCount" : "351",
+    "keywords" : [ "早教","原创", "Ftopia"]
 }
 </script>
 
@@ -73,9 +73,17 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#why">WHY</a></li>
-    <li><a href="#what">WHAT</a></li>
-    <li><a href="#how">HOW</a></li>
+    <li><a href="#课程单词汇总">课程单词汇总</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#fruits">Fruits</a></li>
+        <li><a href="#color">Color</a></li>
+      </ul>
+    </li>
+    <li><a href="#counting-songs">Counting Songs</a></li>
   </ul>
 </nav>
 </aside>
@@ -155,7 +163,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">.gitignore 使用简介</h1>
+        <h1 class="post-title" itemprop="name headline">叽里呱啦 呱呱美语课 Level0 单词整理</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -172,7 +180,7 @@
                     2020-06-10</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 289 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 351 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
 
@@ -194,26 +202,346 @@
         
         
 
-        <h2 id="why">WHY</h2>
-<h2 id="what">WHAT</h2>
-<h2 id="how">HOW</h2>
-<p>git rm与git rm &ndash;cached</p>
-<p>当我们需要删除<code>暂存区</code>或<code>分支</code>上的文件, 同时工作区也不需要这个文件了, 可以使用</p>
-<pre><code>1 git rm file_path
-2 git commit -m 'delete somefile'
-3 git push
-</code></pre><p>当我们需要删除<code>暂存区</code>或<code>分支</code>上的文件, 但本地又需要使用, 只是不希望这个文件被版本控制, 可以使用</p>
-<pre><code>git rm --cached file_path
-git commit -m 'delete remote somefile'
-git push
-</code></pre><p>在工程中很容易出现.gitignore并没有忽略掉我们已经添加的文件，那是因为.gitignore对已经追踪(track)的文件是无效的，需要清除缓存，清除缓存后文件将以未追踪的形式出现，这时重新添加(add)并提交(commit)就可以了。</p>
-<p>gitignore规则不生效的解决办法，先把本地缓存删除然后更新</p>
-<pre><code>git rm -r --cached .
-git add .
-git commit -m 'update .gitignore'
-</code></pre><p><a href="https://www.jianshu.com/p/ea6341224e89">https://www.jianshu.com/p/ea6341224e89</a></p>
-<p><a href="https://tonydeng.github.io/2016/04/01/gitignore/">https://tonydeng.github.io/2016/04/01/gitignore/</a></p>
-<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/900004590234208">https://www.liaoxuefeng.com/wiki/896043488029600/900004590234208</a></p>
+        <h2 id="课程单词汇总">课程单词汇总</h2>
+<table>
+<thead>
+<tr>
+<th>周数</th>
+<th>单词 / 词组</th>
+<th>分类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>试听课</td>
+<td>Bubble</td>
+<td>Play</td>
+</tr>
+<tr>
+<td>试听课</td>
+<td>Bee</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 1 周</td>
+<td>Apple</td>
+<td>Fruits</td>
+</tr>
+<tr>
+<td>第 1 周</td>
+<td>Banana</td>
+<td>Fruits</td>
+</tr>
+<tr>
+<td>第 1 周</td>
+<td>Red</td>
+<td>Colors</td>
+</tr>
+<tr>
+<td>第 2 周</td>
+<td>Pear</td>
+<td>Fruits</td>
+</tr>
+<tr>
+<td>第 2 周</td>
+<td>Yellow</td>
+<td>Colors</td>
+</tr>
+<tr>
+<td>第 2 周</td>
+<td>Green</td>
+<td>Colors</td>
+</tr>
+<tr>
+<td>第 3 周</td>
+<td>Car</td>
+<td>Play</td>
+</tr>
+<tr>
+<td>第 3 周</td>
+<td>Ball</td>
+<td>Play</td>
+</tr>
+<tr>
+<td>第 3 周</td>
+<td>Play</td>
+<td>Play</td>
+</tr>
+<tr>
+<td>第 4 周</td>
+<td>Doll</td>
+<td>Play</td>
+</tr>
+<tr>
+<td>第 4 周</td>
+<td>Big</td>
+<td>Feelings</td>
+</tr>
+<tr>
+<td>第 4 周</td>
+<td>Small</td>
+<td>Feelings</td>
+</tr>
+<tr>
+<td>第 5 周</td>
+<td>Mommy</td>
+<td>People</td>
+</tr>
+<tr>
+<td>第 5 周</td>
+<td>Daddy</td>
+<td>People</td>
+</tr>
+<tr>
+<td>第 5 周</td>
+<td>Kiss</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 6 周</td>
+<td>Grandpa</td>
+<td>People</td>
+</tr>
+<tr>
+<td>第 6 周</td>
+<td>Grandma</td>
+<td>People</td>
+</tr>
+<tr>
+<td>第 6 周</td>
+<td>Hug</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 7 周</td>
+<td>Cat</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 7 周</td>
+<td>Dog</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 7 周</td>
+<td>Rabbit</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 8 周</td>
+<td>Fish</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 8 周</td>
+<td>Duck</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 8 周</td>
+<td>Turtle</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 9 周</td>
+<td>Hands</td>
+<td>Body</td>
+</tr>
+<tr>
+<td>第 9 周</td>
+<td>Feet</td>
+<td>Body</td>
+</tr>
+<tr>
+<td>第 9 周</td>
+<td>Hair</td>
+<td>Body</td>
+</tr>
+<tr>
+<td>第 10 周</td>
+<td>Face</td>
+<td>Body</td>
+</tr>
+<tr>
+<td>第 10 周</td>
+<td>Wash</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 10 周</td>
+<td>Dry</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 11 周</td>
+<td>Shirt</td>
+<td>Clothes</td>
+</tr>
+<tr>
+<td>第 11 周</td>
+<td>Pants</td>
+<td>Clothes</td>
+</tr>
+<tr>
+<td>第 11 周</td>
+<td>Put on</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 12 周</td>
+<td>Socks</td>
+<td>Clothes</td>
+</tr>
+<tr>
+<td>第 12 周</td>
+<td>Shoes</td>
+<td>Clothes</td>
+</tr>
+<tr>
+<td>第 12 周</td>
+<td>Take off</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 13 周</td>
+<td>Sun</td>
+<td>Nature</td>
+</tr>
+<tr>
+<td>第 13 周</td>
+<td>Moon</td>
+<td>Nature</td>
+</tr>
+<tr>
+<td>第 13 周</td>
+<td>Star</td>
+<td>Nature</td>
+</tr>
+<tr>
+<td>第 14 周</td>
+<td>Tree</td>
+<td>Nature</td>
+</tr>
+<tr>
+<td>第 14 周</td>
+<td>Flower</td>
+<td>Nature</td>
+</tr>
+<tr>
+<td>第 14 周</td>
+<td>Leaves</td>
+<td>Nature</td>
+</tr>
+<tr>
+<td>第 15 周</td>
+<td>Sing</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 15 周</td>
+<td>Dance</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 15 周</td>
+<td>Run</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 16 周</td>
+<td>Smile</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 16 周</td>
+<td>Cry</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 16 周</td>
+<td>Draw</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 17 周</td>
+<td>Sofa</td>
+<td>Home</td>
+</tr>
+<tr>
+<td>第 17 周</td>
+<td>Door</td>
+<td>Home</td>
+</tr>
+<tr>
+<td>第 17 周</td>
+<td>Bed</td>
+<td>Home</td>
+</tr>
+<tr>
+<td>第 18 周</td>
+<td>Window</td>
+<td>Home</td>
+</tr>
+<tr>
+<td>第 18 周</td>
+<td>Open</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 18 周</td>
+<td>Close</td>
+<td>Verbs</td>
+</tr>
+<tr>
+<td>第 19 周</td>
+<td>Bear</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 19 周</td>
+<td>Lion</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 19 周</td>
+<td>Horse</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 20 周</td>
+<td>Butterfly</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 20 周</td>
+<td>Ant</td>
+<td>Animals</td>
+</tr>
+<tr>
+<td>第 20 周</td>
+<td>Monkey</td>
+<td>Animals</td>
+</tr>
+</tbody>
+</table>
+<h1 id="related-words">Related Words</h1>
+<h3 id="fruits">Fruits</h3>
+<ul>
+<li>Lemon</li>
+<li>Mongo</li>
+<li>Strawberry</li>
+<li>Longan</li>
+</ul>
+<h3 id="color">Color</h3>
+<ul>
+<li>Blue</li>
+<li>White</li>
+<li>Black</li>
+<li>Brown</li>
+</ul>
+<h2 id="counting-songs">Counting Songs</h2>
+<p><a href="https://www.youtube.com/watch?v=bWUgZm_AE64">The Bees Go Buzzing</a></p>
+<p><a href="https://www.youtube.com/watch?v=HPNymEShIp4">Apple Round, Apple Red - BabyBus</a></p>
 
     </div>
 
@@ -228,7 +556,7 @@ git commit -m 'update .gitignore'
         
         <p class="copyright-item">
             <span>Link:</span>
-            <a href=https://ftopia2020.github.io/2020/gitignore/>https://ftopia2020.github.io/2020/gitignore/</span>
+            <a href=https://ftopia2020.github.io/2020/wordslevel0/>https://ftopia2020.github.io/2020/wordslevel0/</span>
         </p>
         
         
@@ -244,8 +572,8 @@ git commit -m 'update .gitignore'
         <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/git/">
-                    #git</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E6%97%A9%E6%95%99/">
+                    #早教</a></span>
             
             <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
                     #原创</a></span>
@@ -260,9 +588,12 @@ git commit -m 'update .gitignore'
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2020/reactaddurllistener/" class="prev" rel="prev" title="react 监听路由变化"><i
-                class="iconfont icon-left"></i>&nbsp;react 监听路由变化</a>
+        <a href="https://ftopia2020.github.io/2020/childreading/" class="prev" rel="prev" title="【转】【育儿书籍阅读】父母的语言"><i
+                class="iconfont icon-left"></i>&nbsp;【转】【育儿书籍阅读】父母的语言</a>
         
+        
+        <a href="https://ftopia2020.github.io/2020/reactaddurllistener/" class="next" rel="next"
+            title="react 监听路由变化">react 监听路由变化&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -270,7 +601,7 @@ git commit -m 'update .gitignore'
         
         
         
-        <span id="/2020/gitignore/" class="leancloud_visitors" data-flag-title=".gitignore 使用简介">
+        <span id="/2020/wordslevel0/" class="leancloud_visitors" data-flag-title="叽里呱啦 呱呱美语课 Level0 单词整理">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>

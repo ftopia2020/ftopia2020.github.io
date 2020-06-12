@@ -6,10 +6,19 @@
     <description>Recent content in react on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>react 监听路由变化</title>
+      <link>https://ftopia2020.github.io/2020/reactaddurllistener/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/reactaddurllistener/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>react style !important 失效问题的解决方案</title>

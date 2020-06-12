@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2020/reactaddurllistener/" />
-    
-    <link rel="canonical" href="https://ftopia2020.github.io/2020/gitignore/" />
+    <link rel="prev" href="https://ftopia2020.github.io/2020/wordslevel0/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/gitignore/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/reactaddurllistener/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             .gitignore 使用简介 | Ftopia
+             react 监听路由变化 | Ftopia
          
     </title>
-    <meta name="title" content=".gitignore 使用简介 | Ftopia">
+    <meta name="title" content="react 监听路由变化 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : ".gitignore 使用简介",
-    "headline" : ".gitignore 使用简介",
-    "description" : "WHY WHAT HOW git rm与git rm \x26ndash;cached 当我们需要删除暂存区或分支上的文件, 同时工作区也不需要这个文件了, 可以使用 1 git rm file_path 2 git commit -m \x27delete somefile\x27 3 git push 当我们需要删除暂",
+    "name" : "react 监听路由变化",
+    "headline" : "react 监听路由变化",
+    "description" : "",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -58,9 +58,9 @@
     "copyrightYear" : "2020",
     "datePublished": "2020-06-10 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-06-10 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/2020\/gitignore\/",
-    "wordCount" : "289",
-    "keywords" : [ "git","原创", "Ftopia"]
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/reactaddurllistener\/",
+    "wordCount" : "0",
+    "keywords" : [ "react","原创", "Ftopia"]
 }
 </script>
 
@@ -69,17 +69,6 @@
     
   
   
-<aside class="side-toc">
-    
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#why">WHY</a></li>
-    <li><a href="#what">WHAT</a></li>
-    <li><a href="#how">HOW</a></li>
-  </ul>
-</nav>
-</aside>
-
   <body class="">
     <div class="wrapper">
         <nav class="navbar">
@@ -155,7 +144,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">.gitignore 使用简介</h1>
+        <h1 class="post-title" itemprop="name headline">react 监听路由变化</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -172,9 +161,9 @@
                     2020-06-10</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 289 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 0 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 0 分钟</span>
 
         </div>
     </header>
@@ -194,27 +183,7 @@
         
         
 
-        <h2 id="why">WHY</h2>
-<h2 id="what">WHAT</h2>
-<h2 id="how">HOW</h2>
-<p>git rm与git rm &ndash;cached</p>
-<p>当我们需要删除<code>暂存区</code>或<code>分支</code>上的文件, 同时工作区也不需要这个文件了, 可以使用</p>
-<pre><code>1 git rm file_path
-2 git commit -m 'delete somefile'
-3 git push
-</code></pre><p>当我们需要删除<code>暂存区</code>或<code>分支</code>上的文件, 但本地又需要使用, 只是不希望这个文件被版本控制, 可以使用</p>
-<pre><code>git rm --cached file_path
-git commit -m 'delete remote somefile'
-git push
-</code></pre><p>在工程中很容易出现.gitignore并没有忽略掉我们已经添加的文件，那是因为.gitignore对已经追踪(track)的文件是无效的，需要清除缓存，清除缓存后文件将以未追踪的形式出现，这时重新添加(add)并提交(commit)就可以了。</p>
-<p>gitignore规则不生效的解决办法，先把本地缓存删除然后更新</p>
-<pre><code>git rm -r --cached .
-git add .
-git commit -m 'update .gitignore'
-</code></pre><p><a href="https://www.jianshu.com/p/ea6341224e89">https://www.jianshu.com/p/ea6341224e89</a></p>
-<p><a href="https://tonydeng.github.io/2016/04/01/gitignore/">https://tonydeng.github.io/2016/04/01/gitignore/</a></p>
-<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/900004590234208">https://www.liaoxuefeng.com/wiki/896043488029600/900004590234208</a></p>
-
+        
     </div>
 
     <div class="post-copyright">
@@ -228,7 +197,7 @@ git commit -m 'update .gitignore'
         
         <p class="copyright-item">
             <span>Link:</span>
-            <a href=https://ftopia2020.github.io/2020/gitignore/>https://ftopia2020.github.io/2020/gitignore/</span>
+            <a href=https://ftopia2020.github.io/2020/reactaddurllistener/>https://ftopia2020.github.io/2020/reactaddurllistener/</span>
         </p>
         
         
@@ -244,8 +213,8 @@ git commit -m 'update .gitignore'
         <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/git/">
-                    #git</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/react/">
+                    #react</a></span>
             
             <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
                     #原创</a></span>
@@ -260,9 +229,12 @@ git commit -m 'update .gitignore'
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2020/reactaddurllistener/" class="prev" rel="prev" title="react 监听路由变化"><i
-                class="iconfont icon-left"></i>&nbsp;react 监听路由变化</a>
+        <a href="https://ftopia2020.github.io/2020/wordslevel0/" class="prev" rel="prev" title="叽里呱啦 呱呱美语课 Level0 单词整理"><i
+                class="iconfont icon-left"></i>&nbsp;叽里呱啦 呱呱美语课 Level0 单词整理</a>
         
+        
+        <a href="https://ftopia2020.github.io/2020/gitignore/" class="next" rel="next"
+            title=".gitignore 使用简介">.gitignore 使用简介&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -270,7 +242,7 @@ git commit -m 'update .gitignore'
         
         
         
-        <span id="/2020/gitignore/" class="leancloud_visitors" data-flag-title=".gitignore 使用简介">
+        <span id="/2020/reactaddurllistener/" class="leancloud_visitors" data-flag-title="react 监听路由变化">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>
