@@ -6,19 +6,10 @@
     <description>Recent content in git on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>.gitignore 使用简介</title>
-      <link>https://ftopia2020.github.io/2020/gitignore/</link>
-      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/2020/gitignore/</guid>
-      <description>WHY WHAT HOW git rm与git rm &amp;ndash;cached 当我们需要删除暂存区或分支上的文件, 同时工作区也不需要这个文件了, 可以使用 1 git rm file_path 2 git commit -m &#39;delete somefile&#39; 3 git push 当我们需要删除暂</description>
-    </item>
     
     <item>
       <title>【转】你确定你能记住那么多的Git命令吗？快试试Sourcetree吧</title>
