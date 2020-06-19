@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/wordslevel0/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/reactiframesolution/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/ssl/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】一篇文章让你搞懂 SSL 证书 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】一篇文章让你搞懂 SSL 证书 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】一篇文章让你搞懂 SSL 证书",
+    "headline" : "【转】一篇文章让你搞懂 SSL 证书",
+    "description" : "作者：NrwLm 原文：https:\/\/www.cnblogs.com\/mafly\/p\/ssl.html 关于结婚这件事 那天和同事讨论到底什么才",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-06-19 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-06-19 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/ssl\/",
+    "wordCount" : "1771",
+    "keywords" : [ "SSL","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于结婚这件事">关于结婚这件事</a></li>
+    <li><a href="#关于-ssl-你可能以后用的上">关于 SSL 你可能以后用的上</a></li>
+    <li><a href="#证书购买">证书购买</a></li>
+    <li><a href="#总结一下httpblogmayongfacn289html"><a href="http://blog.mayongfa.cn/289.html">总结一下</a></a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】一篇文章让你搞懂 SSL 证书</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-06-19
+                    itemprop="datePublished">
+                    2020-06-19</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1771 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者：<a href="https://www.cnblogs.com/mafly/">NrwLm</a></p>
+<p>原文：<a href="https://www.cnblogs.com/mafly/p/ssl.html">https://www.cnblogs.com/mafly/p/ssl.html</a></p>
+</blockquote>
+<h2 id="关于结婚这件事">关于结婚这件事</h2>
+<p>那天和同事讨论到底什么才算是真正的「结婚」？这种话题本来是极其不应该存在的。传统意义的领个证书，办个婚礼、吃吃喝喝，但随着社会各族人民身心发展进化，原本那些繁琐流程简直是反人类，貌似现在也根本就不存在不结婚不不能干的事儿了。当然，就算结过婚后双方不开心，一起去再领个证书吃顿饭，散伙后大家依然是「好朋友」的也很多存在着。</p>
+<p>嗯，我今天其实就是想说「证书」这件事。</p>
+<h2 id="关于-ssl-你可能以后用的上">关于 SSL 你可能以后用的上</h2>
+<p>SSL 证书是由受信任的数字证书颁发机构 CA，在验证服务器身份后颁发，且具有服务器身份验证和数据传输加密功能。简单说就是让你网站通过 HTTPS 加密传输协议访问的一个必要文件。</p>
+<p><strong>那什么是数字证书颁发机构 CA ？</strong></p>
+<p>数字证书认证机构（Certificate Authority，缩写为CA），是负责发放和管理数字证书的权威机构，并作为电子商务交易中受信任的第三方，承担公钥体系中公钥的合法性检验的责任。CA 机构是独立的，没有相互关系，这些机构都是在webtrust认证审核下成立的。
+签发主流机构：Symantec、Comodo、GeoTrust、DigiCert、GlobalSign 等。
+机构之间的区别主要有：机构品牌、证书加密方式、保险额度、服务与质量、浏览器支持率等。当然，CA 机构也符合「越大越好」这个说法。</p>
+<p><strong>SSL 证书验证级别</strong>
+除了机构之间存在差异，人与人之间存在差异，就连 SSL 证书之间也存在差异。
+SSL证书根据验证级别，分为三种类型：</p>
+<ul>
+<li>域名型SSL证书，简称DVSSL；</li>
+<li>企业型SSL证书，简称OVSSL；</li>
+<li>增强型SSL证书，简称EVSSL。</li>
+</ul>
+<p>一张表简单看一下它们之间的差别：</p>
+<table>
+<thead>
+<tr>
+<th>对比</th>
+<th>域名型SSL (DVSSL)</th>
+<th>企业型SSL (OVSSL)</th>
+<th>增强型SSL (EVSSL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>英文名称</td>
+<td>Domain Validation SSL Certificate</td>
+<td>Organization Validation SSL Certificate</td>
+<td>Extended Validation SSL Certificate</td>
+</tr>
+<tr>
+<td>审核内容</td>
+<td>域名管理权限</td>
+<td>域名管理权限；企业名称、地址、电话等信息的真实性；域名管理权限；</td>
+<td>企业名称、地址、电话等信息的真实性；第三方数据库审查，例如邓白氏、114查号台、律师证明信等。</td>
+</tr>
+<tr>
+<td>颁发周期</td>
+<td>几分钟-几小时</td>
+<td>3-5个工作日</td>
+<td>5-7个工作日</td>
+</tr>
+<tr>
+<td>赔付保障金</td>
+<td>10-50万美金</td>
+<td>50-150万美金</td>
+<td>150-1750万美金</td>
+</tr>
+<tr>
+<td>浏览器地址栏</td>
+<td>https + 小锁标志</td>
+<td>https + 小锁标志</td>
+<td>https 小锁标志 + 绿色地址栏 + 公司名字直显在浏览器地址栏</td>
+</tr>
+<tr>
+<td>证书详情</td>
+<td>使用者身份只显示某某域名</td>
+<td>使用者身份显示公司名称</td>
+<td>使用者身份显示公司名称</td>
+</tr>
+<tr>
+<td>一般用途</td>
+<td>个人站点； iOS应用分发下载；登录等单纯https加密需求的链接</td>
+<td>企业网站</td>
+<td>企业官网、电商、P2P等互联网金融网站</td>
+</tr>
+</tbody>
+</table>
+<p><strong>SSL 证书域名类型</strong>
+除了验证级别维度的不同，统一级别的证书，它又根据保护域名的数量需求，SSL 证书又分为：</p>
+<ul>
+<li>单域名版：只保护一个域名，例如 <a href="http://www.abc.com">www.abc.com</a> 或者 login.abc.com 之类的单个域名</li>
+<li>多域名版：一张证书可以保护多个域名，例如同时保护 <a href="http://www.abc.com">www.abc.com</a> , <a href="http://www.bcd.com">www.bcd.com</a>, pay.efg.com 等</li>
+<li>通配符版：一张证书保护同一个主域名下同一级的所有子域名，不限个数，形如 *.abc.com 。注意，通配符版只有 DVSSL 和 OVSSL 具有， EVSSL 不具有通配符版本。</li>
+</ul>
+<p>是不是看下来唯一感觉是：好特么复杂阿？别急，忘了告诉你，其实最重要的是它们每个的价格也不同，真特么的！！！</p>
+<h2 id="证书购买">证书购买</h2>
+<p>不废话，直接丢出来一个对比表格，我做的。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://images2015.cnblogs.com/blog/539095/201705/539095-20170525000240013-1680667081.png" alt="HTTPS SSL" class="lazyload"><figcaption class="image-caption">HTTPS SSL</figcaption></figure></p>
+<p>附上表格中购买地址：</p>
+<ul>
+<li>阿里云：https://common-buy.aliyun.com/?spm=5176.8064714.317898.pricedetail1111.uEwMu6&amp;commodityCode=cas#/buy</li>
+<li>腾讯云：https://www.qcloud.com/document/product/400/7994
+TrustAsia®（亚洲诚信）</li>
+<li>又拍云：http://docs.upyun.com/cdn/ssl/#ssl_1</li>
+<li>GoDaddy:https://sg.godaddy.com/zh/web-security/ssl-certificate</li>
+</ul>
+<p>当然，这些云服务提供商好像都有免费的单域名 SSL 证书可以申请。我之前也写过一篇：<a href="http://blog.mayongfa.cn/234.html">《让你的网站免费支持 HTTPS 及 Nginx 平滑升级》</a></p>
+<h2 id="总结一下httpblogmayongfacn289html"><a href="http://blog.mayongfa.cn/289.html">总结一下</a></h2>
+<p>这篇文章简单研究了一下所谓的 SSL 证书，并没有深入的探讨客户端与服务器端通过 SSL 证书如何进行加密传输的，推荐大家有空要研究研究，毕竟对你家网站升级 HTTPS 非常有用。</p>
+<p>有人说升级 HTTPS 很简单，就是买个证书配置一下的事儿。呵呵，行吧。其实那是你服务少、业务简单，当你存在几十个域名、几十个服务的时候，前端页面、后端业务错综复杂的时候，你全站升级 HTTPS 试试看，说多了都是泪。下一篇，我打算详细讲讲全站 HTTPS 的注意事项和坑！！！</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/ssl/>https://ftopia2020.github.io/2020/ssl/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/ssl/">
+                    #SSL</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/wordslevel0/" class="prev" rel="prev" title="叽里呱啦 呱呱美语课 Level0 单词整理"><i
+                class="iconfont icon-left"></i>&nbsp;叽里呱啦 呱呱美语课 Level0 单词整理</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2020/reactiframesolution/" class="next" rel="next"
+            title="React&#43; iframe 子窗体更新父窗体地址栏的解决方案">React&#43; iframe 子窗体更新父窗体地址栏的解决方案&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/ssl/" class="leancloud_visitors" data-flag-title="【转】一篇文章让你搞懂 SSL 证书">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

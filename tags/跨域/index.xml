@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>iframe on Ftopia</title>
-    <link>https://ftopia2020.github.io/tags/iframe/</link>
-    <description>Recent content in iframe on Ftopia</description>
+    <title>跨域 on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/%E8%B7%A8%E5%9F%9F/</link>
+    <description>Recent content in 跨域 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 19 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ftopia2020.github.io/tags/iframe/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/tags/%E8%B7%A8%E5%9F%9F/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://ftopia2020.github.io/2020/reactiframesolution/</guid>
       <description>WHY iframe 提供了浏览器原生的硬隔离方案，不论是样式隔离、js 隔离等问题统统都能被完美解决。 所以，如果我们希望集成多个站点，iframe 不失为实现 微</description>
-    </item>
-    
-    <item>
-      <title>如何在页面中优雅地内嵌 iframe ？</title>
-      <link>https://ftopia2020.github.io/2019/iframe/</link>
-      <pubDate>Mon, 09 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/2019/iframe/</guid>
-      <description>Why 在一些业务中，我们可能需要用到 iframe 来实现一些特定的需求，而如何在页面中嵌入 iframe 页面？通过本文，我们将稍加了解，至于为何强调了优雅？主要由于内嵌</description>
     </item>
     
   </channel>
