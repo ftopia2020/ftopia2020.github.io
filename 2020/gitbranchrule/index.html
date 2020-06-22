@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/reactiframesolution/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/gitbranch/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/gitbranchrule/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】您必须知道的 Git 分支开发规范 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】您必须知道的 Git 分支开发规范 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】您必须知道的 Git 分支开发规范",
+    "headline" : "【转】您必须知道的 Git 分支开发规范",
+    "description" : "作者：稻草叔叔 链接：https:\/\/juejin.im\/post\/5b4328bbf265da0fa21a6820 Git 是目前最流行的源代码管理",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-06-22 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-06-22 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/gitbranchrule\/",
+    "wordCount" : "1729",
+    "keywords" : [ "git","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分支管理">分支管理</a>
+      <ul>
+        <li><a href="#分支命名">分支命名</a></li>
+        <li><a href="#常见任务">常见任务</a></li>
+      </ul>
+    </li>
+    <li><a href="#日志规范">日志规范</a>
+      <ul>
+        <li><a href="#commit-messages的基本语法">Commit messages的基本语法</a></li>
+        <li><a href="#commit-messages格式要求">Commit messages格式要求</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考链接">参考链接</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】您必须知道的 Git 分支开发规范</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-06-22
+                    itemprop="datePublished">
+                    2020-06-22</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1729 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者：稻草叔叔</p>
+<p>链接：<a href="https://juejin.im/post/5b4328bbf265da0fa21a6820">https://juejin.im/post/5b4328bbf265da0fa21a6820</a></p>
+</blockquote>
+<blockquote>
+<p>Git 是目前最流行的源代码管理工具。 为规范开发，保持代码提交记录以及 git 分支结构清晰，方便后续维护，现规范 git 的相关操作。</p>
+</blockquote>
+<h2 id="分支管理">分支管理</h2>
+<h3 id="分支命名">分支命名</h3>
+<p><strong>master 分支</strong></p>
+<ul>
+<li>master 为主分支，也是用于部署生产环境的分支，确保master分支稳定性</li>
+<li>master 分支一般由develop以及hotfix分支合并，任何时间都不能直接修改代码</li>
+</ul>
+<p><strong>develop 分支</strong></p>
+<ul>
+<li>develop 为开发分支，始终保持最新完成以及bug修复后的代码</li>
+<li>一般开发的新功能时，feature分支都是基于develop分支下创建的</li>
+</ul>
+<p><strong>feature 分支</strong></p>
+<ul>
+<li>开发新功能时，以develop为基础创建feature分支</li>
+<li>分支命名: feature/ 开头的为特性分支， 命名规则: feature/user_module、 feature/cart_module</li>
+</ul>
+<p><strong>release分支</strong></p>
+<ul>
+<li>release 为预上线分支，发布提测阶段，会release分支代码为基准提测</li>
+</ul>
+<pre><code>当有一组feature开发完成，首先会合并到develop分支，进入提测时，会创建release分支。
+如果测试过程中若存在bug需要修复，则直接由开发者在release分支修复并提交。
+当测试完成之后，合并release分支到master和develop分支，此时master为最新代码，用作上线。
+</code></pre><p><strong>hotfix 分支</strong></p>
+<ul>
+<li>分支命名: hotfix/ 开头的为修复分支，它的命名规则与 feature 分支类似</li>
+<li>线上出现紧急问题时，需要及时修复，以master分支为基线，创建hotfix分支，修复完成后，需要合并到master分支和develop分支</li>
+</ul>
+<h3 id="常见任务">常见任务</h3>
+<p><strong>增加新功能</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>dev<span style="color:#f92672">)</span>$: git checkout -b feature/xxx            <span style="color:#75715e"># 从dev建立特性分支</span>
+<span style="color:#f92672">(</span>feature/xxx<span style="color:#f92672">)</span>$: blabla                         <span style="color:#75715e"># 开发</span>
+<span style="color:#f92672">(</span>feature/xxx<span style="color:#f92672">)</span>$: git add xxx
+<span style="color:#f92672">(</span>feature/xxx<span style="color:#f92672">)</span>$: git commit -m <span style="color:#e6db74">&#39;commit comment&#39;</span>
+<span style="color:#f92672">(</span>dev<span style="color:#f92672">)</span>$: git merge feature/xxx --no-ff          <span style="color:#75715e"># 把特性分支合并到dev</span>
+</code></pre></div><p><strong>修复紧急bug</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>$: git checkout -b hotfix/xxx         <span style="color:#75715e"># 从master建立hotfix分支</span>
+<span style="color:#f92672">(</span>hotfix/xxx<span style="color:#f92672">)</span>$: blabla                         <span style="color:#75715e"># 开发</span>
+<span style="color:#f92672">(</span>hotfix/xxx<span style="color:#f92672">)</span>$: git add xxx
+<span style="color:#f92672">(</span>hotfix/xxx<span style="color:#f92672">)</span>$: git commit -m <span style="color:#e6db74">&#39;commit comment&#39;</span>
+<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>$: git merge hotfix/xxx --no-ff       <span style="color:#75715e"># 把hotfix分支合并到master，并上线到生产环境</span>
+<span style="color:#f92672">(</span>dev<span style="color:#f92672">)</span>$: git merge hotfix/xxx --no-ff          <span style="color:#75715e"># 把hotfix分支合并到dev，同步代码</span>
+</code></pre></div><p><strong>测试环境代码</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>release<span style="color:#f92672">)</span>$: git merge dev --no-ff             <span style="color:#75715e"># 把dev分支合并到release，然后在测试环境拉取并测试</span>
+</code></pre></div><p><strong>生产环境上线</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>$: git merge release --no-ff          <span style="color:#75715e"># 把release测试好的代码合并到master，运维人员操作</span>
+<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>$: git tag -a v0.1 -m <span style="color:#e6db74">&#39;部署包版本名&#39;</span>  <span style="color:#75715e">#给版本命名，打Tag</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2018/7/9/1647e5710a461adc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image" class="lazyload"><figcaption class="image-caption">image</figcaption></figure></p>
+<h2 id="日志规范">日志规范</h2>
+<blockquote>
+<p>在一个团队协作的项目中，开发人员需要经常提交一些代码去修复bug或者实现新的feature。而项目中的文件和实现什么功能、解决什么问题都会渐渐淡忘，最后需要浪费时间去阅读代码。但是好的日志规范commit messages编写有帮助到我们，它也反映了一个开发人员是否是良好的协作者。</p>
+</blockquote>
+<p><strong>编写良好的Commit messages可以达到3个重要的目的：</strong></p>
+<ul>
+<li>加快review的流程</li>
+<li>帮助我们编写良好的版本发布日志</li>
+<li>让之后的维护者了解代码里出现特定变化和feature被添加的原因</li>
+</ul>
+<p><strong>目前，社区有多种 Commit message 的写法规范。来自Angular 规范是目前使用最广的写法，比较合理和系统化。如下图：</strong></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2018/7/9/1647e5710a492823?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image" class="lazyload"><figcaption class="image-caption">image</figcaption></figure></p>
+<h3 id="commit-messages的基本语法">Commit messages的基本语法</h3>
+<p>当前业界应用的比较广泛的是 <a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines">Angular Git Commit Guidelines</a></p>
+<p>具体格式为:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">type</span>&gt;: &lt;<span style="color:#f92672">subject</span>&gt;
+&lt;<span style="color:#f92672">BLANK</span> <span style="color:#a6e22e">LINE</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+&lt;<span style="color:#f92672">BLANK</span> <span style="color:#a6e22e">LINE</span>&gt;
+&lt;<span style="color:#f92672">footer</span>&gt;
+</code></pre></div><ul>
+<li>type: 本次 commit 的类型，诸如 bugfix docs style 等</li>
+<li>scope: 本次 commit 波及的范围</li>
+<li>subject: 简明扼要的阐述下本次 commit 的主旨，在原文中特意强调了几点 1. 使用祈使句，是不是很熟悉又陌生的一个词，来传送门在此 祈使句 2. 首字母不要大写 3. 结尾无需添加标点</li>
+<li>body: 同样使用祈使句，在主体内容中我们需要把本次 commit 详细的描述一下，比如此次变更的动机，如需换行，则使用 |</li>
+<li>footer: 描述下与之关联的 issue 或 break change，详见案例</li>
+</ul>
+<p><strong>Type的类别说明：</strong></p>
+<ul>
+<li>feat: 添加新特性</li>
+<li>fix: 修复bug</li>
+<li>docs: 仅仅修改了文档</li>
+<li>style: 仅仅修改了空格、格式缩进、都好等等，不改变代码逻辑</li>
+<li>refactor: 代码重构，没有加新功能或者修复bug</li>
+<li>perf: 增加代码进行性能测试</li>
+<li>test: 增加测试用例</li>
+<li>chore: 改变构建流程、或者增加依赖库、工具等</li>
+</ul>
+<h3 id="commit-messages格式要求">Commit messages格式要求</h3>
+<pre><code># 标题行：50个字符以内，描述主要变更内容
+#
+# 主体内容：更详细的说明文本，建议72个字符以内。 需要描述的信息包括:
+#
+# * 为什么这个变更是必须的? 它可能是用来修复一个bug，增加一个feature，提升性能、可靠性、稳定性等等
+# * 他如何解决这个问题? 具体描述解决问题的步骤
+# * 是否存在副作用、风险? 
+#
+# 如果需要的化可以添加一个链接到issue地址或者其它文档
+</code></pre><h2 id="参考链接">参考链接</h2>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/07/git.html">Git分支管理策略</a></li>
+<li><a href="http://ivweb.io/topic/58abda9d2117ae2f4995b4a8">如何写好 Git commit messages</a></li>
+<li><a href="https://segmentfault.com/a/1190000009048911">git commit 规范指南</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/gitbranchrule/>https://ftopia2020.github.io/2020/gitbranchrule/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/git/">
+                    #git</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/reactiframesolution/" class="prev" rel="prev" title="React&#43; iframe 子窗体更新父窗体地址栏的解决方案"><i
+                class="iconfont icon-left"></i>&nbsp;React&#43; iframe 子窗体更新父窗体地址栏的解决方案</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2020/gitbranch/" class="next" rel="next"
+            title="Git 分支操作简介">Git 分支操作简介&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/gitbranchrule/" class="leancloud_visitors" data-flag-title="【转】您必须知道的 Git 分支开发规范">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

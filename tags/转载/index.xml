@@ -6,10 +6,19 @@
     <description>Recent content in 转载 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】您必须知道的 Git 分支开发规范</title>
+      <link>https://ftopia2020.github.io/2020/gitbranchrule/</link>
+      <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/gitbranchrule/</guid>
+      <description>作者：稻草叔叔 链接：https://juejin.im/post/5b4328bbf265da0fa21a6820 Git 是目前最流行的源代码管理</description>
+    </item>
     
     <item>
       <title>【转】一篇文章让你搞懂 SSL 证书</title>

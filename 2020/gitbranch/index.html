@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/gitbranchrule/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/gitbranch/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             Git 分支操作简介 | Ftopia
+         
+    </title>
+    <meta name="title" content="Git 分支操作简介 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Git 分支操作简介",
+    "headline" : "Git 分支操作简介",
+    "description" : "WHY 熟练使用 Git 分支操作是 Git 的必备技能之一，尤其是多人合作的项目，分支管理和操作尤为重要。 首先，为什么需要 分支（branch） ？假设在已有项目的",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-06-22 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-06-22 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/gitbranch\/",
+    "wordCount" : "1887",
+    "keywords" : [ "git","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">WHY</a></li>
+    <li><a href="#what">WHAT</a></li>
+    <li><a href="#how">HOW</a>
+      <ul>
+        <li><a href="#查看分支">查看分支</a></li>
+        <li><a href="#创建--切换分支">创建 &amp; 切换分支</a></li>
+        <li><a href="#合并分支">合并分支</a></li>
+        <li><a href="#删除分支">删除分支</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Git 分支操作简介</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-06-22
+                    itemprop="datePublished">
+                    2020-06-22</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1887 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="why">WHY</h2>
+<p>熟练使用 Git 分支操作是 Git 的必备技能之一，尤其是多人合作的项目，分支管理和操作尤为重要。</p>
+<p>首先，为什么需要 <strong>分支（branch）</strong> ？假设在已有项目的基础上开发了功能 1（feature/1），且已经完成了一半；但是线上发现了 Bug（hotfix/1） 或是产品经理临时需要加个小功能2（feature/2），如何能在不加入 Func_1 的代码上进行开发呢？Git 的分支为我们提供了解决方案，做法可参考如下：</p>
+<blockquote>
+<p>从线上代码拉取分支 feature/1，开始功能1的开发；</p>
+<p>从线上代码拉取分支 hotfix/1，开始 Fix；</p>
+<p>从线上代码拉取分支feature/2，开始功能2的开发 &hellip;</p>
+</blockquote>
+<p>可开出，分支是各自独立的，当日可以交予多人完成，并且 Git 对分支没有限制。</p>
+<p>Git 鼓励多次使用分支完成某个任务，合并后再删掉分支的做法。</p>
+<p>如果还是不明白，可参考阅读以下，摘自 <a href="https://www.liaoxuefeng.com/wiki/896043488029600/896954848507552">廖雪峰-Git 教程-分支管理</a></p>
+<blockquote>
+<p>分支就是科幻电影里面的平行宇宙，当你正在电脑前努力学习Git的时候，另一个你正在另一个平行宇宙里努力学习SVN。</p>
+<p>如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN。</p>
+<p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。</p>
+<p>现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。</p>
+<p>其他版本控制系统如SVN等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。</p>
+<p>但Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。</p>
+</blockquote>
+<h2 id="what">WHAT</h2>
+<p>在介绍 Git 分支操作之前，可先了解几个概念：</p>
+<p><strong>master 分支：</strong> 即主分支，初始化 GIt 仓库时会自动创建主分支。通常用于部署生产环境，需保证其稳定性。</p>
+<p><strong>HEAD 指针</strong>： HEAD 是一个指针，总是指向当前分支。仓库版本的回退和追踪都是通过操作 HEAD 指针来完成。</p>
+<p>完成分支上的开发后，我们还需要做什么？这里就提出了另一个概念，即 <strong>合并（merge）</strong> ，简单理解就是把分支的代码加入到已有分支中，但其中可能会产生 <strong>冲突（conflict）</strong>，冲突需要手动解决后再提交。</p>
+<p>另外，同仓库一样，分支也存在 <strong>本地分支</strong> 及 <strong>远程分支</strong> 的概念，简单理解就是本地分支仅自己可见，远程分支可被 <strong>拉取（pull）</strong> 及 <strong>克隆（clone）</strong>，我们需要 **推送（push）**至远程分支，才被别人可见。</p>
+<h2 id="how">HOW</h2>
+<blockquote>
+<p>有关 Git 分支管理的文档可参考：<a href="https://git-scm.com/docs/git-branch">官方文档</a></p>
+</blockquote>
+<h3 id="查看分支">查看分支</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch   		<span style="color:#75715e"># 查看所有本地分支</span>
+$ git branch -a		<span style="color:#75715e"># 查看所有分支（本地 + 远程）</span>
+$ git branch -r   <span style="color:#75715e"># 查看所有远程分支</span>
+</code></pre></div><p>当前分支前面会标一个 <code>*  </code>号</p>
+<h3 id="创建--切换分支">创建 &amp; 切换分支</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch &lt;newbranch&gt;					<span style="color:#75715e"># 新建分支，并留在当前分支</span>
+$ git checkout &lt;oldbranch&gt;				<span style="color:#75715e"># 切换分支（分支需存在）</span>
+$ git checkout -b &lt;newbranch&gt;			<span style="color:#75715e"># 新建分支，并切换到新分支</span>
+$ git fetch origin &lt;branchname&gt;:&lt;branchname&gt; 	<span style="color:#75715e"># 从远程分支拉取至本地</span>
+</code></pre></div><p>新的 <code>swtich</code> 命令，参考如下（摘自 <a href="https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424">廖雪峰——Git 教程</a> ，本人未曾尝试）</p>
+<blockquote>
+<p>我们注意到切换分支使用<code>git checkout &lt;branch&gt;</code>，而前面讲过的撤销修改则是<code>git checkout -- &lt;file&gt;</code>，同一个命令，有两种作用，确实有点令人迷惑。</p>
+<p>实际上，切换分支这个动作，用<code>switch</code>更科学。因此，最新版本的Git提供了新的<code>git switch</code>命令来切换分支：</p>
+<p>创建并切换到新的<code>dev</code>分支，可以使用：</p>
+<pre><code>$ git switch -c dev
+</code></pre><p>直接切换到已有的<code>master</code>分支，可以使用：</p>
+<pre><code>$ git switch master
+</code></pre><p>使用新的<code>git switch</code>命令，比<code>git checkout</code>要更容易理解。</p>
+</blockquote>
+<p><strong>注意</strong>：创建本地分支后，如需 push 至远程，需建立与远程上游的跟踪，命令参考如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git push --set-upstream origin &lt;branchname&gt; 	<span style="color:#75715e"># 推送当前分支并建立与远程上游的跟踪</span>
+</code></pre></div><h3 id="合并分支">合并分支</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git merge &lt;branchname&gt;	<span style="color:#75715e"># 合并某分支到当前分支</span>
+</code></pre></div><p>合并分支可能产生冲突，此项不在本文讨论范围，可参考：<a href="https://www.liaoxuefeng.com/wiki/896043488029600/900004111093344">廖雪峰 Git 教程——解决冲突</a></p>
+<h3 id="删除分支">删除分支</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch -d &lt;branchname&gt;						<span style="color:#75715e"># 删除本地分支(需切出)</span>
+$ git push origin --delete &lt;branchname&gt;	<span style="color:#75715e"># 删除远程分支</span>
+</code></pre></div><h2 id="summary">Summary</h2>
+<p>总结常用分支操作命令如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch -a										<span style="color:#75715e"># 查看所有分支（本地 + 远程）</span>
+$ git branch &lt;newbranch&gt;					<span style="color:#75715e"># 新建分支，并留在当前分支</span>
+$ git checkout &lt;oldbranch&gt;				<span style="color:#75715e"># 切换分支（分支需存在）</span>
+$ git fetch origin &lt;branchname&gt;:&lt;branchname&gt; 		<span style="color:#75715e"># 从远程分支拉取至本地</span>
+$ git push --set-upstream origin &lt;branchname&gt; 	<span style="color:#75715e"># 推送当前分支并建立与远程上游的跟踪</span>
+$ git merge &lt;branchname&gt;								<span style="color:#75715e"># 合并某分支到当前分支</span>
+$ git branch -d &lt;branchname&gt;						<span style="color:#75715e"># 删除本地分支(需切出)</span>
+$ git push origin --delete &lt;branchname&gt;	<span style="color:#75715e"># 删除远程分支</span>
+</code></pre></div><p>P.S. 有关分支管理及提交的规范可参考 <a href="/2020/gitbranchrule/">【转】您必须知道的 Git 分支开发规范</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/gitbranch/>https://ftopia2020.github.io/2020/gitbranch/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/git/">
+                    #git</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/gitbranchrule/" class="prev" rel="prev" title="【转】您必须知道的 Git 分支开发规范"><i
+                class="iconfont icon-left"></i>&nbsp;【转】您必须知道的 Git 分支开发规范</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/gitbranch/" class="leancloud_visitors" data-flag-title="Git 分支操作简介">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
