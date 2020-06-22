@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>qiankun on Ftopia</title>
+    <link>https://ftopia.cn/tags/qiankun/</link>
+    <description>Recent content in qiankun on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia.cn/tags/qiankun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>微前端项目实践 Qiankun2.0</title>
+      <link>https://ftopia.cn/2020/qiankungo/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia.cn/2020/qiankungo/</guid>
+      <description>微前端项目实践 with Qiankun2.0 “技术栈无关” 是微前端的核心价值 微前端的前提，还是得有主体应用，然后才有微组件或微应用，解决 的是可控体系下的前端协同开发问</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia.cn/2020/reactiframesolution/" />
+    
+    <link rel="canonical" href="https://ftopia.cn/2020/qiankungo/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             微前端项目实践 Qiankun2.0 | Ftopia
+         
+    </title>
+    <meta name="title" content="微前端项目实践 Qiankun2.0 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia.cn\/"
+    },
+    "articleSection" : "posts",
+    "name" : "微前端项目实践 Qiankun2.0",
+    "headline" : "微前端项目实践 Qiankun2.0",
+    "description" : "微前端项目实践 with Qiankun2.0 “技术栈无关” 是微前端的核心价值 微前端的前提，还是得有主体应用，然后才有微组件或微应用，解决 的是可控体系下的前端协同开发问",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-06-20 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-06-20 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia.cn\/2020\/qiankungo\/",
+    "wordCount" : "1718",
+    "keywords" : [ "qiankun","微前端","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#微前端项目实践-with-qiankun20">微前端项目实践 with Qiankun2.0</a>
+      <ul>
+        <li><a href="#主应用基座构建">主应用基座构建</a></li>
+        <li><a href="#主应用需自定义完善项">主应用需自定义完善项</a></li>
+        <li><a href="#子应用已有项目构建更改点">子应用（已有项目）构建&amp;更改点</a></li>
+        <li><a href="#应用间的通信逻辑处理">应用间的通信逻辑处理</a></li>
+        <li><a href="#完整项目的启动--构建">完整项目的启动 &amp; 构建</a></li>
+      </ul>
+    </li>
+    <li><a href="#主应用基座构建-1">主应用基座构建</a>
+      <ul>
+        <li><a href="#主应用的更改项">主应用的更改项</a></li>
+        <li><a href="#子应用更改项">子应用更改项</a></li>
+        <li><a href="#发布--部署">发布 &amp; 部署</a></li>
+        <li><a href="#其他--后期规划">其他 &amp; 后期规划</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia.cn/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia.cn/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">微前端项目实践 Qiankun2.0</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-06-20
+                    itemprop="datePublished">
+                    2020-06-20</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1718 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="微前端项目实践-with-qiankun20">微前端项目实践 with Qiankun2.0</h2>
+<blockquote>
+<p><strong>“技术栈无关” 是微前端的核心价值</strong></p>
+<p>微前端的前提，还是得有主体应用，然后才有微组件或微应用，解决 的是可控体系下的前端协同开发问题</p>
+<p>(含 空间分离带来的协作 和 时间延续带来的升级维护 ) **@**玉伯 <strong>·</strong> 蚂蚁金服</p>
+<p><a href="https://github.com/umijs/qiankun">https://github.com/umijs/qiankun</a></p>
+</blockquote>
+<p>![image-20200601152611541](/Users/fee/Library/Application Support/typora-user-images/image-20200601152611541.png)</p>
+<p>![image-20200601152418163](/Users/fee/Library/Application Support/typora-user-images/image-20200601152418163.png)</p>
+<h3 id="主应用基座构建">主应用基座构建</h3>
+<p>主应用预计需要用到 antd，暂时使用 react16 + qiankun2.0版本</p>
+<pre><code># install qiankun
+$ yarn add qiankun  # or npm i qiankun -S
+</code></pre><p>在主应用下载qiankun，注意使用2.0 以上版本</p>
+<h4 id="主应用-indexjsx-更改">主应用 index.js(x) 更改</h4>
+<blockquote>
+<p>参考： <a href="https://github.com/umijs/qiankun/blob/master/examples/main/index.js">https://github.com/umijs/qiankun/blob/master/examples/main/index.js</a></p>
+</blockquote>
+<ol>
+<li>初始化应用</li>
+<li>注册子应用（可考虑将逻辑抽离到appRegister.js =》更好维护）</li>
+<li>设置默认进入的子应用</li>
+<li>启动应用</li>
+</ol>
+<h3 id="主应用需自定义完善项">主应用需自定义完善项</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 菜单路由的合理化构建</li>
+<li><input disabled="" type="checkbox"> <strong>基于 iframe 的跨域与更新父窗体地址栏的解决方案</strong> （解决刷新的路由一致性）</li>
+<li><input disabled="" type="checkbox"> 共同头部 Header 构建（ToDo）</li>
+<li><input disabled="" type="checkbox"> 微前端鉴权方案（ToDo）
+<ul>
+<li><input disabled="" type="checkbox"> 异步注册？</li>
+<li><input disabled="" type="checkbox"> 异步路由？</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> 公共资源处理（ToDo）</li>
+</ul>
+<h3 id="子应用已有项目构建更改点">子应用（已有项目）构建&amp;更改点</h3>
+<p>由于均为已有项目，构建步骤省略，在已有子应用中需做一定的更改</p>
+<ul>
+<li><input disabled="" type="checkbox"> 开发端口号更改</li>
+<li><input disabled="" type="checkbox"> 左侧菜单栏隐藏</li>
+<li><input disabled="" type="checkbox"> 顶栏的风格统一</li>
+</ul>
+<h3 id="应用间的通信逻辑处理">应用间的通信逻辑处理</h3>
+<p><strong>TODO</strong></p>
+<blockquote>
+<p><strong>官方的极简通信方案</strong></p>
+<p>微前端场景下，我们认为最合理的通信方案是通过 URL 及 CustomEvent 来处理。但在一些简单场景下，基于 props 的方案会更直接便捷，因此我们为 qiankun 用户提供这样一组 API 来完成应用间的通信：</p>
+<p>主应用创建共享状态：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">initGloabalState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;qiankun&#39;</span>;
+
+<span style="color:#a6e22e">initGloabalState</span>({ <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;kuitos&#39;</span> });
+</code></pre></div><p>微应用通过 props 获取共享状态并监听：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">mount</span>(<span style="color:#a6e22e">props</span>) {
+  <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">onGlobalStateChange</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">prevState</span>) =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">prevState</span>);
+  });
+};
+</code></pre></div><p>更详细的 API 介绍可以查看<a href="https://qiankun.umijs.org/zh/api/#initgloabalstate-state">官方文档</a>。</p>
+</blockquote>
+<h3 id="完整项目的启动--构建">完整项目的启动 &amp; 构建</h3>
+<p><strong>ToDo Reference</strong>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm run cinit		// 使用cnpm下载依赖，推荐cinit节省下载时间
+npm run init		// 或 使用npm下载依赖
+
+npm run serve		// 运行全部项目
+
+npm run build		// 打包全部项目
+</code></pre></div><h2 id="主应用基座构建-1">主应用基座构建</h2>
+<blockquote>
+<p>基于 TS + React + AntD 的主应用 {&quot;@types/react&rdquo;: &ldquo;^16.9.0&rdquo;, &ldquo;antd&rdquo;: &ldquo;^4.3.0&rdquo; }</p>
+<p>计划加入 Redux，统一 API 封装调用处理（初期仅加入 ACL）</p>
+<p>子站数据传递可考虑使用 localStorage or SessionStorage (同域可取)</p>
+</blockquote>
+<p>主站的 SPA 应用</p>
+<h3 id="主应用的更改项">主应用的更改项</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 统一化站点 Layout：展示支持左-菜单，右-内容 结构；后期加入共同的头部</li>
+<li><input disabled="" type="checkbox"> 菜单路由的合理化构建
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 对应子站路由统一根据环境配置</li>
+<li><input checked="" disabled="" type="checkbox"> 约定 MenuKey 构成</li>
+<li><input disabled="" type="checkbox"> </li>
+<li><input checked="" disabled="" type="checkbox"> 菜单组件使用：AndD menu，支持移入/移出 的 展开&amp;收起</li>
+<li><input disabled="" type="checkbox"> 自动生成菜单：暂时 .ts 文件 json 体写死，后期 API 返回</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> </li>
+<li><input disabled="" type="checkbox"> 加载页面 根据 URL =》 menu</li>
+<li><input disabled="" type="checkbox"> 异常路由 =》 跳转首页</li>
+<li><input checked="" disabled="" type="checkbox"> iframe高度适应浏览器  =》https://blog.csdn.net/qq_37815596/article/details/103296644</li>
+<li><input checked="" disabled="" type="checkbox"> <del>iframe跨域问题的解决</del> （理论上加域名后子站与父站是同域 ucloudadmin.com，本地开发报错的处理）</li>
+<li><input disabled="" type="checkbox"> <strong>基于 iframe 的跨域与更新父窗体地址栏的解决方案</strong> （解决刷新&amp;浏览器行为）https://cloud.tencent.com/developer/article/1193409
+<ul>
+<li><input disabled="" type="checkbox"> 父应用监听 iframe url 变更</li>
+<li><input disabled="" type="checkbox"> iframe url 若有变更 =》主站 变更</li>
+<li><input disabled="" type="checkbox"> 子应用 document.domain 变更为 ucloudadmin.com</li>
+</ul>
+</li>
+</ul>
+<h4 id="菜单相关">菜单相关</h4>
+<p>![image-20200610160501044](/Users/fee/Library/Application Support/typora-user-images/image-20200610160501044.png)</p>
+<ul>
+<li><input disabled="" type="checkbox"> 共同头部 Header 构建（ToDo）</li>
+<li><input disabled="" type="checkbox"> 菜单鉴权方案（ToDo）</li>
+<li><input disabled="" type="checkbox"> 公共资源处理（ToDo）</li>
+<li><input disabled="" type="checkbox"> 加 Redux  等 （ToDo）</li>
+</ul>
+<h3 id="子应用更改项">子应用更改项</h3>
+<p>！！！尽量不要更改（考虑共存）</p>
+<h3 id="发布--部署">发布 &amp; 部署</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 仅主站发布，虚机 PRE 172.22.126.218</li>
+<li><input disabled="" type="checkbox"> 上 KUN &hellip;</li>
+</ul>
+<h3 id="其他--后期规划">其他 &amp; 后期规划</h3>
+<ul>
+<li>
+<p><input disabled="" type="checkbox"> 共同头部 Header 构建（ToDo）</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 菜单鉴权方案（ToDo）</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 公共资源处理（ToDo）</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 加 Redux  等 （ToDo）</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 风格统一：需要个站做相应的重构 or 部分功能移植入主站（有利升级，如 uchat 版本过低 &hellip; ）</p>
+</li>
+<li>
+<p><input disabled="" type="checkbox"> 代码规范：可参考 ubu ReadMe，考虑加入 prettier &amp; 更严格的 eslint；git push 规范化</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">      <span style="color:#66d9ef">try</span> {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Change document.domain&#34;</span>);
+        document.<span style="color:#a6e22e">domain</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ucloudadmin.com&#34;</span>;
+      } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
+      }
+</code></pre></div><pre><code>
+SKIP_PREFLIGHT_CHECK = true
+REACT_APP_DOMAIN = true
+REACT_APP_URL_MAIN = https://csm-pre.ucloudadmin.com/
+REACT_APP_URL_COMPASS = https://compass-test.ucloudadmin.com/#/
+REACT_APP_URL_UBU = https://ubu-pre.ucloudadmin.com/v2/
+REACT_APP_URL_UCHAT = https://ucs.pre.ucloudadmin.com/#/
+
+SKIP_PREFLIGHT_CHECK = true
+REACT_APP_DOMAIN = true
+REACT_APP_URL_MAIN = http://localhost:3000/
+REACT_APP_URL_COMPASS = https://compass-test.ucloudadmin.com/#/
+REACT_APP_URL_UBU = https://ubu-pre.ucloudadmin.com/v2/
+REACT_APP_URL_UCHAT = https://ucs.pre.ucloudadmin.com/#/
+</code></pre><ol>
+<li>url 不同步。浏览器刷新 iframe url 状态丢失、后退前进按钮无法使用。</li>
+<li>UI 不同步，DOM 结构不共享。想象一下屏幕右下角 1/4 的 iframe 里来一个带遮罩层的弹框，同时我们要求这个弹框要浏览器居中显示，还要浏览器 resize 时自动居中..</li>
+<li>全局上下文完全隔离，内存变量不共享。iframe 内外系统的通信、数据同步等需求，主应用的 cookie 要透传到根域名都不同的子应用中实现免登效果。</li>
+<li>慢。每次子应用进入都是一次浏览器上下文重建、资源重新加载的过程。</li>
+</ol>
+<p>其中有的问题比较好解决(问题1)，有的问题我们可以睁一只眼闭一只眼(问题4)，但有的问题我们则很难解决(问题3)甚至无法解决(问题2)，而这些无法解决的问题恰恰又会给产品带来非常严重的体验问题， 最终导致我们舍弃了 iframe 方案。</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia.cn/2020/qiankungo/>https://ftopia.cn/2020/qiankungo/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia.cn/tags/qiankun/">
+                    #qiankun</a></span>
+            
+            <span class="tag"><a href="https://ftopia.cn/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">
+                    #微前端</a></span>
+            
+            <span class="tag"><a href="https://ftopia.cn/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia.cn/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia.cn/2020/reactiframesolution/" class="prev" rel="prev" title="React&#43; iframe 子窗体更新父窗体地址栏的解决方案"><i
+                class="iconfont icon-left"></i>&nbsp;React&#43; iframe 子窗体更新父窗体地址栏的解决方案</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/qiankungo/" class="leancloud_visitors" data-flag-title="微前端项目实践 Qiankun2.0">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia.cn/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia.cn/"  
+</script>
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
