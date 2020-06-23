@@ -231,15 +231,15 @@
 <p>有关 Git 分支管理的文档可参考：<a href="https://git-scm.com/docs/git-branch">官方文档</a></p>
 </blockquote>
 <h3 id="查看分支">查看分支</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch   		<span style="color:#75715e"># 查看所有本地分支</span>
-$ git branch -a		<span style="color:#75715e"># 查看所有分支（本地 + 远程）</span>
-$ git branch -r   <span style="color:#75715e"># 查看所有远程分支</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch     <span style="color:#75715e"># 查看所有本地分支</span>
+$ git branch -a  <span style="color:#75715e"># 查看所有分支（本地 + 远程）</span>
+$ git branch -r  <span style="color:#75715e"># 查看所有远程分支</span>
 </code></pre></div><p>当前分支前面会标一个 <code>*  </code>号</p>
 <h3 id="创建--切换分支">创建 &amp; 切换分支</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch &lt;newbranch&gt;					<span style="color:#75715e"># 新建分支，并留在当前分支</span>
-$ git checkout &lt;oldbranch&gt;				<span style="color:#75715e"># 切换分支（分支需存在）</span>
-$ git checkout -b &lt;newbranch&gt;			<span style="color:#75715e"># 新建分支，并切换到新分支</span>
-$ git fetch origin &lt;branchname&gt;:&lt;branchname&gt; 	<span style="color:#75715e"># 从远程分支拉取至本地</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch &lt;newbranch&gt;        <span style="color:#75715e"># 新建分支，并留在当前分支</span>
+$ git checkout &lt;oldbranch&gt;      <span style="color:#75715e"># 切换分支（分支需存在）</span>
+$ git checkout -b &lt;newbranch&gt;   <span style="color:#75715e"># 新建分支，并切换到新分支</span>
+$ git fetch origin &lt;branchname&gt;:&lt;branchname&gt;  <span style="color:#75715e"># 从远程分支拉取至本地</span>
 </code></pre></div><p>新的 <code>swtich</code> 命令，参考如下（摘自 <a href="https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424">廖雪峰——Git 教程</a> ，本人未曾尝试）</p>
 <blockquote>
 <p>我们注意到切换分支使用<code>git checkout &lt;branch&gt;</code>，而前面讲过的撤销修改则是<code>git checkout -- &lt;file&gt;</code>，同一个命令，有两种作用，确实有点令人迷惑。</p>
@@ -256,18 +256,18 @@ $ git fetch origin &lt;branchname&gt;:&lt;branchname&gt; 	<span style="color:#75
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git merge &lt;branchname&gt;	<span style="color:#75715e"># 合并某分支到当前分支</span>
 </code></pre></div><p>合并分支可能产生冲突，此项不在本文讨论范围，可参考：<a href="https://www.liaoxuefeng.com/wiki/896043488029600/900004111093344">廖雪峰 Git 教程——解决冲突</a></p>
 <h3 id="删除分支">删除分支</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch -d &lt;branchname&gt;						<span style="color:#75715e"># 删除本地分支(需切出)</span>
-$ git push origin --delete &lt;branchname&gt;	<span style="color:#75715e"># 删除远程分支</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch -d &lt;branchname&gt;    <span style="color:#75715e"># 删除本地分支(需切出)</span>
+$ git push origin --delete &lt;branchname&gt;  <span style="color:#75715e"># 删除远程分支</span>
 </code></pre></div><h2 id="summary">Summary</h2>
 <p>总结常用分支操作命令如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch -a										<span style="color:#75715e"># 查看所有分支（本地 + 远程）</span>
-$ git branch &lt;newbranch&gt;					<span style="color:#75715e"># 新建分支，并留在当前分支</span>
-$ git checkout &lt;oldbranch&gt;				<span style="color:#75715e"># 切换分支（分支需存在）</span>
-$ git fetch origin &lt;branchname&gt;:&lt;branchname&gt; 		<span style="color:#75715e"># 从远程分支拉取至本地</span>
-$ git push --set-upstream origin &lt;branchname&gt; 	<span style="color:#75715e"># 推送当前分支并建立与远程上游的跟踪</span>
-$ git merge &lt;branchname&gt;								<span style="color:#75715e"># 合并某分支到当前分支</span>
-$ git branch -d &lt;branchname&gt;						<span style="color:#75715e"># 删除本地分支(需切出)</span>
-$ git push origin --delete &lt;branchname&gt;	<span style="color:#75715e"># 删除远程分支</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git branch -a            <span style="color:#75715e"># 查看所有分支（本地 + 远程）</span>
+$ git branch &lt;newbranch&gt;   <span style="color:#75715e"># 新建分支，并留在当前分支</span>
+$ git checkout &lt;oldbranch&gt; <span style="color:#75715e"># 切换分支（分支需存在）</span>
+$ git fetch origin &lt;branchname&gt;:&lt;branchname&gt;  <span style="color:#75715e"># 从远程分支拉取至本地</span>
+$ git push --set-upstream origin &lt;branchname&gt; <span style="color:#75715e"># 推送当前分支并建立与远程上游的跟踪</span>
+$ git merge &lt;branchname&gt;   <span style="color:#75715e"># 合并某分支到当前分支</span>
+$ git branch -d &lt;branchname&gt;            <span style="color:#75715e"># 删除本地分支(需切出)</span>
+$ git push origin --delete &lt;branchname&gt; <span style="color:#75715e"># 删除远程分支</span>
 </code></pre></div><p>P.S. 有关分支管理及提交的规范可参考 <a href="/2020/gitbranchrule/">【转】您必须知道的 Git 分支开发规范</a></p>
 
     </div>
