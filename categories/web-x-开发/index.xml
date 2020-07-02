@@ -6,10 +6,28 @@
     <description>Recent content in Web X 开发 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/web-x-%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React AntD 中 Icon 组件使用 iconfont.cn</title>
+      <link>https://ftopia2020.github.io/2020/reactantdaddiconfont/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/reactantdaddiconfont/</guid>
+      <description>WHY 项目基于 React + AntD 搭建，但如何让 Icon组件加入更多？ 阿里官方推荐的 iconfont 平台可以帮我们解决这一问题。 AntD 相关官方文档：Icon 组件 使用 iconfont.cn WHAT iconfont.cn —— 阿</description>
+    </item>
+    
+    <item>
+      <title>【转】微前端入门</title>
+      <link>https://ftopia2020.github.io/2020/microfrontend/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/microfrontend/</guid>
+      <description>作者： 方应航 链接：https://juejin.im/post/5d8adb8ff265da5ba12cd173 微前端入门 最近打算改进一下现</description>
+    </item>
     
     <item>
       <title>Git 分支管理及基础操作指南</title>

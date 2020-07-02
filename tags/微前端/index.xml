@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>微前端 on Ftopia</title>
-    <link>https://ftopia.cn/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/</link>
+    <link>https://ftopia2020.github.io/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/</link>
     <description>Recent content in 微前端 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ftopia.cn/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ftopia2020.github.io/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>微前端项目实践 Qiankun2.0</title>
-      <link>https://ftopia.cn/2020/qiankungo/</link>
-      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      <title>【转】微前端入门</title>
+      <link>https://ftopia2020.github.io/2020/microfrontend/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ftopia.cn/2020/qiankungo/</guid>
-      <description>微前端项目实践 with Qiankun2.0 “技术栈无关” 是微前端的核心价值 微前端的前提，还是得有主体应用，然后才有微组件或微应用，解决 的是可控体系下的前端协同开发问</description>
+      <guid>https://ftopia2020.github.io/2020/microfrontend/</guid>
+      <description>作者： 方应航 链接：https://juejin.im/post/5d8adb8ff265da5ba12cd173 微前端入门 最近打算改进一下现</description>
     </item>
     
   </channel>

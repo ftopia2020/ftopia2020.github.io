@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/gitbranch/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/reactantdaddiconfont/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/microfrontend/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】微前端入门 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】微前端入门 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】微前端入门",
+    "headline" : "【转】微前端入门",
+    "description" : "作者： 方应航 链接：https:\/\/juejin.im\/post\/5d8adb8ff265da5ba12cd173 微前端入门 最近打算改进一下现",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-02 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-07-02 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/microfrontend\/",
+    "wordCount" : "7839",
+    "keywords" : [ "微前端", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#微前端入门">微前端入门</a></li>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#微前端的优点">微前端的优点</a>
+      <ul>
+        <li><a href="#增量升级">增量升级</a></li>
+        <li><a href="#简单解耦的代码库">简单、解耦的代码库</a></li>
+        <li><a href="#独立部署">独立部署</a></li>
+        <li><a href="#团队自治">团队自治</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+    <li><a href="#例子">例子</a></li>
+    <li><a href="#集成">集成</a>
+      <ul>
+        <li><a href="#后端模板的集成">后端模板的集成</a></li>
+        <li><a href="#package-集成">package 集成</a></li>
+        <li><a href="#通过-iframe-集成">通过 iframe 集成</a></li>
+        <li><a href="#使用-js-集成">使用 JS 集成</a></li>
+        <li><a href="#通过-web-component-集成">通过 Web Component 集成</a></li>
+      </ul>
+    </li>
+    <li><a href="#样式">样式</a></li>
+    <li><a href="#共享组件库">共享组件库</a></li>
+    <li><a href="#跨微应用通信">跨微应用通信</a></li>
+    <li><a href="#后端通讯">后端通讯</a></li>
+    <li><a href="#测试">测试</a></li>
+    <li><a href="#详细的例子">详细的例子</a>
+      <ul>
+        <li><a href="#容器">容器</a></li>
+      </ul>
+    </li>
+    <li><a href="#微前端应用">微前端应用</a>
+      <ul>
+        <li><a href="#通过路由进行跨应用程序通信">通过路由进行跨应用程序通信</a></li>
+      </ul>
+    </li>
+    <li><a href="#共享内容">共享内容</a></li>
+    <li><a href="#缺点">缺点</a>
+      <ul>
+        <li><a href="#下载量">下载量</a></li>
+        <li><a href="#环境差异">环境差异</a></li>
+        <li><a href="#治理复杂性">治理复杂性</a></li>
+      </ul>
+    </li>
+    <li><a href="#结论">结论</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】微前端入门</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-07-02
+                    itemprop="datePublished">
+                    2020-07-02</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 7839 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 16 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者： <a href="https://juejin.im/user/57b030507db2a200542397c7">方应航</a></p>
+<p>链接：<a href="https://juejin.im/post/5d8adb8ff265da5ba12cd173">https://juejin.im/post/5d8adb8ff265da5ba12cd173</a></p>
+</blockquote>
+<h2 id="微前端入门">微前端入门</h2>
+<p>最近打算改进一下现有网站的架构，微前端这个词多次进入了我的视野。</p>
+<p>但是网上关于微前端文章总是说得似是而非，于是我找到这篇文章进行翻译。并大概理解微前端的理念。目前还没有确定是否使用微前端架构，因为看起来业界对最佳实践并没有达成一致。</p>
+<p>译文开始，有删节。<a href="https://martinfowler.com/articles/micro-frontends.html">原文链接</a></p>
+<hr>
+<h2 id="引言">引言</h2>
+<p>把前端做好很难，让多个团队同时开发大型前端应用，就更难了。目前有一种趋势是将前端应用拆分成更小、更易于管理的小应用。这种体系结构是如何提高前端团队的效率的呢？</p>
+<p>本文将对这些问题进行阐述。除了讨论利弊，我们还将介绍一些可用的例子，并深入研究一个完整的示例应用。</p>
+<hr>
+<p>近年来，微服务已迅速普及，许多组织都使用这种体系结构样式来避免大型单体应用的局限性。尽管有很多介绍微服务的文章，但还是有许多公司局限于单体式前端应用。</p>
+<p>假设你想构建一个渐进式的Web应用程序，但是你很难将新的功能实现于现有的整体应用中。比如你想开始使用新的 JS 语法（或TypeScript），但是你无法在现有的构建过程中使用对应的构建工具。又或者，你只想扩展你的开发团队，以便多个团队可以同时处理一个产品，但是现有应用中的耦合和复杂度让每个开发者互相掣肘。这些都是真实存在的问题，这些问题极大地降低了大型团队的开发效率。</p>
+<p>最近，我们看到越来越多前端开始把注意力集中在复杂前端应用的架构上面。尤其是如何将前端整体分解，每一块可以独立开发、测试和部署，同时对用户而言仍是一个整体。这种技术就是微前端，我们将其定义为：</p>
+<blockquote>
+<p>一种将独立的前端应用组成一个更大的整体的架构风格</p>
+</blockquote>
+<p>当然，在软件体系结构方面没有免费的午餐。一些微型前端实现可能导致依赖关系非常重复，从而增加用户的下载量。而且，团队自治可能会导致团队分散。尽管如此，我们认为风险是可控的，收益是高于成本的。</p>
+<h2 id="微前端的优点">微前端的优点</h2>
+<h3 id="增量升级">增量升级</h3>
+<p>对于许多团队而言，这是开始微前端之旅的首要原因。技术债阻碍了项目的发展，只能重写。为了避免完全重写的风险，我们更希望 逐个替换旧的模块。</p>
+<h3 id="简单解耦的代码库">简单、解耦的代码库</h3>
+<p>每个单独的微型前端应用的源代码都将比单个整体前端应用的源代码少得多。这些较小的代码库对于开发人员来说更容易维护。尤其是我们避免了组件间耦合所导致的复杂性。</p>
+<h3 id="独立部署">独立部署</h3>
+<p>就像微服务一样，微前端的独立部署能力是关键。部署范围的减小，带来了风险的降低。每个微前端应用都应具有自己的持续交付途径，不停地构建、测试、部署。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d668cfcd5297bf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<h3 id="团队自治">团队自治</h3>
+<p>每个团队需要围绕业务功能垂直组建，而不是根据技术能力来组建。这为团队带来了更高的凝聚力。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d668e822d758f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<h3 id="总结">总结</h3>
+<p>简而言之，微前端就是将大而恐怖的东西切成更小、更易于管理的部分，然后明确地表明它们之间的依赖性。我们的技术选择，我们的代码库，我们的团队以及我们的发布流程都应该能够彼此独立地操作和发展，无需过多的协调。</p>
+<h2 id="例子">例子</h2>
+<p>想象一个订餐网站。从表面上看，这是一个非常简单的概念，但是如果你想做得好，会有很多令人惊讶的细节：</p>
+<ul>
+<li>应该有一个落地页，顾客可以浏览和搜索餐馆。这些餐厅应该可以通过许多属性进行搜索和过滤，包括价格、菜名或客户先前订购的内容</li>
+<li>每个餐厅都需要有自己的页面，显示其菜单，并允许客户下单、选折扣和填写附加要求</li>
+<li>客户应该有个人资料页面，可以查看订单记录、自定义付款方式</li>
+</ul>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d6692139ccca36?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>每个页面都足够复杂，从微前端的角度我们可以把每个页面交给一个专门的团队（译注：这些团队的人员可以重叠），并且每个团队都应该能够独立于其他团队工作。他们应该能够开发、测试、部署和维护其代码，而不必担心与其他团队冲突。</p>
+<h2 id="集成">集成</h2>
+<p>鉴于上面的定义相当宽松，所有有许多方法实现微前端。在本节中，我们将显示一些示例并讨论它们的取舍之道。每个页面都有一个容器应用，该容器可以：</p>
+<ul>
+<li>呈现常见的页面元素，例如页眉和页脚</li>
+<li>解决认证和导航等跨领域问题</li>
+<li>将各种微型前端应用集中到页面上，并告诉每个微型前端何时以及在何处进行渲染</li>
+</ul>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d66f78a72cbed8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<h3 id="后端模板的集成">后端模板的集成</h3>
+<p>我们用一个非常传统的方式开始，将多个模板渲染到服务器上的HTML里。我们有一个index.html，其中包含所有常见的页面元素，然后使用 include 来引入其他模板：</p>
+<pre><code>&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Feed me&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;🍽 Feed me&lt;/h1&gt;
+    &lt;!--# include file=&quot;$PAGE.html&quot; --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+</code></pre><p>然后配置 nginx</p>
+<pre><code>server {
+    listen 8080;
+    server_name localhost;
+
+    root /usr/share/nginx/html;
+    index index.html;
+    ssi on;
+
+    # 将 / 重定向到 /browse
+    rewrite ^/$ http://localhost:8080/browse redirect;
+
+    # 根据路径访问 html 
+    location /browse {
+      set $PAGE 'browse';
+    }
+    location /order {
+      set $PAGE 'order';
+    }
+    location /profile {
+      set $PAGE 'profile'
+    }
+
+    # 所有其他路径都渲染 /index.html
+    error_page 404 /index.html;
+}
+复制代码
+</code></pre><p>这是相当标准的服务器端应用。我们之所以可以称其为微前端，是因为我们让每个页面独立，可由一个独立的团队交付。</p>
+<p>为了获得更大的独立性，可以有一个单独的服务器负责渲染和服务每个微型前端，其中一个服务器位于前端，向其他服务器发出请求。通过缓存，可以把延迟降到最低。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d6851ebf15843c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>这个例子说明了微前端不一定是一种新技术，也不必太复杂。只要我们保证代码隔离和团队自治，无论我们采用何种技术栈，我们都可以达到相同的效果。</p>
+<h3 id="package-集成">package 集成</h3>
+<p>有人会用到的一种方法是将每个微前端发布为一个 node 包，并让容器应用程序将所有微前端应用作为依赖项。比如这个 package.json：</p>
+<pre><code>{
+  &quot;name&quot;: &quot;@feed-me/container&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;A food delivery web app&quot;,
+  &quot;dependencies&quot;: {
+    &quot;@feed-me/browse-restaurants&quot;: &quot;^1.2.3&quot;,
+    &quot;@feed-me/order-food&quot;: &quot;^4.5.6&quot;,
+    &quot;@feed-me/user-profile&quot;: &quot;^7.8.9&quot;
+  }
+}
+复制代码
+</code></pre><p>乍看似乎没什么问题，这种做法会产生一个可部署的包，我们可以轻松管理依赖项。</p>
+<p>但是，这种方法意味着我们必须重新编译并发布每个微前端应用，才能发布我们对某个应用作出的更改。我们强烈不建议使用这种微前端方案。</p>
+<h3 id="通过-iframe-集成">通过 iframe 集成</h3>
+<p>iframe 是集成的最简单方式之一。本质上来说，iframe 里的页面是完全独立的，可以轻松构建。而且 iframe 还提供了很多的隔离机制。</p>
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Feed me!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to Feed me!&lt;/h1&gt;
+
+    &lt;iframe id=&quot;micro-frontend-container&quot;&gt;&lt;/iframe&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      const microFrontendsByRoute = {
+        '/': 'https://browse.example.com/index.html',
+        '/order-food': 'https://order.example.com/index.html',
+        '/user-profile': 'https://profile.example.com/index.html',
+      };
+
+      const iframe = document.getElementById('micro-frontend-container');
+      iframe.src = microFrontendsByRoute[window.location.pathname];
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+</code></pre><p>iframe 并不是一项新技术，所以上面代码也许看起来并不那么令人兴奋。</p>
+<p>但是，如果我们重新审视先前列出的微前端的主要优势，只要我们谨慎地划分微应用和组建团队的方式，iframe便很适合。</p>
+<p>我们经常看到很多人不愿意选择iframe。因为 iframe有点令人讨厌，但 iframe 实际上还是有它的优点的。上面提到的容易隔离确实会使iframe不够灵活。它会使路由、历史记录和深层链接变得更加复杂，并且很难做成响应式页面。</p>
+<h3 id="使用-js-集成">使用 JS 集成</h3>
+<p>这种方式可能是最灵活的一种，也是被采用频率最高的一种方法。每个微前端都对应一个 <code>&lt;script&gt;</code> 标签，并且在加载时导出一个全局变量。然后，容器应用程序确定应该安装哪些微应用，并调用相关函数以告知微应用何时以及在何处进行渲染。</p>
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Feed me!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to Feed me!&lt;/h1&gt;
+
+    &lt;!-- 这些脚本不会马上渲染应用 --&gt;
+    &lt;!-- 而是分别暴露全局变量 --&gt;
+    &lt;script src=&quot;https://browse.example.com/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://order.example.com/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://profile.example.com/bundle.js&quot;&gt;&lt;/script&gt;
+
+    &lt;div id=&quot;micro-frontend-root&quot;&gt;&lt;/div&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      // 这些全局函数是上面脚本暴露的
+      const microFrontendsByRoute = {
+        '/': window.renderBrowseRestaurants,
+        '/order-food': window.renderOrderFood,
+        '/user-profile': window.renderUserProfile,
+      };
+      const renderFunction = microFrontendsByRoute[window.location.pathname];
+
+      // 渲染第一个微应用
+      renderFunction('micro-frontend-root');
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+</code></pre><p>上面是一个很基本的例子，演示了 JS 集成的大体思路。</p>
+<p>与 package 集成不同，我们可以用不同的bundle.js独立部署每个应用。</p>
+<p>与 iframe 集成不同的是，我们具有完全的灵活性，你可以用 JS 控制什么时候下载每个应用，以及渲染应用时额外传参数。</p>
+<p>这种方法的灵活性和独立性使其成为最常用的方案。当我们展示完整的示例时，会有更详细的探讨。</p>
+<h3 id="通过-web-component-集成">通过 Web Component 集成</h3>
+<p>这是前一种方法的变体，每个微应用对应一个 HTML 自定义元素，供容器实例化，而不是提供全局函数。</p>
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Feed me!&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to Feed me!&lt;/h1&gt;
+
+     &lt;!-- 这些脚本不会马上渲染应用 --&gt;
+    &lt;!-- 而是分别提供自定义标签 --&gt;
+    &lt;script src=&quot;https://browse.example.com/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://order.example.com/bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://profile.example.com/bundle.js&quot;&gt;&lt;/script&gt;
+
+    &lt;div id=&quot;micro-frontend-root&quot;&gt;&lt;/div&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      // 这些标签名是上面代码定义的
+      const webComponentsByRoute = {
+        '/': 'micro-frontend-browse-restaurants',
+        '/order-food': 'micro-frontend-order-food',
+        '/user-profile': 'micro-frontend-user-profile',
+      };
+      const webComponentType = webComponentsByRoute[window.location.pathname];
+
+      // 渲染第一个微应用（自定义标签）
+      const root = document.getElementById('micro-frontend-root');
+      const webComponent = document.createElement(webComponentType);
+      root.appendChild(webComponent);
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+</code></pre><p>主要区别在于使用 Web Component 代替全局变量。如果你喜欢 Web Component 规范，那么这是一个不错的选择。如果你希望在容器应用程序和微应用之间定义自己的接口，那么你可能更喜欢前面的示例。</p>
+<h2 id="样式">样式</h2>
+<p>CSS 没有模块系统、命名空间和封装。就算有，也通常缺乏浏览器支持。在微前端环境中，这些问题会更严重。</p>
+<p>例如，如果一个团队的微前端的样式表为 h2 { color: black; }，而另一个团队的则为 h2 { color: blue; }，而这两个选择器都附加在同一页面上，就会冲突！</p>
+<p>这不是一个新问题，但由于这些选择器是由不同的团队在不同的时间编写的，并且代码可能分散在不同的库中，因此更难避免。</p>
+<p>多年来，有许多方法可以让 CSS 变得更易于管理。有些人选择使用严格的命名约定，例如 BEM，以确保选择器的范围是足够小的。其他一些人则使用预处理器，例如 SASS，其选择器嵌套可以用作命名空间。一种较新的方法是通过 CSS 模块 或各种 CSS-in-JS 库，以编程的方式写 CSS。某些开发者还会使用 shadow DOM 来隔离样式。</p>
+<p>只要你选择一种能确保开发人员的样式互不影响的方案即可。</p>
+<h2 id="共享组件库">共享组件库</h2>
+<p>上面我们提到，视觉一致性很重要，一种解决方法是应用间共享可重用的 UI 组件库。</p>
+<p>说起来容易，做起来难。创建这样一个库的主要好处是减少工作量。此外，你的组件库可以充当样式指南，作为开发人员和设计师之间进行协作的重要桥梁。</p>
+<p>第一个容易出错的点，就是过早地创建了太多组件。比如你试图创建一个囊括所有常见 UI 组件的组件库。但是，经验告诉我们，在实际使用组件之前，我们很难猜测组件的 API 应该是什么样的，强行做组件会导致早期的混乱。因此，我们宁愿让团队根据需求创建自己的组件，即使这最初会导致某些重复。</p>
+<p>让 API 自然出现，一旦组件的 API 变得显而易见，就可以将重复的代码整合到共享库中。</p>
+<p>与任何共享内部库一样，库的所有权和治理权很难分配。一种人认为，所有开发成员都拥有库的所有权，实际上这意味着没有人拥有库的所有权。如果没有明确的约定或技术远见，共享组件库很快就会成为不一致代码的大杂烩。如果取另一个极端，即完全集中式的开发共享库，后果就是创建组件的人与使用这些组件的人之间将存在很大的脱节。</p>
+<p>我们见过的最好的合作方式是，任何人都可以为库贡献代码，但是有一个 托管者（一个人或一个团队）负责确保这些代码的质量、一致性和有效性。</p>
+<p>维护共享库的人需要技术很强，同时沟通能力差也很强。</p>
+<h2 id="跨微应用通信">跨微应用通信</h2>
+<p>关于微前端的最常见问题之一是如何让应用彼此通信。我们建议应该尽可能少地通信，因为这通常会引入不必要的耦合。</p>
+<p>不过跨应用通信的需求还是存在的。</p>
+<ol>
+<li>使用自定义事件通信，是降低耦合的一种好方法。不过这样做会使微应用之间的接口变得模糊。</li>
+<li>可以考虑 React 应用中常见的机制：自上而下传递回调和数据。</li>
+<li>第三种选择是使用地址栏作为通信桥梁，我们将在后面详细探讨 。</li>
+</ol>
+<p>如果你使用的是 Redux，那么通常你会为整个应用创建一个全局状态。但如果每个微应用是独立的，那么每个微应用就都应该有自己的 Redux 和全局状态。</p>
+<p>无论选择哪种方法，我们都希望我们的微应用通过消息或事件进行通信，并避免任何共享状态，以避免耦合。</p>
+<p>你还应该考虑如何自动验证集成没有中断。功能测试是解法之一，但是由于实现和维护成本，我们倾向于只做一部分功能测试。或者，你可以实施消费者驱动接口，让每个微应用指定它对其他微应用的要求，这样你就不用实际将它们全部集成在一起并在浏览器中测试。</p>
+<h2 id="后端通讯">后端通讯</h2>
+<p>如果我们有独立的团队独立处理前端应用，那么后端开发又是怎样的呢？</p>
+<p>我们坚信全栈团队的价值，从界面代码一直到后台 API 开发，再到数据库和网站架构。</p>
+<p>我们推荐的模式是 Backends For Frontends 模式，其中每个前端应用程序都有一个相应的后端，后端的目的仅仅是为了满足该前端的需求。BFF模式起初的粒度可能是每个前端平台（PC页面、手机页面等）对应一个后端应用，但最终会变为每个微应用对应一个后端应用。</p>
+<p>这里要说明一下，一个后端应用可能有独立业务逻辑和数据库的，也可能只是下游服务的聚合器。 如果微前端应用只有一个与之通信的API，并且该API相当稳定，那么为它单独构建一个后台可能根本没有太大价值。指导原则是：构建微前端应用的团队不必等待其他团队为其构建什么事物。</p>
+<p>因此，如果一个微前端用到的新功能需要后端接口的变更，那么这一前一后两个地方就应该交给一个团队来开发。</p>
+<p>![img](data:image/svg+xml;utf8,<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->)</p>
+<p>另一个常见的问题是，如何做身份验证和鉴权？</p>
+<p>显然用户只需要进行一次身份验证，因此身份验证应该放在容器应用里。容器可能具有某种登录形式，通过该登录形式我们可以获得某种令牌。该令牌将归容器所有，并可以在初始化时注入到每个微前端中。最后，微前端可以将令牌发送到服务器，然后服务器进行验证。</p>
+<h2 id="测试">测试</h2>
+<p>在测试方面，我们看不到单体式前端和微前端之间的太大差异。</p>
+<p>显而易见的差距是容器应用程序对各种微前端的集成测试。</p>
+<h2 id="详细的例子">详细的例子</h2>
+<p>接下来我们来实现一个详细的例子。</p>
+<p>主要介绍容器应用和微应用如何用 JavaScript 集成在一起，因为这可能是最有趣和最复杂的部分。</p>
+<p>你可以在 <a href="https://demo.microfrontends.com/">demo.microfrontends.com</a> 上查看最终部署的结果，完整的源代码可以在 <a href="https://github.com/micro-frontends-demo">Github</a> 上看到。</p>
+<p>![img](data:image/svg+xml;utf8,<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->)</p>
+<p>该项目使用 React.js 实现，值得一提的是 React 不是唯一选择。</p>
+<h3 id="容器">容器</h3>
+<p>我们将从 <a href="https://github.com/micro-frontends-demo/container">容器</a> 开始，因为它是我们的切入点。package.json：</p>
+<pre><code>{
+  &quot;name&quot;: &quot;@micro-frontends-demo/container&quot;,
+  &quot;description&quot;: &quot;Entry point and container for a micro frontends demo&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;PORT=3000 react-app-rewired start&quot;,
+    &quot;build&quot;: &quot;react-app-rewired build&quot;,
+    &quot;test&quot;: &quot;react-app-rewired test&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;react&quot;: &quot;^16.4.0&quot;,
+    &quot;react-dom&quot;: &quot;^16.4.0&quot;,
+    &quot;react-router-dom&quot;: &quot;^4.2.2&quot;,
+    &quot;react-scripts&quot;: &quot;^2.1.8&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;enzyme&quot;: &quot;^3.3.0&quot;,
+    &quot;enzyme-adapter-react-16&quot;: &quot;^1.1.1&quot;,
+    &quot;jest-enzyme&quot;: &quot;^6.0.2&quot;,
+    &quot;react-app-rewire-micro-frontends&quot;: &quot;^0.0.1&quot;,
+    &quot;react-app-rewired&quot;: &quot;^2.1.1&quot;
+  },
+  &quot;config-overrides-path&quot;: &quot;node_modules/react-app-rewire-micro-frontends&quot;
+}
+复制代码
+</code></pre><p>可以看出，这是一个用 create-react-app 创建的 React 应用。</p>
+<p>要注意我并没有把其他微应用包含到 package.json 的依赖里。</p>
+<p>如果你想知道如何选择和展示微应用，可以看一下 App.js。我们使用React Router 将当前URL与预定义的路由列表进行匹配，并渲染相应的组件：</p>
+<pre><code>&lt;Switch&gt;
+  &lt;Route exact path=&quot;/&quot; component={Browse} /&gt;
+  &lt;Route exact path=&quot;/restaurant/:id&quot; component={Restaurant} /&gt;
+  &lt;Route exact path=&quot;/random&quot; render={Random} /&gt;
+&lt;/Switch&gt;
+复制代码
+</code></pre><p>Browser 和 Restaurant 组件是这样的：</p>
+<pre><code>const Browse = ({ history }) =&gt; (
+  &lt;MicroFrontend history={history} name=&quot;Browse&quot; host={browseHost} /&gt;
+);
+const Restaurant = ({ history }) =&gt; (
+  &lt;MicroFrontend history={history} name=&quot;Restaurant&quot; host={restaurantHost} /&gt;
+);
+复制代码
+</code></pre><p>两个组件都渲染了一个 MicroFrontend 组件。除了 history 对象（稍后将变得很重要）之外，我们还指定应用程序的唯一名称，以及对应的后端 host。host 的值可能是 <a href="http://localhost:3001/">http://localhost:3001</a> 或 <a href="https://browse.demo.microfrontends.com/">browse.demo.microfrontends.com</a>。</p>
+<p>MicroFrontend 只是另一个 React 组件：</p>
+<pre><code>class MicroFrontend extends React.Component {
+  render() {
+    return &lt;main id={`${this.props.name}-container`} /&gt;;
+  }
+}
+复制代码
+</code></pre><p>渲染时，我们要做的只是在页面上放置一个容器元素，其ID对于微前端应用来说是唯一的。我们使用React componentDidMount作为下载和安装微应用的触发器：</p>
+<pre><code>  // class MicroFrontend
+  componentDidMount() {
+    const { name, host } = this.props;
+    const scriptId = `micro-frontend-script-${name}`;
+
+    if (document.getElementById(scriptId)) {
+      this.renderMicroFrontend();
+      return;
+    }
+
+    fetch(`${host}/asset-manifest.json`)
+      .then(res =&gt; res.json())
+      .then(manifest =&gt; {
+        const script = document.createElement('script');
+        script.id = scriptId;
+        script.src = `${host}${manifest['main.js']}`;
+        script.onload = this.renderMicroFrontend;
+        document.head.appendChild(script);
+      });
+  }
+复制代码
+</code></pre><p>必须从 manifest 文件中获取脚本的 URL，因为 react-scripts 输出的编译的 JavaScript 文件的文件名中带有哈希值以方便缓存。</p>
+<p>设置脚本的URL后，剩下的就是将其添加到文档并初始化：</p>
+<pre><code>  // class MicroFrontend
+  renderMicroFrontend = () =&gt; {
+    const { name, history } = this.props;
+
+    window[`render${name}`](`${name}-container`, history);
+    // E.g.: window.renderBrowse('browse-container', history);
+  };
+复制代码
+</code></pre><p>最后要做的是清理工作。当 MicroFrontend 从页面中删除组件时，我们也应该卸载相关的微应用。</p>
+<pre><code>  componentWillUnmount() {
+    const { name } = this.props;
+
+    window[`unmount${name}`](`${name}-container`);
+  }
+复制代码
+</code></pre><h2 id="微前端应用">微前端应用</h2>
+<p>接下来介绍 window.renderBrowse 方法是怎么实现的：</p>
+<pre><code>import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+window.renderBrowse = (containerId, history) =&gt; {
+  ReactDOM.render(&lt;App history={history} /&gt;, document.getElementById(containerId));
+  registerServiceWorker();
+};
+
+window.unmountBrowse = containerId =&gt; {
+  ReactDOM.unmountComponentAtNode(document.getElementById(containerId));
+};
+复制代码
+</code></pre><p>上面代码用到了 ReactDOM.render 和 ReactDOM.unmountComponentAtNode。</p>
+<p>为了独立开发和运行微前端。每个微前端应用还具有额外的 index.html，以在容器外部独立呈现：</p>
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;Restaurant order&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;main id=&quot;container&quot;&gt;&lt;/main&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      window.onload = () =&gt; {
+        window.renderRestaurant('container');
+      };
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+复制代码
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/26/16d6c61ca802bcbc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>从现在开始，微前端大多只是普通的 React 应用程序。'<a href="https://github.com/micro-frontends-demo/browse">browser</a>&rsquo; 应用餐厅列表，提供 <code>&lt;input&gt;</code> 用来搜索和过滤，并用 <code>&lt;Link&gt;</code> 把结果包裹起来，用户点击时导航到一个特定的餐厅。然后，我们将切换到第二个 &lsquo;<a href="https://github.com/micro-frontends-demo/restaurant-order">order</a>&rsquo; 微应用，展示一个带有菜单的餐厅页面。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/26/16d6c654e32f6b82?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<h3 id="通过路由进行跨应用程序通信">通过路由进行跨应用程序通信</h3>
+<p>我们之前提到过 ，应将跨应用通信保持在最低限度。在此示例中，我们唯一的通信是 browser 页面需要告诉 order 页面要加载哪个餐厅。我们使用路由来解决此问题。</p>
+<p>涉及到三个 React 应用，都用React Router进行路由，但是以两种略有不同的方式进行初始化。</p>
+<p>对于容器应用程序，我们创建一个，它会在内部实例化一个history对象，我们使用该对象来处理客户端历史记录，也可以使用它来将多个React Router 链接在一起。初始化路由的方式为</p>
+<pre><code>&lt;Router history={this.props.history}&gt;
+复制代码
+</code></pre><p>这个 histroy 是由容器应用提供的，所有微应用共用这个 history 对象。这使得用 url 作为消息传递方式变得十分简便。例如，我们有一个像这样的链接：</p>
+<pre><code>&lt;Link to={`/restaurant/${restaurant.id}`}&gt;
+复制代码
+</code></pre><p>单击此链接后，该路径将在容器中更新，该容器将看到新的URL并确定应该安装和呈现餐厅微应用。然后，该微应用自己的路由逻辑将从URL中提取餐厅ID。</p>
+<p>我希望这个示例能够显示 URL 的灵活性和强大功能。使用 URL 作为消息传递应该满足一下条件：</p>
+<ul>
+<li>URL 的结构是开放透明的</li>
+<li>URL 的访问权限是全局的</li>
+<li>URL 的长度是有限的</li>
+<li>面向用户建模，URL 应该易于理解</li>
+<li>它是声明式的，而不是命令式的。即 URL 表示当前页面的位置，而不是当前页面该做什么</li>
+<li>它迫使微前端应用进行间接通信，而不是直接依赖</li>
+</ul>
+<p>当使用路由作为微前端应用之间的通信方式时，我们选择的路由即构成合同。合同一旦确定，不能轻易修改，所以我们应该进行自动化测试，以检查合同是否得到遵守。</p>
+<h2 id="共享内容">共享内容</h2>
+<p>虽然我们希望每个团队和微应用尽可能独立，但是有些事情还是会共享的。</p>
+<p>上面提过共享组件库，但是对于这个小型应用而言，组件库会显得过大。因此，我们有一个小 的<a href="https://github.com/micro-frontends-demo/content">公共内容库</a>，其中包括图像、JSON数据和CSS，这些内容被所有其他微应用共享。</p>
+<p>还有一个重要的东西需要共享：依赖库。重复的依赖项是微前端的一个常见缺点。即使在应用程序之间共享这些依赖也非常困难，我们来讨论如何实现依赖库的共享。</p>
+<p>第一步是选择要共享的依赖项。对我们已编译代码的分析表明，大约50％的代码是由 react 和 react-dom 贡献。这两个库是我们最核心的依赖项，因此如果把这两个库单独提取出来作为共享库，会非常有效。最后，它们是非常稳定和成熟的库，升级也很慎重，所以升级工作应该不会太困难。</p>
+<p>至于如何提取，我们需要做的就是在 webpack 配置中将库标记为外部库（externals）：</p>
+<pre><code>module.exports = (config, env) =&gt; {
+  config.externals = {
+    react: 'React',
+    'react-dom': 'ReactDOM'
+  }
+  return config;
+};
+复制代码
+</code></pre><p>然后，用 script 向每个index.html 文件添加几个标签，以从共享内容服务器中获取这两个库：</p>
+<pre><code>&lt;body&gt;
+  &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+  &lt;script src=&quot;%REACT_APP_CONTENT_HOST%/react.prod-16.8.6.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;%REACT_APP_CONTENT_HOST%/react-dom.prod-16.8.6.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+复制代码
+</code></pre><h2 id="缺点">缺点</h2>
+<p>与所有架构一样，微前端架构中也存在一些折衷。我们得到好处的同时，也伴随着成本。</p>
+<h3 id="下载量">下载量</h3>
+<p>独立构建的 JavaScript 文件可能导致重复的公共依赖，从而增加用户的下载量。例如，如果每个微应用都包括自己的 React 副本，那么用户就得多次下载 React。</p>
+<p>这个问题不容易解决，那可以得到缓解。首先，即使我们不做任何优化，每个单独页面的加载速度也有可能比构建单个整体式前端要快。原因是如果独立地编译每个页面，我们就可以有效地进行代码拆分，页面只加载当前页面的依赖项。这可能会导致初始页面加载很快，但随后的导航速度变慢，因为用户被迫在每个页面重新下载相同的依赖项。我们可以对用户常去的页面进行分析，然后单独优化他们的依赖项。</p>
+<p>每个项目是不同的，你必须针对性地进行分析。</p>
+<h3 id="环境差异">环境差异</h3>
+<p>当微应用越来越多，你在本地开发时肯定无法把所有微应用和对应的后端都启动起来，那么你就不得不在本地进行环境的简化。</p>
+<p>如果开发环境和生成环境的环境是不同的，这往往会造成问题。所以你需要保证，如果开发者想要完全模拟生成环境，也是可以做到的。只不过会非常耗时。</p>
+<h3 id="治理复杂性">治理复杂性</h3>
+<p>微前端作为一个更加分布式的体系结构，将不可避免地要管理更多的东西：更多的代码库、更多的工具、更多的构建管道、更多的服务器、更多的域名等。因此在采用这样的体系结构之前，您需要考虑几个问题：</p>
+<ul>
+<li>你是否有足够的自动化措施来配置和管理所需的其他基础架构？</li>
+<li>你的前端开发、测试和发布过程是否可以扩展到多个应用程序？</li>
+<li>你是否准备好了让决策变得更加分散，甚至难以控制感？</li>
+<li>你将如何确保多个独立的前端代码库的质量、一致性和或治理水平？</li>
+</ul>
+<h2 id="结论">结论</h2>
+<p>多年来，随着前端不断变复杂，我们看到了对更可扩展的体系结构日益增长的需求。我们应该能够通过独立的自治团队来开发软件。</p>
+<p>虽然微前端不是唯一的办法，但我们已经看到了许多微前端达到这些目标的实际案例，并且随着时间的推移，我们已经能够逐渐将这项技术应用于旧网站。无论微型前端对你和你的团队是不是正确的方法，微前端都是一种趋势，在这种趋势下，前端工程化和前端体系结构都将变得越来越重要。</p>
+<hr>
+<p>译文完。</p>
+<p>更多深入阅读：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/78362028">可能是你见过最完善的微前端解决方案</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/microfrontend/>https://ftopia2020.github.io/2020/microfrontend/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">
+                    #微前端</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/gitbranch/" class="prev" rel="prev" title="Git 分支管理及基础操作指南"><i
+                class="iconfont icon-left"></i>&nbsp;Git 分支管理及基础操作指南</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2020/reactantdaddiconfont/" class="next" rel="next"
+            title="React AntD 中 Icon 组件使用 iconfont.cn">React AntD 中 Icon 组件使用 iconfont.cn&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/microfrontend/" class="leancloud_visitors" data-flag-title="【转】微前端入门">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

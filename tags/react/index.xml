@@ -6,10 +6,19 @@
     <description>Recent content in react on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React AntD 中 Icon 组件使用 iconfont.cn</title>
+      <link>https://ftopia2020.github.io/2020/reactantdaddiconfont/</link>
+      <pubDate>Thu, 02 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/reactantdaddiconfont/</guid>
+      <description>WHY 项目基于 React + AntD 搭建，但如何让 Icon组件加入更多？ 阿里官方推荐的 iconfont 平台可以帮我们解决这一问题。 AntD 相关官方文档：Icon 组件 使用 iconfont.cn WHAT iconfont.cn —— 阿</description>
+    </item>
     
     <item>
       <title>React&#43; iframe 子窗体更新父窗体地址栏的解决方案</title>
