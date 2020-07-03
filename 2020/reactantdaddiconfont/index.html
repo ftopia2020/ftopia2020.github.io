@@ -48,7 +48,7 @@
     "articleSection" : "posts",
     "name" : "React AntD 中 Icon 组件使用 iconfont.cn",
     "headline" : "React AntD 中 Icon 组件使用 iconfont.cn",
-    "description" : "WHY 项目基于 React \x2b AntD 搭建，但如何让 Icon组件加入更多？ 阿里官方推荐的 iconfont 平台可以帮我们解决这一问题。 AntD 相关官方文档：Icon 组件 使用 iconfont.cn WHAT iconfont.cn —— 阿",
+    "description" : "WHY 项目基于 React \x2b AntD 搭建，但如何让 Icon组件加入更多的图标？ 发现 AntD 相关官方文档已为我们提供了方案：Icon 组件 使用 iconfont.cn 那如何具体使用呢？ WHAT iconfont.cn ——",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -59,7 +59,7 @@
     "datePublished": "2020-07-02 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-07-02 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2020\/reactantdaddiconfont\/",
-    "wordCount" : "564",
+    "wordCount" : "322",
     "keywords" : [ "react","AntD","icon","原创", "Ftopia"]
 }
 </script>
@@ -77,8 +77,6 @@
     <li><a href="#what">WHAT</a></li>
     <li><a href="#how">HOW</a>
       <ul>
-        <li><a href="#获取-iconfontjs">获取 iconfont.js</a></li>
-        <li><a href="#引入-iconfontjs">引入 iconfont.js</a></li>
         <li><a href="#组件中使用-icon">组件中使用 Icon</a></li>
         <li><a href="#扩展--优化">扩展 &amp; 优化</a></li>
       </ul>
@@ -179,9 +177,9 @@
                     2020-07-02</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 564 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 322 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
 
         </div>
     </header>
@@ -202,48 +200,14 @@
         
 
         <h2 id="why">WHY</h2>
-<p>项目基于 React + <a href="https://ant.design/index-cn">AntD</a> 搭建，但如何让 Icon组件加入更多？</p>
-<p>阿里官方推荐的 iconfont 平台可以帮我们解决这一问题。</p>
-<p>AntD 相关官方文档：<a href="https://ant.design/components/icon-cn/#components-icon-demo-iconfont">Icon 组件 使用 iconfont.cn</a></p>
+<p>项目基于 React + <a href="https://ant.design/index-cn">AntD</a> 搭建，但如何让 Icon组件加入更多的图标？</p>
+<p>发现 AntD 相关官方文档已为我们提供了方案：<a href="https://ant.design/components/icon-cn/#components-icon-demo-iconfont">Icon 组件 使用 iconfont.cn</a></p>
+<p>那如何具体使用呢？</p>
 <h2 id="what">WHAT</h2>
-<p><strong><a href="https://www.iconfont.cn/">iconfont.cn</a></strong> —— 阿里妈妈MUX倾力打造的矢量图标管理、交流平台。
-设计师将图标上传到Iconfont平台，用户可以自定义下载多种格式的icon，平台也可将图标转换为字体，便于前端工程师自由调整与调用。</p>
+<p><strong><a href="https://www.iconfont.cn/">iconfont.cn</a></strong> —— 阿里妈妈MUX倾力打造的矢量图标管理、交流平台。</p>
+<p>设计师将图标上传到Iconfont平台，用户可以自定义下载多种格式的icon，平台也可将图标转换为字体，便于前端工程师自由调整与调用。</p>
 <h2 id="how">HOW</h2>
-<p>官方文档的 <a href="https://codesandbox.io/s/kktdc">Sandbox</a> ，本人使用的方式参考如下：</p>
-<h3 id="获取-iconfontjs">获取 iconfont.js</h3>
-<p>iconfont.cn 提供 购物车/项目 下的 icon 各类代码下载，会得到一个 zip 文件，解压后（参考如下）即可得到 iconfont.js</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  font_1919264_1knjizek8i2i tree
-.
-├── demo.css
-├── demo_index.html
-├── iconfont.css
-├── iconfont.eot
-├── iconfont.js
-├── iconfont.json
-├── iconfont.svg
-├── iconfont.ttf
-├── iconfont.woff
-└── iconfont.woff2
-</code></pre></div><h3 id="引入-iconfontjs">引入 iconfont.js</h3>
-<p>我们可在 public 文件夹下直接加入 iconfont.js，并在 html.js 中加入该 <code>&lt;script&gt;</code> 的引入</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  public git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗ tree
-.
-├── favicon.ico
-├── iconfont.js
-├── index.html
-├── logo192.png
-├── logo512.png
-├── manifest.json
-└── robots.txt
-
-<span style="color:#ae81ff">0</span> directories, <span style="color:#ae81ff">7</span> files
-➜  public git:<span style="color:#f92672">(</span>master<span style="color:#f92672">)</span> ✗
-</code></pre></div><p>index.html 的部分参考代码如下（head 中加入）：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">...
-    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./iconfont.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-  &lt;/<span style="color:#f92672">head</span>&gt;
-...
-</code></pre></div><h3 id="组件中使用-icon">组件中使用 Icon</h3>
+<h3 id="组件中使用-icon">组件中使用 Icon</h3>
 <p>jsx 代码参考如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
 
@@ -251,21 +215,22 @@
 
 <span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#34;./icons.less&#34;</span>
 
-<span style="color:#75715e">// import { HeartIcon, PandaIcon } from &#34;./iconDemo&#34;;
-</span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">IconFont</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createFromIconfontCN</span>({
-    <span style="color:#a6e22e">scriptUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./iconfont.js&#39;</span>,
+    <span style="color:#a6e22e">scriptUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;//at.alicdn.com/t/font_1919264_4ssswcyqimr.js&#39;</span>,
 });
 
 <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Icons</span>() {
     <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;custom-icons-list&#34;</span>&gt;
-        &lt;<span style="color:#f92672">IconFont</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon-facebook&#34;</span> /&gt;
+        &lt;<span style="color:#f92672">IconFont</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;icon-shouye&#34;</span> /&gt;
     &lt;/<span style="color:#f92672">div</span>&gt;
 }
-</code></pre></div><h3 id="扩展--优化">扩展 &amp; 优化</h3>
-<p>建议使用 iconfont 的项目来进行 icons 的管理，每次新增图标需重新下载并加入 iconfont.js。</p>
-<p>多人使用可考虑加入自己的图标项目管理，可加入流程化管理等；该 js 文件可考虑上传云端 cdn 加速。</p>
-<p>若需要使用 iconfont.cn 的多个资源（其实也就是引入多个 iconfont.js），可参考 <a href="https://ant.design/components/icon-cn/#components-icon-demo-scriptUrl">使用 iconfont.cn 的多个资源</a></p>
+</code></pre></div><p><code>//at.alicdn.com/t/font_1919264_4ssswcyqimr.js</code>  为我的项目生成的 font.js 的 alicdn 访问地址（iconfont.cn 提供的功能）</p>
+<blockquote>
+<p>参考官方文档的 <a href="https://codesandbox.io/s/kktdc">Sandbox</a></p>
+</blockquote>
+<h3 id="扩展--优化">扩展 &amp; 优化</h3>
+<p>可考虑加入自己的图标；若多人使用，可加入流程化管理图标及项目等。</p>
+<p>若需要使用 iconfont.cn 的多个资源（其实也就是引入多个 js），可参考 <a href="https://ant.design/components/icon-cn/#components-icon-demo-scriptUrl">使用 iconfont.cn 的多个资源</a></p>
 
     </div>
 
