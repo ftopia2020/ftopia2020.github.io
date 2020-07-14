@@ -6,10 +6,19 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>新人培训纪要（WEB前端方向）</title>
+      <link>https://ftopia2020.github.io/2020/newerlecture/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/newerlecture/</guid>
+      <description>背景：部门来了校招的新人（开发&amp;amp;产品），结合目前（中台）部门情况进行前端（偏全栈）的培训 内容：较为笼统，以介绍为主，加以发展方向 引子</description>
+    </item>
     
     <item>
       <title>React AntD 中 Icon 组件使用 iconfont.cn</title>

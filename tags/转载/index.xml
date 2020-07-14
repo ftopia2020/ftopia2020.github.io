@@ -6,10 +6,19 @@
     <description>Recent content in 转载 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】微前端如何落地？</title>
+      <link>https://ftopia2020.github.io/2020/microfront/</link>
+      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/microfront/</guid>
+      <description>作者：ThoughtWorks 链接： https://segmentfault.com/a/1190000020056899 🔥🔥🔥 写在前面：本文节选自ThoughtWorks 黄峰达《前端架构：从入门到微前端》一书。这是一本围绕</description>
+    </item>
     
     <item>
       <title>【转】您必须知道的 Git 分支开发规范</title>

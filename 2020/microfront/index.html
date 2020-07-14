@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/newerlecture/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/microfront/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】微前端如何落地？ | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】微前端如何落地？ | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】微前端如何落地？",
+    "headline" : "【转】微前端如何落地？",
+    "description" : "作者：ThoughtWorks 链接： https:\/\/segmentfault.com\/a\/1190000020056899 🔥🔥🔥 写在前面：本文节选自ThoughtWorks 黄峰达《前端架构：从入门到微前端》一书。这是一本围绕",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-14 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-07-14 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/microfront\/",
+    "wordCount" : "4154",
+    "keywords" : [ "微前端","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#微前端如何落地">微前端如何落地？</a></li>
+        <li><a href="#为什么需要微前端">为什么需要微前端？</a></li>
+        <li><a href="#如何设计微前端架构">如何设计微前端架构？</a></li>
+        <li><a href="#如何拆分">如何拆分？</a></li>
+        <li><a href="#微前端之外">微前端之外</a></li>
+        <li><a href="#结论">结论</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】微前端如何落地？</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-07-14
+                    itemprop="datePublished">
+                    2020-07-14</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 4154 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 9 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者：<a href="https://segmentfault.com/u/thoughtworks_cn">ThoughtWorks</a></p>
+<p>链接： <a href="https://segmentfault.com/a/1190000020056899">https://segmentfault.com/a/1190000020056899</a></p>
+</blockquote>
+<p>🔥🔥🔥</p>
+<p>写在前面：本文节选自ThoughtWorks 黄峰达《前端架构：从入门到微前端》一书。这是一本围绕前端架构的实施手册，从基础的架构规范，到如何设计前端架构，再到采用微前端架构拆分复杂的前端应用。通过系统地介绍前端架构世界的方方面面，来帮助前端工程师更好地进行系统设计。</p>
+<h3 id="微前端如何落地">微前端如何落地？</h3>
+<p>在过去的几个星期里，随着 Martin Fowler 博客上那篇 Cam Jackson 写的微前端的文章发布，到处都在讨论 Microfrontend。作为一个微前端 “专家”，我也分享一下：如何去落地微前端。</p>
+<blockquote>
+<p>微前端是一种类似于微服务的架构，它将微服务的理念应用于浏览器端，即将单页面前端应用由单一的单体应用转变为多个小型前端应用聚合为一的应用。各个前端应用还可以独立开发、独立部署。同时，它们也可以在共享组件的同时进行并行开发——这些组件可以通过 NPM 或者 Git Tag、Git Submodule 来管理。</p>
+</blockquote>
+<h3 id="为什么需要微前端">为什么需要微前端？</h3>
+<p>微前端不是银弹，它和微服务一样会带来大量的挑战。</p>
+<ul>
+<li>遗留系统迁移。解决遗留系统，才是人们采用微前端方案最重要的原因</li>
+<li>聚合前端应用。微服务架构，可以解耦后端服务间依赖。而微前端，则关注于聚合前端应用。</li>
+<li>热闹驱动开发。新的技术，既然很热闹，那么就学吧。</li>
+</ul>
+<p>微前端的实现，意味着对前端应用的拆分。拆分应用的目的，并不只是为了架构上好看，还为了提升开发效率。</p>
+<p>为此，微前端带来这么一系列的好处：</p>
+<p>1.应用自治。只需要遵循统一的接口规范或者框架，以便于系统集成到一起，相互之间是不存在依赖关系的。</p>
+<p>2.单一职责。每个前端应用可以只关注于自己所需要完成的功能。</p>
+<p>3.技术栈无关。你可以使用 Angular 的同时，又可以使用 React 和 Vue。</p>
+<p>除此，它也有一系列的缺点：</p>
+<ul>
+<li>应用的拆分基础依赖于基础设施的构建，一旦大量应用依赖于同一基础设施，那么维护变成了一个挑战。</li>
+<li>拆分的粒度越小，便意味着架构变得复杂、维护成本变高。</li>
+<li>技术栈一旦多样化，便意味着技术栈混乱</li>
+</ul>
+<p>毕竟没有银弹。</p>
+<h3 id="如何设计微前端架构">如何设计微前端架构？</h3>
+<p>就当前而言，要设计出一个微前端应用不是一件容易的事——还没有最佳实践。在不同的落地案例里，使用的都是不同的方案。出现这种情况的主要原因是，每个项目所面临的情况、所使用的技术都不尽相同。为此，我们需要了解一些基础的微前端模式。</p>
+<h4 id="架构模式">架构模式</h4>
+<p>微前端应用间的关系来看，分为两种：基座模式（管理式）、自组织式。分别也对应了两者不同的架构模式：</p>
+<ul>
+<li>基座模式。通过一个主应用，来管理其它应用。设计难度小，方便实践，但是通用度低。</li>
+<li>自组织模式。应用之间是平等的，不存在相互管理的模式。设计难度大，不方便实施，但是通用度高。</li>
+</ul>
+<p>就当前而言，基座模式实施起来比较方便，方案上便也是蛮多的。</p>
+<p>而不论种方式，都需要提供一个查找应用的机制，在微前端中称为服务的注册表模式。和微服务架构相似，不论是哪种微前端方式，也都需要有一个应用注册表的服务，它可以是一个固定值的配置文件，如 JSON 文件，又或者是一个可动态更新的配置，又或者是一种动态的服务。它主要做这么一些内容：</p>
+<ul>
+<li>应用发现。让主应用可以寻找到其它应用。</li>
+<li>应用注册。即提供新的微前端应用，向应用注册表注册的功能。</li>
+<li>第三方应用注册。即让第三方应用，可以接入到系统中。</li>
+<li>访问权限等相关配置。</li>
+</ul>
+<p>应用在部署的时候，便可以在注册表服务中注册。如果是基于注册表来管理应用，那么使用基座模式来开发比较方便。</p>
+<h4 id="设计理念">设计理念</h4>
+<p>在笔者实践微前端的过程中，发现了以下几点是我们在设计的过程中，需要关注的内容：</p>
+<ul>
+<li>中心化：应用注册表。这个应用注册表拥有每个应用及对应的入口。在前端领域里，入口的直接表现形式可以是路由，又或者对应的应用映射。</li>
+<li>标识化应用。 我们需要一个标识符来标识不同的应用，以便于在安装、卸载的时候，能寻找到指定的应用。一个简单的模式，就是通过康威定律来命名应用。</li>
+<li>应用生命周期管理。</li>
+<li>高内聚，低耦合。</li>
+</ul>
+<h4 id="生命周期">生命周期</h4>
+<p>前端微架构与后端微架构的最大不同之处，也在于此——生命周期。微前端应用作为一个客户端应用，每个应用都拥有自己的生命周期：</p>
+<ul>
+<li>Load，决定加载哪个应用，并绑定生命周期</li>
+<li>bootstrap，获取静态资源</li>
+<li>Mount，安装应用，如创建 DOM 节点</li>
+<li>Unload，删除应用的生命周期</li>
+<li>Unmount，卸载应用，如删除 DOM 节点、取消事件绑定</li>
+</ul>
+<p>这部分的内容事实上，也就是微前端的一个难点所在，如何以合适的方式来加载应用——毕竟每个前端框架都各自不同，其所需要的加载方式也是不同的。当我们决定支持多个框架的时候，便需要在这一部分进入更细致的研究。</p>
+<h3 id="如何拆分">如何拆分？</h3>
+<p>随后，我们要面临的一个挑战是：如何去拆分应用。</p>
+<h4 id="技术方式">技术方式</h4>
+<p>从技术实践上，微前端架构可以采用以下的几种方式进行：</p>
+<ul>
+<li>路由分发式。通过 HTTP 服务器的反向代理功能，来将请求路由到对应的应用上。</li>
+<li>前端微服务化。在不同的框架之上设计通讯、加载机制，以在一个页面内加载对应的应用。</li>
+<li>微应用。通过软件工程的方式，在部署构建环境中，组合多个独立应用成一个单体应用。</li>
+<li>微件化。开发一个新的构建系统，将部分业务功能构建成一个独立的 chunk 代码，使用时只需要远程加载即可。</li>
+<li>前端容器化。通过将 iFrame 作为容器，来容纳其它前端应用。</li>
+<li>应用组件化。借助于 Web Components 技术，来构建跨框架的前端应用。</li>
+</ul>
+<p>实施的方式虽然多，但是都是依据场景而采用的。有些场景下，可能没有合适的方式；有些场景下，则可以同时使用多种方案。</p>
+<h4 id="路由分发式">路由分发式</h4>
+<p>**路由分发式微前端，即通过路由将不同的业务分发到不同的、独立前端应用上。**其通常可以通过 HTTP 服务器的反向代理来实现，又或者是应用框架自带的路由来解决。如下图所示：</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/1-1.jpeg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/1-1.jpeg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></a></p>
+<p>就当前而言，路由分发式的架构应该是采用最多、最容易的 “微前端” 方案。但是</p>
+<h4 id="前端微服务化">前端微服务化</h4>
+<p>**前端微服务化，是微服务架构在前端的实施，每个前端应用都是完全独立（技术栈、开发、部署、构建独立）、自主运行的，最后通过模块化的方式组合出完整的前端应用。**其架构如下图所示：</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/2.jpeg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/2.jpeg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></a></p>
+<p>采用这种方式意味着，一个页面上同时存在二个及以上的前端应用在运行。而路由分发式方案，则是一个页面只有唯一一个应用。</p>
+<h4 id="组合式集成微应用化">组合式集成：微应用化</h4>
+<p>**微应用化，即在开发时，应用都是以单一、微小应用的形式存在，而在运行时，则通过构建系统合并这些应用，组合成一个新的应用。**其架构如下图所示：</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/3.jpeg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/3.jpeg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></a></p>
+<p>微应用化更多的是以软件工程的方式，来完成前端应用的开发，因此又可以称之为组合式集成。对于一个大型的前端应用来说，采用的架构方式，往往会是通过业务作为主目录，而后在业务目录中放置相关的组件，同时拥有一些通用的共享模板。</p>
+<h4 id="微件化">微件化</h4>
+<p>**微件（widget），指的是一段可以直接嵌入在应用上运行的代码，它由开发人员预先编译好，在加载时不需要再做任何修改或者编译。**而微前端下的微件化则指的是，每个业务团队编写自己的业务代码，并将编译好的代码部署（上传或者放置）到指定的服务器上，在运行时，我们只需要加载相应的业务模块即可。对应的，在更新代码的时候，我们只需要更新对应的模块即可。下图便是微件化的架构示意图：</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/4.jpeg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/4.jpeg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></a></p>
+<p>在非单面应用时代，要实现微件化方案，是一件特别容易的事。从远程加载来对应的 JavaScript 代码，在浏览器上执行，生成对应的组件嵌入到页面的相应部分。对于业务组件也是类似的，提前编写好我们的业务组件，当需要对应的组件时再响应、执行。</p>
+<h4 id="前端容器化">前端容器化</h4>
+<p>前端容器：iframe</p>
+<p>iframe 作为一个非常 “古老” 的，人人都觉得普通的技术，却一直很管用。它能有效地将另一个网页/单页面应用嵌入到当前页面中，两个页面间的 CSS 和 JavaScript 是相互隔离的——除去 iframe 父子通信部分的代码，它们之间的代码是完全不相互干扰的。iframe 便相当于是创建了一个全新的独立的宿主环境，类似于沙箱隔离，它意味着前端应用之间可以相互独立运行。</p>
+<p>结合 Web Components 构建</p>
+<p>Web Components 是一套不同的技术，允许开发者创建可重用的定制元素（它们的功能封装在代码之外），并且在 web 应用中使用它们。</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/5.jpeg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/5.jpeg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></a></p>
+<p>目前困扰 Web Components 技术推广的主要因素，在于浏览器的支持程度。在 Chrome 和 Opera 浏览器上，对于 Web Components 支持良好，而对于 Safari、IE、Firefox 浏览器的支持程度，并没有那么理想。</p>
+<h4 id="业务拆分">业务拆分</h4>
+<p>与微服务类似，要划分不同的前端边界，不是一件容易的事。就当前而言，以下几种方式是常见的划分微前端的方式：</p>
+<ul>
+<li>按照业务拆分。</li>
+<li>按照权限拆分。</li>
+<li>按照变更的频率拆分。</li>
+<li>按照组织结构拆分。利用康威定律来进一步拆分前端应用。</li>
+<li>跟随后端微服务划分。实践证明， DDD 与事件风暴是一种颇为有效的后端微前端拆分模式，对于前端来说，它也颇有有效——直接跟踪后端服务。</li>
+</ul>
+<p>每个项目都有自己特殊的背景，切分微前端的方式便不一样。即使项目的类型相似，也存在一些细微的差异。</p>
+<h3 id="微前端之外">微前端之外</h3>
+<p>如果微前端对于你们来说困境重重，还有一些不错的架构模式可以采用。</p>
+<h4 id="应用微化架构">应用微化架构</h4>
+<p>应用微化架构，是一种开发时整体，构建时拆分，运行时分离的前端架构模式。即应用微化架构从一份代码中，构建出适用于不同环境的多套目标代码。实现上它是一种：</p>
+<ul>
+<li>构建时拆分架构。</li>
+<li>代码删除架构。笑，以删代码的方式，来形成每个前端应用。</li>
+<li>微前端准备式架构。即，随时可以拆分为多个前端应用。</li>
+</ul>
+<p>由于它与微应用化的相似性，我们将它与微应用化做一个对比。它与微应用化不同的是，应用微化是在构建时对应用进行拆分，而非在本地模式下对应用拆分。相似的是，它也是基于构建系统的应用拆分方式。</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/6.jpeg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/6.jpeg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></a></p>
+<p>即：微应用化，是一个随时可合并式架构。而应用微化，则是一个随时可拆分式架构。</p>
+<p>它不仅仅是一个适合于前端的架构模式，也是一适用于后端的架构模式。</p>
+<h4 id="整洁前端架构">整洁前端架构</h4>
+<p>Clean Architecture 是由 Robert C. Martin 在 2012 年提出的架构模式。它具有这么一些特点：框架无关性、可被测试、UI 无关性、数据库无关性、外部机构（agency）无关性。</p>
+<p>对于前端架构来说，Clean Architecure 实际上是：Clean Architecture + MVP + 组件化。如下图所示：</p>
+<p>考虑到应用的规模，这里以 Angular + TypeScript 作为示例：</p>
+<p><a href="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/7.jpeg"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://insights.thoughtworks.cn/wp-content/uploads/2019/07/7.jpeg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></a></p>
+<p>这种架构模式特别适合于：组织内即写前端又同后端的团队。它易于映射前后端 API，且可以使用 usecase 作为防腐层。</p>
+<p>没有银弹。不得不提及的是，对于小规模的团队来说，它带来的弊端可能会远远大于好处——带来大量冗余的代码。尽管通过 Angular Schematics 可以通过参数来生成代码，但是这种分层架构地于简单的应用来说，还是过于复杂、难以上手。对于不写测试的项目来说 ，usecase 也不能带来它们所承诺的好处。</p>
+<h3 id="结论">结论</h3>
+<p>微前端不是银弹，当前也没有最佳实践，但是这是一个非常好的学习机会。</p>
+<hr>
+<p>文/ThoughtWorks黄峰达</p>
+<p>更多精彩洞见，请关注微信公众号：ThoughtWorks洞见</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/microfront/>https://ftopia2020.github.io/2020/microfront/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/">
+                    #微前端</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/newerlecture/" class="prev" rel="prev" title="新人培训纪要（WEB前端方向）"><i
+                class="iconfont icon-left"></i>&nbsp;新人培训纪要（WEB前端方向）</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/microfront/" class="leancloud_visitors" data-flag-title="【转】微前端如何落地？">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
