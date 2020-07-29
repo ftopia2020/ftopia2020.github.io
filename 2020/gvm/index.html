@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/microfront/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/englishfont/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/gvm/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             golang 多版本管理工具 —— gvm | Ftopia
+         
+    </title>
+    <meta name="title" content="golang 多版本管理工具 —— gvm | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "golang 多版本管理工具 —— gvm",
+    "headline" : "golang 多版本管理工具 —— gvm",
+    "description" : "WHY 早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？ WHAT GVM - Go Version Man",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-07-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/gvm\/",
+    "wordCount" : "1197",
+    "keywords" : [ "Golang","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">WHY</a></li>
+    <li><a href="#what">WHAT</a>
+      <ul>
+        <li><a href="#gvm-原理">gvm 原理</a></li>
+      </ul>
+    </li>
+    <li><a href="#how">HOW</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#常用命令">常用命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#常见问题">常见问题</a>
+      <ul>
+        <li><a href="#下载源">下载源</a></li>
+        <li><a href="#注意点">注意点</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">golang 多版本管理工具 —— gvm</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-07-17
+                    itemprop="datePublished">
+                    2020-07-17</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1197 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="why">WHY</h2>
+<p>早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？</p>
+<h2 id="what">WHAT</h2>
+<p><code>GVM - Go Version Manager</code>， 帮助我们解决了这一难题。</p>
+<p><a href="https://github.com/moovweb/gvm">https://github.com/moovweb/gvm</a></p>
+<blockquote>
+<p>本文仅对 mac/linux 系统；windows gvm 貌似不支持</p>
+</blockquote>
+<h3 id="gvm-原理">gvm 原理</h3>
+<p>gvm 是利用脚本编写指令，对环境变数进行判断跟修改，gvm 成功安装后会在 <code>~/.bashrc</code> 或者 <code>.zshrx</code> 等脚本档案最后加一条类似如下的命令：</p>
+<pre><code>[[ -s &quot;/Users/fee/.gvm/scripts/gvm&quot; ]] &amp;&amp; source &quot;/Users/fee/.gvm/scripts/gvm&quot;
+</code></pre><blockquote>
+<p>安装路径各人会有所不同，如对 shell 脚本编写感兴趣的可参考 <a href="http://linux.vbird.org/linux_basic/0340bashshell-scripts.php"><strong>鸟哥的Linux私房菜</strong></a></p>
+</blockquote>
+<p>每次使用 <code>gvm use [version]</code> 的指令后，环境变数都会被改变（GOROOT &amp; GOPATH）</p>
+<h2 id="how">HOW</h2>
+<h3 id="安装">安装</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ bash &lt; &lt;<span style="color:#f92672">(</span>curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer<span style="color:#f92672">)</span>
+</code></pre></div><p>用 <code>zsh</code> 的将 <code>bash</code> 改为 <code>zsh</code></p>
+<h3 id="常用命令">常用命令</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gvm help  <span style="color:#75715e"># 命令帮助</span>
+</code></pre></div><h4 id="go-版本安装切换及使用">go 版本安装、切换及使用</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gvm list                  <span style="color:#75715e"># 列出本机所有go版本；当前版本 =&gt; 表示</span>
+$ gvm listall               <span style="color:#75715e"># 列出所有可安装go版本</span>
+$ gvm install go1.4         <span style="color:#75715e"># 安装指定的go版本；如 go1.4</span>
+$ gvm uninstall go1.12.8    <span style="color:#75715e"># 卸载指定的go版本；如 go1.4</span>
+$ gvm use go1.4 <span style="color:#f92672">[</span>--default<span style="color:#f92672">]</span> <span style="color:#75715e"># gvm 启用对应的go版本 (--default to set permanently)</span>
+</code></pre></div><p>参考运行如下（也可用 go version 命令确认当前版本）：</p>
+<blockquote>
+<p>➜ gvm use system</p>
+<p>Now using version system</p>
+<p>➜ gvm list</p>
+<p>gvm gos (installed)</p>
+<p>go1.14.2
+=&gt; system</p>
+<p>➜ go version</p>
+<p>go version go1.11.1 darwin/amd64</p>
+</blockquote>
+<h4 id="gvm-pkgset">gvm pkgset</h4>
+<p>当 <code>GVM</code> 被告知使用一个新版本时，它将会更换一个新的 <code>$GOPATH</code>，<code>gloabl pkgset</code> 将默认使用该版本。</p>
+<blockquote>
+<p>== DESCRIPTION:</p>
+<p>GVM pkgset is used to manage various Go packages</p>
+<p>== Usage</p>
+<p>gvm pkgset Command</p>
+<p>== Command</p>
+<p>create     - create a new package set
+delete     - delete a package set
+use          - select where gb and goinstall target and link
+empty     - remove all code and compiled binaries from package set
+list           - list installed go packages</p>
+</blockquote>
+<p>常用方式如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gvm pkgset create test        <span style="color:#75715e"># 创建一个 gvm pkgset, 名称为test</span>
+$ gvm pkgset use test           <span style="color:#75715e"># 使用 test</span>
+Now using version go1.14.2@test
+$ gvm pkgset list
+gvm go package sets <span style="color:#f92672">(</span>go1.14.2<span style="color:#f92672">)</span>
+    global
+<span style="color:#f92672">=</span>&gt;  test
+</code></pre></div><p>更多有关 pkgset 的介绍如下：</p>
+<blockquote>
+<p>开箱即用，Go 有一种出色而令人沮丧的管理包和模块的方式。默认情况下，如果你 <code>go get</code> 获取一个包，它将被下载到 <code>$GOPATH</code> 目录中的 <code>src</code> 和 <code>pkg</code> 目录下，然后可以使用 <code>import</code> 将其包含在你的 Go 程序中。这使得获得软件包变得很容易，特别是对于非特权用户，而不需要 <code>sudo</code> 或 root 特权（很像 Python 中的 <code>pip install --user</code>）。然而，在不同的项目中管理相同包的不同版本是非常困难的。</p>
+<p>有许多方法可以尝试修复或缓解这个问题，包括实验性 Go Modules（Go 1.11 版中增加了初步支持）和 <a href="https://golang.github.io/dep/">Go dep</a>（Go Modules 的“官方实验”并且持续迭代）。在我发现 GVM 之前，我会在一个 Go 项目自己的 Docker 容器中构建和测试它，以确保分离。</p>
+<p>GVM 通过使用 “pkgsets” 将项目的新目录附加到安装的 Go 版本的默认 <code>$GOPATH</code> 上，很好地实现了项目之间包的管理和隔离，就像 <code>$PATH</code> 在 Unix/Linux 系统上工作一样。</p>
+<p>作者：Linux中国
+链接：https://juejin.im/post/5da0900d5188254c4e6a94b7
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<h2 id="常见问题">常见问题</h2>
+<h3 id="下载源">下载源</h3>
+<p>gvm 默认使用 github 的源，如果是其他源，如 googlesource，则大陆无法访问，需要更改源，修改方法为：</p>
+<pre><code>vim ~/.gvm/scripts/install
+</code></pre><p>修改</p>
+<pre><code>GO_SOURCE_URL=https://github.com/golang/go
+</code></pre><h3 id="注意点">注意点</h3>
+<ul>
+<li>GVM 安装新版本之后，Go 环境变量会重新设置，为了节约磁盘空间和时间，建议把之前版本的 GOPATH 内容移动到新版本对应的 GOPATH 目录下，相关路径可以通过 go env 获取</li>
+<li>在同一版本下，用 gvm pkgset 创建多个 GOPATH，可能会占用你比较大的磁盘空间</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/gvm/>https://ftopia2020.github.io/2020/gvm/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/golang/">
+                    #Golang</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/microfront/" class="prev" rel="prev" title="【转】微前端如何落地？"><i
+                class="iconfont icon-left"></i>&nbsp;【转】微前端如何落地？</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2020/englishfont/" class="next" rel="next"
+            title="React AntD 中 Icon 组件使用 iconfont.cn">React AntD 中 Icon 组件使用 iconfont.cn&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/gvm/" class="leancloud_visitors" data-flag-title="golang 多版本管理工具 —— gvm">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

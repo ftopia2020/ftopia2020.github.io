@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/godockertimezone/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/cssimportfont/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/chinesefont/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】中文字体网页开发指南 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】中文字体网页开发指南 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】中文字体网页开发指南",
+    "headline" : "【转】中文字体网页开发指南",
+    "description" : "作者： 阮一峰 来源：http:\/\/www.ruanyifeng.com\/blog\/2014\/07\/chinese_fonts.html 字体的选",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-07-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/chinesefont\/",
+    "wordCount" : "2131",
+    "keywords" : [ "web字体","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一操作系统的预装字体">一、操作系统的预装字体</a></li>
+    <li><a href="#二font-family命令">二、font-family命令</a></li>
+    <li><a href="#三-windows平台和mac平台">三、 Windows平台和Mac平台</a></li>
+    <li><a href="#四衬线体和无衬线体">四、衬线体和无衬线体</a></li>
+    <li><a href="#五几种常见中文字体">五、几种常见中文字体</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】中文字体网页开发指南</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-07-29
+                    itemprop="datePublished">
+                    2020-07-29</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 2131 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 5 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者： <a href="http://www.ruanyifeng.com/">阮一峰</a></p>
+<p>来源：<a href="http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html">http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html</a></p>
+</blockquote>
+<p>字体的选择，是网页开发的关键因素之一。</p>
+<p>合适的字体，对网页的美观度（或可读性）有着举足轻重的影响。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071502.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071503.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071504.gif" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>但是，相比<a href="http://www.ruanyifeng.com/blog/2008/06/typography_notes.html">英文字体</a>，中文字体的网页开发有着极大的局限性。因为，一套中文字体最少也要有几千个字符，体积为几个MB；单单为了浏览网页，开发者不可能让用户去下载字体，只能依靠操作系统的预装字体。（*注：确实有<a href="http://cn.justfont.com/">网站</a>提供中文字体的web服务，从技术角度，我不推荐这样做。）</p>
+<p>不同的操作系统、不同的版本预装不同的字体（因为版权），几乎没有交集。因此，大多数开发者索性忽略中文字体，让操作系统自行渲染，或者用图片呈现字体效果。</p>
+<p>下面是目前中文字体的最佳实践，主要参考了<a href="http://www.kendraschaefer.com/2012/06/chinese-standard-web-fonts-the-ultimate-guide-to-css-font-family-declarations-for-web-design-in-simplified-chinese/">Kendra Schaefer</a>的文章。</p>
+<h2 id="一操作系统的预装字体">一、操作系统的预装字体</h2>
+<p>操作系统决定了开发者可以使用的字体。所以，第一步，我们必须了解操作系统到底提供哪些字体。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071513.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><strong>Windows操作系统</strong>：</p>
+<blockquote>
+<ul>
+<li>黑体：SimHei</li>
+<li>宋体：SimSun</li>
+<li>新宋体：NSimSun</li>
+<li>仿宋：FangSong</li>
+<li>楷体：KaiTi</li>
+<li>仿宋<em>GB2312：FangSong</em>GB2312</li>
+<li>楷体<em>GB2312：KaiTi</em>GB2312</li>
+<li>微软雅黑：Microsoft YaHei （Windows 7开始提供）</li>
+</ul>
+</blockquote>
+<p><strong>OS X操作系统</strong>：</p>
+<blockquote>
+<ul>
+<li>冬青黑体: Hiragino Sans GB （SNOW LEOPARD开始提供）</li>
+<li>华文细黑：STHeiti Light （又名STXihei）</li>
+<li>华文黑体：STHeiti</li>
+<li>华文楷体：STKaiti</li>
+<li>华文宋体：STSong</li>
+<li>华文仿宋：STFangsong</li>
+</ul>
+</blockquote>
+<p>如果用户装了<strong>MicroSoft Office</strong>，还会多出一些字体。</p>
+<blockquote>
+<ul>
+<li>隶书：LiSu</li>
+<li>幼圆：YouYuan</li>
+<li>华文细黑：STXihei</li>
+<li>华文楷体：STKaiti</li>
+<li>华文宋体：STSong</li>
+<li>华文中宋：STZhongsong</li>
+<li>华文仿宋：STFangsong</li>
+<li>方正舒体：FZShuTi</li>
+<li>方正姚体：FZYaoti</li>
+<li>华文彩云：STCaiyun</li>
+<li>华文琥珀：STHupo</li>
+<li>华文隶书：STLiti</li>
+<li>华文行楷：STXingkai</li>
+<li>华文新魏：STXinwei</li>
+</ul>
+</blockquote>
+<h2 id="二font-family命令">二、font-family命令</h2>
+<p>CSS的font-family命令，指定了网页元素所使用的字体。下面是一个例子。</p>
+<blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#f92672">Georgia</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Times New Roman&#34;</span><span style="color:#f92672">,</span> 
+             <span style="color:#e6db74">&#34;Microsoft YaHei&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;微软雅黑&#34;</span><span style="color:#f92672">,</span> 
+             <span style="color:#f92672">STXihei</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;华文细黑&#34;</span><span style="color:#f92672">,</span> 
+             <span style="color:#f92672">serif</span><span style="color:#f92672">;</span>
+</code></pre></div></blockquote>
+<p>它的规则有三条。</p>
+<blockquote>
+<p>（1）优先使用排在前面的字体。</p>
+<p>（2）如果找不到该种字体，或者该种字体不包括所要渲染的文字，则使用下一种字体。</p>
+<p>（3）如果所列出的字体，都无法满足需要，则让操作系统自行决定使用哪种字体。</p>
+</blockquote>
+<p>**根据这些规则，font-family应该优先指定英文字体，然后再指定中文字体。**否则，中文字体所包含的英文字母，会取代英文字体，这往往很丑陋。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071507.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>上面图片中，红框内的英文字母，左边采用英文字体渲染，右边采用中文字体渲染，哪一种效果比较好，一目了然。</p>
+<p>**为了保证兼容性，中文字体的中文名称和英文名称，应该都写入font-family。**比如，&ldquo;微软雅黑&quot;的英文名称是Microsoft YaHei。</p>
+<p>此外，中文字体的中文名称，以及由多个单词组成的英文名称，应该放在双引号内。</p>
+<h2 id="三-windows平台和mac平台">三、 Windows平台和Mac平台</h2>
+<p>由于Windows和Mac的中文字体没有交叉，所以应该同时为两个平台指定字体。</p>
+<p>常见的做法是，Windows平台指定&quot;微软雅黑&rdquo;（Microsoft YaHei），Mac平台指定&quot;华文细黑&rdquo;（STXihei）。</p>
+<h2 id="四衬线体和无衬线体">四、衬线体和无衬线体</h2>
+<p>所谓&quot;衬线体&rdquo;（Serif），指的是笔画的末端带有衬线的字体。</p>
+<p>就像英文字体一样，中文字体也可以分成&quot;衬线体&quot;和&quot;无衬线体&rdquo;（San-serif）。比如，对于繁体字来说，微软正黑（Microsoft JhengHei）是无衬线体，新细明体（PMingLiU）是衬线体。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071506.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>对于简体字来说，微软雅黑（Microsoft yahei）是无衬线体，宋体（SimSun）是衬线体。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071508.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>一般来说，衬线体装饰性强，往往用于标题；无衬线体清晰度好，往往用于正文。</p>
+<h2 id="五几种常见中文字体">五、几种常见中文字体</h2>
+<p><strong>（1）宋体（SimSun）</strong></p>
+<p>宋体是最常见的中文字体，如果没有指定字体，操作系统往往选择它来渲染。很多人认为，这种字体并不美观。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071509.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><strong>（2）微软雅黑（Microsoft YaHei）</strong></p>
+<p>微软雅黑的美观度和清晰度都较好，可以作为网页的首选字体。它在Mac平台的对应字体是华文细黑（STXihei）。</p>
+<p>但是，Windows XP没有预装这种字体，这时可以选择黑体（Simhei）替代。不过，黑体比较粗，不应用于字号较小的文字。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071510.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><strong>（3）仿宋（FangSong）</strong></p>
+<p>这种字体是衬线体，比宋体的装饰性更强。如果字号太小，会影响清晰度，所以只有在字号大于14px的情况下，才可以考虑这种字体。</p>
+<p>它在Mac平台的对应字体是&quot;华文仿宋&rdquo;（STFangsong）。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071511.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><strong>（4）楷体（KaiTi）</strong></p>
+<p>楷体也是衬线体，装饰性与仿宋体接近，但是宽度更大，笔画更清楚一些。这种字体也不应该在小于14px的情况下使用。</p>
+<p>它在Mac平台的对应字体是&quot;华文楷体&rdquo;（STKaiti）。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071512.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>（完）</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/chinesefont/>https://ftopia2020.github.io/2020/chinesefont/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/web%E5%AD%97%E4%BD%93/">
+                    #web字体</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/godockertimezone/" class="prev" rel="prev" title="【转】容器化Go应用--基础镜像的未知时区问题"><i
+                class="iconfont icon-left"></i>&nbsp;【转】容器化Go应用--基础镜像的未知时区问题</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2020/cssimportfont/" class="next" rel="next"
+            title="CSS 引入外部字体的解决方案">CSS 引入外部字体的解决方案&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/chinesefont/" class="leancloud_visitors" data-flag-title="【转】中文字体网页开发指南">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

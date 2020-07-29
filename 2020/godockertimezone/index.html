@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/englishfont/" />
+    <link rel="next" href="https://ftopia2020.github.io/2020/chinesefont/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/godockertimezone/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】容器化Go应用--基础镜像的未知时区问题 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】容器化Go应用--基础镜像的未知时区问题 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】容器化Go应用--基础镜像的未知时区问题",
+    "headline" : "【转】容器化Go应用--基础镜像的未知时区问题",
+    "description" : "作者：kevinyan 链接： https:\/\/juejin.im\/post\/5f1282e46fb9a07e976bf1ae 用Go开发的应用程序的一个优势在于，可以从\x26quot;零\x26quot;开始构建应用的Docker镜像，镜像中仅需",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-07-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/godockertimezone\/",
+    "wordCount" : "1211",
+    "keywords" : [ "golang","docker","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents"></nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】容器化Go应用--基础镜像的未知时区问题</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-07-29
+                    itemprop="datePublished">
+                    2020-07-29</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1211 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者：<a href="https://juejin.im/user/5b02983a6fb9a07aa83f099b">kevinyan</a></p>
+<p>链接： <a href="https://juejin.im/post/5f1282e46fb9a07e976bf1ae">https://juejin.im/post/5f1282e46fb9a07e976bf1ae</a></p>
+</blockquote>
+<p>用<code>Go</code>开发的应用程序的一个优势在于，可以从&quot;零&quot;开始构建应用的<code>Docker</code>镜像，镜像中仅需要包含<code>Go</code>应用程序编译后的二进制文件，不需要额外安装其他执行环境。这样一来<code>Go</code>应用镜像占用的空间确实很小（通常是几<code>MB</code>），而且也会更安全些。常用的<code>alpine</code>镜像（<code>alpine</code>是专门为容器设计的小型<code>Linux</code>发行版）中存在一个安全漏洞，该漏洞为大量生产容器留下了空的<code>root</code>用户密码，所以如果你的的<code>Go</code>应用程序在没有<code>alpine</code>（或任何其他操作系统）的容器中运行，黑客就不能利用操作系统的漏洞去攻击容器里的应用。</p>
+<p>使用<code>Docker</code>的多阶段构建，从头开始构建映像非常简单，上一期的文章《<a href="https://mp.weixin.qq.com/s?__biz=MzUzNTY5MzU2MA==&amp;mid=2247485389&amp;idx=1&amp;sn=e629cea04c86e834adad209cb30469ce&amp;chksm=fa80d65acdf75f4c14fb1d9657221c1d22539ff12b9d44578269f878bd970135afc13269f27d&amp;token=1016406860&amp;lang=zh_CN#rd">线上Go项目的Docker镜像应该怎么构建？</a>》里已经对此进行了详细描述。怎么从<code>&quot;scratch&quot;</code>基础镜像，使用多阶段构建制作<code>Go</code>应用程序的镜像。今天接着上期的话题继续说一个从零构建的应用镜像的容器时区设置的问题。</p>
+<p>如果你的应用程序在初始化函数<code>init</code>里有设置时区的操作，那么在启动应用容器时会遇到下面的运行时<code>panic</code>：</p>
+<pre><code>unknown time zone Asia/Shanghai
+复制代码
+</code></pre><p>如果你在应用程序里不显示地设置时区，应用容器确实是能正常启动的，只不过这样<code>time</code>包里的函数统一用的是<code>UTC</code>时区，等你发现问题时再在程序里去显示设置时区仍然会遇到上面的运行时错误。</p>
+<p>下面我们来做个试验，看看上面说的问题的现象。</p>
+<p>首先写一个简单的<code>Go</code>应用程序</p>
+<pre><code>package main
+
+import (
+   &quot;fmt&quot;
+   &quot;time&quot;
+)
+
+func main() {
+   // 输出当前的时区
+   fmt.Print(&quot;Local time zone &quot;)
+   fmt.Println(time.Now().Zone())
+   fmt.Println(time.Now().Format(&quot;2006-01-02 15:04:05&quot;))
+}
+复制代码
+</code></pre><p>然后写一个用来构建应用镜像的<code>Dockerfile</code>，使用的就是之前介绍的多阶段构建。</p>
+<pre><code>FROM golang:alpine as build
+RUN apk --no-cache add tzdata
+WORKDIR /app
+ADD . /app
+RUN CGO_ENABLED=0 GOOS=linux go build -o myapp
+
+FROM scratch as final
+
+COPY --from=build /app/myapp .
+ENV TZ=Asia/Shanghai
+
+CMD [&quot;/myapp&quot;]
+复制代码
+</code></pre><p><code>Dockerfile</code>里，我们用<code>ENV</code>指令设置了<code>TZ</code>这个环境变量。<code>Go</code>运行时会查找<code>TZ</code>这个环境变量来设置自己的时区，上面我们把<code>TZ</code>设置成了<code>Asia/Shanghai</code>，接下来我们看看在容器里应用是不是能如期运行，输出正确的时区和时间。</p>
+<pre><code>➜  docker build -t go_timezone .
+
+
+➜  docker run --rm go_timezone
+Local time zone UTC 0
+2020-07-17 04:47:37
+
+复制代码
+</code></pre><p>根据运行结果发现时区的设置并没生效。</p>
+<p>在<code>Linux</code>系统下<code>Go</code>运行时会从多个来源读取时区信息，在<code>$GOROOT/src/time/zoneinfo.unix</code>文件里能够找到<code>Go</code>运行时是从哪些地方读取时区信息的。</p>
+<pre><code>// Many systems use /usr/share/zoneinfo, Solaris 2 has
+// /usr/share/lib/zoneinfo, IRIX 6 has /usr/lib/locale/TZ.
+var zoneSources = []string{
+   &quot;/usr/share/zoneinfo/&quot;,
+   &quot;/usr/share/lib/zoneinfo/&quot;,
+   &quot;/usr/lib/locale/TZ/&quot;,
+   runtime.GOROOT() + &quot;/lib/time/zoneinfo.zip&quot;,
+}
+复制代码
+</code></pre><p>于是我就进到刚才镜像的容器里看了看，上面列的几个目录都没有找到。到这里算是定位到问题了，<code>scratch</code>镜像里并不包含这些时区文件。那么解决办法就是从<code>build</code>阶段的镜像里拷贝时区文件到最终的应用镜像。</p>
+<pre><code>FROM golang:alpine as build
+RUN apk --no-cache add tzdata
+WORKDIR /app
+ADD . /app
+RUN CGO_ENABLED=0 GOOS=linux go build -o myapp
+
+FROM scratch as final
+
+COPY --from=build /app/myapp .
+### 下面这行是新加的
+COPY --from=build /usr/share/zoneinfo /usr/share/zoneinfo
+ENV TZ=Asia/Shanghai
+
+CMD [&quot;/myapp&quot;]
+复制代码
+</code></pre><p>重新构建镜像、运行容器后就能发现时区设置已经正常了，Go运行时按照环境变量<code>TZ</code>里指定的时区打印了当前时间。</p>
+<pre><code>➜  docker image rm go_timezone
+➜  docker run --rm go_timezone
+Local time zone CST 28800
+2020-07-17 13:12:18.206 CST
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/godockertimezone/>https://ftopia2020.github.io/2020/godockertimezone/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/golang/">
+                    #golang</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/docker/">
+                    #docker</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/englishfont/" class="prev" rel="prev" title="React AntD 中 Icon 组件使用 iconfont.cn"><i
+                class="iconfont icon-left"></i>&nbsp;React AntD 中 Icon 组件使用 iconfont.cn</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2020/chinesefont/" class="next" rel="next"
+            title="【转】中文字体网页开发指南">【转】中文字体网页开发指南&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/godockertimezone/" class="leancloud_visitors" data-flag-title="【转】容器化Go应用--基础镜像的未知时区问题">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

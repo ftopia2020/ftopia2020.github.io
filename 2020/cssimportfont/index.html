@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/chinesefont/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/cssimportfont/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             CSS 引入外部字体的解决方案 | Ftopia
+         
+    </title>
+    <meta name="title" content="CSS 引入外部字体的解决方案 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "CSS 引入外部字体的解决方案",
+    "headline" : "CSS 引入外部字体的解决方案",
+    "description" : "WHY HTML的字体可以使用 font-family 属性来控制。您需要提供一个或多个字体种类名称，浏览器会在列表中搜寻，直到找到它所运行的系统上可用的字体。 对于传统的",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-07-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-07-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/cssimportfont\/",
+    "wordCount" : "999",
+    "keywords" : [ "css3","web字体","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">WHY</a></li>
+    <li><a href="#what">WHAT</a>
+      <ul>
+        <li><a href="#网页字体">网页字体</a></li>
+        <li><a href="#google-fonts">Google Fonts</a></li>
+      </ul>
+    </li>
+    <li><a href="#how">HOW</a>
+      <ul>
+        <li><a href="#css-引入">CSS 引入</a></li>
+        <li><a href="#google-font">Google Font</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        <div id="landlord">
+          <div class="message" style="opacity:0"></div>
+          <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+          <div class="hide-button">Bye ~</div>
+       </div>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">CSS 引入外部字体的解决方案</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-07-29
+                    itemprop="datePublished">
+                    2020-07-29</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 999 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="why">WHY</h2>
+<p>HTML的字体可以使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/font-family"><code>font-family</code></a> 属性来控制。您需要提供一个或多个字体种类名称，浏览器会在列表中搜寻，直到找到它所运行的系统上可用的字体。</p>
+<p>对于传统的web开发人员来说，字体选择是有限的。只有少数几种字体可以保证兼容所有流行的操作系统——这就是所谓的 <a href="https://developer.mozilla.org/en-US/Learn/CSS/Styling_text/Fundamentals#Web_safe_fonts">Web-safe 字体</a>。</p>
+<p>但，安全同时意味着不够有新意，如果我们希望部分业务功能使用自定义的外部字体，如较艺术的英文手写体（英文字体的外部引入较为常见，毕竟就 26 个字母，文件不大）。</p>
+<p>那，通过 CSS 我们如何引入外部字体？是否已有较为成熟的解决方案？</p>
+<h2 id="what">WHAT</h2>
+<p>首先，字体的来源？网络上提供了不少的开源字体，可自行 google。</p>
+<h3 id="网页字体">网页字体</h3>
+<p>关于网页字体有两件重要的事情要记住：</p>
+<ol>
+<li>浏览器支持不同的字体格式，因此您需要多种字体格式以获得良好的跨浏览器支持。例如,大多数现代浏览器都支持WOFF / WOFF2(Web Open Font Format versions 1 and 2，Web开放字体格式版本1和2)，它是最有效的格式，但是旧版本IE只支持EOT (Embedded Open Type，嵌入式开放类型)的字体,你可能需要包括一个SVG版本的字体支持旧版本的iPhone和Android浏览器。我们将向您展示如何生成所需的代码。</li>
+<li>字体一般都不能自由使用。您必须为他们付费，或者遵循其他许可条件，比如在代码中(或者在您的站点上)提供字体创建者。你不应该在没有适当的授权的情况下偷窃字体。</li>
+</ol>
+<p><strong>注意：</strong> Web字体作为一种技术从 Internet Explorer 4 开始就得到了的支持！</p>
+<h3 id="google-fonts">Google Fonts</h3>
+<p>其次，成熟的（免费&hellip;）解决方案？ <a href="https://www.google.com/fonts">Google Fonts</a></p>
+<h2 id="how">HOW</h2>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/%E4%B8%BA%E6%96%87%E6%9C%AC%E6%B7%BB%E5%8A%A0%E6%A0%B7%E5%BC%8F/Web_%E5%AD%97%E4%BD%93">Web字体-From WDN</a></p>
+<h3 id="css-引入">CSS 引入</h3>
+<p><strong>1. 最深层兼容</strong>：
+定义字体 <code>@font-face</code>，并在其他样式文件之前引入。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;MyWebFont&#39;</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;webfont.eot&#39;</span><span style="color:#f92672">);</span> <span style="color:#75715e">/* IE9 Compat Modes */</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;webfont.eot?#iefix&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;embedded-opentype&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* IE6-IE8 */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;webfont.woff2&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff2&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* Super Modern Browsers */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;webfont.woff&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* Pretty Modern Browsers */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;webfont.ttf&#39;</span><span style="color:#f92672">)</span>  <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;truetype&#39;</span><span style="color:#f92672">),</span> <span style="color:#75715e">/* Safari, Android, iOS */</span>
+       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;webfont.svg#svgFontName&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;svg&#39;</span><span style="color:#f92672">);</span> <span style="color:#75715e">/* Legacy iOS */</span>
+}
+</code></pre></div><p>使用字体：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#39;MyWebFont&#39;</span>, Fallback, <span style="color:#66d9ef">sans-serif</span>;
+}  
+</code></pre></div><p><strong>2.更实用的方案：</strong>
+由于 WOFF/WOFF2 格式的字体文件兼容性比较好，且加载起来相对较快，所以我们可只使用这两个格式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;MyWebFont&#39;</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span>  <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;myfont.woff2&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff2&#39;</span><span style="color:#f92672">),</span>
+        <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;myfont.woff&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;woff&#39;</span><span style="color:#f92672">);</span>
+}
+</code></pre></div><h3 id="google-font">Google Font</h3>
+<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Ffonts.google.com%2F">Google Fonts</a> 使用起来很简单。主要提供：</p>
+<ol>
+<li>搜索字体（可筛选不同语言、风格等），并可输入特定文字进行字体预览</li>
+<li>在线存储/下载字体；支持粗细调整&amp;字符集展示</li>
+</ol>
+<p>可直接复制对应生成的 <code>&lt;link&gt;</code> 代码至你的 html 头中，参考示例如下：</p>
+<blockquote>
+<p>To embed a font, copy the code into the <code>&lt;head&gt;</code> of your html</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>CSS rules to specify families</p>
+<ol>
+<li>font-family: &lsquo;Roboto&rsquo;, sans-serif;</li>
+</ol>
+</blockquote>
+<p>关于此链接的参数说明，详看 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fdevelopers.google.com%2Ffonts%2Fdocs%2Fgetting_started">Get Started with the Google Fonts API</a></p>
+<p>若使用自己的服务器托管？可以自行下载字体文件压缩包，把生成的字体文件和样式文件放到项目中即可。</p>
+<blockquote>
+<p>下载解压后为 .ttf 字体文件；可利用转换工具，比如 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Ftransfonter.org%2F">Transfonter</a> 生成对应的<code>@font-face</code> 样式</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/cssimportfont/>https://ftopia2020.github.io/2020/cssimportfont/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/css3/">
+                    #css3</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/web%E5%AD%97%E4%BD%93/">
+                    #web字体</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/chinesefont/" class="prev" rel="prev" title="【转】中文字体网页开发指南"><i
+                class="iconfont icon-left"></i>&nbsp;【转】中文字体网页开发指南</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/cssimportfont/" class="leancloud_visitors" data-flag-title="CSS 引入外部字体的解决方案">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

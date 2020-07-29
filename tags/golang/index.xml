@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang on Ftopia</title>
+    <title>golang on Ftopia</title>
     <link>https://ftopia2020.github.io/tags/golang/</link>
-    <description>Recent content in Golang on Ftopia</description>
+    <description>Recent content in golang on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】容器化Go应用--基础镜像的未知时区问题</title>
+      <link>https://ftopia2020.github.io/2020/godockertimezone/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/godockertimezone/</guid>
+      <description>作者：kevinyan 链接： https://juejin.im/post/5f1282e46fb9a07e976bf1ae 用Go开发的应用程序的一个优势在于，可以从&amp;quot;零&amp;quot;开始构建应用的Docker镜像，镜像中仅需</description>
+    </item>
+    
+    <item>
+      <title>golang 多版本管理工具 —— gvm</title>
+      <link>https://ftopia2020.github.io/2020/gvm/</link>
+      <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/gvm/</guid>
+      <description>WHY 早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？ WHAT GVM - Go Version Man</description>
+    </item>
     
     <item>
       <title>解决 go get 下载包失败的问题</title>

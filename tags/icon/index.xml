@@ -6,10 +6,19 @@
     <description>Recent content in icon on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/icon/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>React AntD 中 Icon 组件使用 iconfont.cn</title>
+      <link>https://ftopia2020.github.io/2020/englishfont/</link>
+      <pubDate>Mon, 20 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/englishfont/</guid>
+      <description>https://www.jianshu.com/p/9fb9c03ecdee ![image-20200703161336928](/Users/fee/Library/Application Support/typora-user-images/image-20200703161336928.png)</description>
+    </item>
     
     <item>
       <title>React AntD 中 Icon 组件使用 iconfont.cn</title>

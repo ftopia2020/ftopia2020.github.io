@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/docker/</link>
+    <description>Recent content in docker on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【转】容器化Go应用--基础镜像的未知时区问题</title>
+      <link>https://ftopia2020.github.io/2020/godockertimezone/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/godockertimezone/</guid>
+      <description>作者：kevinyan 链接： https://juejin.im/post/5f1282e46fb9a07e976bf1ae 用Go开发的应用程序的一个优势在于，可以从&amp;quot;零&amp;quot;开始构建应用的Docker镜像，镜像中仅需</description>
+    </item>
+    
+  </channel>
+</rss>
