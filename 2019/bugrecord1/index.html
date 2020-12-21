@@ -197,7 +197,7 @@
 
         <h2 id="what">What</h2>
 <p>国庆前一天，内部系统反馈一个前端Bug，选择本周的开始时间错误导致数据拉取为空。经测试可每次复现，奇怪的此页面发布后三个月来没发现且最近无相关变更。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/timebug_record.png" alt="timebug_record" class="lazyload"><figcaption class="image-caption">timebug_record</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/timebug_record.png" alt="timebug_record" class="lazyload"><figcaption class="image-caption">timebug_record</figcaption></figure></p>
 <p>查了代码然后细想了下，原来是时区惹的祸，至于为什么那么久没发现？原因是通常内部系统周日没人用。。。</p>
 <h2 id="how">How</h2>
 <p>问题找到，怎么解决就容易的多了。项目中，引入了 <a href="https://momentjs.com/docs/">moment.js</a> 的时间处理类库，我们来看下更改的代码，如下：</p>
