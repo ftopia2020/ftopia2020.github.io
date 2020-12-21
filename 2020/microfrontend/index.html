@@ -268,7 +268,7 @@
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d668cfcd5297bf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="团队自治">团队自治</h3>
 <p>每个团队需要围绕业务功能垂直组建，而不是根据技术能力来组建。这为团队带来了更高的凝聚力。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d668e822d758f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201221164434065.png" alt="image-20201221164434065" class="lazyload"><figcaption class="image-caption">image-20201221164434065</figcaption></figure></p>
 <h3 id="总结">总结</h3>
 <p>简而言之，微前端就是将大而恐怖的东西切成更小、更易于管理的部分，然后明确地表明它们之间的依赖性。我们的技术选择，我们的代码库，我们的团队以及我们的发布流程都应该能够彼此独立地操作和发展，无需过多的协调。</p>
 <h2 id="例子">例子</h2>
@@ -278,7 +278,7 @@
 <li>每个餐厅都需要有自己的页面，显示其菜单，并允许客户下单、选折扣和填写附加要求</li>
 <li>客户应该有个人资料页面，可以查看订单记录、自定义付款方式</li>
 </ul>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d6692139ccca36?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201221164511536.png" alt="image-20201221164511536" class="lazyload"><figcaption class="image-caption">image-20201221164511536</figcaption></figure></p>
 <p>每个页面都足够复杂，从微前端的角度我们可以把每个页面交给一个专门的团队（译注：这些团队的人员可以重叠），并且每个团队都应该能够独立于其他团队工作。他们应该能够开发、测试、部署和维护其代码，而不必担心与其他团队冲突。</p>
 <h2 id="集成">集成</h2>
 <p>鉴于上面的定义相当宽松，所有有许多方法实现微前端。在本节中，我们将显示一些示例并讨论它们的取舍之道。每个页面都有一个容器应用，该容器可以：</p>
@@ -287,7 +287,7 @@
 <li>解决认证和导航等跨领域问题</li>
 <li>将各种微型前端应用集中到页面上，并告诉每个微型前端何时以及在何处进行渲染</li>
 </ul>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/25/16d66f78a72cbed8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201221164601634.png" alt="image-20201221164601634" class="lazyload"><figcaption class="image-caption">image-20201221164601634</figcaption></figure></p>
 <h3 id="后端模板的集成">后端模板的集成</h3>
 <p>我们用一个非常传统的方式开始，将多个模板渲染到服务器上的HTML里。我们有一个index.html，其中包含所有常见的页面元素，然后使用 include 来引入其他模板：</p>
 <pre><code>&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
@@ -610,9 +610,9 @@ window.unmountBrowse = containerId =&gt; {
   &lt;/body&gt;
 &lt;/html&gt;
 复制代码
-</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/26/16d6c61ca802bcbc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201221164637066.png" alt="image-20201221164637066" class="lazyload"><figcaption class="image-caption">image-20201221164637066</figcaption></figure></p>
 <p>从现在开始，微前端大多只是普通的 React 应用程序。'<a href="https://github.com/micro-frontends-demo/browse">browser</a>&rsquo; 应用餐厅列表，提供 <code>&lt;input&gt;</code> 用来搜索和过滤，并用 <code>&lt;Link&gt;</code> 把结果包裹起来，用户点击时导航到一个特定的餐厅。然后，我们将切换到第二个 &lsquo;<a href="https://github.com/micro-frontends-demo/restaurant-order">order</a>&rsquo; 微应用，展示一个带有菜单的餐厅页面。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/9/26/16d6c654e32f6b82?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201221164747501.png" alt="image-20201221164747501" class="lazyload"><figcaption class="image-caption">image-20201221164747501</figcaption></figure></p>
 <h3 id="通过路由进行跨应用程序通信">通过路由进行跨应用程序通信</h3>
 <p>我们之前提到过 ，应将跨应用通信保持在最低限度。在此示例中，我们唯一的通信是 browser 页面需要告诉 order 页面要加载哪个餐厅。我们使用路由来解决此问题。</p>
 <p>涉及到三个 React 应用，都用React Router进行路由，但是以两种略有不同的方式进行初始化。</p>

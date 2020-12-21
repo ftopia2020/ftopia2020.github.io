@@ -223,7 +223,7 @@
 <p>作者：邵磊  <a href="">分布式实验室</a>   <em>2019-11-21</em></p>
 <p>原文链接：https://juejin.im/post/59bc944d51882519777c5e07</p>
 </blockquote>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree1.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree1.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>作为使用Sourcetree大于3年的我，已熟知Git的每一个功能，并灵活运用利用Git解决开发中各式各样的场景问题，我也曾多次在公司内部不同小组间分享Sourcetree使用经验，接下来给大家分享下这款工具吧。</p>
 <p>本文可能是目前网上最全的一篇可视化使用Git工具Sourcetree的文章。</p>
 <p>可能对于很多开发来说，只要搞懂Git的push、pull、解决一些简单的冲突命令就好了，事实上Git的功能十分强大，而通过背命令很难熟记每个逻辑。当然不同的ide开发环境都有各种各样的Git插件，操作方法各不相同，不如直接学个跨平台，不受ide限制的Git管理工具Sourcetree。不管你做Java，还是Python、Android都可以使用。</p>
@@ -242,19 +242,19 @@
 <li>一款产品一个主分支，对于每个公司实施均有个性化需求，且需求很难以插件形式实施，或者插件形式也需要各种个性化修改的插件，则对于每个项目实施对应每个分支。</li>
 </ol>
 <p>这里，我先简单描述这几种使用场景，具体内容，后面会逐步介绍。欣赏下Git分支：</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree2.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree2.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h2 id="常见用法">常见用法</h2>
 <p>本文会综合Windows环境和Mac环境一起讲，但在两个平台下界面或名词还是有少许差异，本文会尽可能的说明。</p>
 <h3 id="添加仓库">添加仓库</h3>
 <p><strong>Mac下从url克隆</strong></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree3.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree3.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <pre><code>git remote add orgin http://10.10.100.6:3000/sl/shaolei.git
 </code></pre><p><strong>Windows下从url克隆</strong></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree4.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree4.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="抓取获取分支信息">抓取、获取分支信息</h3>
 <p>抓取（Mac下的名字）获取（Windows下的名字）指获取服务端Git库的变更信息，比如落后几个版本，超前几个版本，我们平常多人协作的项目，提交代码前需要先获取一下，如果服务端有新的提交，再拉取下别人的更改，可以减少代码冲突。（菜单栏）</p>
 <h3 id="拉取代码">拉取代码</h3>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree5.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree5.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <pre><code>$ git fetch$ git merge orgin/master
 </code></pre><p>我先将界面分为菜单栏、左侧栏、文件栏、变更栏、底部栏以方便下文介绍。</p>
 <p>直接点击菜单栏的拉取按钮即可将远程代码变更拉取到本地。</p>
@@ -266,39 +266,39 @@
 <li>Sourcetree默认不会推送到远程仓库，打勾立即推送变更到origin。（底部栏）</li>
 <li>点提交即可。（如果没有打勾立即推送变更到远程，还需手动点击菜单栏的推送）</li>
 </ol>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree6.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree6.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>这里我模拟一些变更，随便改点代码，然后保存，再次回到提交界面。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree7.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree7.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>变更栏会包含本次所有变更，其中+代表本次增加行；-代表本次删除行；前面2个行号依次代码变更前行号，变更后的行号。</p>
 <p>为了保证代码变更尽可能的少，我们需要丢弃一些无意义的变更，如153行的删了一行<code>&lt;dt&gt;&lt;/dt&gt;</code>，随后又增加了一行<code>&lt;dt&gt;&lt;/dt&gt;</code>，造成这种现象一般是代码格式化或者不小心增加了某些空格等不可见字符导致，我们可以直接选中那2行，然后点击上方的丢弃行。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree8.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree8.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>需要注意的是，丢弃不等于删除，丢弃所丢的东西是那一行的变更，比如是+号，那么丢掉代表不增加这一行，减号-同理丢的是不删除这一行，也就是恢复这一行。sourcetree会把所有的变更以区块来分组，所以如果是整个区块的变更都没有意义，可直接丢弃整个块，如图：</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree9.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree9.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>随后暂存所选提交（文件栏）。</p>
 <h3 id="暂存代码">暂存代码</h3>
 <p>暂存和丢弃类似，是将代码片段暂存到本地暂存区 以备提交，提交时所提交的代码就是暂存区的代码。当我们某个功能已经实现了，但是又想优化一下代码，可又担心等会没优化成功，此时的代码丢失，如果没有Git之前，我们可能会备份一份代码，这里只需要暂存代码即可。暂存后，正常修改，后续的变更会出现在未暂存文件中的变更栏中。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree10.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree10.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>此时无论是丢弃，还是继续暂存都是基于上次已暂存的文件。当然，你也可以提交代码，来实现类似功能。</p>
 <h3 id="解决冲突">解决冲突</h3>
 <p>当我和别人改了相同文件的相同行时，（大部分我们多人改变了一个文件，Git都会帮我们处理掉，自动合并，但是当改变同一文件的相同行时，在拉取时就会有冲突）如图：</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree11.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree11.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>我们可以先将我们代码贮藏起来（菜单栏），然后再拉取代码，接着应用贮藏，应用后冲突的文件会显示出来。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree12.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree12.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <pre><code>$ git stash
 </code></pre><p>这个时候，我们需要指定一个版本，比如是别人的版本为准，还是我的版本，随后右键文件选择 解决冲突使用我的版本（左侧栏选择文件状态-》工作副本）。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree13.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree13.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>变更栏可以看到updated upstream 是别人改的版本，+====下面我改的版本。如果远程和本地都有问题，建议打开ide工具编辑后提交。</p>
 <h3 id="新开分支">新开分支</h3>
 <p>在项目中，我们可能分为开发分支、集成分支、生成环境分支等，这时我们只需要在某个节点上右键选择分支即可。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree14.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree15.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree14.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree15.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="推送分支">推送分支</h3>
 <p>新开的分支不会在远程显示，所以需要将分支推送到远程。</p>
 <pre><code>$ git push orgin 测试分支
-</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree16.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree16.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="切换分支">切换分支</h3>
 <pre><code>$ git checkout 3e1e7fc
-</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree17.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree17.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>需要切换到不通分支时，直接双击分支。</p>
 <h3 id="拉取远程分支">拉取远程分支</h3>
 <p>和切换分支类似，双击远程分支即可。</p>
@@ -307,56 +307,56 @@
 <pre><code>git revert *
 </code></pre><p><strong>回滚某次提交</strong></p>
 <p>将某次变更（在Sourcetree里是某个节点）右键选择回滚提交。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree18.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree18.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>回滚文件</strong></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree19.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree19-20201221165253579.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>回滚行</strong></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree20.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree20.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="忽略文件">忽略文件</h3>
 <p>项目中，有一些文件夹是需要忽略，而不需要提交到仓库里，比如bin目录下、target目录下的文件。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree21.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree21.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree22.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>这里支持忽略单个文件、忽略所有扩展名、或略文件夹下的一切等。之后，我们不会看到这些文件变动。需要说明的是忽略文件，只能忽略未跟踪文件，如果已跟踪文件（之前被提交过），需要先将这些文件删除后，提交代码库，再次忽略文件。</p>
 <h3 id="合并分支">合并分支</h3>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree23.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree23.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>由图中可以看出，我们的测试分支代码落后Master分支2个节点，我们可以在Master分支上右键选择合并到当前分支。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree24.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree24.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>当有冲突时，需要和上文中介绍的那样解决冲突，然后提交；如果没有冲突，需要手动点击推送按钮将合并后的变更提交到远程。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree25.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree25.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="贮藏暂存代码">贮藏（暂存）代码</h3>
 <pre><code>$ git stash
 </code></pre><p>上文已有介绍，主要指暂存所有变更，以便于应用暂存（Windows下叫贮藏。</p>
 <h3 id="审查文件">审查文件</h3>
 <p>假设一个文件被不同的开发修改过，有段代码需要找到修改人，我们可以右键审查文件查看每一行的作者。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree26.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree26.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <pre><code>$ git blame
 </code></pre><p>效果如下：</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree27.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree27.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>右键某一行选择查看详细日志 可以看到该次提交的说明。</p>
 <p><strong>查看文件变动历史</strong></p>
 <p>我们时常需要查看某个文件变动的历史，这里我们可以右键查看文件的 变更历史。</p>
 <pre><code>$ git log
-</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree28.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree28.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>点击后效果如图：</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree29.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree29.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>按文件打开历史版本</strong></p>
 <p>有些时候，我们也需要查看文件的历史版本，这里可以选中节点后，选择那个变更文件，右键然后打开历史版本。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree30.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree30.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>Sourcetree会生成一个临时文件（历史版本），以供我们分析。</p>
 <h3 id="标签的使用">标签的使用</h3>
 <p>我们有些时候需要给一个变更增加一个标签，比如稳定版1.0的标签。</p>
 <pre><code>git tag v1$ git tag -d v1 //移除标签
-</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree31.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree31.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>效果如下：</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree32.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree32.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="存档">存档</h3>
 <p>存档指将当前版本打包成一个zip包。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree33.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree33.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="检出分支">检出分支</h3>
 <p>检出分支意思是将当前项目回到选中的版本，这样我们可以很轻松回到任意一个版本，来编译项目，或者检查当时项目的问题。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree34.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree34.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h3 id="其他">其他</h3>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree35.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree35.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <ol>
 <li>合并，一般是用于不通分支间，将某次提交的所有变更合并到当前分支。</li>
 <li>rebase、交互式变都是变基，主要是将远程的这个分支名里的标识改变，大部分场景用不到。</li>
@@ -364,7 +364,7 @@
 <li>遴选，从不同的分支中检出一个单独的commit，并把它和你当前的分支合并，类似于打补丁，例如，修复一个所有分支都有的bug这样的场合可以适用。</li>
 </ol>
 <pre><code>$ git revert$ git cherry-pick 4a1fd5
-</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree36.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree36.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <ol>
 <li>分支的拉取推：从远程拉取</li>
 <li>跟踪分支：当未跟踪时表示本地没有和远程建立分支的联系</li>
@@ -372,9 +372,9 @@
 <li>删除分支等</li>
 </ol>
 <p><strong>如何查看界面上的操作对应命令</strong></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree37.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree37.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>设置后可以看到每部操作的Git命令。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/sourcetree38.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sourcetree38.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>一些良好的习惯</strong></p>
 <ul>
 <li>尽可能丢弃一些无意义的变更</li>

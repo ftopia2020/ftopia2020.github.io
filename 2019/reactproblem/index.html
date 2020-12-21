@@ -197,7 +197,7 @@
 
         <h2 id="what">What</h2>
 <p>在 react 项目中，发现 style 加上 <code>!important</code> 后未生效，参考 codesandBox 示例如下：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/react_ques_style.png" alt="react_ques_style.png" class="lazyload"><figcaption class="image-caption">react_ques_style.png</figcaption></figure></p>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/react_ques_style.png" alt="react_ques_style.png" class="lazyload"><figcaption class="image-caption">react_ques_style.png</figcaption></figure></p>
 <p>css 里面已有定义 <code>!important</code> ，故需要在 style 里面加上强制，官方建议不加<code>!important</code>故不做支持，且此类场景很少，但万一必须要呢？这边提供一个替代方式。</p>
 <h2 id="how">How</h2>
 <p>使用节点 .setProperty 方式，代码更改参考如下：</p>

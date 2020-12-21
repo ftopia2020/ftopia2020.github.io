@@ -205,7 +205,7 @@
 <p>所以，如果我们希望集成多个站点，iframe 不失为实现 <a href="https://www.google.com.hk/search?q=%E5%BE%AE%E5%89%8D%E7%AB%AF">微前端</a> 的一种简单方式。</p>
 <p>但是，url 不同步会是个比较头疼的问题。举个例子，iframe 子窗体内触发 src 变更后，地址栏不会跟随变更。如果用户刷新，则仍会回到之前的页面，比如：</p>
 <p><a href="https://vf66l.csb.app/">示例</a> 如下，子窗体引入了百度页面，搜索某关键字后跳转结果页，但是刷新后仍会是百度首页。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://image.ftopia.cn/blog/reactIFrameSolution.png" alt="reactIFrameSolution" class="lazyload"><figcaption class="image-caption">reactIFrameSolution</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/reactIFrameSolution.png" alt="reactIFrameSolution" class="lazyload"><figcaption class="image-caption">reactIFrameSolution</figcaption></figure></p>
 <h2 id="how">HOW</h2>
 <p>上例的百度站点不同域，我们无法做到改变父窗体地址栏。但，若是自有站点，子窗体同域，我们可以通过代码实现更新父窗体地址栏，这样可变相解决 URL不同步等操作父窗体的问题。解决方案参考如下：</p>
 <h3 id="跨域-同域">跨域 =》同域</h3>

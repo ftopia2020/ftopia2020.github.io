@@ -203,7 +203,7 @@
 <h2 id="冯诺依曼体系结构概述">冯·诺依曼体系结构概述</h2>
 <p>数学家冯·诺依曼提出了计算机制造的三个基本原则（采用二进制、程序存储、顺序执行），以及计算机的五个组成部分（运算器、控制器、存储器、输入设备、输出设备），这套理论被称为冯·诺依曼体系结构，根据这一原理制造的计算机被称为冯·诺依曼结构计算机。</p>
 <p>冯·诺依曼最先提出程序存储的思想，并成功将其运用在计算机的设计之中。冯·诺伊曼体系结构是现代计算机的基础，现在大多计算机仍是冯·诺伊曼计算机的组织结构，因此冯·诺依曼又被称为“现代计算机之父”。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://img2018.cnblogs.com/i-beta/1489371/202002/1489371-20200205122018370-1525459707.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1489371-20200205122018370-1525459707.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <h2 id="冯诺依曼体系结构特点">冯·诺依曼体系结构特点</h2>
 <p>（1）计算机处理的数据和指令一律用二进制数表示。</p>
 <p>（2）指令和数据不加区别混合存储在同一个 存储器 中（硬盘）</p>
@@ -216,7 +216,7 @@
 <p>（5）能够按照要求将处理的结果输出给用户。</p>
 <h2 id="冯诺依曼体系工作原理cpu工作原理">冯·诺依曼体系工作原理（CPU工作原理）</h2>
 <p>程序的执行过程实际上是不断地取出指令、分析指令、执行指令的过程。冯·诺依曼型计算机从本质上讲是采用串行顺序处理的工作机制，即使有关数据已经准备好了，也必须逐条执行指令序列，如下图所示：</p>
-<p>　　<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://images2018.cnblogs.com/blog/1330909/201802/1330909-20180224102217586-319639779.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p>　　<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1330909-20180224102217586-319639779.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>具体过程：</p>
 <p>（1）预先把指挥计算机如何进行操作的指令序列（就是程序）和原始数据输入到计算机内存中（拷贝），每条指令中明确规定了计算机从哪个地址取数，进行什么操作，然后送到什么地方去等步骤。</p>
 <p>（2）计算机在执行时，先从内存中取出第一条指令，通过控制器的译码器接收指令的要求，再从存储器中取出数据进行指定的运算和逻辑操作等，然后再按地址把结果送到内存中，如果需要向硬盘等存储设备存储数据，还需要将内存中的该数据存储到硬盘中。接下来取出第2条指令，在控制器的指挥下完成规定操作，依次进行下去，直到遇到停止指令。</p>
