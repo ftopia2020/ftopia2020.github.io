@@ -261,7 +261,7 @@
 </code></pre></div><p><strong>生产环境上线</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>$: git merge release --no-ff          <span style="color:#75715e"># 把release测试好的代码合并到master，运维人员操作</span>
 <span style="color:#f92672">(</span>master<span style="color:#f92672">)</span>$: git tag -a v0.1 -m <span style="color:#e6db74">&#39;部署包版本名&#39;</span>  <span style="color:#75715e">#给版本命名，打Tag</span>
-</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2018/7/9/1647e5710a461adc?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="image" class="lazyload"><figcaption class="image-caption">image</figcaption></figure></p>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201221171002030.png" alt="image-20201221171002030" class="lazyload"><figcaption class="image-caption">image-20201221171002030</figcaption></figure></p>
 <h2 id="日志规范">日志规范</h2>
 <blockquote>
 <p>在一个团队协作的项目中，开发人员需要经常提交一些代码去修复bug或者实现新的feature。而项目中的文件和实现什么功能、解决什么问题都会渐渐淡忘，最后需要浪费时间去阅读代码。但是好的日志规范commit messages编写有帮助到我们，它也反映了一个开发人员是否是良好的协作者。</p>
