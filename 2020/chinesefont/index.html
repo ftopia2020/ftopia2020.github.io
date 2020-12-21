@@ -204,15 +204,15 @@
 </blockquote>
 <p>字体的选择，是网页开发的关键因素之一。</p>
 <p>合适的字体，对网页的美观度（或可读性）有着举足轻重的影响。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071502.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071503.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071504.gif" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071502.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071503.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071504.gif" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>但是，相比<a href="http://www.ruanyifeng.com/blog/2008/06/typography_notes.html">英文字体</a>，中文字体的网页开发有着极大的局限性。因为，一套中文字体最少也要有几千个字符，体积为几个MB；单单为了浏览网页，开发者不可能让用户去下载字体，只能依靠操作系统的预装字体。（*注：确实有<a href="http://cn.justfont.com/">网站</a>提供中文字体的web服务，从技术角度，我不推荐这样做。）</p>
 <p>不同的操作系统、不同的版本预装不同的字体（因为版权），几乎没有交集。因此，大多数开发者索性忽略中文字体，让操作系统自行渲染，或者用图片呈现字体效果。</p>
 <p>下面是目前中文字体的最佳实践，主要参考了<a href="http://www.kendraschaefer.com/2012/06/chinese-standard-web-fonts-the-ultimate-guide-to-css-font-family-declarations-for-web-design-in-simplified-chinese/">Kendra Schaefer</a>的文章。</p>
 <h2 id="一操作系统的预装字体">一、操作系统的预装字体</h2>
 <p>操作系统决定了开发者可以使用的字体。所以，第一步，我们必须了解操作系统到底提供哪些字体。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071513.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071513.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>Windows操作系统</strong>：</p>
 <blockquote>
 <ul>
@@ -271,7 +271,7 @@
 <p>（3）如果所列出的字体，都无法满足需要，则让操作系统自行决定使用哪种字体。</p>
 </blockquote>
 <p>**根据这些规则，font-family应该优先指定英文字体，然后再指定中文字体。**否则，中文字体所包含的英文字母，会取代英文字体，这往往很丑陋。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071507.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071507.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>上面图片中，红框内的英文字母，左边采用英文字体渲染，右边采用中文字体渲染，哪一种效果比较好，一目了然。</p>
 <p>**为了保证兼容性，中文字体的中文名称和英文名称，应该都写入font-family。**比如，&ldquo;微软雅黑&quot;的英文名称是Microsoft YaHei。</p>
 <p>此外，中文字体的中文名称，以及由多个单词组成的英文名称，应该放在双引号内。</p>
@@ -281,26 +281,26 @@
 <h2 id="四衬线体和无衬线体">四、衬线体和无衬线体</h2>
 <p>所谓&quot;衬线体&rdquo;（Serif），指的是笔画的末端带有衬线的字体。</p>
 <p>就像英文字体一样，中文字体也可以分成&quot;衬线体&quot;和&quot;无衬线体&rdquo;（San-serif）。比如，对于繁体字来说，微软正黑（Microsoft JhengHei）是无衬线体，新细明体（PMingLiU）是衬线体。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071506.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071506.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>对于简体字来说，微软雅黑（Microsoft yahei）是无衬线体，宋体（SimSun）是衬线体。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071508.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071508.png" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>一般来说，衬线体装饰性强，往往用于标题；无衬线体清晰度好，往往用于正文。</p>
 <h2 id="五几种常见中文字体">五、几种常见中文字体</h2>
 <p><strong>（1）宋体（SimSun）</strong></p>
 <p>宋体是最常见的中文字体，如果没有指定字体，操作系统往往选择它来渲染。很多人认为，这种字体并不美观。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071509.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071509.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>（2）微软雅黑（Microsoft YaHei）</strong></p>
 <p>微软雅黑的美观度和清晰度都较好，可以作为网页的首选字体。它在Mac平台的对应字体是华文细黑（STXihei）。</p>
 <p>但是，Windows XP没有预装这种字体，这时可以选择黑体（Simhei）替代。不过，黑体比较粗，不应用于字号较小的文字。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071510.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071510.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>（3）仿宋（FangSong）</strong></p>
 <p>这种字体是衬线体，比宋体的装饰性更强。如果字号太小，会影响清晰度，所以只有在字号大于14px的情况下，才可以考虑这种字体。</p>
 <p>它在Mac平台的对应字体是&quot;华文仿宋&rdquo;（STFangsong）。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071511.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071511.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p><strong>（4）楷体（KaiTi）</strong></p>
 <p>楷体也是衬线体，装饰性与仿宋体接近，但是宽度更大，笔画更清楚一些。这种字体也不应该在小于14px的情况下使用。</p>
 <p>它在Mac平台的对应字体是&quot;华文楷体&rdquo;（STKaiti）。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014071512.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/bg2014071512.jpg" alt="img" class="lazyload"><figcaption class="image-caption">img</figcaption></figure></p>
 <p>（完）</p>
 
     </div>

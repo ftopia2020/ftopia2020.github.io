@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>博客 X 个人</title>
+      <link>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Web X 开发</title>
@@ -26,15 +35,6 @@
       <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/categories/%E8%82%B2%E5%84%BF-x-%E6%97%A9%E6%95%99/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>博客 X 个人</title>
-      <link>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</link>
-      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</guid>
       <description></description>
     </item>
     

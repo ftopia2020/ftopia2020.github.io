@@ -6,10 +6,19 @@
     <description>Recent content in Plans &amp; Summaries on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/plans-summary/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>博文 2021</title>
+      <link>https://ftopia2020.github.io/plans-summary/blog_2021/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/plans-summary/blog_2021/</guid>
+      <description>为了增加博客的产出，将计划准备写的博文标题记录于此，并整理之前的博文目录。 From 2021/01/01 ~ 2021/12/31 To Do 微前端框架探索 TypeScript + React Hooks 开发指北 .gitignore 使用简介 react-spring 动画框架初体</description>
+    </item>
     
     <item>
       <title>博客 To-Do</title>
@@ -17,7 +26,7 @@
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/plans-summary/blogtodo/</guid>
-      <description>博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 &amp;amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 预览：hugo serve</description>
+      <description>博客重建已完成，然重要的是内容，梳理下后期如何维护博客吧 ~ 记录 &amp;amp; 整理 文档：Typora 直接记录.md 文件，文件夹目录整理即可 图片：Typor</description>
     </item>
     
     <item>
@@ -26,7 +35,7 @@
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/plans-summary/blog_2020/</guid>
-      <description>为了增加博客的产出，将计划准备写的博文标题记录于此，并整理之前的博文目录。 From 2020/06/01 ~ 2020/12/31 正式开始 To Do 微前端框架探索 TypeScript + React Hooks 开发指北 .gitignore 使用简介 react-spring 动画</description>
+      <description>为了增加博客的产出，将计划准备写的博文标题记录于此，并整理之前的博文目录。 From 2020/06/01 ~ 2020/12/31 正式开始 Summary 2020 过半的时候开始的博客计划 。。。 持续了两个月后 Over</description>
     </item>
     
   </channel>
