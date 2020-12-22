@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>博文图片在深色模式下的样式改动</title>
+      <link>https://ftopia2020.github.io/2020/darkmodecss/</link>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/darkmodecss/</guid>
+      <description>WHY 深色模式虽然不常用，但是发现深色模式下展示的图片过于亮了，而通常使用深色是因为灯光暗保护眼睛（或者装 X），想起之前看到的一篇博文 几行CSS</description>
+    </item>
+    
+    <item>
       <title>技术文章分类参考</title>
       <link>https://ftopia2020.github.io/2020/blogarticles/</link>
       <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>

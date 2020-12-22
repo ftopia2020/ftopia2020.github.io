@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2020/cssimportfont/" />
-    <link rel="next" href="https://ftopia2020.github.io/2020/darkmodecss/" />
-    <link rel="canonical" href="https://ftopia2020.github.io/2020/blogarticles/" />
+    <link rel="prev" href="https://ftopia2020.github.io/2020/blogarticles/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/darkmodecss/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             技术文章分类参考 | Ftopia
+             博文图片在深色模式下的样式改动 | Ftopia
          
     </title>
-    <meta name="title" content="技术文章分类参考 | Ftopia">
+    <meta name="title" content="博文图片在深色模式下的样式改动 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "技术文章分类参考",
-    "headline" : "技术文章分类参考",
-    "description" : "写这篇源于偶然看见掘金的一个活动： 掘力计划创作者训练营第一期，开营了！ 以下为总结的技术博文分类，希望能更好地持续输出优质内容~ P.S 参与训练营之",
+    "name" : "博文图片在深色模式下的样式改动",
+    "headline" : "博文图片在深色模式下的样式改动",
+    "description" : "WHY 深色模式虽然不常用，但是发现深色模式下展示的图片过于亮了，而通常使用深色是因为灯光暗保护眼睛（或者装 X），想起之前看到的一篇博文 几行CSS",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -58,9 +58,9 @@
     "copyrightYear" : "2020",
     "datePublished": "2020-12-22 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-12-22 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/2020\/blogarticles\/",
-    "wordCount" : "934",
-    "keywords" : [ "blog","转载", "Ftopia"]
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/darkmodecss\/",
+    "wordCount" : "227",
+    "keywords" : [ "CSS3","原创", "Ftopia"]
 }
 </script>
 
@@ -73,16 +73,9 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#博文分类">博文分类</a>
-      <ul>
-        <li><a href="#技术细节">技术细节</a></li>
-        <li><a href="#干货类型">干货类型</a></li>
-        <li><a href="#实践总结">实践总结</a></li>
-        <li><a href="#翻译文章">翻译文章</a></li>
-        <li><a href="#杂谈--面经">杂谈 &amp; 面经</a></li>
-      </ul>
-    </li>
-    <li><a href="#相关参考">相关参考</a></li>
+    <li><a href="#why">WHY</a></li>
+    <li><a href="#what">WHAT</a></li>
+    <li><a href="#how">HOW</a></li>
   </ul>
 </nav>
 </aside>
@@ -158,7 +151,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">技术文章分类参考</h1>
+        <h1 class="post-title" itemprop="name headline">博文图片在深色模式下的样式改动</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -175,9 +168,9 @@
                     2020-12-22</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 934 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 227 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
 
         </div>
     </header>
@@ -199,115 +192,29 @@
         
         
 
-        <blockquote>
-<p>写这篇源于偶然看见掘金的一个活动： <a href="https://juejin.cn/post/6906839636925612046#heading-0">掘力计划创作者训练营第一期，开营了！</a></p>
-<p>以下为总结的技术博文分类，希望能更好地持续输出优质内容~  P.S 参与训练营之后会输出总结 💪</p>
-</blockquote>
-<p>废话不多说，直接上图，<a href="https://www.processon.com/view/link/5fe1907d1e08535b0c051069">分享链接</a></p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/57ed4804d02f4c3c9152ae80bbfaa2fe~tplv-k3u1fbpfcp-zoom-1.image" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
-<h2 id="博文分类">博文分类</h2>
-<blockquote>
-<p>列举文字版大纲如下，博文示例链接可点（部分来源掘金等平台，可能会失效）</p>
-</blockquote>
-<h3 id="技术细节">技术细节</h3>
+        <h2 id="why">WHY</h2>
+<p>深色模式虽然不常用，但是发现深色模式下展示的图片过于亮了，而通常使用深色是因为灯光暗保护眼睛（或者装 X），想起之前看到的一篇博文 <a href="https://www.zhangxinxu.com/wordpress/?p=9696">几行CSS让整站支持深色模式的探索与拓展</a>，顺手尝试一下吧~</p>
+<h2 id="what">WHAT</h2>
+<p>实际动手代码还是如题很简单的，但是其实，深色模式的背景色黑色，不需要反向色调，加个透明度就足够了，参考如下：</p>
 <ul>
-<li>侧重于解决某个具体的问题，包括但不限于以下：
+<li>未加透明度</li>
+</ul>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/Users/fee/Study/blogPicTemp/image-20201222182059374.png" alt="image-20201222182059374" class="lazyload"><figcaption class="image-caption">image-20201222182059374</figcaption></figure></p>
 <ul>
-<li>工作中遇到（开源库有）什么bug？如何解决这个bug？</li>
-<li>如何使用某个具体的技术细节？</li>
+<li>加透明度 0.7</li>
 </ul>
-</li>
-<li>博文示例
-<ul>
-<li><a href="https://ftopia.cn/2019/goget/">解决 go get 下载包失败的问题</a></li>
-<li><a href="https://ftopia.cn/2020/cssforcheckbox/">记一次不寻常的 input checkbox 样式调整优化</a></li>
-<li><a href="https://ftopia.cn/2020/cssforprinter/">纯 CSS3 实现打字/输入的效果</a></li>
-<li><a href="https://ftopia.cn/2019/golangstringsplit/">Golang 使用 string.split 切割字符串并返回数组</a></li>
-</ul>
-</li>
-<li>博文特点
-<ul>
-<li>目标/标题比较明确</li>
-<li>切入点小，通常一篇文章搞定且不太长</li>
-</ul>
-</li>
-</ul>
-<h3 id="干货类型">干货类型</h3>
-<ul>
-<li>对某一块内容进行的总结，具有较高的收藏价值，包括但不限于以下
-<ul>
-<li>专题研究</li>
-<li>经验之谈 / 职业之路</li>
-<li>读书/学习笔记</li>
-<li>工具/框架简介</li>
-</ul>
-</li>
-<li>博文示例
-<ul>
-<li><a href="https://juejin.cn/post/6895507965899063310">大厂都是怎么 SQL 调优的</a></li>
-<li><a href="https://juejin.cn/post/6844904039038058504">IM消息系统的设计和实现</a></li>
-<li><a href="https://juejin.cn/post/6908877364130742286">图解 IP 基础知识</a></li>
-<li><a href="https://juejin.cn/post/6844904147951747086">前端学习路线</a></li>
-<li><a href="https://juejin.cn/post/6883270227078070286">打工四年总结的数据库知识点</a></li>
-</ul>
-</li>
-<li>博文特点
-<ul>
-<li>属于较为受欢迎的一类文章，也更加容易在社区内和社区外传播</li>
-<li>切入点比技术细节大多了，通常一篇文章讲不完，可切分为 上/中/下 或者系列文章</li>
-<li>较实践总结相比，代码出现没有那么多；较多为理论和经验输出</li>
-</ul>
-</li>
-</ul>
-<h3 id="实践总结">实践总结</h3>
-<ul>
-<li>实践总结型的文章更像是技术细节型和干货型的结合，面向特定领域的技术，包括但不限于以下
-<ul>
-<li>相关技术总结/集锦</li>
-<li>数据结构 / 算法分析等</li>
-<li>语言类教程（俗、但受欢迎），如 XXX 语言入门 / XXX 快速上手</li>
-<li>核心技术点的实践及方案</li>
-<li>开发/框架具体使用及实践</li>
-</ul>
-</li>
-<li>博文示例
-<ul>
-<li><a href="https://juejin.cn/post/6908879198933221383">8个硬核技巧带你迅速提升CSS技术</a></li>
-<li><a href="https://wdxtub.com/mlds/mlds-01/2020/06/16/">【机器学习与数据科学之旅】1 Numpy 实例指南</a></li>
-<li><a href="https://juejin.cn/post/6844903447007854606">3 分钟搞定 Vue 2.0 服务端渲染</a></li>
-<li><a href="https://juejin.cn/post/6844903441727225870">Android和iOS开发中的异步处理（一）——开篇</a></li>
-<li><a href="https://juejin.cn/post/6844903441832083463">Android和iOS开发中的异步处理（二）——异步任务的回调</a></li>
-</ul>
-</li>
-<li>博文特点
-<ul>
-<li>通常依赖于代码，读者需要根据代码一步步往下深入</li>
-<li>内容通常也比较多，可切分为 上/中/下 或者系列文章</li>
-</ul>
-</li>
-</ul>
-<h3 id="翻译文章">翻译文章</h3>
-<ul>
-<li>好的外文文章翻译为中文也是具有很高的价值，需标识[译] 及原文出处</li>
-<li>博文示例
-<ul>
-<li>[<a href="https://juejin.cn/post/6844903795516768263">译] 我最终是怎么玩转了 Vue 的作用域插槽</a></li>
-<li><a href="https://juejin.cn/post/1">Android7.0写给开发者的一封信（官网同步翻译）</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="杂谈--面经">杂谈 &amp; 面经</h3>
-<ul>
-<li>不属于以上类型的其他类文章，比如业内趣闻等；特别把面经提出来，你懂的 😂</li>
-<li>博文示例
-<ul>
-<li><a href="https://coolshell.cn/articles/21113.html">百度为什么掉队了</a></li>
-<li><a href="https://juejin.cn/post/6844903507569410055">Facebook面经记</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="相关参考">相关参考</h2>
-<p><a href="https://juejin.cn/book/6844733795329900551/section/6844733795380232199">掘金社区内容的标准和规范</a></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/Users/fee/Study/blogPicTemp/image-20201222182047414.png" alt="image-20201222182047414" class="lazyload"><figcaption class="image-caption">image-20201222182047414</figcaption></figure></p>
+<h2 id="how">HOW</h2>
+<p>加透明度的 CSS 没啥难度 <code>    opacity: 0.7</code></p>
+<ol>
+<li>hugo 的样式控制由主题各自控制，找到对应的 default.scss 文件，增加 dark-theme 参数</li>
+</ol>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/Users/fee/Study/blogPicTemp/image-20201222185859441.png" alt="image-20201222185859441" class="lazyload"><figcaption class="image-caption">image-20201222185859441</figcaption></figure></p>
+<ol start="2">
+<li>找到对应博文的样式文件（外层嵌套 figure 用于放大图片）</li>
+</ol>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/Users/fee/Study/blogPicTemp/image-20201222185952193.png" alt="image-20201222185952193" class="lazyload"><figcaption class="image-caption">image-20201222185952193</figcaption></figure></p>
+<p>Done ! ~</p>
 
     </div>
 
@@ -322,7 +229,7 @@
         
         <p class="copyright-item">
             <span>Link:</span>
-            <a href=https://ftopia2020.github.io/2020/blogarticles/>https://ftopia2020.github.io/2020/blogarticles/</span>
+            <a href=https://ftopia2020.github.io/2020/darkmodecss/>https://ftopia2020.github.io/2020/darkmodecss/</span>
         </p>
         
         
@@ -338,11 +245,11 @@
         <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/blog/">
-                    #blog</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/css3/">
+                    #CSS3</a></span>
             
-            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
-                    #转载</a></span>
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
             
         </section>
         
@@ -354,12 +261,9 @@
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2020/cssimportfont/" class="prev" rel="prev" title="CSS 引入外部字体的解决方案"><i
-                class="iconfont icon-left"></i>&nbsp;CSS 引入外部字体的解决方案</a>
+        <a href="https://ftopia2020.github.io/2020/blogarticles/" class="prev" rel="prev" title="技术文章分类参考"><i
+                class="iconfont icon-left"></i>&nbsp;技术文章分类参考</a>
         
-        
-        <a href="https://ftopia2020.github.io/2020/darkmodecss/" class="next" rel="next"
-            title="博文图片在深色模式下的样式改动">博文图片在深色模式下的样式改动&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -367,7 +271,7 @@
         
         
         
-        <span id="/2020/blogarticles/" class="leancloud_visitors" data-flag-title="技术文章分类参考">
+        <span id="/2020/darkmodecss/" class="leancloud_visitors" data-flag-title="博文图片在深色模式下的样式改动">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>
