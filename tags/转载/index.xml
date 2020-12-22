@@ -6,10 +6,19 @@
     <description>Recent content in 转载 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术文章分类参考</title>
+      <link>https://ftopia2020.github.io/2020/blogarticles/</link>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogarticles/</guid>
+      <description>写这篇源于偶然看见掘金的一个活动： 掘力计划创作者训练营第一期，开营了！ 以下为总结的技术博文分类，希望能更好地持续输出优质内容~ P.S 参与训练营之</description>
+    </item>
     
     <item>
       <title>【转】中文字体网页开发指南</title>
