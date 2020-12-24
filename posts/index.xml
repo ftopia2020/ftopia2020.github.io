@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gopher China 2020 大会（PPT 传送门）</title>
+      <link>https://ftopia2020.github.io/2020/gopherchina2020/</link>
+      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/gopherchina2020/</guid>
+      <description>Gopher China 2020 大会 PPT 2020 传送门： https://github.com/gopherchina/conference/tree/master/2020 历届：https://github.com/gopherchina/conference Gopher China 大会官网：https:/</description>
+    </item>
     
     <item>
       <title>【转】8个硬核技巧带你迅速提升CSS技术 ｜ 掘金直播总结</title>
@@ -18,15 +27,6 @@
       
       <guid>https://ftopia2020.github.io/2020/8csstech/</guid>
       <description>作者： JowayYoung 原文：8个硬核技巧带你迅速提升CSS技术 ｜ 掘金直播总结 前言 前段时间笔者收到可爱漂亮的小册姐姐的邀请，做了人生首次直播分享。分享主题是</description>
-    </item>
-    
-    <item>
-      <title>【转】Gopher China 2020 大会 PPT</title>
-      <link>https://ftopia2020.github.io/2020/gopherchina2020/</link>
-      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/2020/gopherchina2020/</guid>
-      <description>Gopher China 2020 大会 PPT 2020 传送门： https://github.com/gopherchina/conference/tree/master/2020 历届：https://github.com/gopherchina/conference Gopher China 大会官网：https:/</description>
     </item>
     
     <item>
