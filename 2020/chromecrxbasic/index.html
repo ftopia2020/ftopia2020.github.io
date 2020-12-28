@@ -59,7 +59,7 @@
     "datePublished": "2020-12-28 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-12-28 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2020\/chromecrxbasic\/",
-    "wordCount" : "842",
+    "wordCount" : "786",
     "keywords" : [ "chrome 插件","原创", "Ftopia"]
 }
 </script>
@@ -176,7 +176,7 @@
                     2020-12-28</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 842 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 786 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
@@ -208,16 +208,13 @@
 <p>直接上一个本人完成的类 HelloWorld 的插件，点击插件图标，显示如下：</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201224180027389.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <h3 id="chrome-加载已解压的扩展程序">Chrome 加载已解压的扩展程序</h3>
-<blockquote>
-<p>示例代码：https://github.com/ftopia2020/blogSamples/tree/master/ChromeCRX</p>
-</blockquote>
 <p>打开 更多工具 - 扩展程序</p>
 <ol>
 <li>
 <p>打开开发者模式  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201224182012742.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 </li>
 <li>
-<p>以我的开发插件为例，下载 <a href="http://files.ftopia.cn/blog/ChromeCRX.zip">ChromeCRX.zip</a> （右键 - 链接另存为），解压，点击「加载已解压的扩展程序」，选择加载该文件夹 <figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201224182706403.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>以我的开发插件为例，下载 <a href="http://files.ftopia.cn/blog/ChromeCRX.zip">ChromeCRX.zip</a> （右键 - 新标签打开），解压，点击「加载已解压的扩展程序」，选择加载该文件夹 <figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201224182706403.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 </li>
 <li>
 <p>加至标签栏，点击查看~ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201224182839883.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
@@ -225,30 +222,17 @@
 </ol>
 <h3 id="本地开发插件">本地开发插件</h3>
 <p>完成上述插件开发，只需执行以下三步，Done !</p>
+<blockquote>
+<p>示例代码：<a href="https://github.com/ftopia2020/blogSamples/tree/master/ChromeCRX">https://github.com/ftopia2020/blogSamples/tree/master/ChromeCRX</a></p>
+</blockquote>
 <ol>
 <li>创建文件夹，创建 manifest.json 文件，准备 Icon png</li>
 <li>manifest.json 配置完成</li>
 <li>加入单页应用</li>
 </ol>
-<p>具体参考如下</p>
+<p>具体目录及配置参考如下：</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201228115017660.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;manifest_version&#34;</span>: <span style="color:#ae81ff">2</span>,
-  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Hi, Chrome 插件~&#34;</span>,
-  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;0.1&#34;</span>,
-  <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Chrome 插件开发，小白入门篇&#34;</span>,
-  <span style="color:#f92672">&#34;icons&#34;</span>: {
-    <span style="color:#f92672">&#34;16&#34;</span>: <span style="color:#e6db74">&#34;hw.png&#34;</span>,
-    <span style="color:#f92672">&#34;32&#34;</span>: <span style="color:#e6db74">&#34;hw.png&#34;</span>,
-    <span style="color:#f92672">&#34;48&#34;</span>: <span style="color:#e6db74">&#34;hw.png&#34;</span>,
-    <span style="color:#f92672">&#34;128&#34;</span>: <span style="color:#e6db74">&#34;hw.png&#34;</span>
-  },
-  <span style="color:#f92672">&#34;browser_action&#34;</span>: {
-    <span style="color:#f92672">&#34;default_icon&#34;</span>: <span style="color:#e6db74">&#34;hw.png&#34;</span>,
-    <span style="color:#f92672">&#34;default_popup&#34;</span>: <span style="color:#e6db74">&#34;popup.html&#34;</span>
-  }
-}
-</code></pre></div><blockquote>
+<blockquote>
 <p>应该不难读懂，需要注意 <code>&quot;default_popup&quot;: &quot;popup.html&quot;</code> 为单页应用的入口</p>
 <p>除了 manifest.json 以外，其他均为你的应用静态代码</p>
 </blockquote>
@@ -275,7 +259,7 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">npm install crx
 </code></pre></div><h3 id="发布插件">发布插件</h3>
 <p>应用开发完成打包后就可以上架到应用商店了。</p>
-<p>但，首先需要一个Google账号，并 <a href="https://chrome.google.com/webstore/devconsole/register?hl=zh-CN">注册为 Chrome 网上应用店开发者</a>，笔者止步于此（目前无商用打算 😂）</p>
+<p>但，首先需要一个Google账号，并 <a href="https://chrome.google.com/webstore/devconsole/register?hl=zh-CN">注册为 Chrome 网上应用店开发者</a>，笔者止步于此 ……</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201228105613312.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
     </div>
