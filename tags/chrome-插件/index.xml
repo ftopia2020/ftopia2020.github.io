@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chrome 插件 on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/chrome-%E6%8F%92%E4%BB%B6/</link>
+    <description>Recent content in chrome 插件 on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/chrome-%E6%8F%92%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>三分钟入门 Chrome 插件开发</title>
+      <link>https://ftopia2020.github.io/2020/chromecrxbasic/</link>
+      <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/chromecrxbasic/</guid>
+      <description>WHAT 作为 Chrome 的使用者，对于其插件/扩展程序应该不陌生，笔者就装了不少~ 其实 Chrome 插件的开发并不难，只要具备一定的前端开发基础，你也可以，不信？👀 👇 HOW</description>
+    </item>
+    
+  </channel>
+</rss>
