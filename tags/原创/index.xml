@@ -6,10 +6,19 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术文章 Why &amp; How</title>
+      <link>https://ftopia2020.github.io/2020/blogwrite/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogwrite/</guid>
+      <description>Preface 前言 写这篇，一半源自参与 掘力计划创作者训练营第一期，开营了！ 另一半，激励自己，今后持续输出更好的技术文章~ 💪 先回顾一下训练营的收获 👀 ↓ （仅</description>
+    </item>
     
     <item>
       <title>三分钟入门 Chrome 插件开发</title>
