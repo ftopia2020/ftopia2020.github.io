@@ -6,10 +6,28 @@
     <description>Recent content in blog on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术文章平台对比</title>
+      <link>https://ftopia2020.github.io/2020/blogplatform/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogplatform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>掘金</title>
+      <link>https://ftopia2020.github.io/2020/juejinblog/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/juejinblog/</guid>
+      <description>内容为王 持续稳定的输出 参与官方活动 相同的内容，不同的目的 不同的需求，决定内容的调整 =》考虑读者受众选择和决定内容 需求和内容，来选择形式 转换角</description>
+    </item>
     
     <item>
       <title>技术文章分类参考</title>

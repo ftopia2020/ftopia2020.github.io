@@ -6,10 +6,28 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术文章平台对比</title>
+      <link>https://ftopia2020.github.io/2020/blogplatform/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogplatform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>掘金</title>
+      <link>https://ftopia2020.github.io/2020/juejinblog/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/juejinblog/</guid>
+      <description>内容为王 持续稳定的输出 参与官方活动 相同的内容，不同的目的 不同的需求，决定内容的调整 =》考虑读者受众选择和决定内容 需求和内容，来选择形式 转换角</description>
+    </item>
     
     <item>
       <title>三分钟入门 Chrome 插件开发</title>
@@ -36,6 +54,15 @@
       
       <guid>https://ftopia2020.github.io/2020/darkmodecss/</guid>
       <description>WHY 深色模式虽然不常用，但是发现深色模式下展示的图片过于亮了，而通常使用深色是因为灯光暗保护眼睛（或者装 X），想起之前看到的一篇博文 几行CSS</description>
+    </item>
+    
+    <item>
+      <title>技术文章分类参考</title>
+      <link>https://ftopia2020.github.io/2020/blogarticles/</link>
+      <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/blogarticles/</guid>
+      <description>写这篇源于偶然看见掘金的一个活动： 掘力计划创作者训练营第一期，开营了！ 以下为总结的技术博文分类，希望能更好地持续输出优质内容~ P.S 参与训练营之</description>
     </item>
     
     <item>
