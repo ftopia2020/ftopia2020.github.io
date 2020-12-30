@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2020/blogwrite/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2020/happy2021/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             2020的最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码 | Ftopia
+         
+    </title>
+    <meta name="title" content="2020的最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "2020的最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码",
+    "headline" : "2020的最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码",
+    "description" : "WHAT 不多说，直接上效果图图 ~ 访问地址： http:\/\/my-bucket-1252266428.cos-website.ap-guangzhou.myqcloud.com\/ https:\/\/codesandbox.io\/s\/busy-kirch-9dckh 地址一 为腾讯云 serverless 部署的静态网站，试了下还是很方便的啦~ 地址二 为 CodeSandbox 示例 爱心点击进入我的博客 (～￣▽￣)",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-12-30 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-12-30 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2020\/happy2021\/",
+    "wordCount" : "664",
+    "keywords" : [ "CSS3","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what">WHAT</a></li>
+    <li><a href="#how">HOW</a>
+      <ul>
+        <li><a href="#背景飘雪">背景飘雪</a></li>
+        <li><a href="#英文字体">英文字体</a></li>
+        <li><a href="#爱心图案">爱心图案</a></li>
+      </ul>
+    </li>
+    <li><a href="#why">WHY</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">2020的最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2020-12-30
+                    itemprop="datePublished">
+                    2020-12-30</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 664 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="what">WHAT</h2>
+<p>不多说，直接上效果图图 ~</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/Tab-1609327477144-9328143.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>访问地址：</p>
+<ul>
+<li><a href="http://my-bucket-1252266428.cos-website.ap-guangzhou.myqcloud.com/">http://my-bucket-1252266428.cos-website.ap-guangzhou.myqcloud.com/</a></li>
+<li><a href="https://codesandbox.io/s/busy-kirch-9dckh">https://codesandbox.io/s/busy-kirch-9dckh</a></li>
+</ul>
+<blockquote>
+<p>地址一 为腾讯云 serverless 部署的静态网站，试了下还是很方便的啦~</p>
+<p>地址二 为 CodeSandbox 示例</p>
+</blockquote>
+<p>爱心点击进入我的博客 (～￣▽￣)～，完全可以自由发挥，比如加图啦，点击进小游戏啦 ……</p>
+<p>没啥做不到，只有想不到 😊</p>
+<h2 id="how">HOW</h2>
+<p>看 CodeSandbox 其实完全能知道怎么实现了~ （笔者习惯 React 就直接拆分组件了，取 CSS 不妨碍）</p>
+<p>简单拆解下：</p>
+<h3 id="背景飘雪">背景飘雪</h3>
+<p>这个借用忘了哪看到的某位人士代码，原作者可以补下出处 Sorry~ (＞人＜)</p>
+<blockquote>
+<p>html 为多个 <code>&lt;div&gt; </code> ，<em>可用模板语法生成</em></p>
+<p>CSS 主要是使用了变量并赋予小雪花以动画效果：随机指定范围内大小，控制落下的角度和速度等</p>
+<p>具体可参考 <a href="https://juejin.cn/post/6908879198933221383#heading-12">8 个CSS硬核技巧——完美极致的变量</a></p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#66d9ef">@function</span> <span style="color:#f92672">random_range</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">min</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">max</span><span style="color:#f92672">)</span> {
+  $rand<span style="color:#f92672">:</span> <span style="color:#a6e22e">random</span>();
+  $random_range<span style="color:#f92672">:</span> $min <span style="color:#f92672">+</span> <span style="color:#a6e22e">floor</span>($rand <span style="color:#f92672">*</span> (($max <span style="color:#f92672">-</span> $min) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>));
+  <span style="color:#66d9ef">@return</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random_range</span>;
+}
+
+<span style="color:#a6e22e">.snow</span> {
+  $total<span style="color:#f92672">:</span> <span style="color:#ae81ff">200</span>;
+  <span style="color:#f92672">position</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">absolute</span>;
+  <span style="color:#f92672">width</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">10px</span>;
+  <span style="color:#f92672">height</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">10px</span>;
+  <span style="color:#f92672">background</span><span style="color:#a6e22e">:</span> #f9f9c7;
+  <span style="color:#f92672">border-radius</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">50</span><span style="color:#960050;background-color:#1e0010">%</span>;
+
+  <span style="color:#66d9ef">@for</span> $i <span style="color:#f92672">from</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">through</span> $total {
+    $random-x<span style="color:#f92672">:</span> <span style="color:#a6e22e">random</span>(<span style="color:#ae81ff">1000000</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.0001</span><span style="color:#66d9ef">vw</span>;
+    $random-offset<span style="color:#f92672">:</span> <span style="color:#a6e22e">random_range</span>(<span style="color:#ae81ff">-100000</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">100000</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.0001</span><span style="color:#66d9ef">vw</span>;
+    $random-x-end<span style="color:#f92672">:</span> $random-x <span style="color:#f92672">+</span> $random-offset;
+    $random-x-end-yoyo<span style="color:#f92672">:</span> $random-x <span style="color:#f92672">+</span> ($random-offset <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>);
+    $random-yoyo-time<span style="color:#f92672">:</span> <span style="color:#a6e22e">random_range</span>(<span style="color:#ae81ff">30000</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">80000</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">100000</span>;
+    $random-yoyo-y<span style="color:#f92672">:</span> $random-yoyo-time <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">vh</span>;
+    $random-scale<span style="color:#f92672">:</span> <span style="color:#a6e22e">random</span>(<span style="color:#ae81ff">10000</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">0</span><span style="color:#ae81ff">.0001</span>;
+    $fall-duration<span style="color:#f92672">:</span> <span style="color:#a6e22e">random_range</span>(<span style="color:#ae81ff">10</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">30</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span><span style="color:#66d9ef">s</span>;
+    $fall-delay<span style="color:#f92672">:</span> <span style="color:#a6e22e">random</span>(<span style="color:#ae81ff">30</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">-1</span><span style="color:#66d9ef">s</span>;
+
+    <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">:nth-child</span><span style="color:#f92672">(</span>#{<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">i</span>}<span style="color:#f92672">)</span> {
+      <span style="color:#f92672">opacity</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">random</span><span style="color:#f92672">(</span><span style="color:#f92672">10000</span><span style="color:#f92672">)</span> <span style="color:#f92672">*</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.0001</span>;
+      <span style="color:#f92672">transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">translate</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-x</span><span style="color:#f92672">,</span> <span style="color:#f92672">-10px</span><span style="color:#f92672">)</span> <span style="color:#f92672">scale</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-scale</span><span style="color:#f92672">)</span>;
+      <span style="color:#f92672">animation</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">fall-</span>#{<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">i</span>} <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">fall-duration</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">fall-delay</span> <span style="color:#f92672">linear</span> <span style="color:#f92672">infinite</span>;
+    }
+
+    <span style="color:#66d9ef">@keyframes</span> <span style="color:#f92672">fall-</span>#{<span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">i</span>} {
+      #{<span style="color:#f92672">percentage</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-yoyo-time</span><span style="color:#f92672">)</span>} {
+        <span style="color:#f92672">transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">translate</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-x-end</span><span style="color:#f92672">,</span> <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-yoyo-y</span><span style="color:#f92672">)</span> <span style="color:#f92672">scale</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-scale</span><span style="color:#f92672">)</span>;
+      }
+
+      <span style="color:#f92672">to</span> {
+        <span style="color:#f92672">transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">translate</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-x-end-yoyo</span><span style="color:#f92672">,</span> <span style="color:#f92672">100vh</span><span style="color:#f92672">)</span> <span style="color:#f92672">scale</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">$</span><span style="color:#f92672">random-scale</span><span style="color:#f92672">)</span>;
+      }
+    }
+  }
+}
+</code></pre></div><h3 id="英文字体">英文字体</h3>
+<p>引用 <a href="https://fonts.googleapis.com">https://fonts.googleapis.com</a>，随意选了个</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">    &lt;<span style="color:#f92672">link</span>
+      <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://fonts.googleapis.com/css2?family=Kaushan+Script&amp;display=swap&#34;</span>
+      <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>
+    /&gt;
+</code></pre></div><h3 id="爱心图案">爱心图案</h3>
+<blockquote>
+<p>没想到吧？是 CSS 绘制的呢，不是图像，不是 Icon</p>
+<p>同样参考 <a href="https://juejin.cn/post/6908879198933221383#heading-13">8 个CSS硬核技巧——灵活多变的障眼法</a> ，笔者只是改了下渐变颜色和加了透明度</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scss" data-lang="scss"><span style="color:#a6e22e">.gradient-heart-shape</span> {
+  <span style="color:#f92672">position</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">relative</span>;
+  <span style="color:#f92672">width</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">40px</span>;
+  <span style="color:#f92672">height</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">40px</span>;
+  <span style="color:#f92672">background-image</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">linear-gradient</span><span style="color:#f92672">(</span><span style="color:#f92672">to</span> <span style="color:#f92672">bottom</span><span style="color:#f92672">,</span> #edcf6a<span style="color:#f92672">,</span> #fbe98d <span style="color:#f92672">)</span>;
+  <span style="color:#f92672">box-shadow</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span> <span style="color:#f92672">0</span> <span style="color:#f92672">20px</span> <span style="color:#f92672">rgba</span><span style="color:#f92672">(</span>#000<span style="color:#f92672">,</span> <span style="color:#a6e22e">.8</span><span style="color:#f92672">)</span>;
+  <span style="color:#f92672">opacity</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span><span style="color:#a6e22e">.7</span>;
+  <span style="color:#f92672">transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">rotate</span><span style="color:#f92672">(</span><span style="color:#f92672">45deg</span><span style="color:#f92672">)</span>;
+  <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::before</span><span style="color:#f92672">,</span>
+  <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::after</span> {
+      <span style="color:#f92672">position</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">absolute</span>;
+      <span style="color:#f92672">left</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span>;
+      <span style="color:#f92672">top</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">0</span>;
+      <span style="color:#f92672">border-radius</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">100</span><span style="color:#960050;background-color:#1e0010">%</span>;
+      <span style="color:#f92672">width</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">100</span><span style="color:#960050;background-color:#1e0010">%</span>;
+      <span style="color:#f92672">height</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">100</span><span style="color:#960050;background-color:#1e0010">%</span>;
+      <span style="color:#f92672">content</span><span style="color:#a6e22e">:</span> <span style="color:#e6db74">&#34;&#34;</span>;
+  }
+  <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::before</span> {
+      <span style="color:#f92672">background-image</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">linear-gradient</span><span style="color:#f92672">(</span><span style="color:#f92672">to</span> <span style="color:#f92672">bottom</span><span style="color:#f92672">,</span> #edcf6a<span style="color:#f92672">,</span> #fbe98d<span style="color:#f92672">)</span>;
+      <span style="color:#f92672">transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">translateX</span><span style="color:#f92672">(</span><span style="color:#f92672">-50</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">)</span>;
+  }
+  <span style="color:#66d9ef">&amp;</span><span style="color:#a6e22e">::after</span> {
+      <span style="color:#f92672">background-image</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">linear-gradient</span><span style="color:#f92672">(</span><span style="color:#f92672">to</span> <span style="color:#f92672">bottom</span><span style="color:#f92672">,</span> #edcf6a <span style="color:#f92672">50</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span> <span style="color:#f92672">transparent</span> <span style="color:#f92672">50</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">,</span> <span style="color:#f92672">transparent</span><span style="color:#f92672">)</span>;
+      <span style="color:#f92672">transform</span><span style="color:#a6e22e">:</span> <span style="color:#f92672">translateY</span><span style="color:#f92672">(</span><span style="color:#f92672">-50</span><span style="color:#960050;background-color:#1e0010">%</span><span style="color:#f92672">)</span>;
+  }
+}
+
+</code></pre></div><h2 id="why">WHY</h2>
+<p>怎么想到要做这？因为最近好冷啊，而且，上海竟然也下雪❄️了，可惜不能 ☃️</p>
+<p>如何具体完成呢？积累（最好有个人 CSS 作品集）+ 组装（可能需要些许灵感）</p>
+<p>最后，2020 最后一天，Happy New Year~</p>
+<hr>
+<blockquote>
+<p>感谢鼓励与支持，欢迎 评论 或 点赞</p>
+</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/24U888piCrwj.gif!fwpaa50" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2020/happy2021/>https://ftopia2020.github.io/2020/happy2021/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/css3/">
+                    #CSS3</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2020/blogwrite/" class="prev" rel="prev" title="技术文章 Why &amp; How"><i
+                class="iconfont icon-left"></i>&nbsp;技术文章 Why &amp; How</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2020/happy2021/" class="leancloud_visitors" data-flag-title="2020的最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

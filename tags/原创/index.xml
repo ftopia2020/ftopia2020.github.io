@@ -6,10 +6,19 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2020的最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码</title>
+      <link>https://ftopia2020.github.io/2020/happy2021/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/happy2021/</guid>
+      <description>WHAT 不多说，直接上效果图图 ~ 访问地址： http://my-bucket-1252266428.cos-website.ap-guangzhou.myqcloud.com/ https://codesandbox.io/s/busy-kirch-9dckh 地址一 为腾讯云 serverless 部署的静态网站，试了下还是很方便的啦~ 地址二 为 CodeSandbox 示例 爱心点击进入我的博客 (～￣▽￣)</description>
+    </item>
     
     <item>
       <title>技术文章 Why &amp; How</title>
