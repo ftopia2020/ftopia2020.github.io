@@ -120,15 +120,6 @@
     </item>
     
     <item>
-      <title>【官】Getting Started with Hugo</title>
-      <link>https://ftopia2020.github.io/2020/getting-started-with-hugo/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/2020/getting-started-with-hugo/</guid>
-      <description>摘取自官方文档：https://gohugo.io/getting-started/quick-start/ Quick Start Create a Hugo site using the beautiful Ananke theme. This quick start uses macOS</description>
-    </item>
-    
-    <item>
       <title>【转】为什么用静态博客</title>
       <link>https://ftopia2020.github.io/2020/staticblog/</link>
       <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
