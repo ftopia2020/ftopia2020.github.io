@@ -6,10 +6,28 @@
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>打卡「数据结构&amp;算法」必知必会系列：1. 开篇</title>
+      <link>https://ftopia2020.github.io/2021/algorithmbasic/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmbasic/</guid>
+      <description>系列源于个人原因想重学一遍 数据结构与算法 (虽然之前也没怎么好好学) 主要内容为常用数据结构&amp;amp;常用算法，结合个人技术栈 Go &amp;amp; TS 来「刷题」 以</description>
+    </item>
+    
+    <item>
+      <title>颜文字/Emoji 表情包&amp;动图 集锦（个人博客用）</title>
+      <link>https://ftopia2020.github.io/2020/emojicollection/</link>
+      <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2020/emojicollection/</guid>
+      <description>此地采集下 Emoji 和 颜文字 + 特色表情图 &amp;amp; 动图， 👀 ↓ 颜文字 &amp;amp; Emoji 以下输入文字，即可出现喲 ~ 图标 Emoji 可用于标题 😝 Emoji 输入文字 Emoji 输入文字 (～￣▽￣)～ 啦啦啦 [</description>
+    </item>
     
     <item>
       <title>2020 最后一场雪 纯CSS实现飘雪新年贺卡Demo 附源码</title>
