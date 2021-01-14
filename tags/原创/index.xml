@@ -6,10 +6,19 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>打卡「数据结构&amp;算法」必知必会系列：2. 时间 &amp; 空间复杂度（上）</title>
+      <link>https://ftopia2020.github.io/2021/algorithmbigo1/</link>
+      <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmbigo1/</guid>
+      <description>系列文章请查看 打卡「数据结构&amp;amp;算法」必知必会系列：1. 开篇#计划路线 Why 先举个简单 🌰，1+2+3 &amp;hellip; + 10 = ? 如果不知道求和公式，我们只能</description>
+    </item>
     
     <item>
       <title>打卡「数据结构&amp;算法」必知必会系列：1. 开篇</title>
@@ -93,12 +102,12 @@
     </item>
     
     <item>
-      <title>golang 多版本管理工具 —— gvm</title>
+      <title>Golang 多版本管理工具 —— gvm</title>
       <link>https://ftopia2020.github.io/2020/gvm/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2020/gvm/</guid>
-      <description>WHY 早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？ WHAT GVM - Go Version Man</description>
+      <description>Why 早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？ What GVM - Go Version Man</description>
     </item>
     
     <item>

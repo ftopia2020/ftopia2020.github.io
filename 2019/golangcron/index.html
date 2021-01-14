@@ -59,7 +59,7 @@
     "datePublished": "2019-08-29 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-08-29 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2019\/golangcron\/",
-    "wordCount" : "1410",
+    "wordCount" : "1515",
     "keywords" : [ "Golang","定时","原创", "Ftopia"]
 }
 </script>
@@ -173,9 +173,9 @@
                     2019-08-29</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 1410 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1515 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
 
         </div>
     </header>
@@ -202,15 +202,17 @@
 <h2 id="what">What</h2>
 <p>推荐使用 github 上的 Golang 开源库来实现定时任务，介绍两个常用的库：robfig/cron 和 jasonlvhit/gocron</p>
 <ul>
-<li>
-<p><a href="https://github.com/robfig/cron">robfig/cron</a>：说到定时任务，会想到 <code>crontab</code>，其常见于Unix和类Unix的操作系统之中。robfig/cron 库使用了类 crontab 的方式来执行定时任务。</p>
-</li>
-<li>
-<p><a href="https://github.com/jasonlvhit/gocron">jasonlvhit/gocron</a>：类 crontab 的设置方式可能并不友好，jasonlvhit/gocron 提供了更为人性化的执行方式。</p>
-</li>
+<li><a href="https://github.com/robfig/cron">robfig/cron</a>：说到定时任务，会想到 <code>crontab</code>，其常见于Unix和类Unix的操作系统之中。robfig/cron 库使用了类 crontab 的方式来执行定时任务。</li>
+<li><a href="https://github.com/jasonlvhit/gocron">jasonlvhit/gocron</a>：类 crontab 的设置方式可能并不友好，jasonlvhit/gocron 提供了更为人性化的执行方式。</li>
 </ul>
 <p>至于选取哪个？熟悉 crontab 的可以选择 cron，想可读性佳的可以选择 gocron，两者的功能及稳定性都还不错。</p>
+<p>如果需要<strong>开箱即用的定时任务管理系统</strong>（前后端），推荐国人开源的 <a href="https://github.com/ouqiang">ouqiang</a>/<strong><a href="https://github.com/ouqiang/gocron">gocron</a></strong>   Star &amp; Fork 数 Σ(oﾟдﾟoﾉ)</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210112193218339.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>部门内部目前用的就是这，还是很方便哒~  (づ｡◕‿‿◕｡)づ  作者 README 写得很清晰，这里就不引申介绍了</p>
 <h2 id="how">How</h2>
+<blockquote>
+<p>以下，简单介绍下 robfig/cron 和 jasonlvhit/gocron 的使用</p>
+</blockquote>
 <h3 id="cron">cron</h3>
 <p><strong>安装</strong> 	<code>go get -u github.com/robfig/cron</code></p>
 <p><strong>Demo</strong></p>
@@ -297,7 +299,7 @@
 </tr>
 </tbody>
 </table>
-<p>更多参考：https://godoc.org/github.com/robfig/cron</p>
+<p>更多参考：<a href="https://godoc.org/github.com/robfig/cron">https://godoc.org/github.com/robfig/cron</a></p>
 <h3 id="gocron">gocron</h3>
 <p><strong>安装</strong>  <code>go get -u github.com/jasonlvhit/gocron</code></p>
 <p><strong>Demo</strong></p>
@@ -378,7 +380,7 @@
 	<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Every</span>(<span style="color:#ae81ff">3</span>).<span style="color:#a6e22e">Seconds</span>().<span style="color:#a6e22e">Do</span>(<span style="color:#a6e22e">task</span>)
 	<span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Start</span>()
 }
-</code></pre></div><p>更多参考：https://godoc.org/github.com/jasonlvhit/gocron</p>
+</code></pre></div><p>更多参考：<a href="https://godoc.org/github.com/jasonlvhit/gocron">https://godoc.org/github.com/jasonlvhit/gocron</a></p>
 
     </div>
 

@@ -24,10 +24,10 @@
     <title>
          
          
-             golang 多版本管理工具 —— gvm | Ftopia
+             Golang 多版本管理工具 —— gvm | Ftopia
          
     </title>
-    <meta name="title" content="golang 多版本管理工具 —— gvm | Ftopia">
+    <meta name="title" content="Golang 多版本管理工具 —— gvm | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "golang 多版本管理工具 —— gvm",
-    "headline" : "golang 多版本管理工具 —— gvm",
-    "description" : "WHY 早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？ WHAT GVM - Go Version Man",
+    "name" : "Golang 多版本管理工具 —— gvm",
+    "headline" : "Golang 多版本管理工具 —— gvm",
+    "description" : "Why 早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？ What GVM - Go Version Man",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -59,7 +59,7 @@
     "datePublished": "2020-07-17 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-07-17 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2020\/gvm\/",
-    "wordCount" : "1197",
+    "wordCount" : "977",
     "keywords" : [ "Golang","原创", "Ftopia"]
 }
 </script>
@@ -73,13 +73,13 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#why">WHY</a></li>
-    <li><a href="#what">WHAT</a>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a>
       <ul>
         <li><a href="#gvm-原理">gvm 原理</a></li>
       </ul>
     </li>
-    <li><a href="#how">HOW</a>
+    <li><a href="#how">How</a>
       <ul>
         <li><a href="#安装">安装</a></li>
         <li><a href="#常用命令">常用命令</a></li>
@@ -166,7 +166,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">golang 多版本管理工具 —— gvm</h1>
+        <h1 class="post-title" itemprop="name headline">Golang 多版本管理工具 —— gvm</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -183,9 +183,9 @@
                     2020-07-17</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 1197 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 977 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
         </div>
     </header>
@@ -193,25 +193,27 @@
         
 
         
-
         
         
 
         
         
-        
 
         
         
         
 
-        <h2 id="why">WHY</h2>
+        
+        
+        
+
+        <h2 id="why">Why</h2>
 <p>早期，Golang 版本及包管理令人痛苦。1.11 之后 go mod 的出现支持了包管理，但不同项目下若要求不同的 Golang 版本，我们如何处理？</p>
-<h2 id="what">WHAT</h2>
+<h2 id="what">What</h2>
 <p><code>GVM - Go Version Manager</code>， 帮助我们解决了这一难题。</p>
 <p><a href="https://github.com/moovweb/gvm">https://github.com/moovweb/gvm</a></p>
 <blockquote>
-<p>本文仅对 mac/linux 系统；windows gvm 貌似不支持</p>
+<p>本文仅对 mac/linux 系统；windows gvm 请查阅官网，应该也差不多</p>
 </blockquote>
 <h3 id="gvm-原理">gvm 原理</h3>
 <p>gvm 是利用脚本编写指令，对环境变数进行判断跟修改，gvm 成功安装后会在 <code>~/.bashrc</code> 或者 <code>.zshrx</code> 等脚本档案最后加一条类似如下的命令：</p>
@@ -220,43 +222,23 @@
 <p>安装路径各人会有所不同，如对 shell 脚本编写感兴趣的可参考 <a href="http://linux.vbird.org/linux_basic/0340bashshell-scripts.php"><strong>鸟哥的Linux私房菜</strong></a></p>
 </blockquote>
 <p>每次使用 <code>gvm use [version]</code> 的指令后，环境变数都会被改变（GOROOT &amp; GOPATH）</p>
-<h2 id="how">HOW</h2>
+<h2 id="how">How</h2>
 <h3 id="安装">安装</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ bash &lt; &lt;<span style="color:#f92672">(</span>curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer<span style="color:#f92672">)</span>
 </code></pre></div><p>用 <code>zsh</code> 的将 <code>bash</code> 改为 <code>zsh</code></p>
 <h3 id="常用命令">常用命令</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gvm help  <span style="color:#75715e"># 命令帮助</span>
 </code></pre></div><h4 id="go-版本安装切换及使用">go 版本安装、切换及使用</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gvm list                  <span style="color:#75715e"># 列出本机所有go版本；当前版本 =&gt; 表示</span>
-$ gvm listall               <span style="color:#75715e"># 列出所有可安装go版本</span>
-$ gvm install go1.14        <span style="color:#75715e"># 安装指定的go版本；如 go1.14</span>
-$ gvm uninstall go1.12.8    <span style="color:#75715e"># 卸载指定的go版本；如 go1.12.8</span>
-$ gvm use go1.4 <span style="color:#f92672">[</span>--default<span style="color:#f92672">]</span> <span style="color:#75715e"># gvm 启用对应的go版本 (--default to set permanently)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gvm list                   <span style="color:#75715e"># 列出本机所有go版本；当前版本 =&gt; 表示</span>
+$ gvm listall                <span style="color:#75715e"># 列出所有可安装go版本</span>
+$ gvm install go1.14         <span style="color:#75715e"># 安装指定的go版本；如 go1.14</span>
+$ gvm uninstall go1.12.8     <span style="color:#75715e"># 卸载指定的go版本；如 go1.12.8</span>
+$ gvm use go1.14 <span style="color:#f92672">[</span>--default<span style="color:#f92672">]</span> <span style="color:#75715e"># gvm 启用对应的go版本 (--default to set permanently)</span>
 </code></pre></div><p>参考运行如下（也可用 go version 命令确认当前版本）：</p>
-<blockquote>
-<p>➜ gvm use system</p>
-<p>Now using version system</p>
-<p>➜ gvm list</p>
-<p>gvm gos (installed)</p>
-<p>go1.14.2
-=&gt; system</p>
-<p>➜ go version</p>
-<p>go version go1.11.1 darwin/amd64</p>
-</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210113113725214.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <h4 id="gvm-pkgset">gvm pkgset</h4>
 <p>当 <code>GVM</code> 被告知使用一个新版本时，它将会更换一个新的 <code>$GOPATH</code>，<code>gloabl pkgset</code> 将默认使用该版本。</p>
-<blockquote>
-<p>== DESCRIPTION:</p>
-<p>GVM pkgset is used to manage various Go packages</p>
-<p>== Usage</p>
-<p>gvm pkgset Command</p>
-<p>== Command</p>
-<p>create     - create a new package set
-delete     - delete a package set
-use          - select where gb and goinstall target and link
-empty     - remove all code and compiled binaries from package set
-list           - list installed go packages</p>
-</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210113113936020.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <p>常用方式如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ gvm pkgset create test        <span style="color:#75715e"># 创建一个 gvm pkgset, 名称为test</span>
 $ gvm pkgset use test           <span style="color:#75715e"># 使用 test</span>
@@ -267,13 +249,11 @@ gvm go package sets <span style="color:#f92672">(</span>go1.14.2<span style="col
 <span style="color:#f92672">=</span>&gt;  test
 </code></pre></div><p>更多有关 pkgset 的介绍如下：</p>
 <blockquote>
-<p>开箱即用，Go 有一种出色而令人沮丧的管理包和模块的方式。默认情况下，如果你 <code>go get</code> 获取一个包，它将被下载到 <code>$GOPATH</code> 目录中的 <code>src</code> 和 <code>pkg</code> 目录下，然后可以使用 <code>import</code> 将其包含在你的 Go 程序中。这使得获得软件包变得很容易，特别是对于非特权用户，而不需要 <code>sudo</code> 或 root 特权（很像 Python 中的 <code>pip install --user</code>）。然而，在不同的项目中管理相同包的不同版本是非常困难的。</p>
-<p>有许多方法可以尝试修复或缓解这个问题，包括实验性 Go Modules（Go 1.11 版中增加了初步支持）和 <a href="https://golang.github.io/dep/">Go dep</a>（Go Modules 的“官方实验”并且持续迭代）。在我发现 GVM 之前，我会在一个 Go 项目自己的 Docker 容器中构建和测试它，以确保分离。</p>
+<p>开箱即用，Go 有一种出色而令人沮丧的管理包和模块的方式。</p>
+<p>默认情况下，如果你 <code>go get</code> 获取一个包，它将被下载到 <code>$GOPATH</code> 目录中的 <code>src</code> 和 <code>pkg</code> 目录下，然后可以使用 <code>import</code> 将其包含在你的 Go 程序中。这使得获得软件包变得很容易，特别是对于非特权用户，而不需要 <code>sudo</code> 或 root 特权（很像 Python 中的 <code>pip install --user</code>）。然而，在不同的项目中管理相同包的不同版本是非常困难的。</p>
 <p>GVM 通过使用 “pkgsets” 将项目的新目录附加到安装的 Go 版本的默认 <code>$GOPATH</code> 上，很好地实现了项目之间包的管理和隔离，就像 <code>$PATH</code> 在 Unix/Linux 系统上工作一样。</p>
-<p>作者：Linux中国
-链接：https://juejin.im/post/5da0900d5188254c4e6a94b7
-来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>作者：Linux中国</p>
+<p>链接：<a href="https://juejin.im/post/5da0900d5188254c4e6a94b7">https://juejin.im/post/5da0900d5188254c4e6a94b7</a></p>
 </blockquote>
 <h2 id="常见问题">常见问题</h2>
 <h3 id="下载源">下载源</h3>
@@ -345,7 +325,7 @@ gvm go package sets <span style="color:#f92672">(</span>go1.14.2<span style="col
         
         
         
-        <span id="/2020/gvm/" class="leancloud_visitors" data-flag-title="golang 多版本管理工具 —— gvm">
+        <span id="/2020/gvm/" class="leancloud_visitors" data-flag-title="Golang 多版本管理工具 —— gvm">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>
@@ -412,8 +392,9 @@ gvm go package sets <span style="color:#f92672">(</span>go1.14.2<span style="col
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
 
 
