@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/algorithmbigo1/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/algorithmbigo2/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             打卡「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下） | Ftopia
+         
+    </title>
+    <meta name="title" content="打卡「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下） | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "打卡「数据结构\x26算法」必知必会系列：3. 时间 \x26 空间复杂度（下）",
+    "headline" : "打卡「数据结构\x26算法」必知必会系列：3. 时间 \x26 空间复杂度（下）",
+    "description" : "系列文章请查看 打卡「数据结构\x26amp;算法」必知必会系列：1. 开篇#计划路线 承接上篇请查看 打卡「数据结构\x26amp;算法」必知必会系列：2. 时",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-15 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-01-15 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/algorithmbigo2\/",
+    "wordCount" : "2086",
+    "keywords" : [ "算法","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#时间复杂度分析">时间复杂度分析</a>
+      <ul>
+        <li><a href="#常量执行复杂度为-o1">常量执行复杂度为 O(1)</a></li>
+        <li><a href="#实用的分析套路">实用的分析套路</a></li>
+        <li><a href="#常见时间复杂度">常见时间复杂度</a></li>
+        <li><a href="#主定理公式">主定理公式</a></li>
+      </ul>
+    </li>
+    <li><a href="#个人体会">个人体会</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">打卡「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-01-15
+                    itemprop="datePublished">
+                    2021-01-15</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 2086 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 5 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>系列文章请查看 <a href="/2021/algorithmbasic/#%E8%AE%A1%E5%88%92%E8%B7%AF%E7%BA%BF">打卡「数据结构&amp;算法」必知必会系列：1. 开篇#计划路线</a></p>
+<p>承接上篇请查看 <a href="/2021/algorithmbigo1/">打卡「数据结构&amp;算法」必知必会系列：2. 时间 &amp; 空间复杂度（上）</a></p>
+</blockquote>
+<h2 id="时间复杂度分析">时间复杂度分析</h2>
+<h3 id="常量执行复杂度为-o1">常量执行复杂度为 O(1)</h3>
+<p>在讲套路之前，先说一个原则：常量执行复杂度永远是 <strong>O(1)</strong></p>
+<p>理解这个原则，先来看一个 🌰  （golang 实现，应该不难读）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">a</span> &lt; <span style="color:#ae81ff">100000</span>; <span style="color:#a6e22e">a</span><span style="color:#f92672">++</span> {
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">b</span> &lt; <span style="color:#a6e22e">a</span>; <span style="color:#a6e22e">b</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d &#34;</span>, <span style="color:#a6e22e">b</span>)
+    }
+}
+</code></pre></div><p><a href="https://play.golang.org/p/itly0TWKUPe">https://play.golang.org/p/itly0TWKUPe</a> ，你会发现提示 <code>timeout running program</code></p>
+<p>那这个复杂度是多少（大O表示）？🙌  <strong>O(1)</strong></p>
+<blockquote>
+<p>即使改为更大，1000000000&hellip;   只要是常量，就都可以忽略，尽管实际执行时间会有很大影响。</p>
+<p>但是「时间复杂度」表示的是执行效率与数据规模增长的变化趋势，所以不管常量多大，都可以忽略。</p>
+</blockquote>
+<h3 id="实用的分析套路">实用的分析套路</h3>
+<p>好了，开始套路，举第一个 🌰</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">calcSum</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">sum_1</span>, <span style="color:#a6e22e">sum_2</span>, <span style="color:#a6e22e">sum_3</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">p</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">100000</span>; <span style="color:#a6e22e">p</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">sum_1</span> = <span style="color:#a6e22e">sum_1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">p</span>
+	}
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">q</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">q</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">sum_2</span> = <span style="color:#a6e22e">sum_2</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">q</span>
+	}
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">sum_3</span> = <span style="color:#a6e22e">sum_3</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">*</span><span style="color:#a6e22e">j</span>
+		}
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum_1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">sum_2</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">sum_3</span>
+}
+</code></pre></div><p>先不看代码实现，你观察到了什么？或者说形态是啥？</p>
+<p>🙌  两个循环 + 一个嵌套循环</p>
+<p>很好，我们继续分开看：循环1常量；循环2是 O(n)；循环3嵌套，也不难看出，是 O(n²)  ；</p>
+<p>简单加一下，复杂度 = O(1) + O(n) + O(n²)</p>
+<blockquote>
+<p>如果觉得以上分析仍有难度，请回炉 <a href="/2021/algorithmbigo1/">上篇</a></p>
+<p><a href="https://play.golang.org/p/e4Uaka1ZeTu">https://play.golang.org/p/e4Uaka1ZeTu</a> 可 Go Play一下</p>
+</blockquote>
+<p>当 n 趋于 ∞ 时，整体复杂度仅与大量级 n² 相关，故，整体的复杂度 =  O(n²)</p>
+<p>虽然，是个很简单的🌰 但是，我们可得出如下套路：</p>
+<ol>
+<li>只需关注循环执行次数最多的一段代码</li>
+<li>加法法则：总复杂度等于<strong>量级最大</strong>的那段代码的复杂度</li>
+<li>乘法法则：嵌套代码的复杂度等于<strong>嵌套内外代码复杂度的乘积</strong>（可以把乘法法则看成是嵌套循环）</li>
+</ol>
+<p>本文 🌰 还是比较简单的，实际代码会有函数和递归等，继续总结步骤如下：</p>
+<ol>
+<li>先去干扰项（常数、量极小的忽略）</li>
+<li>从内向外分析，从最深层开始分析</li>
+<li>如果遇到函数调用，深入函数分析</li>
+</ol>
+<p>可能，还是觉得有点糊糊的。没事，继续看下去，多看算法案例、多分析。对套路和步骤就有「感觉」了。</p>
+<h3 id="常见时间复杂度">常见时间复杂度</h3>
+<p>下面将举几个具体的常见时间复杂度量级以及对应的🌰分析</p>
+<p>虽然，代码千差万别（不同语言实现不同人写出的真·千奇百怪），但常见的复杂度量级并不多，先上总结</p>
+<p>除去多个数量级（m、n），可以粗略地分为两类，多项式量级和非多项式量级。其中，非多项式量级只有两个：O(2^n) 和 O(n!)</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210115143615088.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h4 id="omn-omn">O(m+n) O(m*n)</h4>
+<p>算法的代码复杂度分析，通常只引入一个数据规模，但也有可能会引入<strong>两个数据规模</strong> （多个不在常用讨论中）</p>
+<p>直接上 🌰</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">calcSum</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">m</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">sum_1</span>, <span style="color:#a6e22e">sum_2</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">sum_1</span> = <span style="color:#a6e22e">sum_1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span>
+	}
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">m</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">sum_2</span> = <span style="color:#a6e22e">sum_2</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum_1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">sum_2</span>
+}
+</code></pre></div><p>n、m 是两个数据规模，故整体复杂度 = O(m+n)</p>
+<blockquote>
+<p><a href="https://play.golang.org/p/1P1n3q75ET8">https://play.golang.org/p/1P1n3q75ET8</a>  可 Go Play一下</p>
+</blockquote>
+<p>乘法的话，再上个 🌰 ，如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">calcSum</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">m</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span> &lt; <span style="color:#a6e22e">m</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+			<span style="color:#a6e22e">sum</span> = <span style="color:#a6e22e">sum</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">*</span><span style="color:#a6e22e">j</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum</span>
+}
+</code></pre></div><p>这边🤚乘法法则：嵌套代码的复杂度等于<strong>嵌套内外代码复杂度的乘积</strong></p>
+<p>故，复杂度 = O(m*n)</p>
+<blockquote>
+<p><a href="https://play.golang.org/p/VoZcACv3Box">https://play.golang.org/p/VoZcACv3Box</a>  可 Go Play一下</p>
+</blockquote>
+<h4 id="o1">O(1)</h4>
+<p>再度明确一个概念，O(1) 只是常量级时间复杂度的一种表示方法，并不是指只执行了一行代码。</p>
+<p>一般情况下，只要算法中不存在<strong>循环语句、递归语句</strong>，即使有成千上万行的代码，其时间复杂度也是Ο(1)。</p>
+<p>&amp;&amp; 再度强调 =》常量执行复杂度永远是 <strong>O(1)</strong></p>
+<h4 id="olognonlogn">O(logn)、O(nlogn)</h4>
+<p>对数阶时间复杂度非常常见，比起其他的，相对最难分析。</p>
+<p>继续，举个 🌰，代码比较简单（这里面的 for 为 go 的省略写法，可理解为 while）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">calc</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">n</span> {
+		<span style="color:#a6e22e">i</span> = <span style="color:#a6e22e">i</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">i</span>
+}
+</code></pre></div><p>这边，需要用到套路一：关注循环执行次数最多的一段代码 <code> i = i*2</code></p>
+<p>个人分析方式（有点🐷），先列一下 i 循环的值具体会是什么，如下：</p>
+<pre><code>1, 2, 4, 8, 16, 32 ... 2^x
+</code></pre><p>可得知，直到 2^x &lt;= n   🔚    ，求循环次数其实是解个数学方程式了，如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210115154117528.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>基于之前的理论：在采用大 O 标记复杂度的时候，可以忽略系数。我们忽略对数的“底”，统一表示为 <strong>O(logn)</strong></p>
+<p>那 O(nlogn) 呢？🙌 乘法法则</p>
+<p>如果一段代码的时间复杂度是 O(logn)，循环执行 n 遍，时间复杂度就是 O(nlogn) 了。</p>
+<p>O(nlogn) 也是一种常见的算法时间复杂度。比如，归并排序、快速排序的时间复杂度都是 O(nlogn)。</p>
+<h4 id="on">O(n²)</h4>
+<p>🙌 乘法法则，不多说了吧，嵌套循环；其实也有三次方的，不常见这里就不提了。</p>
+<h4 id="复杂度比较">复杂度比较</h4>
+<p>直接上图</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/497a3f120b7debee07dc0d03984faf04-0696830.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h4 id="o2n-和-on">O(2^n) 和 O(n!)</h4>
+<p>前面提到，常见非多项式量级只有两个：O(2n) 和 O(n!)。</p>
+<p>当数据规模 n 越来越大时，非多项式量级算法的执行时间会急剧增加，求解问题的执行时间会无限增长。</p>
+<p>所以，非多项式时间复杂度的算法其实是非常低效的算法，这里就不介绍了。</p>
+<h3 id="主定理公式">主定理公式</h3>
+<p>数学好的👦，可以考虑用「主定理公式」（尤其是复杂的递归分析）</p>
+<p>个人表示看不懂。。。 有兴趣的参见 <a href="https://blog.csdn.net/jal517486222/article/details/82805401">算法导论：用主定理求解递归式 计算算法复杂度</a></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210115160500317.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="个人体会">个人体会</h2>
+<p>(*´▽｀)ノノ 嗯，简单说下个人对复杂度分析的体会，就是两字：「感觉」</p>
+<p>有些算法高手或者 LeetCode 刷得多了，简单的一眼就能看出其复杂度，respect~</p>
+<p>引一段专栏作者（王争大佬）的感悟：</p>
+<blockquote>
+<p>复杂度分析并不难，关键在于多练。 之后讲后面的内容时，我还会带你详细地分析每一种数据结构和算法的时间、空间复杂度。只要跟着我的思路学习、练习，你很快就能和我一样，每次看到代码的时候，简单的一眼就能看出其复杂度，难的稍微分析一下就能得出答案。</p>
+</blockquote>
+<p>信了大佬，立个 Flag，坚持学习完 各种常见算法 &amp; 切切实实练习之后的每个 🌰</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/algorithmbigo2/>https://ftopia2020.github.io/2021/algorithmbigo2/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmbigo1/" class="prev" rel="prev" title="打卡「数据结构&amp;算法」必知必会系列：2. 时间 &amp; 空间复杂度（上）"><i
+                class="iconfont icon-left"></i>&nbsp;打卡「数据结构&amp;算法」必知必会系列：2. 时间 &amp; 空间复杂度（上）</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/algorithmbigo2/" class="leancloud_visitors" data-flag-title="打卡「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

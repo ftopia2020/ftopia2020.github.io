@@ -59,7 +59,7 @@
     "datePublished": "2019-10-09 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-10-09 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2019\/cornell\/",
-    "wordCount" : "721",
+    "wordCount" : "1263",
     "keywords" : [ "学习方法","原创", "Ftopia"]
 }
 </script>
@@ -78,6 +78,7 @@
     <li><a href="#how">How</a>
       <ul>
         <li><a href="#参考">参考</a></li>
+        <li><a href="#产品设计方案">产品设计方案</a></li>
       </ul>
     </li>
   </ul>
@@ -172,9 +173,9 @@
                     2019-10-09</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 721 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1263 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
 
         </div>
     </header>
@@ -247,6 +248,51 @@
 <li><a href="https://baike.baidu.com/item/5R%E7%AC%94%E8%AE%B0%E6%B3%95/11004959">5R笔记法 - From 百度百科</a></li>
 <li><a href="https://www.zhihu.com/question/19652630">什么是康奈尔笔记法？- From 知乎</a></li>
 </ul>
+<h3 id="产品设计方案">产品设计方案</h3>
+<p>理清了 5R 是什么？有什么特性，需求和产品设计就比较游刃有余了</p>
+<ol>
+<li>将其作为特殊的笔记/博客的一种</li>
+<li>需要保存的特性（字段初步设计）</li>
+</ol>
+<p>常规笔记/博客已有（暂不考虑多人）</p>
+<ul>
+<li>笔记标题、分类、标签、创建时间、更新时间、草稿？、发布时间；封面图、简介、备注、内容（conell 为拼接成的HTML富文本）</li>
+</ul>
+<p>不同的特性为</p>
+<ul>
+<li>笔记类型：connell</li>
+<li>附加信息：学科、记录时间（可复用普通笔记的分类、创建时间、备注等）</li>
+<li>分别记录：
+<ul>
+<li>线索（clues）支持富文本</li>
+<li>笔记（record）支持富文本</li>
+<li>总结（summary）字符串即可</li>
+</ul>
+</li>
+</ul>
+<p>界面设计：单页应用，简洁拟物化
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/2149af8cc303407b9cb4a01b9945e83d~tplv-k3u1fbpfcp-watermark.image" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><strong>主要功能</strong>：</p>
+<ul>
+<li>康奈尔笔记记录</li>
+<li>康奈尔笔记展示（可加入主笔记隐藏的简易功能，满足复习需要）
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9328f75e656a487799ee8fc697e88950~tplv-k3u1fbpfcp-watermark.image" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+</ul>
+<p><strong>功能扩展</strong>：</p>
+<ul>
+<li>笔记复习加入工作流，如：第一步记录 =》提示复习加线索（简化）/ 思考总结 =》周期性复习</li>
+<li>统计学习情况（最近浏览、复习&hellip;）</li>
+<li>已有笔记/博客内容（批量）导入为笔记（笔记主体）</li>
+<li>查漏补缺错题（可关联结合对应的题库等等🤩，有点走偏像学霸君啥的了&hellip;）</li>
+<li>实物笔记本的OCR直接录入，但又一定的难点
+<ul>
+<li>APP实现拍照还好，微信小程序可能有点阻碍</li>
+<li>笔记本的规格一定要统一</li>
+</ul>
+</li>
+</ul>
+<p><strong>竞品分析</strong>：</p>
+<p>专做的没找到，印象笔记/有道笔记 有提供模板，看来小众笔记软件还是个蓝海，加油(๑•̀ㅂ•́)و✧</p>
 
     </div>
 
