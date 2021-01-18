@@ -48,7 +48,7 @@
     "articleSection" : "posts",
     "name" : "记一个(业务逻辑)异步处理不当而导致数据被覆盖的 Bug",
     "headline" : "记一个(业务逻辑)异步处理不当而导致数据被覆盖的 Bug",
-    "description" : "What Bug表现：出现表数据部分字段未更改成功？（偶发，1\/100？） 具体场景：工单表（Ticket）存在接单人、状态、客户信息等字段，但存在转",
+    "description" : "What Bug表现：出现表数据部分字段未更改成功？（偶发，转单发生率 ≈ 1\/1000） 具体场景：工单表（Ticket）存在接单人、状态、客户信息等字",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -59,7 +59,7 @@
     "datePublished": "2021-01-18 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-01-18 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2021\/asynchronousbug\/",
-    "wordCount" : "890",
+    "wordCount" : "896",
     "keywords" : [ "bug","原创", "Ftopia"]
 }
 </script>
@@ -168,7 +168,7 @@
                     2021-01-18</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 890 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 896 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
@@ -193,7 +193,7 @@
         
 
         <h2 id="what">What</h2>
-<p><strong>Bug表现</strong>：出现表数据部分字段未更改成功？（偶发，1/100？）</p>
+<p><strong>Bug表现</strong>：出现表数据部分字段未更改成功？（偶发，转单发生率 ≈ 1/1000）</p>
 <p><strong>具体场景</strong>：工单表（Ticket）存在接单人、状态、客户信息等字段，但存在转单（即接单人更改）后，转单记录表存在记录（TransferRecord），但实际转单人未更改成功的情况。</p>
 <p><strong>可否复现</strong>：测试环境未能复现 😂</p>
 <h2 id="why">Why</h2>
