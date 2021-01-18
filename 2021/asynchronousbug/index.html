@@ -59,7 +59,7 @@
     "datePublished": "2021-01-18 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-01-18 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2021\/asynchronousbug\/",
-    "wordCount" : "889",
+    "wordCount" : "892",
     "keywords" : [ "bug","原创", "Ftopia"]
 }
 </script>
@@ -168,7 +168,7 @@
                     2021-01-18</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 889 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 892 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
@@ -197,7 +197,7 @@
 <p><strong>具体场景</strong>：工单表（Ticket）存在接单人、状态、客户信息等字段，但存在转单（即接单人更改）后，转单记录表存在记录（TransferRecord），但实际转单人未更改成功的情况。</p>
 <p><strong>可否复现</strong>：测试环境未能复现 😂</p>
 <h2 id="why">Why</h2>
-<p><strong>诡异点</strong>：API 日志打印，工单表（Ticket）接单人字段的更新真真实实成功了，而且也不存在啥并发</p>
+<p><strong>诡异点</strong>：转单API的日志打印，工单表（Ticket）接单人字段的更新真真实实成功了，而且也不存在啥并发</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/9f5c4af7-6e8f-4b0d-9d88-718dcfc025db-0938724-0939517.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <p>(⊙o⊙)…  ，莫非是哪个 👻 程序改了这个表？</p>
 <p>思路有了，该业务存在定时服务，走查代码，初看并没有对 Order 表接单人字段人的更改 … …</p>
