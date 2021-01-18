@@ -6,10 +6,19 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>记一个(业务逻辑)异步处理不当而导致数据被覆盖的Bug</title>
+      <link>https://ftopia2020.github.io/2021/asynchronousbug/</link>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/asynchronousbug/</guid>
+      <description>What Bug表现：出现表数据部分字段未更改成功？（极偶发，1/1000？） 具体场景：工单表（Ticket）存在接单人、状态、客户信息等字段，但存</description>
+    </item>
     
     <item>
       <title>「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</title>
@@ -143,7 +152,7 @@
       <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2020/gitbranch/</guid>
-      <description>WHY 熟练使用 Git **分支（branch）**操作是 Git 必备技能之一，尤其是多人合作的项目，分支的管理和操作尤为重要。 为什么需要分支 ？假设在已有项目</description>
+      <description>Why 熟练使用 Git **分支（branch）**操作是 Git 必备技能之一，尤其是多人合作的项目，分支的管理和操作尤为重要。 为什么需要分支 ？假设在已有项目</description>
     </item>
     
     <item>

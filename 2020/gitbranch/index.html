@@ -48,7 +48,7 @@
     "articleSection" : "posts",
     "name" : "Git 分支管理及基础操作指南",
     "headline" : "Git 分支管理及基础操作指南",
-    "description" : "WHY 熟练使用 Git **分支（branch）**操作是 Git 必备技能之一，尤其是多人合作的项目，分支的管理和操作尤为重要。 为什么需要分支 ？假设在已有项目",
+    "description" : "Why 熟练使用 Git **分支（branch）**操作是 Git 必备技能之一，尤其是多人合作的项目，分支的管理和操作尤为重要。 为什么需要分支 ？假设在已有项目",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -73,9 +73,9 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#why">WHY</a></li>
-    <li><a href="#what">WHAT</a></li>
-    <li><a href="#how">HOW</a>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a>
       <ul>
         <li><a href="#查看分支">查看分支</a></li>
         <li><a href="#创建--切换分支">创建 &amp; 切换分支</a></li>
@@ -198,7 +198,7 @@
         
         
 
-        <h2 id="why">WHY</h2>
+        <h2 id="why">Why</h2>
 <p>熟练使用 Git  **分支（branch）**操作是 Git 必备技能之一，尤其是多人合作的项目，分支的管理和操作尤为重要。</p>
 <p>为什么需要分支 ？假设在已有项目的基础上开发了功能 1（feature/1），且已经完成了一半；但是线上发现了 Bug（hotfix/1） 或是产品经理临时需要加个小功能2（feature/2），如何能在不加入 Func_1 的代码上进行开发呢？Git 的分支为我们提供了解决方案，做法可参考如下：</p>
 <blockquote>
@@ -217,12 +217,12 @@
 <p>其他版本控制系统如SVN等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。</p>
 <p>但Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。</p>
 </blockquote>
-<h2 id="what">WHAT</h2>
+<h2 id="what">What</h2>
 <p>在介绍 Git 分支操作之前，可先了解几个概念：</p>
 <p><strong>master 分支：</strong> 即主分支，初始化 GIt 仓库时会自动创建主分支。通常用于部署生产环境，需保证其稳定性。</p>
 <p>完成支线分支上的开发后，我们还需要做什么？这里就提出了另一个概念，即 <strong>合并（merge）</strong> ，简单理解就是把分支的代码加入到已有分支中，但其中可能会产生 <strong>冲突（conflict）</strong>，冲突需要手动解决后再提交。</p>
 <p>另外，同仓库一样，分支也存在 <strong>本地分支</strong> 及 <strong>远程分支</strong> 的概念，简单理解就是本地分支仅自己可见，远程分支可被 <strong>拉取（pull）</strong> 及 <strong>克隆（clone）</strong>，我们需要 **推送（push）**至远程分支，才被别人可见。</p>
-<h2 id="how">HOW</h2>
+<h2 id="how">How</h2>
 <blockquote>
 <p>有关 Git 分支管理的文档可参考：<a href="https://git-scm.com/docs/git-branch">官方文档</a></p>
 </blockquote>
