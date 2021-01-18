@@ -59,7 +59,7 @@
     "datePublished": "2021-01-18 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-01-18 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2021\/asynchronousbug\/",
-    "wordCount" : "896",
+    "wordCount" : "904",
     "keywords" : [ "bug","原创", "Ftopia"]
 }
 </script>
@@ -168,7 +168,7 @@
                     2021-01-18</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 896 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 904 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
@@ -224,7 +224,7 @@
 <li>实际业务创建 10s 内的情况下也不常发生转单 🙃</li>
 </ul>
 <h2 id="how">How</h2>
-<p>问题提定位后，解决就不难了。确定 CompanyID 以及 VipLevel 只在该定时业务处理后，该定时业务代码 Fix 为只更新这两个字段即可。</p>
+<p>问题提定位后，解决就不难了。确定 CompanyID 以及 VipLevel 只在该定时业务处理后，该定时业务代码 Fix 为只更新这两个字段（+更新时间 🙃）即可。</p>
 <p>Bug Fixed。但是，有啥值得反思的呢？</p>
 <ol>
 <li><strong>核心问题</strong>：业务逻辑未理清，旁支处理更新了全表 =》<strong>应处理为只更新需要更新的字段</strong></li>
