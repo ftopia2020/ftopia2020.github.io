@@ -48,7 +48,7 @@
     "articleSection" : "posts",
     "name" : "记一个(业务逻辑)异步处理不当而导致数据被覆盖的 Bug",
     "headline" : "记一个(业务逻辑)异步处理不当而导致数据被覆盖的 Bug",
-    "description" : "What Bug表现：出现表数据部分字段未更改成功？（偶发，转单发生率 ≈ 1\/1000） 具体场景：工单表（Ticket）存在接单人、状态、客户信息等字",
+    "description" : "What 具体场景：工单表（Ticket）存在接单人、状态、客户信息等字段，但存在转单（即接单人更改）后，转单记录表存在记录（TransferRec",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -193,8 +193,8 @@
         
 
         <h2 id="what">What</h2>
-<p><strong>Bug表现</strong>：出现表数据部分字段未更改成功？（偶发，转单发生率 ≈ 1/1000）</p>
 <p><strong>具体场景</strong>：工单表（Ticket）存在接单人、状态、客户信息等字段，但存在转单（即接单人更改）后，转单记录表存在记录（TransferRecord），但实际转单人未更改成功的情况。</p>
+<p><strong>Bug表现</strong>：出现表数据部分字段未更改成功？（偶发，转单发生率 ≈ 1/1000）</p>
 <p><strong>可否复现</strong>：测试环境未能复现 😂</p>
 <h2 id="why">Why</h2>
 <p><strong>诡异点</strong>：转单API的日志打印，工单表（Ticket）接单人字段的更新真真实实成功了，而且也不存在啥并发</p>

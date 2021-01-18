@@ -17,7 +17,7 @@
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2021/asynchronousbug/</guid>
-      <description>What Bug表现：出现表数据部分字段未更改成功？（偶发，转单发生率 ≈ 1/1000） 具体场景：工单表（Ticket）存在接单人、状态、客户信息等字</description>
+      <description>What 具体场景：工单表（Ticket）存在接单人、状态、客户信息等字段，但存在转单（即接单人更改）后，转单记录表存在记录（TransferRec</description>
     </item>
     
   </channel>
