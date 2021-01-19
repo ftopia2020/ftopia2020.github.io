@@ -6,24 +6,15 @@
     <description>Recent content in Tags on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>bug</title>
-      <link>https://ftopia2020.github.io/tags/bug/</link>
-      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/tags/bug/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>原创</title>
       <link>https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/</link>
-      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/</guid>
       <description></description>
@@ -32,9 +23,18 @@
     <item>
       <title>算法</title>
       <link>https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/</link>
-      <pubDate>Fri, 15 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bug</title>
+      <link>https://ftopia2020.github.io/tags/bug/</link>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/tags/bug/</guid>
       <description></description>
     </item>
     
