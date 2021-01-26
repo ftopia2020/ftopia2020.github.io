@@ -6,10 +6,19 @@
     <description>Recent content in 转载 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【译】10个JS单行代码，可加入你的开发兵器库</title>
+      <link>https://ftopia2020.github.io/2021/10javascript-oneliners/</link>
+      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/10javascript-oneliners/</guid>
+      <description>原文：10 JavaScript Oneliners You Have Got to Add Your Arsenal as a Developer 封面：Photo by Charles Deluvio on Unsplash 1. 字符串首字母大写 使用此函数，你可以将字符串输入的首字母大写。其可以是一个单词，</description>
+    </item>
     
     <item>
       <title>【译】2021你需要的 7个JS数组处理方法</title>

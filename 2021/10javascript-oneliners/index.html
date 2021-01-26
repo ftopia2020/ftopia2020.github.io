@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/algorithmdatastructure1/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/10javascript-oneliners/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【译】10个JS单行代码，可加入你的开发兵器库 | Ftopia
+         
+    </title>
+    <meta name="title" content="【译】10个JS单行代码，可加入你的开发兵器库 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【译】10个JS单行代码，可加入你的开发兵器库",
+    "headline" : "【译】10个JS单行代码，可加入你的开发兵器库",
+    "description" : "原文：10 JavaScript Oneliners You Have Got to Add Your Arsenal as a Developer 封面：Photo by Charles Deluvio on Unsplash 1. 字符串首字母大写 使用此函数，你可以将字符串输入的首字母大写。其可以是一个单词，",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-26 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-01-26 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/10javascript-oneliners\/",
+    "wordCount" : "938",
+    "keywords" : [ "JS","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-字符串首字母大写">1. 字符串首字母大写</a></li>
+    <li><a href="#2-计算两个日期间隔天数">2. 计算两个日期间隔天数</a></li>
+    <li><a href="#3-转换字符串为数字">3. 转换字符串为数字</a></li>
+    <li><a href="#4-检测数组是否包含元素">4. 检测数组是否包含元素</a></li>
+    <li><a href="#5-合并多个数组的不同方式">5. 合并多个数组的不同方式</a></li>
+    <li><a href="#6-数字数组排序">6. 数字数组排序</a></li>
+    <li><a href="#7-生成随机-hex-颜色数值">7. 生成随机 HEX 颜色数值</a></li>
+    <li><a href="#8-获取特定-cookie-的值">8. 获取特定 Cookie 的值</a></li>
+    <li><a href="#9-交换两个变量的值">9. 交换两个变量的值</a></li>
+    <li><a href="#10-获取用户选中的文字">10. 获取用户选中的文字</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【译】10个JS单行代码，可加入你的开发兵器库</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-01-26
+                    itemprop="datePublished">
+                    2021-01-26</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 938 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>原文：<a href="https://www.thatsanegg.com/blog/10-javascript-oneliners-you-have-got-to-add-your-arsenal-as-a-developer/#1-capitalize-the-first-letter-of-a-string">10 JavaScript Oneliners You Have Got to Add Your Arsenal as a Developer</a></p>
+<p>封面：Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Charles Deluvio</a> on <a href="https://unsplash.com/s/photos/one?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+<h2 id="1-字符串首字母大写">1. 字符串首字母大写</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126144939405.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>使用此函数，你可以将字符串输入的首字母大写。其可以是一个单词，也可以是整个句子。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Capitalize the first letter of a string
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">capitalize</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span> =&gt; <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">charAt</span>(<span style="color:#ae81ff">0</span>).<span style="color:#a6e22e">toUpperCase</span>()<span style="color:#e6db74">}${</span><span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+
+<span style="color:#a6e22e">capitalize</span>(<span style="color:#e6db74">&#34;hello, you are a cool person!&#34;</span>);
+<span style="color:#75715e">// Result: &#34;Hello, you are a cool person!&#34;
+</span></code></pre></div><h2 id="2-计算两个日期间隔天数">2. 计算两个日期间隔天数</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126145228700.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>可能你需要了解， “1000 * 60 * 60 * 24” 是一天中的毫秒数。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Calculate the number of days between two dates
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">diffDays</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">date</span>, <span style="color:#a6e22e">otherDate</span>) =&gt; Math.<span style="color:#a6e22e">ceil</span>(Math.<span style="color:#a6e22e">abs</span>(<span style="color:#a6e22e">date</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">otherDate</span>) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">24</span>));
+
+<span style="color:#a6e22e">diffDays</span>(<span style="color:#66d9ef">new</span> Date(<span style="color:#e6db74">&#39;2014-12-19&#39;</span>), <span style="color:#66d9ef">new</span> Date(<span style="color:#e6db74">&#39;2020-01-01&#39;</span>));
+<span style="color:#75715e">// Result: 1839
+</span></code></pre></div><h2 id="3-转换字符串为数字">3. 转换字符串为数字</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126145521062.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>使用强制类型将字符串转换为数字的一种非常直接的方法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Convert a string to a number implicitly
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">toNumber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span> =&gt; <span style="color:#f92672">+</span><span style="color:#a6e22e">str</span>;
+
+<span style="color:#75715e">// Convert a string to a number explicitly
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">toNumber</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">str</span> =&gt; Number(<span style="color:#a6e22e">str</span>);
+
+<span style="color:#a6e22e">toNumber</span>(<span style="color:#e6db74">&#34;2&#34;</span>);
+<span style="color:#75715e">// Result: 2
+</span></code></pre></div><h2 id="4-检测数组是否包含元素">4. 检测数组是否包含元素</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126145946714.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>使用 ”isArray“ 方法以及检测数组长度是否大于 0，我们能检测是否其为空。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Check if an array contains any items
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isNotEmpty</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span> =&gt; Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">arr</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#a6e22e">isNotEmpty</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]);
+<span style="color:#75715e">// Result: true
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">isNotEmpty</span>([]);
+<span style="color:#75715e">// Result: false
+</span></code></pre></div><h2 id="5-合并多个数组的不同方式">5. 合并多个数组的不同方式</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126150512009.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>有很多合并数组的不同方式。其中之一是使用 ”concat“ 方法。另一种是使用扩展运算符 (&quot;&hellip;&quot;)。</p>
+<p>我们也可使用 &ldquo;Set&rdquo; 对象的方式来去重，</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Different ways of merging multiple arrays
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Merge but don&#39;t remove the duplications
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">merge</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">b</span>);
+<span style="color:#75715e">// Or
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">merge</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; [...<span style="color:#a6e22e">a</span>, ...<span style="color:#a6e22e">b</span>];
+
+<span style="color:#75715e">// Merge and remove the duplications
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">merge</span> <span style="color:#f92672">=</span> [...<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Set</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">b</span>))];
+<span style="color:#75715e">// Or
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">merge</span> <span style="color:#f92672">=</span> [...<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Set</span>([...<span style="color:#a6e22e">a</span>, ...<span style="color:#a6e22e">b</span>])];
+</code></pre></div><h2 id="6-数字数组排序">6. 数字数组排序</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126151018028.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>JavaScript的内置排序（sort）方法比较棘手。它不能很好地处理数字，上述功能是对数组进行排序的一种简单方式。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Sort an array containing numbers
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sort</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span> =&gt; <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">sort</span>((<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>);
+
+<span style="color:#a6e22e">sort</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">3</span>]);
+<span style="color:#75715e">// Result: [1, 2, 3, 4, 5]
+</span></code></pre></div><h2 id="7-生成随机-hex-颜色数值">7. 生成随机 HEX 颜色数值</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126151538229.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>生成 RGB 颜色相对比较简单，但产生一个随机的 HEX 颜色会有些复杂。</p>
+<p>这个函数将使用生成一个随机的 HEX 颜色数值。</p>
+<p>Generating an RGB color is a little more simple, but creating a random HEX color can get a little complex. This function will allow you to generate a random HEX color.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Generate a random HEX color
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">randomColor</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#e6db74">`#</span><span style="color:#e6db74">${</span>Math.<span style="color:#a6e22e">random</span>().<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">16</span>).<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">8</span>).<span style="color:#a6e22e">padStart</span>(<span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;0&#39;</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+
+<span style="color:#75715e">// Or
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">randomColor</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#e6db74">`#</span><span style="color:#e6db74">${</span>(<span style="color:#f92672">~~</span>(Math.<span style="color:#a6e22e">random</span>()<span style="color:#f92672">*</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">24</span>))).<span style="color:#a6e22e">toString</span>(<span style="color:#ae81ff">16</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+</code></pre></div><h2 id="8-获取特定-cookie-的值">8. 获取特定 Cookie 的值</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126152136221.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>已知 cookie 名称想要读取它的具体值？</p>
+<p>我们可取自 document 对象的属性值 ”cookie“ 并将其值返回给我们。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Get the value of a specified cookie
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">cookie</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span> =&gt; <span style="color:#e6db74">`; </span><span style="color:#e6db74">${</span>document.<span style="color:#a6e22e">cookie</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">`; </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">=`</span>).<span style="color:#a6e22e">pop</span>().<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39;;&#39;</span>).<span style="color:#a6e22e">shift</span>();
+
+<span style="color:#a6e22e">cookie</span>(<span style="color:#e6db74">&#39;_ga&#39;</span>);
+<span style="color:#75715e">// Result: &#34;GA1.2.1929736587.1601974046&#34;
+</span></code></pre></div><h2 id="9-交换两个变量的值">9. 交换两个变量的值</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126152800170.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>有时你只需要交换两个变量的值。这个简单的方式可让你用一行代码做到。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Swap the values of 2 variables
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+[<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>] <span style="color:#f92672">=</span> [<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">a</span>];
+
+<span style="color:#75715e">// Result: 
+</span><span style="color:#75715e">// a = 2
+</span><span style="color:#75715e">// b = 1
+</span></code></pre></div><h2 id="10-获取用户选中的文字">10. 获取用户选中的文字</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210126153121569.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>每当用户使用鼠标选择了文字，我们可以直接用 window 对象的 “getSelection” 方法来获取它。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Get the text that the user has selected
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getSelectedText</span> <span style="color:#f92672">=</span> () =&gt; window.<span style="color:#a6e22e">getSelection</span>().<span style="color:#a6e22e">toString</span>();
+
+<span style="color:#a6e22e">getSelectedText</span>();
+</code></pre></div><hr>
+<p>我希望你今天能学到一些新东西。</p>
+<p>想要继续提升你的 JS 技能？看看原作者的其他文章</p>
+<p><a href="https://www.thatsanegg.com/blog/6-essential-javascript-tips-for-the-developer-of-2020/">6 Essential JavaScript Tips for the Developer of 2020</a></p>
+<p>Have a nice day! 😄</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/10javascript-oneliners/>https://ftopia2020.github.io/2021/10javascript-oneliners/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/js/">
+                    #JS</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmdatastructure1/" class="prev" rel="prev" title="「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组"><i
+                class="iconfont icon-left"></i>&nbsp;「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/10javascript-oneliners/" class="leancloud_visitors" data-flag-title="【译】10个JS单行代码，可加入你的开发兵器库">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
