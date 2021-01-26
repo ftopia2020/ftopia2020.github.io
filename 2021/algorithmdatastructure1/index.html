@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/7jsarraymethodsyouwillneedin2021/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/algorithmdatastructure1/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组 | Ftopia
+         
+    </title>
+    <meta name="title" content="「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "「数据结构\x26算法」必知必会系列：5. 常见数据结构——数组",
+    "headline" : "「数据结构\x26算法」必知必会系列：5. 常见数据结构——数组",
+    "description" : "系列文章请查看 「数据结构\x26amp;算法」必知必会系列：1. 开篇#计划路线 线性表 在介绍「数组」之前，我们先引入一个概念「线性表」。 顾名思义，线",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-25 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-01-25 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/algorithmdatastructure1\/",
+    "wordCount" : "1938",
+    "keywords" : [ "算法","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#线性表">线性表</a></li>
+    <li><a href="#数组">数组</a>
+      <ul>
+        <li><a href="#高效的随机访问">高效的「随机访问」</a></li>
+        <li><a href="#低效的插入删除">低效的「插入|删除」</a></li>
+        <li><a href="#动态扩容--数组越界">动态扩容 &amp; 数组越界</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-01-25
+                    itemprop="datePublished">
+                    2021-01-25</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1938 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>系列文章请查看 <a href="/2021/algorithmbasic/#%E8%AE%A1%E5%88%92%E8%B7%AF%E7%BA%BF">「数据结构&amp;算法」必知必会系列：1. 开篇#计划路线</a></p>
+</blockquote>
+<h2 id="线性表">线性表</h2>
+<p>在介绍「数组」之前，我们先引入一个概念「线性表」。</p>
+<p>顾名思义，线性表就是数据排成像线一样的结构。每个线性表上的数据最多只有「前」和「后」两个方向。</p>
+<p>常见的线性表数据结构如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210125112845527.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>本篇，就来介绍一下「数组」这种最基础、最简单的数组结构，</p>
+<h2 id="数组">数组</h2>
+<blockquote>
+<p>每种编程语言中，基本都有数组这种数据类型。不过，我们这讨论的「数组」是一种最基础的数据结构。</p>
+</blockquote>
+<p><strong>数组</strong>（Array）是一种<strong>线性表数据结构</strong>。它用一组<strong>连续</strong>的<strong>内存空间</strong>，来存储一组具有<strong>相同类型的数据</strong>，并且<strong>不支持动态扩容。</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">arr</span> <span style="color:#f92672">:=</span> [<span style="color:#ae81ff">3</span>]<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>}
+	<span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">0</span>]
+	<span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">1</span>]
+	<span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">arr</span>[<span style="color:#ae81ff">2</span>]
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%v\n%v\n%v\n&#34;</span>, <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span>)
+}
+</code></pre></div><p>上述 🌰 为 go 实现（<a href="https://play.golang.org/p/uffnTzWV_3p">https://play.golang.org/p/uffnTzWV_3p</a>），无需了解语法，直接看打印如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210125140614511.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>打印内容为指针的内存地址，🌰 中  <code>arr</code> 满足了数组的特性：<strong>连续的内存空间和相同类型的数据</strong></p>
+<blockquote>
+<p>如果是 JS 或者 Python 等语言的开发者，可能会定义如 <code> a = [1, &quot;abc&quot;]</code> 的 ”数组“。</p>
+<p>这里，我的理解是此”数组“非彼「数组」，<code> a = [1, &quot;abc&quot;]</code>  只是 JS 或者 Python 支持不同元素放入”数组“ （Python 中为列表）。</p>
+</blockquote>
+<h3 id="高效的随机访问">高效的「随机访问」</h3>
+<p>注意，数据结构中的「数组」限制了 <strong>连续的内存空间和相同类型的数据</strong>。</p>
+<p>因此，才让数组有了一个堪称“杀手锏”的特性：<strong>「随机访问」</strong>。那从内存访问角度来看，是如何实现的呢？</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210125145418400.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>上图表现了上述示例中数组的内存分配情况。</p>
+<p>比较好理解的是，我们可根据寻址公式，计算出要「随机访问」元素的内存地址：</p>
+<p>a[i]_address = base_address + i * data_type_size</p>
+<blockquote>
+<p>其中 data_type_size 表示数组中每个元素的大小。上例， go int 类型数据为8个字节(64 位)。</p>
+</blockquote>
+<p>我们来分析一下上述公式的时间复杂度 =&gt; O(1)</p>
+<p>所以，数组支持「随机访问」，根据下标随机访问的时间复杂度为 O(1)。</p>
+<blockquote>
+<p>数组是适合查找操作，但是查找的时间复杂度并不为 O(1)。即便是排好序的数组，你用二分查找，时间复杂度也是 O(logn)。</p>
+</blockquote>
+<h3 id="低效的插入删除">低效的「插入|删除」</h3>
+<p>连续内存和相同元素的限制有利有弊，有利于「随机访问」，有弊于「插入|删除」。</p>
+<p>其实还是比较好理解的，数组可理解为排着一队人，如果要在队伍当中随意”加插/拉出“一人，势必影响到整个队伍。</p>
+<p>最坏时间复杂度是 O(n)， 因为每个位置插入/删除元素的概率一致，所以平均情况时间复杂度为 (1+2+&hellip;n)/n=O(n)</p>
+<hr>
+<p>那，如何能处理得更高效一点呢？我们来看下最好复杂度：</p>
+<ul>
+<li>插入：O(1) ，即插入为最后一个（类似做操晚到了排最后，不影响队伍 😁）</li>
+<li>删除：O(1) ，即删除了最后一个</li>
+</ul>
+<p>但是，如果我们明确要求来的 X 排到指定位置（关系户 →_→），但是对原来的队伍不关心顺序（可能原本就是无序）。可以采用如下方式，比如 X 确定排第三，那么我们可以先让 C 排到最后，再把第三个位置给 X 即可。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210125153059936.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>利用这种处理技巧，在特定场景下，在第 k 个位置插入一个元素的时间复杂度就会降为 O(1)。这个处理思想在快排中也会用到，排序那一节具体来看吧，这里就说到这儿。</p>
+<p>删除操作，我们也会有一些特别的处理，比如标记删除而不是真正删除，只有没有更多空间时，才触发真正删除。</p>
+<blockquote>
+<p>类似 JVM 标记清除垃圾回收算法的核心思想。</p>
+<p>Golang 中 slice 切片arr[:i] 方式的引用并没有删除底层数组，感觉也和这个思想有异曲同工的效用。</p>
+</blockquote>
+<h3 id="动态扩容--数组越界">动态扩容 &amp; 数组越界</h3>
+<p>现在来看数组的另一个特性：不支持动态扩容。</p>
+<blockquote>
+<p>某些开发可能又疑惑了，哪里不支持扩容了，直接 append 或者 push 不要太爽哦</p>
+<p>✍️ 很多语言支持容器类，比如 Golang 中的 Slice、 Java 中的 ArrayList、C++ STL 中的 vector</p>
+</blockquote>
+<p>以 Golang 中的 Slice 为例，我们完全不需要关心底层的扩容逻辑，Slice 已经帮我们实现好了。</p>
+<p>（如果对 Go slice 扩容机制感兴趣的，可参见 <a href="https://juejin.cn/post/6844903812331732999">Go slice扩容深度分析</a> ）</p>
+<p>的确，业务开发完全可以快乐地使用 slice（其他语言同理，参考大佬专栏引用 ↓）</p>
+<blockquote>
+<p>对于业务开发，直接使用容器就足够了，省时省力。毕竟损耗一丢丢性能，完全不会影响到系统整体的性能。但如果你是做一些非常底层的开发，比如开发网络框架，性能的优化需要做到极致，这个时候数组就会优于容器，成为首选。</p>
+<p>数组大小已知，或者多维数组，建议用定长的数组。</p>
+</blockquote>
+<hr>
+<p>这里，简单谈下数组越界。虽然大部分语言会判错，比如 Golang，会直接抛出 <code>out of bounds ... </code> 错误。</p>
+<p>但是，数组越界在 C 语言中是一种未决行为，并没有规定数组访问越界时编译器应该如何处理。而且，很多计算机病毒也正是利用到了代码中的数组越界可以访问非法地址的漏洞来攻击系统，所以写代码的时候一定要警惕数组越界。</p>
+<h2 id="总结">总结</h2>
+<p><strong>数组</strong>（Array）是一种<strong>线性表数据结构</strong>，用一组<strong>连续</strong>的<strong>内存空间</strong>来存储具有<strong>相同类型的数据</strong>，并且<strong>不支持动态扩容。</strong></p>
+<p>特点是支持<strong>随机访问</strong>，但插入&amp;删除较低效，平均复杂度 O(n)。</p>
+<p>在之后的算法学习中，我们会针对数组的插入用一些处理技巧。</p>
+<p>在平时的业务开发中，我们可以快乐地使用可扩容的容器类（如 Golang slice 等）。</p>
+<p>一定要警惕数组越界，尤其是 C 语言开发者。</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/algorithmdatastructure1/>https://ftopia2020.github.io/2021/algorithmdatastructure1/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/7jsarraymethodsyouwillneedin2021/" class="prev" rel="prev" title="【译】2021你需要的 7个JS数组处理方法"><i
+                class="iconfont icon-left"></i>&nbsp;【译】2021你需要的 7个JS数组处理方法</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/algorithmdatastructure1/" class="leancloud_visitors" data-flag-title="「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

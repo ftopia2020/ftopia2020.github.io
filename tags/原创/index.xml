@@ -6,10 +6,28 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组</title>
+      <link>https://ftopia2020.github.io/2021/algorithmdatastructure1/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmdatastructure1/</guid>
+      <description>系列文章请查看 「数据结构&amp;amp;算法」必知必会系列：1. 开篇#计划路线 线性表 在介绍「数组」之前，我们先引入一个概念「线性表」。 顾名思义，线</description>
+    </item>
+    
+    <item>
+      <title>早教英文感悟</title>
+      <link>https://ftopia2020.github.io/dream/chinese/</link>
+      <pubDate>Fri, 22 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/dream/chinese/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>「数据结构&amp;算法」必知必会系列：4. 最好、最坏、平均 &amp; 均摊时间复杂度</title>
@@ -44,7 +62,7 @@
       <pubDate>Wed, 13 Jan 2021 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2021/algorithmbigo1/</guid>
-      <description>系列文章请查看 「数据结构&amp;amp;算法」必知必会系列：1. 开篇#计划路线 Why 先举个简单 🌰，1+2+3 &amp;hellip; + 10 = ? 如果不知道求和公式，我们只能循环</description>
+      <description>系列文章请查看 「数据结构&amp;amp;算法」必知必会系列：1. 开篇#计划路线 本文较为基础，若跳过可直接查看 「数据结构&amp;amp;算法」必知必会系列</description>
     </item>
     
     <item>

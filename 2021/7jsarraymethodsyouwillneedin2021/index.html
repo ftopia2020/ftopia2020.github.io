@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/algorithmbigo3/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/algorithmdatastructure1/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/7jsarraymethodsyouwillneedin2021/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【译】2021你需要的 7个JS数组处理方法 | Ftopia
+         
+    </title>
+    <meta name="title" content="【译】2021你需要的 7个JS数组处理方法 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【译】2021你需要的 7个JS数组处理方法",
+    "headline" : "【译】2021你需要的 7个JS数组处理方法",
+    "description" : "原文：The 7 JS Array Methods you will need in 2021 封面：Photo by kyle smith on Unsplash Get a great start off your year learning these useful methods. BY Twan Mulder 让你 2021（JS）学习开个好头，来学习这些有用的方法吧",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-25 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-01-25 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/7jsarraymethodsyouwillneedin2021\/",
+    "wordCount" : "2208",
+    "keywords" : [ "JS","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-arraymap">1. Array.map()</a>
+      <ul>
+        <li><a href="#何时用-arraymap">何时用 Array.map()?</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-arrayfilter">2. Array.filter()</a>
+      <ul>
+        <li><a href="#何时用--arrayfilter">何时用  Array.filter()?</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-arrayreduce">3. Array.reduce()</a>
+      <ul>
+        <li><a href="#何时用--arrayreduce">何时用  Array.reduce()?</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-arrayforeach">4. Array.forEach()</a>
+      <ul>
+        <li><a href="#何时用--arrayforeach">何时用  Array.forEach()?</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-arrayfind">5. Array.find()</a>
+      <ul>
+        <li><a href="#何时用--arrayfind">何时用  Array.find()?</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-arrayevery">6. Array.every()</a>
+      <ul>
+        <li><a href="#何时用--arrayevery">何时用  Array.every()?</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-arraysome">7. Array.some()</a>
+      <ul>
+        <li><a href="#何时用--arraysome">何时用  Array.some()?</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【译】2021你需要的 7个JS数组处理方法</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-01-25
+                    itemprop="datePublished">
+                    2021-01-25</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 2208 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 5 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>原文：<a href="https://medium.com/dailyjs/the-7-js-array-methods-you-will-need-in-2021-a9faa83b50e8">The 7 JS Array Methods you will need in 2021</a></p>
+<p>封面：Photo by <a href="https://unsplash.com/@roller1?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">kyle smith</a> on <a href="https://unsplash.com/s/photos/yellow-girl?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+<p>Get a great start off your year learning these useful methods.  BY <a href="https://medium.com/@toktoktwan?source=post_page-----a9faa83b50e8--------------------------------">Twan Mulder</a></p>
+<p>让你 2021（JS）学习开个好头，来学习这些有用的方法吧~</p>
+</blockquote>
+<p>JavaScript 提供了大量处理数组的不同方法。我们将在之后的几分钟为您介绍 7 个基本方法，相信读完后，您的 JS 开发技能会有所提升~</p>
+<h2 id="1-arraymap">1. Array.map()</h2>
+<p>每当你使用  <code>.map()</code> 方法，会创建出一个基于原数组更改过的新数组。  <code>.map()</code> 方法会提供一个函数用以循环遍历（按顺序调用）原数组中的每个元素并改变他们。</p>
+<p>如果你想改变数组中所有元素并存于一个新数组， <code>.map()</code> 方法将是你的选择。</p>
+<p>假设我们有一个汽车品牌的数组：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cars</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#e6db74">&#34;BMW&#34;</span>, <span style="color:#e6db74">&#34;Volkswagen&#34;</span>];
+</code></pre></div><p>当然，我们认为所有汽车都非常酷，并希望添加一些描述文字。我们可以使用 <code>.map（）</code>方法做到：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">coolCars</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">car</span> =&gt; <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">car</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> is a pretty cool car brand!`</span>);
+
+<span style="color:#75715e">// Result:
+</span><span style="color:#75715e"></span>[<span style="color:#e6db74">&#34;Porsche is a pretty cool car brand!&#34;</span>, <span style="color:#e6db74">&#34;Audi is a pretty cool car brand!&#34;</span>, <span style="color:#e6db74">&#34;BMW is a pretty cool car brand!&#34;</span>, <span style="color:#e6db74">&#34;Volkswagen is a pretty cool car brand!&#34;</span>];
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*F4dBGXBJ5Ugrd04uPRrShg-20210125173627636.png" alt="A JavaScript code block showing how the map method is used to create a new, modified array of the original one." class="lazyload"><figcaption class="image-caption">A JavaScript code block showing how the map method is used to create a new, modified array of the original one.</figcaption></figure></p>
+<p>这里，  <code>.map()</code> 方法就用来创建出了一个新的、更改过的数组。</p>
+<p>太棒了！ <code>.map()</code>方法创建了一个新数组，并将描述文本添加到了每个元素中。</p>
+<p>更棒的是，我们可用 <code>.map()</code> 方法处理包含对象的数组。</p>
+<p>举一个例子，我们有一堆价格不含税的汽车，然后使用 <code>.map()</code> 添加含税的价格。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">carsWithPrice</span> <span style="color:#f92672">=</span> [
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>}
+];
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">carsWithPriceAndTax</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">carObject</span> =&gt; {
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#75715e">// Return the original car object
+</span><span style="color:#75715e"></span>    ...<span style="color:#a6e22e">carObject</span>,
+    <span style="color:#75715e">// but also add a new value containing the price with tax
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">priceWithTax</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">carObject</span>.<span style="color:#a6e22e">price</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.2</span>
+  }
+});
+
+<span style="color:#75715e">// Result:
+</span><span style="color:#75715e"></span>[
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>, <span style="color:#a6e22e">priceWithTax</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">120000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>, <span style="color:#a6e22e">priceWithTax</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">96000</span>}
+];
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*TT2cjgXlTT6EN2sKZX8nng-20210125173628332-20210125184531336.png" alt="JS code block showing how to use the .map() method to create a new array containing the price with tax" class="lazyload"><figcaption class="image-caption">JS code block showing how to use the .map() method to create a new array containing the price with tax</figcaption></figure></p>
+<p>总而言之，.map（）方法是创建新数组，修改其内容并保持原始数组完整的一种极其通用的方法。</p>
+<h3 id="何时用-arraymap">何时用 Array.map()?</h3>
+<p>当您想要修改现有数组的内容，并将结果存储为新（数组）变量时。</p>
+<hr>
+<h2 id="2-arrayfilter">2. Array.filter()</h2>
+<p>你几乎可以猜到该方法会做什么。</p>
+<p><code>.filter()</code> 方法允许你根据某个特定的条件来获取数组中的元素。</p>
+<p>就像 <code>.map()</code>方法一样， <code>.filter()</code> 方法将返回一个新数组，并保留原始数组。</p>
+<p>还是用汽车来举例，我们根据汽车价格高于某个特定值来过滤数组。</p>
+<p>这里，我们有如下汽车（变量/参数）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cars</span> <span style="color:#f92672">=</span> [
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Toyota&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30000</span>}
+];
+</code></pre></div><p>现在，假设我们设置超过 40,000 的即为昂贵（expensive）。</p>
+<p>我们可使用  <code>.filter()</code> 方法来过滤出所有 ”cheap“ 和 ”expensive“ 的汽车为两个不同数组。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">expensiveCars</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">car</span> =&gt; <span style="color:#a6e22e">car</span>.<span style="color:#a6e22e">price</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">40000</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cheapCars</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">car</span> =&gt; <span style="color:#a6e22e">car</span>.<span style="color:#a6e22e">price</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">40000</span>);
+
+<span style="color:#75715e">// Result - Expensive Cars
+</span><span style="color:#75715e"></span>[
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>}
+];
+
+<span style="color:#75715e">// Result - Cheap Cars
+</span><span style="color:#75715e"></span>[
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Toyota&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30000</span>}
+];
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*PYxypne5rNmWBuMk1-jMZQ-20210125173628768.png" alt="JS code block showing how to use the filter method to filter cheap/expensive cars from an array." class="lazyload"><figcaption class="image-caption">JS code block showing how to use the filter method to filter cheap/expensive cars from an array.</figcaption></figure></p>
+<p>检查数组中的每个元素是否符合条件，如通过测试，则将其返回到新数组中 —— 太棒了！</p>
+<h3 id="何时用--arrayfilter">何时用  Array.filter()?</h3>
+<p>当您要从数组中去除不符合特定条件/规则的元素时。</p>
+<hr>
+<h2 id="3-arrayreduce">3. Array.reduce()</h2>
+<p>现在讲的这个理解上可能会有些棘手。</p>
+<p>简单来说，数组调用  <code>.reduce()</code> ，会对数组中的每个元素执行一个函数，累计处理其返回为单个值。</p>
+<p><code>.reduce()</code> 方法将回调函数作为其第一个传参，可选的初始化值作为其第二个传参（若无初始值，则将使用数组中的第一个元素）。回调函数提供了  <code>accumulator</code> 和 <code>currentValue</code> 两个参数来进行累计处理。</p>
+<p>我知道这可能有点复杂，但是没关系。</p>
+<p>这里有个简单的例子来展示下 <code>.reduce()</code> 方法的使用：</p>
+<p>假设我们要获取一下数组中所有数字的总和。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">65</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">81</span>, <span style="color:#ae81ff">47</span>];
+</code></pre></div><p>We can then use the .reduce() method to add all these values together.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">accumulator</span>, <span style="color:#a6e22e">currentValue</span>) =&gt; <span style="color:#a6e22e">accumulator</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">currentValue</span>, <span style="color:#ae81ff">0</span>);
+
+<span style="color:#75715e">// Result - Total:
+</span><span style="color:#75715e"></span><span style="color:#ae81ff">235</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*lo84xnYe1dtr4nJ9pcAXew-20210125173628548.png" alt="JS code block showing how to use the reduce method to add up all values of an array." class="lazyload"><figcaption class="image-caption">JS code block showing how to use the reduce method to add up all values of an array.</figcaption></figure></p>
+<p>以上，使用 reduce 方法将数组的所有值相加。</p>
+<p>另外， <code>.reduce()</code> 方法可用于展开（多维）数组。有不少方式可以做到这一点，这是其中一种。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">flattened</span> <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>], [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]].<span style="color:#a6e22e">reduce</span>(
+  ( <span style="color:#a6e22e">accumulator</span>, <span style="color:#a6e22e">currentValue</span> ) =&gt; <span style="color:#a6e22e">accumulator</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">currentValue</span>),
+  []
+)
+
+<span style="color:#75715e">// Result - Flattened:
+</span><span style="color:#75715e"></span>[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*sY-ZneJJDsp8hiH0fAHfbw-20210125173628709.png" alt="JS code block showing how to use the reduce method to flatten an array." class="lazyload"><figcaption class="image-caption">JS code block showing how to use the reduce method to flatten an array.</figcaption></figure></p>
+<h3 id="何时用--arrayreduce">何时用  Array.reduce()?</h3>
+<p>当您想要通过操纵数组的值将数组转换为单个值时。</p>
+<hr>
+<h2 id="4-arrayforeach">4. Array.forEach()</h2>
+<p>Ah，这个可是经典。</p>
+<p><code>.forEach()</code> 方法就和常规的 <code>for</code> 循环非常相似。</p>
+<p>它会循环遍历某一个元素并在其上执行一个函数。  <code>.forEach()</code>  方法的第一个传参是回调函数，这个回调函数包含循环的当前值和索引。</p>
+<p>用我们的车车来看以下示例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cars</span> <span style="color:#f92672">=</span> [
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Toyota&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30000</span>}
+];
+</code></pre></div><p>我们可以循环并打印出一句话，包含品牌名称和汽车价格。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">car</span> =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`The </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">car</span>.<span style="color:#a6e22e">brand</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> will cost you </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">car</span>.<span style="color:#a6e22e">price</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> before taxes`</span>);
+});
+
+<span style="color:#75715e">// Result:
+</span><span style="color:#75715e"></span><span style="color:#e6db74">&#34;The Porsche will cost you 100000 before taxes&#34;</span>
+<span style="color:#e6db74">&#34;The Audi will cost you 80000 before taxes&#34;</span>
+<span style="color:#e6db74">&#34;The Toyota will cost you 30000 before taxes&#34;</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*WpM8kmVZejwya1F_WILNDA-20210125193329856.png" alt="JS code block showing how to use the forEach method to loop over all cars and log text showing its brand and price." class="lazyload"><figcaption class="image-caption">JS code block showing how to use the forEach method to loop over all cars and log text showing its brand and price.</figcaption></figure></p>
+<h3 id="何时用--arrayforeach">何时用  Array.forEach()?</h3>
+<p>当你想简单遍历所有数组元素（并执行函数），而无需构造新数组时。</p>
+<hr>
+<h2 id="5-arrayfind">5. Array.find()</h2>
+<p><code>.find()</code> 方法看上去非常像之前看到的  <code>.filter()</code> 方法。</p>
+<p>就像  <code>.filter()</code> 方法一样，你可以传递一个条件，该条件能匹配出（符合该条件的）数组元素值。</p>
+<p>两者的区别在于， <code>.find()</code>  将返回与条件匹配的第一个元素。</p>
+<p>以汽车示例为例，让我们使用<code>.find()</code>  方法获得数组中遇到的第一辆昂贵的汽车。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cars</span> <span style="color:#f92672">=</span> [
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Toyota&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30000</span>}
+];
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">expensiveCar</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">car</span> =&gt; <span style="color:#a6e22e">car</span>.<span style="color:#a6e22e">price</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">40000</span>);
+
+<span style="color:#75715e">// Result - Expensive Car:
+</span><span style="color:#75715e"></span>{<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>}
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*ukUYvdAvjCVkr0bDAyNccw-20210125194412847.png" alt="JS code block showing how to use the find method to find the first “expensive” car in an array." class="lazyload"><figcaption class="image-caption">JS code block showing how to use the find method to find the first “expensive” car in an array.</figcaption></figure></p>
+<h3 id="何时用--arrayfind">何时用  Array.find()?</h3>
+<p>当你需要获取数组中满足特定测试的第一个元素时。</p>
+<hr>
+<h2 id="6-arrayevery">6. Array.every()</h2>
+<p>也许你已经可以猜到此方法会做什么。</p>
+<p><code>.every()</code> 方法将检查数组中的<strong>每个</strong>元素是否通过提供的条件。</p>
+<p>如果所有数组元素通过了这个条件，会返回 <code>true</code> 。如果没有，会返回 <code>false</code>。</p>
+<p>举例说明，我们可以使用<code>.every()</code> 方法来检测是否<strong>所有</strong>汽车实在近五年内制造的。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cars</span> <span style="color:#f92672">=</span> [
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>, <span style="color:#a6e22e">builtIn</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2018</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>, <span style="color:#a6e22e">builtIn</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2019</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Toyota&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30000</span>, <span style="color:#a6e22e">builtIn</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2019</span>}
+];
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">carsYoungerThanFiveYears</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">every</span>(<span style="color:#a6e22e">car</span> =&gt; <span style="color:#a6e22e">car</span>.<span style="color:#a6e22e">builtIn</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2016</span>);
+
+<span style="color:#75715e">// Result - Younger than 5 Years:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">true</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*w3ZconiIGaZQxrdNRYMAyw-20210125194639336.png" alt="JS code block showing how to use the every method to determine if all cars are built within 5 years." class="lazyload"><figcaption class="image-caption">JS code block showing how to use the every method to determine if all cars are built within 5 years.</figcaption></figure></p>
+<h3 id="何时用--arrayevery">何时用  Array.every()?</h3>
+<p>当您要确认数组的<strong>每个</strong>元素是否都通过显式定义的条件时。</p>
+<hr>
+<h2 id="7-arraysome">7. Array.some()</h2>
+<p><code>.some()</code>  方法类似 <code>.every()</code> 方法，但是不同于所有元素都需通过测试，存在至少<strong>一个</strong>元素通过测试，该方法就会返回 true。</p>
+<p><code>.some()</code>  方法如果找到了一个满足条件的数组元素，就会停止并返回 true。但如果遍历之后仍未找到（满足条件的），则返回 false。</p>
+<p>再来看下我们的车车数组，但是这次我们来查下是否有车车龄超过 5年。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cars</span> <span style="color:#f92672">=</span> [
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Porsche&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100000</span>, <span style="color:#a6e22e">builtIn</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2018</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Audi&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">80000</span>, <span style="color:#a6e22e">builtIn</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2019</span>},
+  {<span style="color:#a6e22e">brand</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Toyota&#34;</span>, <span style="color:#a6e22e">price</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30000</span>, <span style="color:#a6e22e">builtIn</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2019</span>}
+];
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">carsOlderThanFiveYears</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">cars</span>.<span style="color:#a6e22e">some</span>(<span style="color:#a6e22e">car</span> =&gt; <span style="color:#a6e22e">car</span>.<span style="color:#a6e22e">builtIn</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2016</span>);
+
+<span style="color:#75715e">// Result - Older than 5 Years:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">false</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1*KXI2iOv8Sv2kh7YrTzZKtA-20210125195306892.png" alt="JS code block showing how to use the some method to check if any of the cars is older than 5 years." class="lazyload"><figcaption class="image-caption">JS code block showing how to use the some method to check if any of the cars is older than 5 years.</figcaption></figure></p>
+<h3 id="何时用--arraysome">何时用  Array.some()?</h3>
+<p>当您要确认数组中是否存在元素能通过显式定义的条件时。</p>
+<h2 id="总结">总结</h2>
+<p>🤩 JavaScript 给我们提供了很多处理数组的不同方法。使用这些方法，你将能提升 JS 开发技能，并使代码库更具可维护性。</p>
+<p>😌 也许你再也不会碰  <code>for</code> 循环了。</p>
+<p>我希望你今天能学到一些新东西。</p>
+<p>想要继续提升你的 JS 技能？看看原作者的其他文章 “<a href="https://medium.com/dailyjs/10-javascript-oneliners-you-have-got-to-add-your-arsenal-as-a-developer-b733cbb973b2">*<strong>10 JavaScript One-liners You Have Got to Add Your Arsenal as a Developer*</strong></a>” or “<a href="https://medium.com/dailyjs/whats-the-difference-between-event-handlers-addeventlistener-in-js-963431f05c34">*<strong>What’s the difference between Event Handlers &amp; addEventListener in JS*</strong></a>”?  to get even better at JS.</p>
+<p>Have a nice day! 😄</p>
+<h4 id="heading"></h4>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/7jsarraymethodsyouwillneedin2021/>https://ftopia2020.github.io/2021/7jsarraymethodsyouwillneedin2021/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/js/">
+                    #JS</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmbigo3/" class="prev" rel="prev" title="「数据结构&amp;算法」必知必会系列：4. 最好、最坏、平均 &amp; 均摊时间复杂度"><i
+                class="iconfont icon-left"></i>&nbsp;「数据结构&amp;算法」必知必会系列：4. 最好、最坏、平均 &amp; 均摊时间复杂度</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmdatastructure1/" class="next" rel="next"
+            title="「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组">「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/7jsarraymethodsyouwillneedin2021/" class="leancloud_visitors" data-flag-title="【译】2021你需要的 7个JS数组处理方法">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
