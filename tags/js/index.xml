@@ -6,10 +6,19 @@
     <description>Recent content in JS on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/js/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS数组/对象的值为什么变了？你需要深入理解对象的值传递</title>
+      <link>https://ftopia2020.github.io/2021/jsarrayobject/</link>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/jsarrayobject/</guid>
+      <description>复杂的对象数据处理后，可能发现某个对象值变了，有时却不变。 上述问题往往会困扰 JS初学者，甚至老手也不一定能说出所以然。 本文将对此进行一定深层</description>
+    </item>
     
     <item>
       <title>【译】10个JS单行代码，可加入你的开发兵器库</title>
