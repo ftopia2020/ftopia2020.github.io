@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/jsarrayobject/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/algorithmdatastructure2/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             「数据结构&amp;算法」必知必会系列：6. 常见数据结构——链表（上） | Ftopia
+         
+    </title>
+    <meta name="title" content="「数据结构&amp;算法」必知必会系列：6. 常见数据结构——链表（上） | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "「数据结构\x26算法」必知必会系列：6. 常见数据结构——链表（上）",
+    "headline" : "「数据结构\x26算法」必知必会系列：6. 常见数据结构——链表（上）",
+    "description" : "系列文章请查看 「数据结构\x26amp;算法」必知必会系列：1. 开篇#计划路线 承接上篇请查看 「数据结构\x26amp;算法」必知必会系列：5. 数组 链表 链",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-01-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/algorithmdatastructure2\/",
+    "wordCount" : "2988",
+    "keywords" : [ "算法","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#链表">链表</a>
+      <ul>
+        <li><a href="#单向链表">单向链表</a></li>
+        <li><a href="#循环链表">循环链表</a></li>
+        <li><a href="#双向链表">双向链表</a></li>
+      </ul>
+    </li>
+    <li><a href="#lru-缓存淘汰算法">LRU 缓存淘汰算法</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">「数据结构&amp;算法」必知必会系列：6. 常见数据结构——链表（上）</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-01-29
+                    itemprop="datePublished">
+                    2021-01-29</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 2988 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 6 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>系列文章请查看 <a href="/2021/algorithmbasic/#%E8%AE%A1%E5%88%92%E8%B7%AF%E7%BA%BF">「数据结构&amp;算法」必知必会系列：1. 开篇#计划路线</a></p>
+<p>承接上篇请查看 <a href="/2021/algorithmdatastructure1/">「数据结构&amp;算法」必知必会系列：5. 数组</a></p>
+</blockquote>
+<h2 id="链表">链表</h2>
+<p>链表（Linked List）是一种常见的基础数据结构，是一种线性表，但是并<strong>不会按线性的顺序存储数据</strong>，而是在每一个节点里存到下一个节点的指针（Pointer）。</p>
+<p>相对数组，链表的掌握会难一些，而且对应的形式也会比较多样。但无论形式是什么，核心正如其英译 <strong>LInked</strong> <strong>List</strong>，即将 <strong>数据与数据链接</strong> 起来的一种线性表数据结构。</p>
+<blockquote>
+<p>可能初学者还是糊，继续看完，相信对「<strong>数据与数据链接</strong>」这一概念会有更为有具象的理解。</p>
+</blockquote>
+<p>链表结构五花八门，本文介绍三种最常见的链表结构：单向链表、双向链表和循环链表。</p>
+<h3 id="单向链表">单向链表</h3>
+<p>先来实现一个最简单最常用的链表，参考 <a href="https://leetcode-cn.com/leetbook/read/linked-list/jsumh/">LeetCode</a></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/screen-shot-2018-04-12-at-152754.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>个人实现用 Golang 代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+)
+
+<span style="color:#75715e">// 节点数据
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">LinkedListObject</span> <span style="color:#66d9ef">interface</span>{}
+
+<span style="color:#75715e">// 节点构造
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">SingleLinkNode</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Data</span>     <span style="color:#a6e22e">LinkedListObject</span>
+	<span style="color:#a6e22e">NextNode</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">SingleLinkNode</span>	<span style="color:#75715e">// 下一节点的指针，Golang 中用*取得指针变量指向的内存地址的值
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#75715e">// 新的节点0
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">node</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">SingleLinkNode</span>)
+	<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Data</span> = <span style="color:#ae81ff">23</span>
+
+	<span style="color:#75715e">// 新的节点1
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">node1</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">SingleLinkNode</span>)
+	<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">Data</span> = <span style="color:#ae81ff">6</span>
+	<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">NextNode</span> = <span style="color:#a6e22e">node1</span> <span style="color:#75715e">// node1 链接到 node 节点上
+</span><span style="color:#75715e"></span>
+	<span style="color:#75715e">// 新的节点2
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">node2</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">SingleLinkNode</span>)
+	<span style="color:#a6e22e">node2</span>.<span style="color:#a6e22e">Data</span> = <span style="color:#ae81ff">15</span>
+	<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">NextNode</span> = <span style="color:#a6e22e">node2</span> <span style="color:#75715e">// node2 链接到 node1 节点上
+</span><span style="color:#75715e"></span>
+	<span style="color:#75715e">// 循环打印
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">nowNode</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">node</span>
+	<span style="color:#66d9ef">for</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nowNode</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#66d9ef">break</span>
+		}
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">nowNode</span>)
+		<span style="color:#a6e22e">nowNode</span> = <span style="color:#a6e22e">nowNode</span>.<span style="color:#a6e22e">NextNode</span>
+	}
+}
+</code></pre></div><blockquote>
+<p><a href="https://play.golang.org/p/kai2MAWfCBu">Go Playground</a></p>
+</blockquote>
+<p>在绝大多数情况下，我们将使用头结点(第一个结点)来表示整个列表。</p>
+<p>代码看不懂没关系，重点在于理解节点构造，查看上述代码打印信息可加深理解。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128154957869.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>接下来，通过对比数组，我们来看看单向链表在底层的存储结构上有什么不同。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128152337510.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>数组需要一块连续的内存；而链表，并不需要连续的内存，它通过“指针”将一组零散的内存块串联起来使用。</p>
+<p>使用链表结构可以克服数组需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。</p>
+<p>单向链表图中，你应该可以发现，其中有两个结点是比较特殊的，它们分别是第一个结点和最后一个结点。</p>
+<p>习惯会把第一个结点叫作<strong>头结点</strong>，把最后一个结点叫作<strong>尾结点</strong>。</p>
+<p>其中，头结点用来记录链表的基地址。有了它，我们就可以遍历得到整条链表。而尾结点特殊的地方是：指针不是指向下一个结点，而是指向一个<strong>空地址 NULL</strong>，表示这是链表上最后一个结点。</p>
+<hr>
+<p>接下来，我们来分析下，在链表中进行查询、插入/删除操作的重要指标项「大O复杂度」。</p>
+<p>**随机访问 **第 k 个元素，由于非连续内存，单向链表就只能轮询查找，即 <strong>O(n)</strong></p>
+<p><strong>插入或删除</strong> ？既然不关心内存连续性，随意分配内存或者删除都只要更改指针指向处理即可，量级上考虑，大O复杂度 =》<strong>O(1)</strong>。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128163747896.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>基础的复杂度分析方法可查看系列文章  <a href="/2021/algorithmbigo2/">3. 时间 &amp; 空间复杂度（下）</a></p>
+<p>下文的复杂度分析也都略过，较为简单就不展开了</p>
+</blockquote>
+<h3 id="循环链表">循环链表</h3>
+<p>直接上图，可看出和单向链表唯一的区别就在尾结点，尾结点指针是指向链表的头结点。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/86cb7dc331ea958b0a108b911f38d155.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>别小看这一差别，如果需要处理的数据具有 <strong>环形结构</strong> 特点，就很适合这个循环链表了。</p>
+<h3 id="双向链表">双向链表</h3>
+<p>双向链表相对复杂一点，链表节点增加了一个指针和节点，还是看图 比较容易理解。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128170354555.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>双向链表，顾名思义，它支持两个方向，每个结点不止有一个<strong>后继指针 next</strong> 指向后面的结点，还有一个<strong>前驱指针 prev</strong> 指向前面的结点。</p>
+<p>双向链表需要额外的两个空间来存储后继结点和前驱结点的地址。所以，如果存储同样多的数据，双向链表要比单向链表占用更多的内存空间。虽然两个指针比较浪费存储空间，但可以支持双向遍历。</p>
+<p>那相比单向链表，双向链表适合解决哪种问题呢？</p>
+<p>之前 O(1) 的插入和删除，前提是知道节点位置为第 k 个，但是实际情况下我们往往不知道位置，而会有以下两种场景（其实重点在于 ”查找”）：</p>
+<ul>
+<li>删除结点中“值等于某个给定值”的结点</li>
+<li>删除给定指针指向的结点</li>
+</ul>
+<p>第一种，无论单、双向，都还是需要遍历查找，复杂度即 O(n)</p>
+<p>重点来看第二种，假设 b 节点的指针已知，单向链表并不知道前置节点 a 的位置（假设 a 非头结点），查找仍需要 O(n) 的时间复杂度。双向链表记录了前置指针，就简化为 O(1) 啦 (～￣▽￣)～</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128171609491.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>插入其实也是一样，如果场景是已知 c 节点，但是想要再其前面插入，单向链表就仍需遍历了。</p>
+<p>除了以上优势，有序链表的查询，双向链表可比较大小来决定向前/向后查找，平均只需查找一半数据。</p>
+<blockquote>
+<p>这边体现了一个 「空间换时间」的设计思想，虽然损耗了内存空间，但是代码执行速度提升了。</p>
+<p>「空间换时间」的设计思想的典型应用还有缓存技术等等。</p>
+</blockquote>
+<p>那如果双向+循环呢？我们把双向链表的头尾相连，就变成了双向循环链表，简单图示如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/d1665043b283ecdf79b157cfc9e5ed91.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<hr>
+<p>好了，看了那么多链表，是否对 ” <strong>数据与数据链接</strong> 起来” 这一概念理解透了呢？</p>
+<h2 id="lru-缓存淘汰算法">LRU 缓存淘汰算法</h2>
+<p>可能会奇怪，怎么突然提到「LRU」这个高频面试题了？</p>
+<p>🙌 这是一个经典的链表应用场景，且有较广泛的应用。（初学者也别直接略过，可尝试着思考理解下，真不难）</p>
+<p><strong>LRU</strong> 是一种常见的缓存策略，通常一起提及还有两种：先进先出策略 <strong>FIFO</strong>（First In，First Out）、最少使用策略 <strong>LFU</strong>（Least Frequently Used）。</p>
+<p>字面理解应该不难，<strong>LRU</strong> （Least Recently Used）——  最近最少使用。</p>
+<p>举个具体的场景 🌰，现有用户表的缓存，把缓存上限设置成 4（小一点便于理解）</p>
+<ol>
+<li>业务方依次访问 1、2、3、4 这几个用户，你会如何设计链表？</li>
+<li>现在业务方访问了 User 5，该删除哪个？User5 又该放哪？</li>
+<li>此时业务方访问了 User 4，又如何处理？</li>
+</ol>
+<p>先试着自己考虑并且画下吧 ~ (*´▽｀)ノノ</p>
+<hr>
+<p>看下图，应该不难理解吧？我们用单链表 实现了 LRU 缓存</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210129105405036.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>有人可能会想这怎么和我之前记的LRU 不大一样？（如面试准备死记硬背的 😝）</p>
+<p>别着急，我们再来分析下 ↑ 的复杂度：插入删除O(1) 可忽略，主要在查找上 =》O(n)</p>
+<p>继续优化，可引入散列表（Hash table）来记录每个数据的位置，这样就可将缓存访问的时间复杂度降到 O(1)。</p>
+<p>解决了访问第一问题，我们再来想下删除（如上例 User4），位置知道了，前置指针怎么解决？</p>
+<p>🙌  双向链表  ✅</p>
+<blockquote>
+<p>系列之后会具体介绍「散列表」以及 「哈希算法」，之后再回过头继续优化分析 LRU缓存淘汰算法</p>
+<p>先上张图吧</p>
+</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image001.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="总结">总结</h2>
+<p><strong>Q：链表相比数组，有什么优缺点？</strong></p>
+<p>🙌 和数组相比，链表更适合插入、删除操作频繁的场景，查询的时间复杂度较高。</p>
+<p>但在实际的软件开发中，并不能局限于时间复杂度分析。</p>
+<p>数组简单易用，在实现上使用的是连续的内存空间，可以借助 CPU 缓存机制，预读数组中的数据，所以访问效率更高。而链表在内存中并不是连续存储，所以对 CPU 缓存不友好，没办法有效预读。</p>
+<p>数组的缺点是大小固定，一经声明就要占用整块连续内存空间。如果声明的数组过大，可能会导致内存不足。如果声明的数组过小，则可能出现不够用的情况。这时只能再申请一个更大的内存空间，把原数组拷贝进去，非常费时。链表本身没有大小的限制，天然地支持动态扩容。</p>
+<p>除此之外，如果你的代码对内存的使用非常苛刻，那数组就更适合你。因为链表中的每个结点都需要消耗额外的存储空间去存储一份指向下一个结点的指针，所以内存消耗会翻倍。而且，对链表进行频繁的插入、删除操作，还会导致频繁的内存申请和释放，容易造成内存碎片，如果是 Java 语言，就有可能会导致频繁的 GC（Garbage Collection，垃圾回收）。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128164928896.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><strong>Q：常用的链表你能举几个例子么？</strong></p>
+<p>🙌  单向链表、循环链表、双向链表（双向循环链表）</p>
+<p><strong>Q：如何基于链表实现 LRU 缓存淘汰算法？</strong></p>
+<p>🙌  我的思路是这样的：维护一个有序单链表，越靠近链表尾部的结点是越早之前访问的。当有一个新的数据被访问时，我们从链表头开始顺序遍历链表。</p>
+<blockquote>
+<p>面试回答直接是 『哈希双向链表』 哈~（Hashmap + Double Linked List）</p>
+</blockquote>
+<hr>
+<p>本系列 链表（下篇）将具体来 ”实战” —— 链表代码实现，预告如下（参考 LeetCode）：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128183144848.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/algorithmdatastructure2/>https://ftopia2020.github.io/2021/algorithmdatastructure2/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/jsarrayobject/" class="prev" rel="prev" title="JS数组/对象的值为什么变了？你需要深入理解对象的值传递"><i
+                class="iconfont icon-left"></i>&nbsp;JS数组/对象的值为什么变了？你需要深入理解对象的值传递</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/algorithmdatastructure2/" class="leancloud_visitors" data-flag-title="「数据结构&amp;算法」必知必会系列：6. 常见数据结构——链表（上）">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

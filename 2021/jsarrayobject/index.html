@@ -10,7 +10,7 @@
     <meta name="keywords" content="ftopia fei">
     
     <link rel="prev" href="https://ftopia2020.github.io/2021/10javascript-oneliners/" />
-    
+    <link rel="next" href="https://ftopia2020.github.io/2021/algorithmdatastructure2/" />
     <link rel="canonical" href="https://ftopia2020.github.io/2021/jsarrayobject/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -59,7 +59,7 @@
     "datePublished": "2021-01-27 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-01-27 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2021\/jsarrayobject\/",
-    "wordCount" : "1504",
+    "wordCount" : "1503",
     "keywords" : [ "JS","原创", "Ftopia"]
 }
 </script>
@@ -174,9 +174,9 @@
                     2021-01-27</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 1504 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1503 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
 
         </div>
     </header>
@@ -247,7 +247,7 @@
 </ul>
 <hr>
 <p>有了以上理论理解的基础，我们再来依次分析下之前的 🌰</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210127171752182.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210129111607032.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <p>直接上图，应该不难理解了吧，当执行了 <code> a = [3,4]</code>  ，之后，a 和 b 变量的引用根本变了，此时不论 a如何改变其值，都不再影响 b。</p>
 <p>但是，<code>a</code> 和 <code>b</code> 共享引用（传递）时（即 Example2、4），<code>a</code> 的变化会直接影响 <code>b</code></p>
 <blockquote>
@@ -326,8 +326,9 @@
 <p>浅拷贝有效性针对的是单一层级对象，比如简单的一维数组等等。</p>
 <p>深拷贝有效性针对的是多层级对象，比如后端返回的Json对象等。</p>
 <p><strong>Q：如何在 JS 中实现浅拷贝 &amp; 深拷贝？</strong></p>
-<p>🙌 本来想自己总结几种常用方式的，<a href="https://juejin.cn/post/6844903799459414029">浅拷贝与深拷贝</a> 高赞文章已有，太棒了~</p>
-<p>个人通常使用扩展运算符 <code>...</code> 来实现浅拷贝，使用<code>JSON.parse(JSON.stringify())</code> 来深拷贝</p>
+<p>🙌 本来想自己总结几种常用方式的，<a href="https://juejin.cn/post/6844904197595332622">浅拷贝和深拷贝</a> 高赞文章已有，太棒了~</p>
+<p>个人通常使用扩展运算符 <code>...</code> 来实现浅拷贝</p>
+<p>使用<code>JSON.parse(JSON.stringify())</code> 来深拷贝</p>
 <h2 id="summary">Summary</h2>
 <ul>
 <li>原始类型是<strong>不可变</strong>的(immutable)，只有对象是<strong>可变</strong>的(mutable)</li>
@@ -383,6 +384,9 @@
         <a href="https://ftopia2020.github.io/2021/10javascript-oneliners/" class="prev" rel="prev" title="【译】10个JS单行代码，可加入你的开发兵器库"><i
                 class="iconfont icon-left"></i>&nbsp;【译】10个JS单行代码，可加入你的开发兵器库</a>
         
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmdatastructure2/" class="next" rel="next"
+            title="「数据结构&amp;算法」必知必会系列：6. 常见数据结构——链表（上）">「数据结构&amp;算法」必知必会系列：6. 常见数据结构——链表（上）&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
