@@ -10,7 +10,7 @@
     <meta name="keywords" content="ftopia fei">
     
     <link rel="prev" href="https://ftopia2020.github.io/2021/jsarrayobject/" />
-    
+    <link rel="next" href="https://ftopia2020.github.io/2021/algorithmdatastructure3/" />
     <link rel="canonical" href="https://ftopia2020.github.io/2021/algorithmdatastructure2/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -203,7 +203,7 @@
 <p>承接上篇请查看 <a href="/2021/algorithmdatastructure1/">「数据结构&amp;算法」必知必会系列：5. 数组</a></p>
 </blockquote>
 <h2 id="链表">链表</h2>
-<p>链表（Linked List）是一种常见的基础数据结构，是一种线性表，但是并<strong>不会按线性的顺序存储数据</strong>，而是在每一个节点里存到下一个节点的指针（Pointer）。</p>
+<p>链表（Linked List）是一种常见的基础数据结构，是一种线性表，但是并<strong>不会按线性的顺序存储数据</strong>，而是在每一个结点里存到下一个结点的指针（Pointer）。</p>
 <p>相对数组，链表的掌握会难一些，而且对应的形式也会比较多样。但无论形式是什么，核心正如其英译 <strong>LInked</strong> <strong>List</strong>，即将 <strong>数据与数据链接</strong> 起来的一种线性表数据结构。</p>
 <blockquote>
 <p>可能初学者还是糊，继续看完，相信对「<strong>数据与数据链接</strong>」这一概念会有更为有具象的理解。</p>
@@ -219,29 +219,29 @@
 	<span style="color:#e6db74">&#34;fmt&#34;</span>
 )
 
-<span style="color:#75715e">// 节点数据
+<span style="color:#75715e">// 结点数据
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">LinkedListObject</span> <span style="color:#66d9ef">interface</span>{}
 
-<span style="color:#75715e">// 节点构造
+<span style="color:#75715e">// 结点构造
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">SingleLinkNode</span> <span style="color:#66d9ef">struct</span> {
 	<span style="color:#a6e22e">Data</span>     <span style="color:#a6e22e">LinkedListObject</span>
-	<span style="color:#a6e22e">NextNode</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">SingleLinkNode</span>	<span style="color:#75715e">// 下一节点的指针，Golang 中用*取得指针变量指向的内存地址的值
+	<span style="color:#a6e22e">NextNode</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">SingleLinkNode</span>	<span style="color:#75715e">// 下一结点的指针，Golang 中用*取得指针变量指向的内存地址的值
 </span><span style="color:#75715e"></span>}
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-	<span style="color:#75715e">// 新的节点0
+	<span style="color:#75715e">// 新的结点0
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">node</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">SingleLinkNode</span>)
 	<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">Data</span> = <span style="color:#ae81ff">23</span>
 
-	<span style="color:#75715e">// 新的节点1
+	<span style="color:#75715e">// 新的结点1
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">node1</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">SingleLinkNode</span>)
 	<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">Data</span> = <span style="color:#ae81ff">6</span>
-	<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">NextNode</span> = <span style="color:#a6e22e">node1</span> <span style="color:#75715e">// node1 链接到 node 节点上
+	<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">NextNode</span> = <span style="color:#a6e22e">node1</span> <span style="color:#75715e">// node1 链接到 node 结点上
 </span><span style="color:#75715e"></span>
-	<span style="color:#75715e">// 新的节点2
+	<span style="color:#75715e">// 新的结点2
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">node2</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">SingleLinkNode</span>)
 	<span style="color:#a6e22e">node2</span>.<span style="color:#a6e22e">Data</span> = <span style="color:#ae81ff">15</span>
-	<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">NextNode</span> = <span style="color:#a6e22e">node2</span> <span style="color:#75715e">// node2 链接到 node1 节点上
+	<span style="color:#a6e22e">node1</span>.<span style="color:#a6e22e">NextNode</span> = <span style="color:#a6e22e">node2</span> <span style="color:#75715e">// node2 链接到 node1 结点上
 </span><span style="color:#75715e"></span>
 	<span style="color:#75715e">// 循环打印
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">nowNode</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">node</span>
@@ -257,7 +257,7 @@
 <p><a href="https://play.golang.org/p/kai2MAWfCBu">Go Playground</a></p>
 </blockquote>
 <p>在绝大多数情况下，我们将使用头结点(第一个结点)来表示整个列表。</p>
-<p>代码看不懂没关系，重点在于理解节点构造，查看上述代码打印信息可加深理解。</p>
+<p>代码看不懂没关系，重点在于理解结点构造，查看上述代码打印信息可加深理解。</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128154957869.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <p>接下来，通过对比数组，我们来看看单向链表在底层的存储结构上有什么不同。</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128152337510.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
@@ -270,7 +270,7 @@
 <p>接下来，我们来分析下，在链表中进行查询、插入/删除操作的重要指标项「大O复杂度」。</p>
 <p>**随机访问 **第 k 个元素，由于非连续内存，单向链表就只能轮询查找，即 <strong>O(n)</strong></p>
 <p><strong>插入或删除</strong> ？既然不关心内存连续性，随意分配内存或者删除都只要更改指针指向处理即可，量级上考虑，大O复杂度 =》<strong>O(1)</strong>。</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128163747896.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210203105430014.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <blockquote>
 <p>基础的复杂度分析方法可查看系列文章  <a href="/2021/algorithmbigo2/">3. 时间 &amp; 空间复杂度（下）</a></p>
 <p>下文的复杂度分析也都略过，较为简单就不展开了</p>
@@ -280,20 +280,19 @@
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/86cb7dc331ea958b0a108b911f38d155.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <p>别小看这一差别，如果需要处理的数据具有 <strong>环形结构</strong> 特点，就很适合这个循环链表了。</p>
 <h3 id="双向链表">双向链表</h3>
-<p>双向链表相对复杂一点，链表节点增加了一个指针和节点，还是看图 比较容易理解。</p>
+<p>双向链表相对复杂一点，链表结点增加了一个指针和结点，还是看图 比较容易理解。</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128170354555.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 <p>双向链表，顾名思义，它支持两个方向，每个结点不止有一个<strong>后继指针 next</strong> 指向后面的结点，还有一个<strong>前驱指针 prev</strong> 指向前面的结点。</p>
 <p>双向链表需要额外的两个空间来存储后继结点和前驱结点的地址。所以，如果存储同样多的数据，双向链表要比单向链表占用更多的内存空间。虽然两个指针比较浪费存储空间，但可以支持双向遍历。</p>
 <p>那相比单向链表，双向链表适合解决哪种问题呢？</p>
-<p>之前 O(1) 的插入和删除，前提是知道节点位置为第 k 个，但是实际情况下我们往往不知道位置，而会有以下两种场景（其实重点在于 ”查找”）：</p>
+<p>之前 O(1) 的插入和删除，前提是知道结点位置为第 k 个，但是实际情况下我们往往不知道位置，而会有以下两种场景（其实重点在于 ”查找”）：</p>
 <ul>
 <li>删除结点中“值等于某个给定值”的结点</li>
 <li>删除给定指针指向的结点</li>
 </ul>
 <p>第一种，无论单、双向，都还是需要遍历查找，复杂度即 O(n)</p>
-<p>重点来看第二种，假设 b 节点的指针已知，单向链表并不知道前置节点 a 的位置（假设 a 非头结点），查找仍需要 O(n) 的时间复杂度。双向链表记录了前置指针，就简化为 O(1) 啦 (～￣▽￣)～</p>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210128171609491.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
-<p>插入其实也是一样，如果场景是已知 c 节点，但是想要再其前面插入，单向链表就仍需遍历了。</p>
+<p>重点来看第二种，假设 b 结点的指针已知，单向链表并不知道前置结点 a 的位置（假设 a 非头结点），查找仍需要 O(n) 的时间复杂度。双向链表记录了前置指针，就简化为 O(1) 啦 (～￣▽￣)～</p>
+<p>插入其实也是一样，如果场景是已知 c 结点，但是想要再其前面插入，单向链表就仍需遍历了。</p>
 <p>除了以上优势，有序链表的查询，双向链表可比较大小来决定向前/向后查找，平均只需查找一半数据。</p>
 <blockquote>
 <p>这边体现了一个 「空间换时间」的设计思想，虽然损耗了内存空间，但是代码执行速度提升了。</p>
@@ -395,6 +394,9 @@
         <a href="https://ftopia2020.github.io/2021/jsarrayobject/" class="prev" rel="prev" title="JS数组/对象的值为什么变了？你需要深入理解对象的值传递"><i
                 class="iconfont icon-left"></i>&nbsp;JS数组/对象的值为什么变了？你需要深入理解对象的值传递</a>
         
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmdatastructure3/" class="next" rel="next"
+            title="「数据结构&amp;算法」必知必会系列：7. 常见数据结构——链表（下）">「数据结构&amp;算法」必知必会系列：7. 常见数据结构——链表（下）&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
