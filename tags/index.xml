@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>golang</title>
+      <link>https://ftopia2020.github.io/tags/golang/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>转载</title>
+      <link>https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>原创</title>
@@ -48,15 +66,6 @@
     </item>
     
     <item>
-      <title>转载</title>
-      <link>https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/</link>
-      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>bug</title>
       <link>https://ftopia2020.github.io/tags/bug/</link>
       <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
@@ -89,15 +98,6 @@
       <pubDate>Mon, 28 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/tags/chrome-%E6%8F%92%E4%BB%B6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://ftopia2020.github.io/tags/golang/</link>
-      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/tags/golang/</guid>
       <description></description>
     </item>
     

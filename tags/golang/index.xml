@@ -6,10 +6,19 @@
     <description>Recent content in golang on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】Go 每日一库之 air</title>
+      <link>https://ftopia2020.github.io/2021/goair/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goair/</guid>
+      <description>原文链接：https://darjun.github.io/2020/09/27/godailylib/air/ 简介 air 是 Go 语言的热加载工具，</description>
+    </item>
     
     <item>
       <title>Gopher China 2020 大会（附 PPT 传送门）</title>

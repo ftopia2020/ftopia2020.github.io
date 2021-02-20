@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/algorithmdatastructure3/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/goair/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】Go 每日一库之 air | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】Go 每日一库之 air | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】Go 每日一库之 air",
+    "headline" : "【转】Go 每日一库之 air",
+    "description" : "原文链接：https:\/\/darjun.github.io\/2020\/09\/27\/godailylib\/air\/ 简介 air 是 Go 语言的热加载工具，",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-02-20 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-02-20 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/goair\/",
+    "wordCount" : "1022",
+    "keywords" : [ "golang","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#快速使用">快速使用</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#调试模式">调试模式</a></li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】Go 每日一库之 air</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-02-20
+                    itemprop="datePublished">
+                    2021-02-20</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1022 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>原文链接：<a href="https://darjun.github.io/2020/09/27/godailylib/air/">https://darjun.github.io/2020/09/27/godailylib/air/</a></p>
+</blockquote>
+<h2 id="简介">简介</h2>
+<p><a href="https://darjun.github.io/2020/09/27/godailylib/air/github.com/cosmtrek/air"><code>air</code></a> 是 Go 语言的热加载工具，它可以监听文件或目录的变化，自动编译，重启程序。大大提高开发期的工作效率。</p>
+<h2 id="快速使用">快速使用</h2>
+<p>本文代码使用 Go Modules，在 Mac 上运行。</p>
+<p>先创建目录并初始化：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir air <span style="color:#f92672">&amp;&amp;</span> cd air
+$ go mod init github.com/darjun/go-daily-lib/air
+</code></pre></div><p>执行下面的命令安装<code>air</code>工具：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go get -u github.com/cosmtrek/air
+</code></pre></div><p>上面的命令会在<code>$GOPATH/bin</code>目录下生成<code>air</code>命令。我一般会将<code>$GOPATH/bin</code>加入系统<code>PATH</code>中，所以可以方便地在任何地方执行<code>air</code>命令。</p>
+<p>下面我们使用标准库<code>net/http</code>编写一个简单的 Web 服务器：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+  <span style="color:#e6db74">&#34;fmt&#34;</span>
+  <span style="color:#e6db74">&#34;log&#34;</span>
+  <span style="color:#e6db74">&#34;net/http&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">index</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintln</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Hello, world!&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+  <span style="color:#a6e22e">mux</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewServeMux</span>()
+  <span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">index</span>)
+
+  <span style="color:#a6e22e">server</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Server</span>{
+    <span style="color:#a6e22e">Handler</span>: <span style="color:#a6e22e">mux</span>,
+    <span style="color:#a6e22e">Addr</span>:    <span style="color:#e6db74">&#34;:8080&#34;</span>,
+  }
+
+  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">ListenAndServe</span>())
+}
+</code></pre></div><p>运行程序：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go run main.go
+</code></pre></div><p>在浏览器中访问<code>localhost:8080</code>即可看到<code>Hello, world!</code>。</p>
+<p>如果现在要求把<code>Hello, world!</code>改为<code>Hello, dj!</code>，如果不用<code>air</code>只能修改代码，执行<code>go build</code>编译，然后重启。</p>
+<p>使用<code>air</code>，我们只需要执行下面的命令就可以运行程序：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ air
+</code></pre></div><p><code>air</code>会自动编译，启动程序，并监听当前目录中的文件修改：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/air1.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>当我们将<code>Hello, world!</code>改为<code>Hello, dj!</code>时，<code>air</code>监听到了这个修改，会自动编译，并且重启程序：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/air2.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>这时，我们在浏览器中访问<code>localhost:8080</code>，文本会变为<code>Hello, dj!</code>，是不是很方便？</p>
+<h2 id="配置">配置</h2>
+<p>直接执行<code>air</code>命令，使用的就是默认的配置。一般建议将<code>air</code>项目中提供的<a href="https://github.com/cosmtrek/air/blob/master/air_example.toml"><code>air_example.toml</code></a>配置文件复制一份，根据自己的需求做修改和定制：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">root</span> = <span style="color:#e6db74">&#34;.&#34;</span>
+<span style="color:#a6e22e">tmp_dir</span> = <span style="color:#e6db74">&#34;tmp&#34;</span>
+
+[<span style="color:#a6e22e">build</span>]
+<span style="color:#a6e22e">cmd</span> = <span style="color:#e6db74">&#34;go build -o ./tmp/main .&#34;</span>
+<span style="color:#a6e22e">bin</span> = <span style="color:#e6db74">&#34;tmp/main&#34;</span>
+<span style="color:#a6e22e">full_bin</span> = <span style="color:#e6db74">&#34;APP_ENV=dev APP_USER=air ./tmp/main&#34;</span>
+<span style="color:#a6e22e">include_ext</span> = [<span style="color:#e6db74">&#34;go&#34;</span>, <span style="color:#e6db74">&#34;tpl&#34;</span>, <span style="color:#e6db74">&#34;tmpl&#34;</span>, <span style="color:#e6db74">&#34;html&#34;</span>]
+<span style="color:#a6e22e">exclude_dir</span> = [<span style="color:#e6db74">&#34;assets&#34;</span>, <span style="color:#e6db74">&#34;tmp&#34;</span>, <span style="color:#e6db74">&#34;vendor&#34;</span>, <span style="color:#e6db74">&#34;frontend/node_modules&#34;</span>]
+<span style="color:#a6e22e">include_dir</span> = []
+<span style="color:#a6e22e">exclude_file</span> = []
+<span style="color:#a6e22e">log</span> = <span style="color:#e6db74">&#34;air.log&#34;</span>
+<span style="color:#a6e22e">delay</span> = <span style="color:#ae81ff">1000</span> <span style="color:#75715e"># ms</span>
+<span style="color:#a6e22e">stop_on_error</span> = <span style="color:#66d9ef">true</span>
+<span style="color:#a6e22e">send_interrupt</span> = <span style="color:#66d9ef">false</span>
+<span style="color:#a6e22e">kill_delay</span> = <span style="color:#ae81ff">500</span> <span style="color:#75715e"># ms</span>
+
+[<span style="color:#a6e22e">log</span>]
+<span style="color:#a6e22e">time</span> = <span style="color:#66d9ef">false</span>
+
+[<span style="color:#a6e22e">color</span>]
+<span style="color:#a6e22e">main</span> = <span style="color:#e6db74">&#34;magenta&#34;</span>
+<span style="color:#a6e22e">watcher</span> = <span style="color:#e6db74">&#34;cyan&#34;</span>
+<span style="color:#a6e22e">build</span> = <span style="color:#e6db74">&#34;yellow&#34;</span>
+<span style="color:#a6e22e">runner</span> = <span style="color:#e6db74">&#34;green&#34;</span>
+
+[<span style="color:#a6e22e">misc</span>]
+<span style="color:#a6e22e">clean_on_exit</span> = <span style="color:#66d9ef">true</span>
+</code></pre></div><p>可以配置项目根目录，临时文件目录，编译和执行的命令，监听文件目录，监听后缀名，甚至控制台日志颜色都可以配置。</p>
+<h2 id="调试模式">调试模式</h2>
+<p>如果想查看<code>air</code>更详细的执行流程，可以使用<code>-d</code>选项。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/air3.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>使用<code>-d</code>选项，<code>air</code>会输出非常详细的信息，可以帮助排查问题。</p>
+<h2 id="总结">总结</h2>
+<p>在开发期，使用<code>air</code>可以避免频繁地编译，重启。把这些都自动化了，大大地提升了开发效率。</p>
+<p>大家如果发现好玩、好用的 Go 语言库，欢迎到 Go 每日一库 GitHub 上提交 issue😄</p>
+<h2 id="参考">参考</h2>
+<ol>
+<li>air GitHub：https://github.com/cosmtrek/air</li>
+<li>Go 每日一库 GitHub：https://github.com/darjun/go-daily-lib</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/goair/>https://ftopia2020.github.io/2021/goair/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/golang/">
+                    #golang</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmdatastructure3/" class="prev" rel="prev" title="「数据结构&amp;算法」必知必会系列：7. 常见数据结构——链表（下）"><i
+                class="iconfont icon-left"></i>&nbsp;「数据结构&amp;算法」必知必会系列：7. 常见数据结构——链表（下）</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/goair/" class="leancloud_visitors" data-flag-title="【转】Go 每日一库之 air">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
