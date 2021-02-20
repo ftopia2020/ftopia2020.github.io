@@ -315,7 +315,7 @@ viper本身没有设置默认的搜索路径，需要用户自己设置默认路
 </blockquote>
 <h3 id="例子1-读取配置文件">例子1. 读取配置文件</h3>
 <p>config.toml 配置文件：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">Copy</span><span style="color:#75715e"># this is a toml </span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#75715e"># this is a toml </span>
 
 <span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;toml exaples&#34;</span>
 <span style="color:#a6e22e">redis</span> = <span style="color:#e6db74">&#34;127.0.0.1:3300&#34;</span>  <span style="color:#75715e"># redis</span>
@@ -326,7 +326,7 @@ viper本身没有设置默认的搜索路径，需要用户自己设置默认路
 <span style="color:#a6e22e">username</span> = <span style="color:#e6db74">&#34;root&#34;</span>
 <span style="color:#a6e22e">password</span> = <span style="color:#e6db74">&#34;root123456&#34;</span>
 </code></pre></div><p>viper_toml.go:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copypackage</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span>(
     <span style="color:#e6db74">&#34;fmt&#34;</span>
@@ -363,7 +363,7 @@ viper本身没有设置默认的搜索路径，需要用户自己设置默认路
 }
 </code></pre></div><h3 id="例子2-读取多个配置文件">例子2. 读取多个配置文件</h3>
 <p>在例子1基础上多增加一个json的配置文件，config3.json 配置文件：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Copy</span>{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;redis&#34;</span>: <span style="color:#e6db74">&#34;127.0.0.1:33000&#34;</span>,
   <span style="color:#f92672">&#34;mysql&#34;</span>: {
     <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">3306</span>,
@@ -373,7 +373,7 @@ viper本身没有设置默认的搜索路径，需要用户自己设置默认路
   }
 }
 </code></pre></div><p>viper_multi.go</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copypackage</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;fmt&#34;</span>
@@ -437,7 +437,7 @@ config: {127.0.0.1:33000 {0 192.168.1.1 root 123456}} redis: 127.0.0.1:33000</p>
 </blockquote>
 <h3 id="例子3-读取配置项的值">例子3. 读取配置项的值</h3>
 <p>新建文件夹 item， 在里面创建文件 config.json，内容如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Copy</span>{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;redis&#34;</span>: <span style="color:#e6db74">&#34;127.0.0.1:33000&#34;</span>,
   <span style="color:#f92672">&#34;mysql&#34;</span>: {
     <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">3306</span>,
@@ -455,7 +455,7 @@ config: {127.0.0.1:33000 {0 192.168.1.1 root 123456}} redis: 127.0.0.1:33000</p>
   }
 }
 </code></pre></div><p>item/viper_get_item.go 读取配置项的值</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copypackage</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;fmt&#34;</span>
@@ -506,7 +506,7 @@ redis - 127.0.0.1:33000
 mysqlmap - map[host:127.0.0.1 metric: password:123456 port:3306 ports: username:root] , username: root</p>
 </blockquote>
 <p>如果把上面的文件config.json写成toml格式，怎么解析？ 改成config1.toml:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">Copy</span><span style="color:#75715e"># toml</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#75715e"># toml</span>
 <span style="color:#a6e22e">toml</span> = <span style="color:#e6db74">&#34;toml example&#34;</span>
 
 <span style="color:#a6e22e">redis</span> = <span style="color:#e6db74">&#34;127.0.0.1:33000&#34;</span>
@@ -543,7 +543,7 @@ viper.SetConfigType(&ldquo;json&rdquo;)里的 json 改成 toml，其余代码都
 </ul>
 <h3 id="例子4-读取命令行的值">例子4. 读取命令行的值</h3>
 <p>新建文件夹 cmd，然后cmd文件夹里新建config.json文件：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Copy</span>{
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;redis&#34;</span>:{
     <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">3301</span>,
     <span style="color:#f92672">&#34;host&#34;</span>: <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>
@@ -556,7 +556,7 @@ viper.SetConfigType(&ldquo;json&rdquo;)里的 json 改成 toml，其余代码都
   }
 }
 </code></pre></div><p>go解析文件，cmd/viper_pflag.go：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copypackage</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;fmt&#34;</span>
@@ -652,7 +652,7 @@ redis - host: 127.0.0.1 , port: 6666</p>
 <p><a href="https://github.com/spf13/viper#writing-config-files">https://github.com/spf13/viper#writing-config-files</a></p>
 </blockquote>
 <p>新建文件 writer/viper_write_config.go:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copypackage</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> (
 	<span style="color:#e6db74">&#34;fmt&#34;</span>
@@ -684,7 +684,7 @@ redis - host: 127.0.0.1 , port: 6666</p>
 <p>$ go run viper_write_config.go</p>
 </blockquote>
 <p>没有任何输出表示生成配置文件成功</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">Copymysql</span>:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">mysql</span>:
   <span style="color:#66d9ef">host</span>: <span style="color:#ae81ff">192.168.1.0</span>
   <span style="color:#66d9ef">password</span>: root123
   <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">3306</span>
