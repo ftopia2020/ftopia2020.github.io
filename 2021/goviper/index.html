@@ -258,14 +258,14 @@
 </blockquote>
 <h3 id="通过viperset设置值">通过viper.Set设置值</h3>
 <p>如果某个键通过viper.Set设置了值，那么这个值读取的优先级最高</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copyviper</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;mysql.info&#34;</span>, <span style="color:#e6db74">&#34;this is mysql info&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">Set</span>(<span style="color:#e6db74">&#34;mysql.info&#34;</span>, <span style="color:#e6db74">&#34;this is mysql info&#34;</span>)
 </code></pre></div><h3 id="设置默认值">设置默认值</h3>
 <blockquote>
 <p><a href="https://github.com/spf13/viper/blob/master/README.md#establishing-defaults">https://github.com/spf13/viper/blob/master/README.md#establishing-defaults</a></p>
 </blockquote>
 <p>viper 支持默认值的设置。如果配置文件、环境变量、远程配置中没有设置键值，就可以通过viper设置一些默认值。</p>
 <p>Examples：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copyviper</span>.<span style="color:#a6e22e">SetDefault</span>(<span style="color:#e6db74">&#34;ContentDir&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetDefault</span>(<span style="color:#e6db74">&#34;ContentDir&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>)
 <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetDefault</span>(<span style="color:#e6db74">&#34;LayoutDir&#34;</span>, <span style="color:#e6db74">&#34;layouts&#34;</span>)
 <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetDefault</span>(<span style="color:#e6db74">&#34;Taxonomies&#34;</span>, <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;tag&#34;</span>: <span style="color:#e6db74">&#34;tags&#34;</span>, <span style="color:#e6db74">&#34;category&#34;</span>: <span style="color:#e6db74">&#34;categories&#34;</span>})
 </code></pre></div><h3 id="读取配置文件">读取配置文件</h3>
@@ -276,7 +276,7 @@
 <p>viper可以从多个路径搜索配置文件，单个viper实例只支持单个配置文件。
 viper本身没有设置默认的搜索路径，需要用户自己设置默认路径。</p>
 <p><strong>viper搜索和读取配置文件例子片段</strong>：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copyviper</span>.<span style="color:#a6e22e">SetConfigName</span>(<span style="color:#e6db74">&#34;config&#34;</span>) <span style="color:#75715e">// 配置文件的文件名，没有扩展名，如 .yaml, .toml 这样的扩展名
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetConfigName</span>(<span style="color:#e6db74">&#34;config&#34;</span>) <span style="color:#75715e">// 配置文件的文件名，没有扩展名，如 .yaml, .toml 这样的扩展名
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetConfigType</span>(<span style="color:#e6db74">&#34;yaml&#34;</span>)  <span style="color:#75715e">// 设置扩展名。在这里设置文件的扩展名。另外，如果配置文件的名称没有扩展名，则需要配置这个选项
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">AddConfigPath</span>(<span style="color:#e6db74">&#34;/etc/appname/&#34;</span>) <span style="color:#75715e">// 查找配置文件所在路径
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">AddConfigPath</span>(<span style="color:#e6db74">&#34;$HOME/.appname&#34;</span>) <span style="color:#75715e">// 多次调用AddConfigPath，可以添加多个搜索路径
@@ -301,7 +301,7 @@ viper本身没有设置默认的搜索路径，需要用户自己设置默认路
 </ul>
 </blockquote>
 <p>你还可以处理一些特殊情况：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">Copyif</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">ReadInConfig</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">ReadInConfig</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
     <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">err</span>.(<span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">ConfigFileNotFoundError</span>); <span style="color:#a6e22e">ok</span> {        
         <span style="color:#75715e">// 配置文件没有找到; 如果需要可以忽略
 </span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> {        
