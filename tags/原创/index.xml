@@ -6,10 +6,28 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>💯【算法面试】Go题解 1.找出数组中重复的数字</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_1/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_1/</guid>
+      <description>个人评价：基础面试题，通常面试校招、1~2年开发者 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空间</description>
+    </item>
+    
+    <item>
+      <title>早教阶段感悟（3~4 岁）</title>
+      <link>https://ftopia2020.github.io/dream/chinese/</link>
+      <pubDate>Fri, 26 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/dream/chinese/</guid>
+      <description>家庭 &amp;raquo; 早教 优秀的「教师」总是稀缺的 家门口早教机构跑路了，一地鸡毛 五花八门的试听课轰炸，拒绝忽悠 成长的烦恼和快乐共存，</description>
+    </item>
     
     <item>
       <title>「数据结构&amp;算法」必知必会系列：7. 常见数据结构——链表（下）</title>

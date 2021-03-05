@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>💯【算法面试】Go题解 1.找出数组中重复的数字</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_1/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_1/</guid>
+      <description>个人评价：基础面试题，通常面试校招、1~2年开发者 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空间</description>
+    </item>
     
     <item>
       <title>【转】Go 每日一库之 air</title>
