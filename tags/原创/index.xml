@@ -6,10 +6,19 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>「数据结构&amp;算法」必知必会系列：8. 常见数据结构——栈</title>
+      <link>https://ftopia2020.github.io/2021/algorithmdatastructure4/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmdatastructure4/</guid>
+      <description>系列文章请查看 「数据结构&amp;amp;算法」必知必会系列：1. 开篇#计划路线 本文为系列文章：常见数据结构——栈，将具体介绍 栈 的特性和基本代码实现</description>
+    </item>
     
     <item>
       <title>💯【算法面试】Go题解 4.反转链表</title>
