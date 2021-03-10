@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/algorithmdatastructure4/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodecollections_8/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             💯【算法面试】Go题解 8.和为s的连续正数序列 | Ftopia
+         
+    </title>
+    <meta name="title" content="💯【算法面试】Go题解 8.和为s的连续正数序列 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "💯【算法面试】Go题解 8.和为s的连续正数序列",
+    "headline" : "💯【算法面试】Go题解 8.和为s的连续正数序列",
+    "description" : "个人评价：使用暴力破解法，写出不难，但是如何继续优化还是挺值得深入思考的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-10 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-10 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodecollections_8\/",
+    "wordCount" : "988",
+    "keywords" : [ "算法","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#和为s的连续正数序列">和为s的连续正数序列</a>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解题思路">解题思路</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">💯【算法面试】Go题解 8.和为s的连续正数序列</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-03-10
+                    itemprop="datePublished">
+                    2021-03-10</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 988 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>个人评价：使用暴力破解法，写出不难，但是如何继续优化还是挺值得深入思考的~</p>
+<p>题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
+<p>另，通常算法题会考察分析时间复杂度和空间复杂度，可参考笔者之前的文章</p>
+<p><a href="/2021/algorithmbigo2/">「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</a></p>
+</blockquote>
+<h2 id="和为s的连续正数序列">和为s的连续正数序列</h2>
+<h3 id="题目描述">题目描述</h3>
+<p><a href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/">剑指 Offer 57 - II. 和为s的连续正数序列</a></p>
+<p>输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。</p>
+<p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
+<p><strong>示例 1：</strong></p>
+<blockquote>
+<p>输入：target = 9</p>
+<p>输出：[[2,3,4],[4,5]]</p>
+</blockquote>
+<p><strong>示例 2：</strong></p>
+<blockquote>
+<p>输入：target = 15</p>
+<p>输出：[[1,2,3,4,5],[4,5,6],[7,8]]</p>
+</blockquote>
+<p><strong>限制：</strong></p>
+<p>1 &lt;= target &lt;= 10^5</p>
+<h3 id="解题思路">解题思路</h3>
+<h4 id="方法一">方法一</h4>
+<p>先拆解子问题：已知 和 以及 序列长度，可否获取正整数序列？思路如下：</p>
+<ul>
+<li>正整数等差数列，使用算术公式，首项 first，长度 len =》sum = (first+first+len-1)*len/2</li>
+<li>如果已知sum和，可直接返回正整数序列，如已知 9，长度 2 =》[4,5]；长度 3 =》[2,3,4]</li>
+</ul>
+<p>Go 代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getNumList</span>(<span style="color:#a6e22e">target</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">len</span> <span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+    <span style="color:#a6e22e">list</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{}
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">len</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> { <span style="color:#75715e">//i为序列index
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">list</span> = append(<span style="color:#a6e22e">list</span>, <span style="color:#a6e22e">target</span><span style="color:#f92672">/</span><span style="color:#a6e22e">len</span><span style="color:#f92672">-</span>(<span style="color:#a6e22e">len</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#a6e22e">i</span>)
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">list</span>
+}
+</code></pre></div><p>回到主问题，如何得知和可以匹配什么长度的序列？</p>
+<p>暴力遍历：长度从 2 遍历到 target/len &gt;(len-1)/2</p>
+<blockquote>
+<p>遍历终点的条件，可理解为序列首位得 &gt; 1</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">findContinuousSequence</span>(<span style="color:#a6e22e">target</span> <span style="color:#66d9ef">int</span>) [][]<span style="color:#66d9ef">int</span> {
+    <span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make([][]<span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">0</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">len</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">target</span><span style="color:#f92672">/</span><span style="color:#a6e22e">len</span> &gt; (<span style="color:#a6e22e">len</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">len</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> [][]<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">getNumList</span>(<span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">len</span>)}
+        <span style="color:#a6e22e">result</span> = append(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">result</span><span style="color:#f92672">...</span>) <span style="color:#75715e">//注意加到数列第一个，因为长度越长，首项越小
+</span><span style="color:#75715e"></span>    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+}
+</code></pre></div><p>分析复杂度？🙌 时间 O(n)，额外空间复杂度 O(n)</p>
+<p>那么，是否仍有优化空间？减少计算量以及减少空间</p>
+<p>暴力穷举示例，其实可以发现，和得满足一定的条件才可被组成正整数序列，而奇数个和偶数个序列的规律又不大相同。这个类似数学找规律，得出如下附加条件：</p>
+<ul>
+<li>奇数个正整数序列：满足和可整除长度（理解为 中位数*个数 = 总和）</li>
+<li>偶数个正整数序列：满足和×2整除长度 且 和×2除长度之后得为奇数（偶数列为对称值，递归为最小两个数，和必为奇数）</li>
+</ul>
+<p>于是，我们可以增加一些条件，优化算法：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">findContinuousSequence</span>(<span style="color:#a6e22e">target</span> <span style="color:#66d9ef">int</span>) [][]<span style="color:#66d9ef">int</span> {
+    <span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make([][]<span style="color:#66d9ef">int</span>, <span style="color:#ae81ff">0</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">len</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">target</span><span style="color:#f92672">/</span><span style="color:#a6e22e">len</span> &gt; (<span style="color:#a6e22e">len</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">len</span><span style="color:#f92672">++</span> {
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">len</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">%</span><span style="color:#a6e22e">len</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> { <span style="color:#75715e">//奇数个正整数序列
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> [][]<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">getNumList</span>(<span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">len</span>)}
+            <span style="color:#a6e22e">result</span> = append(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">result</span><span style="color:#f92672">...</span>)
+        }
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">len</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">%</span><span style="color:#a6e22e">len</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#a6e22e">len</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> { <span style="color:#75715e">//偶数个正整数序列
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> [][]<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">getNumList</span>(<span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">len</span>)}
+            <span style="color:#a6e22e">result</span> = append(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">result</span><span style="color:#f92672">...</span>)
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+}
+</code></pre></div><p><a href="https://goplay.tools/snippet/WxIJlDSfIjI">https://goplay.tools/snippet/WxIJlDSfIjI</a>  Go play~</p>
+<h4 id="方法二">方法二</h4>
+<p>数学公式，一元二次方程法，有兴趣的自己尝试下 Coding 吧~</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210310112744422.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="总结">总结</h2>
+<p>使用暴力破解法，写出不难，但是效率低，算法是需要优化的~</p>
+<p>程序员还是需要数学基础的，使用数学，不少算法仍有继续优化的空间 ヾ(◍°∇°◍)ﾉﾞ</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/leetcodecollections_8/>https://ftopia2020.github.io/2021/leetcodecollections_8/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmdatastructure4/" class="prev" rel="prev" title="「数据结构&amp;算法」必知必会系列：8. 常见数据结构——栈"><i
+                class="iconfont icon-left"></i>&nbsp;「数据结构&amp;算法」必知必会系列：8. 常见数据结构——栈</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/leetcodecollections_8/" class="leancloud_visitors" data-flag-title="💯【算法面试】Go题解 8.和为s的连续正数序列">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

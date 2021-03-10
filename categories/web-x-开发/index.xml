@@ -6,10 +6,19 @@
     <description>Recent content in Web X 开发 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/web-x-%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>💯【算法面试】Go题解 8.和为s的连续正数序列</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_8/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_8/</guid>
+      <description>个人评价：使用暴力破解法，写出不难，但是如何继续优化还是挺值得深入思考的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会</description>
+    </item>
     
     <item>
       <title>「数据结构&amp;算法」必知必会系列：8. 常见数据结构——栈</title>
@@ -27,6 +36,15 @@
       
       <guid>https://ftopia2020.github.io/2021/goplayground/</guid>
       <description>原文链接：https://jishuin.proginn.com/p/763bfbd2f333 曾几何时，语言的在线运行（Playground</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 7.有效的括号</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_7/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_7/</guid>
+      <description>个人评价：栈使用的典型场景，最近正好梳理到栈，其实还是蛮有趣的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时</description>
     </item>
     
     <item>
