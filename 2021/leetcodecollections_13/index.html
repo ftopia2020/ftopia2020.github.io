@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodecollections_14/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodecollections_12/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodecollections_13/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             💯【算法面试】Go题解 13.替换空格 | Ftopia
+         
+    </title>
+    <meta name="title" content="💯【算法面试】Go题解 13.替换空格 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "💯【算法面试】Go题解 13.替换空格",
+    "headline" : "💯【算法面试】Go题解 13.替换空格",
+    "description" : "个人评价：又是一道内置函数 5s 解题（迷惑脸？）但是个人认为还是蛮值得深入的 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodecollections_13\/",
+    "wordCount" : "983",
+    "keywords" : [ "算法","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#替换空格">替换空格</a>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解题思路">解题思路</a></li>
+        <li><a href="#题目引申">题目引申</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">💯【算法面试】Go题解 13.替换空格</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-03-12
+                    itemprop="datePublished">
+                    2021-03-12</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 983 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>个人评价：又是一道内置函数 5s 解题（迷惑脸？）但是个人认为还是蛮值得深入的</p>
+<p>题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
+<p>另，通常算法题会考察分析时间复杂度和空间复杂度，可参考笔者之前的文章</p>
+<p><a href="/2021/algorithmbigo2/">「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</a></p>
+</blockquote>
+<h2 id="替换空格">替换空格</h2>
+<h3 id="题目描述">题目描述</h3>
+<p><a href="https://leetcode-cn.com/problems/ti-huan-kong-ge-lcof/">剑指 Offer 05. 替换空格</a></p>
+<p>请实现一个函数，把字符串 s 中的每个空格替换成&rdquo;%20&rdquo;。</p>
+<p><strong>示例 1：</strong></p>
+<blockquote>
+<p>输入：s = &ldquo;We are happy.&rdquo;</p>
+<p>输出：&ldquo;We%20are%20happy.&rdquo;</p>
+</blockquote>
+<p><strong>限制：</strong></p>
+<p>0 &lt;= s 的长度 &lt;= 10000</p>
+<h3 id="解题思路">解题思路</h3>
+<h4 id="方法一">方法一</h4>
+<p>replace 函数不少语言应该都支持吧？或者正则匹配也成</p>
+<p>不管了，直接上 😂</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">replaceSpace</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">ReplaceAll</span>(<span style="color:#a6e22e">s</span>, <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">&#34;%20&#34;</span>)
+}
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210312154934785.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h4 id="方法二">方法二</h4>
+<p>好吧，好歹也是算法的题目，想想遍历实现以及这题的初衷？</p>
+<p>字符串通常被设计成「不可变」的类型（Go、Python、Java），即无法直接修改字符串的某一位字符，需要新建一个字符串实现。</p>
+<p>那么，我们通常会处理为：</p>
+<ul>
+<li>初始化一个 list</li>
+<li>遍历列表 s 中的每个字符 c</li>
+<li>当 c 为空格时：向 list 后添加字符串 &ldquo;%20&rdquo;</li>
+<li>当 c 不为空格时：向 list 后添加字符 c</li>
+<li>将列表 list 转化为字符串并返回</li>
+</ul>
+<p>复杂度？🙌 时间&amp;空间均为 O(n)</p>
+<p>C++ 中，字符串可变，参考先扩展后填充的方式，示例图如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/1614755819-hGhCOW-e6c9d24ely1go6qmevhgpg20du09m4qp.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h3 id="题目引申">题目引申</h3>
+<p>具体看下 <a href="https://golang.org/src/strings/strings.go?s=24460:24502#L953">Golang strings.ReplaceAll</a> 的实现吧~</p>
+<p>若不考虑 UTF-8编码、+Buffer，基本思路也就是遍历+替换</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Replace returns a copy of the string s with the first n
+</span><span style="color:#75715e">// non-overlapping instances of old replaced by new.
+</span><span style="color:#75715e">// If old is empty, it matches at the beginning of the string
+</span><span style="color:#75715e">// and after each UTF-8 sequence, yielding up to k+1 replacements
+</span><span style="color:#75715e">// for a k-rune string.
+</span><span style="color:#75715e">// If n &lt; 0, there is no limit on the number of replacements.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Replace</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">old</span>, <span style="color:#a6e22e">new</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">string</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">old</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">new</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span> <span style="color:#75715e">// avoid allocation
+</span><span style="color:#75715e"></span>	}
+
+	<span style="color:#75715e">// Compute number of replacements.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">m</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Count</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">old</span>); <span style="color:#a6e22e">m</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span> <span style="color:#75715e">// avoid allocation
+</span><span style="color:#75715e"></span>	} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">n</span> &lt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">m</span> &lt; <span style="color:#a6e22e">n</span> {
+		<span style="color:#a6e22e">n</span> = <span style="color:#a6e22e">m</span>
+	}
+
+	<span style="color:#75715e">// Apply replacements to buffer.
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#a6e22e">Builder</span>
+	<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">Grow</span>(len(<span style="color:#a6e22e">s</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">*</span>(len(<span style="color:#a6e22e">new</span>)<span style="color:#f92672">-</span>len(<span style="color:#a6e22e">old</span>)))
+	<span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>
+		<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">old</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">i</span> &gt; <span style="color:#ae81ff">0</span> {
+				<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">wid</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">utf8</span>.<span style="color:#a6e22e">DecodeRuneInString</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>:])
+				<span style="color:#a6e22e">j</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">wid</span>
+			}
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#a6e22e">j</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">Index</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>:], <span style="color:#a6e22e">old</span>)
+		}
+		<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>:<span style="color:#a6e22e">j</span>])
+		<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">new</span>)
+		<span style="color:#a6e22e">start</span> = <span style="color:#a6e22e">j</span> <span style="color:#f92672">+</span> len(<span style="color:#a6e22e">old</span>)
+	}
+	<span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>:])
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">String</span>()
+}
+
+
+<span style="color:#75715e">// ReplaceAll returns a copy of the string s with all
+</span><span style="color:#75715e">// non-overlapping instances of old replaced by new.
+</span><span style="color:#75715e">// If old is empty, it matches at the beginning of the string
+</span><span style="color:#75715e">// and after each UTF-8 sequence, yielding up to k+1 replacements
+</span><span style="color:#75715e">// for a k-rune string.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ReplaceAll</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">old</span>, <span style="color:#a6e22e">new</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Replace</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">old</span>, <span style="color:#a6e22e">new</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+}
+</code></pre></div><p>替换核心就是下面三句</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">start</span>:<span style="color:#a6e22e">j</span>]) <span style="color:#75715e">//start标记从旧字符串的哪个位置开始
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">WriteString</span>(<span style="color:#a6e22e">new</span>) <span style="color:#75715e">//写入替换数据
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">start</span> = <span style="color:#a6e22e">j</span> <span style="color:#f92672">+</span> len(<span style="color:#a6e22e">old</span>) <span style="color:#75715e">//移动start
+</span></code></pre></div><h2 id="总结">总结</h2>
+<p>题是不难啦，但有点小启发 🤔</p>
+<pre><code>t := make([]byte, len(s)+n*(len(new)-len(old)))
+</code></pre><p>在源码中很是常见，在创建slice的时候，尽可能的去指定好你需要的长度来避免扩容。👏</p>
+<p>面试中，可以具体深入问 replace 怎么实现有看过源码么？若没有你会怎么实现呢？&lt;(<em>￣▽￣</em>)/</p>
+<blockquote>
+<p>扩容+Buffer 和 UTF 编码都是值得提及的部分哦 (✧◡✧)</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/leetcodecollections_13/>https://ftopia2020.github.io/2021/leetcodecollections_13/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodecollections_14/" class="prev" rel="prev" title="💯【算法面试】Go题解 14.左旋转字符串"><i
+                class="iconfont icon-left"></i>&nbsp;💯【算法面试】Go题解 14.左旋转字符串</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodecollections_12/" class="next" rel="next"
+            title="💯【算法面试】Go题解 12.最小的k个数">💯【算法面试】Go题解 12.最小的k个数&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/leetcodecollections_13/" class="leancloud_visitors" data-flag-title="💯【算法面试】Go题解 13.替换空格">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

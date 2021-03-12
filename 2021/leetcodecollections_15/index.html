@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodecollections_8/" />
-    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodecollections_15/" />
-    <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodecollections_9/" />
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodecollections_9/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodecollections_14/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodecollections_15/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             💯【算法面试】Go题解 9.二维数组中的查找 | Ftopia
+             💯【算法面试】Go题解 15. 0～n-1中缺失的数字 | Ftopia
          
     </title>
-    <meta name="title" content="💯【算法面试】Go题解 9.二维数组中的查找 | Ftopia">
+    <meta name="title" content="💯【算法面试】Go题解 15. 0～n-1中缺失的数字 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "💯【算法面试】Go题解 9.二维数组中的查找",
-    "headline" : "💯【算法面试】Go题解 9.二维数组中的查找",
-    "description" : "个人评价：二维数组，通常暴力破解方式就是嵌套循环，但通常可进一步优化~ 题目难度：🌟🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考",
+    "name" : "💯【算法面试】Go题解 15. 0～n-1中缺失的数字",
+    "headline" : "💯【算法面试】Go题解 15. 0～n-1中缺失的数字",
+    "description" : "个人评价：数组下标还是很有用的~ 暴力解法优化至经典二分查找，作为基础算法题入门不错的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -56,10 +56,10 @@
     "accountablePerson" : "me",
     "copyrightHolder" : "me",
     "copyrightYear" : "2021",
-    "datePublished": "2021-03-11 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-03-11 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodecollections_9\/",
-    "wordCount" : "989",
+    "datePublished": "2021-03-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodecollections_15\/",
+    "wordCount" : "761",
     "keywords" : [ "算法","原创", "Ftopia"]
 }
 </script>
@@ -73,7 +73,7 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#二维数组中的查找">二维数组中的查找</a>
+    <li><a href="#0n-1中缺失的数字">0～n-1中缺失的数字</a>
       <ul>
         <li><a href="#题目描述">题目描述</a></li>
         <li><a href="#解题思路">解题思路</a></li>
@@ -155,7 +155,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">💯【算法面试】Go题解 9.二维数组中的查找</h1>
+        <h1 class="post-title" itemprop="name headline">💯【算法面试】Go题解 15. 0～n-1中缺失的数字</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -167,12 +167,12 @@
             &nbsp;
             <span class="post-time">
                 <i class="far fa-calendar-alt"></i>
-                <time datetime=2021-03-11
+                <time datetime=2021-03-12
                     itemprop="datePublished">
-                    2021-03-11</time>
+                    2021-03-12</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 989 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 761 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
@@ -181,6 +181,8 @@
     <div class="post-content">
         
 
+        
+        
         
 
         
@@ -195,72 +197,75 @@
         
 
         <blockquote>
-<p>个人评价：二维数组，通常暴力破解方式就是嵌套循环，但通常可进一步优化~</p>
-<p>题目难度：🌟🌟  （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
+<p>个人评价：数组下标还是很有用的~ 暴力解法优化至经典二分查找，作为基础算法题入门不错的~</p>
+<p>题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
 <p>另，通常算法题会考察分析时间复杂度和空间复杂度，可参考笔者之前的文章</p>
 <p><a href="/2021/algorithmbigo2/">「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</a></p>
 </blockquote>
-<h2 id="二维数组中的查找">二维数组中的查找</h2>
+<h2 id="0n-1中缺失的数字">0～n-1中缺失的数字</h2>
 <h3 id="题目描述">题目描述</h3>
-<p><a href="https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/">剑指 Offer 04. 二维数组中的查找</a>
-<a href="https://leetcode-cn.com/problems/search-a-2d-matrix-ii/">240. 搜索二维矩阵 II</a></p>
-<p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p><strong>示例:</strong></p>
-<p>现有矩阵 matrix 如下：</p>
-<pre><code>[
-  [1,   4,  7, 11, 15],
-  [2,   5,  8, 12, 19],
-  [3,   6,  9, 16, 22],
-  [10, 13, 14, 17, 24],
-  [18, 21, 23, 26, 30]
-]
-</code></pre><p>给定 target = 5，返回 true。</p>
-<p>给定 target = 20，返回 false。</p>
-<p><strong>限制：</strong></p>
-<p>0 &lt;= n &lt;= 1000</p>
-<p>0 &lt;= m &lt;= 1000</p>
-<h3 id="解题思路">解题思路</h3>
-<p>先不考虑数组的排序规则，不难想到暴力方式，行+列遍历，复杂度？🙌 O(n*m)  空间 O(1)</p>
-<h4 id="方法一">方法一</h4>
-<p>如果只是单纯的考虑行排序，不难想到二分查找：</p>
-<ul>
-<li>比如某一行的第一个元素大于 target ，当前行和后边的所有行都不用考虑了，直接返回 false</li>
-<li>某一行的最后一个元素小于 target ，当前行就不用考虑了，换下一行</li>
-</ul>
-<p>代码实现暂略，复杂度？O(m)*O(logn)</p>
-<p>列排序是不是没有用到？？没错，再想想其他方式</p>
-<h4 id="方法二">方法二</h4>
-<p>二维数组类似矩阵，数组有个很好的特性是根据下标查找时间复杂度 O(1)，数组长度已知，无论从左至右还是从右直左都是可行的。放置二维，从上到下，从下到上也👌。</p>
-<p>那，考虑题目中的排序，怎样可以更高效地找到目标数？不从左上，我们从左下开始思考。</p>
-<p>从左下开始，target 若小则向上找（i&ndash;）；若大，则向右找（j++）；Go 实现代码参考如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">findNumberIn2DArray</span>(<span style="color:#a6e22e">matrix</span> [][]<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">target</span> <span style="color:#66d9ef">int</span>) (<span style="color:#a6e22e">res</span> <span style="color:#66d9ef">bool</span>) {
-    <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">matrix</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
-    <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> &gt; <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
-        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">j</span> &lt; len(<span style="color:#a6e22e">matrix</span>[<span style="color:#a6e22e">i</span>]) {
-            <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">target</span> &lt; <span style="color:#a6e22e">matrix</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>] {
-                <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> <span style="color:#75715e">//target小,向上查找
-</span><span style="color:#75715e"></span>            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">target</span> &gt; <span style="color:#a6e22e">matrix</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>] {
-                <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> <span style="color:#75715e">//targat大,向右查找
-</span><span style="color:#75715e"></span>            } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">matrix</span>[<span style="color:#a6e22e">i</span>][<span style="color:#a6e22e">j</span>] {
-                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
-            }
-        } <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#75715e">//超出数组返回false
-</span><span style="color:#75715e"></span>        }
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span> <span style="color:#75715e">//超出matrix返回false
-</span><span style="color:#75715e"></span>}
-</code></pre></div><p>你也可以从右上开始查找，target 大向左；target小向下。只是初始化需要注意数组为空的情况</p>
-<p><a href="https://goplay.tools/snippet/7sMntXWmzm9">https://goplay.tools/snippet/7sMntXWmzm9</a>  Go play~</p>
-<p>复杂度分析？</p>
-<p>🙌 时间复杂度：O(n+m)。访问到的下标的行最多增加 <code>n</code> 次，列最多减少 <code>m</code> 次。空间 O(1)</p>
+<p><a href="https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/">剑指 Offer 53 - II. 0～n-1中缺失的数字</a></p>
+<p>一个长度为n-1的递增排序数组中的所有数字都是唯一的，并且每个数字都在范围0～n-1之内。在范围0～n-1内的n个数字中有且只有一个数字不在该数组中，请找出这个数字。</p>
+<p><strong>示例 1:</strong></p>
 <blockquote>
-<p>暴力查找是全覆盖，而这种查找方式则可想象为线性查找</p>
+<p>输入: [0,1,3]</p>
+<p>输出: 2</p>
 </blockquote>
+<p><strong>示例 2:</strong></p>
+<blockquote>
+<p>输入: [0,1,2,3,4,5,6,7,9]</p>
+<p>输出: 8</p>
+</blockquote>
+<p><strong>限制：</strong></p>
+<p>1 &lt;= 数组长度 &lt;= 10000</p>
+<h3 id="解题思路">解题思路</h3>
+<h4 id="方法一">方法一</h4>
+<p>暴力法结合题目条件 「0～n-1 + 长度为n-1的递增排序数组」，不难想到下标和数值是==的</p>
+<p>Go 示例参考如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">missingNumber</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">nums</span> {
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">v</span> {
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">i</span>
+        }
+    }
+    <span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">nums</span>)
+}
+</code></pre></div><p>复杂度？🙌 O(n)</p>
+<h4 id="方法二">方法二</h4>
+<p>继续优化，排序数组查找的优化不难想到使用二分法，思路如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">missingNumber</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+    <span style="color:#a6e22e">left</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">nums</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">left</span> &lt; <span style="color:#a6e22e">right</span> {
+        <span style="color:#a6e22e">mid</span> <span style="color:#f92672">:=</span> (<span style="color:#a6e22e">left</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">right</span>) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">//相当于除2
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">mid</span>] <span style="color:#f92672">!=</span> <span style="color:#a6e22e">mid</span> {      <span style="color:#75715e">//nums是有序数组，如果mid和数字不相同就在左边查找
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">mid</span>
+        } <span style="color:#66d9ef">else</span> { <span style="color:#75715e">//mid和数字相同，缺失的数字在右边，left向上取整+1
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">left</span> = <span style="color:#a6e22e">mid</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">left</span>
+}
+</code></pre></div><p>复杂度？🙌 O(logn)</p>
+<h4 id="方法三">方法三</h4>
+<p>利用总和差值，联想到奥数题啊哈哈，🐂</p>
+<ol>
+<li>计算当数组不缺数字时的总和 count</li>
+<li>count减去该数组nums的总和</li>
+<li>得到的差值即是缺失的数字</li>
+</ol>
+<h4 id="方法四">方法四</h4>
+<p>记录数字，利用数组中数字与数组的索引相同</p>
+<ul>
+<li>申请一个长度为 len(nums)+1 的 bool 数组 flag</li>
+<li>遍历 nums 数组并记录数字在 flag 数组中对应的索引的值为 true</li>
+<li>再遍历一次 flag 数组 ，得到其中值为false的索引即为缺失的数字</li>
+</ul>
 <h2 id="总结">总结</h2>
-<p>数组的随机查找是很具有优势的，数组不光可以从左往右，从右往左也是可行的。</p>
-<p>二维数组是很神奇的，甚至可以转置，左下或者右上的思考方式还是值得借鉴的。</p>
+<p>没想到还有方法三、四、五，全靠网友的智慧 <a href="https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/solution/golang-er-fen-yi-huo-chai-zhi-biao-ji-by-sakura-15/">【Golang】二分、异或、差值、标记</a>，秀啊~</p>
+<p>↑ 提到的异或法，我看不懂 😂</p>
+<p>题目本身不难，面试时方法二，记得起来秀下方法三的总和差鸭~</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210312172427328.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
     </div>
 
@@ -275,7 +280,7 @@
         
         <p class="copyright-item">
             <span>Link:</span>
-            <a href=https://ftopia2020.github.io/2021/leetcodecollections_9/>https://ftopia2020.github.io/2021/leetcodecollections_9/</span>
+            <a href=https://ftopia2020.github.io/2021/leetcodecollections_15/>https://ftopia2020.github.io/2021/leetcodecollections_15/</span>
         </p>
         
         
@@ -307,12 +312,12 @@
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2021/leetcodecollections_8/" class="prev" rel="prev" title="💯【算法面试】Go题解 8.和为s的连续正数序列"><i
-                class="iconfont icon-left"></i>&nbsp;💯【算法面试】Go题解 8.和为s的连续正数序列</a>
+        <a href="https://ftopia2020.github.io/2021/leetcodecollections_9/" class="prev" rel="prev" title="💯【算法面试】Go题解 9.二维数组中的查找"><i
+                class="iconfont icon-left"></i>&nbsp;💯【算法面试】Go题解 9.二维数组中的查找</a>
         
         
-        <a href="https://ftopia2020.github.io/2021/leetcodecollections_15/" class="next" rel="next"
-            title="💯【算法面试】Go题解 15. 0～n-1中缺失的数字">💯【算法面试】Go题解 15. 0～n-1中缺失的数字&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://ftopia2020.github.io/2021/leetcodecollections_14/" class="next" rel="next"
+            title="💯【算法面试】Go题解 14.左旋转字符串">💯【算法面试】Go题解 14.左旋转字符串&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -320,7 +325,7 @@
         
         
         
-        <span id="/2021/leetcodecollections_9/" class="leancloud_visitors" data-flag-title="💯【算法面试】Go题解 9.二维数组中的查找">
+        <span id="/2021/leetcodecollections_15/" class="leancloud_visitors" data-flag-title="💯【算法面试】Go题解 15. 0～n-1中缺失的数字">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>
@@ -387,8 +392,9 @@
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
 
 

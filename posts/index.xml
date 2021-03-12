@@ -30,6 +30,42 @@
     </item>
     
     <item>
+      <title>💯【算法面试】Go题解 12.最小的k个数</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_12/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_12/</guid>
+      <description>个人评价：快排，没啥多说的，用内置函数有何不可？何必那么卷 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 13.替换空格</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_13/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_13/</guid>
+      <description>个人评价：又是一道内置函数 5s 解题（迷惑脸？）但是个人认为还是蛮值得深入的 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 14.左旋转字符串</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_14/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_14/</guid>
+      <description>个人评价：又是一道内置函数 5s 解题，遍历字符也可实现但个人认为没必要 😂 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 15. 0～n-1中缺失的数字</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_15/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_15/</guid>
+      <description>个人评价：数组下标还是很有用的~ 暴力解法优化至经典二分查找，作为基础算法题入门不错的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，</description>
+    </item>
+    
+    <item>
       <title>💯【算法面试】Go题解 9.二维数组中的查找</title>
       <link>https://ftopia2020.github.io/2021/leetcodecollections_9/</link>
       <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
