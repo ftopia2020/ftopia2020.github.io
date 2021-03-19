@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>每日一题 on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/</link>
+    <description>Recent content in 每日一题 on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>✍️【每日一题】Go题解 1. 设计停车系统</title>
+      <link>https://ftopia2020.github.io/2021/leetcodedaily_001/</link>
+      <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodedaily_001/</guid>
+      <description>个人评价：简单基础的系统设计题，可考虑优化其可扩展性 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空</description>
+    </item>
+    
+  </channel>
+</rss>

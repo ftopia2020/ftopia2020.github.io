@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法面试 on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95/</link>
+    <description>Recent content in 算法面试 on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>💯【算法面试】Go题解 16. 删除有序数组中的重复项</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_16/</link>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_16/</guid>
+      <description>个人评价：排序数组的题，想到双指针还是很自然的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空间复</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 10.调整数组顺序使奇数位于偶数前面</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_10/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_10/</guid>
+      <description>个人评价：数组操作，尽量避免删除和插入操作，转换为值交换是个很好的优化手段~ 题目难度：🌟🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 11. 顺时针打印矩阵</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_11/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_11/</guid>
+      <description>个人评价：二维数组，个人只想到了暴力方式 😂 且效率略差，等过一阵儿再来思考看看 题目难度：🌟🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 12.最小的k个数</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_12/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_12/</guid>
+      <description>个人评价：快排，没啥多说的，用内置函数有何不可？何必那么卷 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 13.替换空格</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_13/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_13/</guid>
+      <description>个人评价：又是一道内置函数 5s 解题（迷惑脸？）但是个人认为还是蛮值得深入的 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 14.左旋转字符串</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_14/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_14/</guid>
+      <description>个人评价：又是一道内置函数 5s 解题，遍历字符也可实现但个人认为没必要 😂 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 15. 0～n-1中缺失的数字</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_15/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_15/</guid>
+      <description>个人评价：数组下标还是很有用的~ 暴力解法优化至经典二分查找，作为基础算法题入门不错的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 9.二维数组中的查找</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_9/</link>
+      <pubDate>Thu, 11 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_9/</guid>
+      <description>个人评价：二维数组，通常暴力破解方式就是嵌套循环，但通常可进一步优化~ 题目难度：🌟🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 8.和为s的连续正数序列</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_8/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_8/</guid>
+      <description>个人评价：使用暴力破解法，写出不难，但是如何继续优化还是挺值得深入思考的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 7.有效的括号</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_7/</link>
+      <pubDate>Tue, 09 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_7/</guid>
+      <description>个人评价：栈使用的典型场景，最近正好梳理到栈，其实还是蛮有趣的~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 4.反转链表</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_4/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_4/</guid>
+      <description>个人评价：链表的经典面试题，有必要重提一下~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空间复杂度</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 5.链表中倒数第k个节点</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_5/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_5/</guid>
+      <description>个人评价：链表中指针的基础操作，加入合理的双指针操作 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 6.删除链表的倒数第 N 个结点</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_6/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_6/</guid>
+      <description>个人评价：链表双指针操作进阶，此题边界判断需要注意！ 题目难度：🌟🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 1.找出数组中重复的数字</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_1/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_1/</guid>
+      <description>个人评价：基础面试题，通常面试校招、1~2年开发者 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空间</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 2.斐波那契数列</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_2/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_2/</guid>
+      <description>个人评价：经典递归题，但可能会写出超时代码，另需注意简化空间复杂度，可引入动态规划思想~ 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 3.爬楼梯</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_3/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_3/</guid>
+      <description>个人评价：说简单也简单=》雷同斐波那契，说难也难：如果之前没刷到，面试短时间内还真不一定能想出合适的方式 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodecollections_16/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodedaily_001/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/algorithmdatastructure5/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             「数据结构&amp;算法」必知必会系列：9. 常见数据结构——队列 | Ftopia
+         
+    </title>
+    <meta name="title" content="「数据结构&amp;算法」必知必会系列：9. 常见数据结构——队列 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "「数据结构\x26算法」必知必会系列：9. 常见数据结构——队列",
+    "headline" : "「数据结构\x26算法」必知必会系列：9. 常见数据结构——队列",
+    "description" : "系列文章请查看 「数据结构\x26amp;算法」必知必会系列：1. 开篇#计划路线 本文为系列文章：常见数据结构——队列，将具体介绍 队列 的特性和几个典型",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-19 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-19 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/algorithmdatastructure5\/",
+    "wordCount" : "3999",
+    "keywords" : [ "算法","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#队列的实现">队列的实现</a>
+      <ul>
+        <li><a href="#顺序队列">顺序队列</a></li>
+        <li><a href="#链式队列">链式队列</a></li>
+        <li><a href="#循环队列">循环队列</a></li>
+      </ul>
+    </li>
+    <li><a href="#队列的应用">队列的应用</a>
+      <ul>
+        <li><a href="#阻塞队列和并发队列">阻塞队列和并发队列</a></li>
+        <li><a href="#线程池中队列的应用">线程池中队列的应用</a></li>
+        <li><a href="#go-channel">Go Channel</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#阶段总结">阶段总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">「数据结构&amp;算法」必知必会系列：9. 常见数据结构——队列</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-03-19
+                    itemprop="datePublished">
+                    2021-03-19</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 3999 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 8 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>系列文章请查看 <a href="/2021/algorithmbasic/#%E8%AE%A1%E5%88%92%E8%B7%AF%E7%BA%BF">「数据结构&amp;算法」必知必会系列：1. 开篇#计划路线</a></p>
+</blockquote>
+<p>本文为系列文章：常见数据结构——队列，将具体介绍 <strong>队列</strong> 的特性和几个典型队列的实现，另外具体介绍了队列的几个常见应用。</p>
+<h2 id="队列的实现">队列的实现</h2>
+<p>队列（queue）的概念很好理解，类似现实生活中的排队。正如排队买票、排队等车、排队面试 …… 先到的人先得到服务并离开队列，后来的人加到队列最后。</p>
+<p>队列显著的特点是 <strong>FIFO</strong> (First In, First Out，先进先出)</p>
+<p>队列支持两个操作，入队和出队 。队列跟栈一样，也是一种 <strong>操作受限的线性表</strong>。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210315173850721.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>跟栈一样，队列可以用数组来实现，也可以用链表来实现。用数组实现的队列叫作<strong>顺序队列</strong>，用链表实现的队列叫作<strong>链式队列</strong>。</p>
+<h3 id="顺序队列">顺序队列</h3>
+<p>先思考下，你会如何实现入队和出队？</p>
+<p>🙌 入队：数组增加一个新元素；出队：删除第一个元素</p>
+<p>基于复杂度考虑，出队的删除不应改变数组长度，而应改变队列头元素 head 指向为下一个即可（如原数组 arr，长度&gt;1，出队后 head 为 a[1]）</p>
+<p>那入队呢？熟悉数组的应该会记得其特性——不支持动态扩容（这时，需要用到数据搬移的方法）</p>
+<blockquote>
+<p>容器类，如 Golang slice、JS ArrayList 等已内置支持扩容，其和数据结构的数组实际是不同的。</p>
+<p>可回炉：<a href="/2021/algorithmdatastructure1/#%E5%8A%A8%E6%80%81%E6%89%A9%E5%AE%B9--%E6%95%B0%E7%BB%84%E8%B6%8A%E7%95%8C">「数据结构&amp;算法」必知必会系列：5. 常见数据结构——数组</a></p>
+<p>若是 Golang 开发，须正确理解 Slice 和原数组的关系，以及熟悉切片操作</p>
+</blockquote>
+<p>简单的 Golang 代码实现如下（slice 大法好，不用考虑扩容啦~ 😁）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Queue 是用于存放 int 的队列
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Queue</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>
+}
+
+<span style="color:#75715e">// NewQueue 返回 *kit.Queue
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewQueue</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Queue</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Queue</span>{<span style="color:#a6e22e">nums</span>: []<span style="color:#66d9ef">int</span>{}}
+}
+
+<span style="color:#75715e">// Enqueue 入队
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">q</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Queue</span>) <span style="color:#a6e22e">EnQueue</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">nums</span> = append(<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">n</span>)
+}
+
+<span style="color:#75715e">// Dequeue 出队
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">q</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Queue</span>) <span style="color:#a6e22e">DeQueue</span>() <span style="color:#66d9ef">int</span> {
+	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">nums</span>[<span style="color:#ae81ff">0</span>]
+	<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">nums</span> = <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">nums</span>[<span style="color:#ae81ff">1</span>:]
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+}
+</code></pre></div><p><a href="https://goplay.tools/snippet/wYzfO9VRT8B">https://goplay.tools/snippet/wYzfO9VRT8B</a> Go play~</p>
+<h3 id="链式队列">链式队列</h3>
+<p>链式队列基于链表实现，再思考一下如何实现？</p>
+<p>🙌 入队：相当于链表尾部增加元素；出队：链表头指向更改为下一个结点</p>
+<p>这里，就产生了一个问题，如果我们只记录链表头head，入队的时间复杂度会是O(n)，若增加记录链表尾指针 tail，就能减至 O(1)，何乐而不为呢~</p>
+<blockquote>
+<p>链表不熟悉的回炉：<a href="/2021/algorithmdatastructure2/">「数据结构&amp;算法」必知必会系列：6. 常见数据结构——链表（上）</a></p>
+</blockquote>
+<p>简单的 Golang 代码实现如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ListNode</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Val</span>  <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">Next</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>
+}
+
+<span style="color:#75715e">// Queue 记录链式队列的 头 和 尾
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Queue</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">head</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>
+	<span style="color:#a6e22e">tail</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>
+}
+
+<span style="color:#75715e">// NewQueue 返回 *kit.Queue
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewQueue</span>() <span style="color:#f92672">*</span><span style="color:#a6e22e">Queue</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Queue</span>{<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">nil</span>}
+}
+
+<span style="color:#75715e">// EnQueue 入队 (注意头、尾 nil 的处理)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">q</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Queue</span>) <span style="color:#a6e22e">EnQueue</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#a6e22e">newNode</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ListNode</span>{<span style="color:#a6e22e">n</span>, <span style="color:#66d9ef">nil</span>}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">tail</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">tail</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">newNode</span>
+		<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">tail</span> = <span style="color:#a6e22e">newNode</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">tail</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">tail</span> = <span style="color:#a6e22e">newNode</span>
+		<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">newNode</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span> = <span style="color:#a6e22e">newNode</span>
+	}
+}
+
+<span style="color:#75715e">// DeQueue 出队 (注意头、尾 nil 的处理)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">q</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Queue</span>) <span style="color:#a6e22e">DeQueue</span>() {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span> = <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span>
+	}
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">head</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">tail</span> = <span style="color:#66d9ef">nil</span>
+	}
+}
+</code></pre></div><p><a href="https://goplay.tools/snippet/VGwr8RodoKT">https://goplay.tools/snippet/VGwr8RodoKT</a>   Go play~</p>
+<h3 id="循环队列">循环队列</h3>
+<p>实现顺序队列，在 tail==n 时，会有数据搬移操作，这样入队操作性能就会受到影响。那有没有办法能够避免数据搬移呢？来看下「循环队列」的解决思路。</p>
+<p>顾名思义，「循环队列」是一个环，所以也可称为「环形队列」。</p>
+<p>假设队列大小为 8（n=8）空队列，头尾为 0，入队后，tail 后移，参考如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210319150524899.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>可以想象成队列变成圆环了，出队，head 后移至 1，入队 tail 后移；</p>
+<p>这样，只要环未满，就不存在数据搬移的操作。</p>
+<p>至此，我们避免了数据搬移操作。看起来不难理解，但是循环队列的代码实现难度要比前面讲的非循环队列难多了。要想写出没有 bug 的循环队列的实现代码，最关键的是，确定好队空和队满的判定条件。</p>
+<p>先思考一下如何判定对空？判断条件仍然是 head == tail</p>
+<p>那队满呢？可以先自行实验下总结规律</p>
+<p>比如，head=5, tail=4，如下图就是满的</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210319153256007.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<pre><code>head=0, tail=7
+head=1, tail=0
+head=2, tail=1
+...
+head=5, tail=4
+...
+head=7, tail=0
+</code></pre><p>已知大小 n、head、tail</p>
+<p>得出规律：<code> (tail+1)%n=head</code>  满足此条件时，队满</p>
+<p>入队&amp;出队也就是 head，tail 下标位的变化，操作也类似，自己思考下吧~</p>
+<p>!!!注意：当队列满时，tail 指向的位置实际上是没有存储数据的。所以，循环队列会浪费一个数组的存储空间。所以，初始化的时候，队列长度需要+1</p>
+<p>最后，试着自己写下代码吧，Go 示例代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 队空的判断条件是 head == tail,
+</span><span style="color:#75715e">// 队满的判断条件，(tail+1)%n=head。
+</span><span style="color:#75715e">// 当队列满时，tail 指向的位置实际上是没有存储数据的。所以，循环队列会浪费一个数组的存储空间。
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">CircularQueue</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">Head</span>  <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">Tail</span>  <span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">Value</span> []<span style="color:#66d9ef">int</span>
+}
+
+<span style="color:#75715e">// Set the size of the queue = n
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Constructor</span>(<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>) <span style="color:#a6e22e">CircularQueue</span> {
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">CircularQueue</span>{
+		<span style="color:#a6e22e">Head</span>:  <span style="color:#ae81ff">0</span>,
+		<span style="color:#a6e22e">Tail</span>:  <span style="color:#ae81ff">0</span>,
+		<span style="color:#a6e22e">Value</span>: make([]<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">n</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), <span style="color:#75715e">// Init Value，!!! Pay attention +1
+</span><span style="color:#75715e"></span>	}
+}
+
+<span style="color:#75715e">// Check empty
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">this</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">CircularQueue</span>) <span style="color:#a6e22e">IsEmpty</span>() <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Head</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Tail</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+
+<span style="color:#75715e">// Check full: (tail+1)%n=head
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">this</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">CircularQueue</span>) <span style="color:#a6e22e">IsFull</span>() <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Tail</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">%</span>len(<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Value</span>) <span style="color:#f92672">==</span> <span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Head</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">this</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">CircularQueue</span>) <span style="color:#a6e22e">EnQueue</span>(<span style="color:#a6e22e">value</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">IsFull</span>() {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+	}
+	<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Value</span>[<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Tail</span>] = <span style="color:#a6e22e">value</span>
+	<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Tail</span> = (<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Tail</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> len(<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Value</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+}
+
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">this</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">CircularQueue</span>) <span style="color:#a6e22e">DeQueue</span>() <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">IsEmpty</span>() {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+	}
+	<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Head</span> = (<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Head</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> len(<span style="color:#a6e22e">this</span>.<span style="color:#a6e22e">Value</span>)
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+}
+
+</code></pre></div><p><a href="https://goplay.tools/snippet/v-nRk2jxfw0">https://goplay.tools/snippet/v-nRk2jxfw0</a>  Go play~</p>
+<blockquote>
+<p>更多可参考： <a href="https://leetcode-cn.com/problems/design-circular-queue/">622. 设计循环队列</a>  此题为中等题哦~</p>
+</blockquote>
+<h2 id="队列的应用">队列的应用</h2>
+<h3 id="阻塞队列和并发队列">阻塞队列和并发队列</h3>
+<p>平时的业务开发不大可能从零实现一个队列，甚至都不会直接用到。而一些具有特殊特性的队列应用却比较广泛，比如阻塞队列和并发队列。</p>
+<p><strong>阻塞队列</strong> 其实就是在队列基础上增加了阻塞操作。简单来说，就是在队列为空的时候，从队头取数据会被阻塞。如果队列已经满了，那么插入数据的操作就会被阻塞。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/5ef3326181907dea0964f612890185eb.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>是否发现了？上述的定义就是一个“生产者 - 消费者模型”！是的，我们可以使用阻塞队列，轻松实现一个“生产者 - 消费者模型”！</p>
+<p>不仅如此，基于阻塞队列，我们还可以通过协调“生产者”和“消费者”的个数，来提高数据的处理效率。比如前面的例子，我们可以多配置几个“消费者”，来应对一个“生产者”。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/9f539cc0f1edc20e7fa6559193898067.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>在多线程情况下，会有多个线程同时操作队列，这个时候就会存在线程安全问题，那如何实现一个线程安全的队列呢？</p>
+<p>线程安全的队列我们叫作 <strong>并发队列</strong>。最简单直接的实现方式是直接在 enqueue()、dequeue() 方法上加锁，但是锁粒度大并发度会比较低，同一时刻仅允许一个存或者取操作。</p>
+<p>实际上，基于数组的循环队列，利用 CAS 原子操作，可以实现非常高效的并发队列。这也是循环队列比链式队列应用更加广泛的原因。</p>
+<blockquote>
+<p>熟悉 Java 并发的应该会想到 Disruptor 无锁并发队列，有点深，找了篇相关文章参考 <a href="https://juejin.cn/post/6844903648875528206">你应该知道的高性能无锁队列Disruptor</a></p>
+</blockquote>
+<h3 id="线程池中队列的应用">线程池中队列的应用</h3>
+<p>向固定大小的线程池中请求一个线程时，如果线程池中没有空闲资源了，这个时候线程池如何处理这个请求？是拒绝请求还是排队请求？各种处理策略又是怎么实现的呢？</p>
+<p>一般有两种处理策略。第一种是非阻塞的处理方式，直接拒绝任务请求；另一种是阻塞的处理方式，将请求排队，等到有空闲线程时，取出排队的请求继续处理。那如何存储排队的请求呢？</p>
+<p>常见处理排队请求，我们会采取先进者先服务的策略，那么，队列这种数据结构很适合来存储排队请求。</p>
+<p>基于数组实现的有界队列（bounded queue），队列的大小有限，所以线程池中排队的请求超过队列大小时，接下来的请求就会被拒绝，这种方式对响应时间敏感的系统来说，就相对更加合理。不过，设置一个合理的队列大小，也是非常有讲究的。队列太大导致等待的请求太多，队列太小会导致无法充分利用系统资源、发挥最大性能。</p>
+<p>除了前面讲到队列应用在线程池请求排队的场景之外，队列可以应用在任何有限资源池中，用于排队请求，比如数据库连接池等。实际上，对于大部分资源有限的场景，当没有空闲资源时，基本上都可以通过“队列”这种数据结构来实现请求排队。</p>
+<blockquote>
+<p>附，以上「阻塞队列和并发队列」以及 「线程池中队列的应用」讲解和附图 均来源 极客时间课程——数据结构与算法之美</p>
+</blockquote>
+<h3 id="go-channel">Go Channel</h3>
+<p>讲到「队列」，如果是 Golang 研发，不知道有没有联想到 Channel ？</p>
+<p>Channel 本身就很类似队列，其收发操作均遵循了 <strong>FIFO</strong>（先进先出）的设计，具体规则如下：</p>
+<ul>
+<li>先从 Channel 读取数据的 Goroutine 会先接收到数据</li>
+<li>先向 Channel 发送数据的 Goroutine 会得到先发送数据的权利</li>
+</ul>
+<p>如果熟悉队列这一数据类型，上手 Channel 会更快且准确~</p>
+<hr>
+<p>以下截取自 <a href="https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-channel/#642-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">Go语言设计与实现——Channel 数据结构</a></p>
+<p>Go 语言的 Channel 在运行时使用 <a href="https://draveness.me/golang/tree/runtime.hchan"><code>runtime.hchan</code></a> 结构体表示。我们在 Go 语言中创建新的 Channel 时，实际上创建的都是如下所示的结构：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">hchan</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">qcount</span>   <span style="color:#66d9ef">uint</span>
+	<span style="color:#a6e22e">dataqsiz</span> <span style="color:#66d9ef">uint</span>
+	<span style="color:#a6e22e">buf</span>      <span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Pointer</span>
+	<span style="color:#a6e22e">elemsize</span> <span style="color:#66d9ef">uint16</span>
+	<span style="color:#a6e22e">closed</span>   <span style="color:#66d9ef">uint32</span>
+	<span style="color:#a6e22e">elemtype</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">_type</span>
+	<span style="color:#a6e22e">sendx</span>    <span style="color:#66d9ef">uint</span>
+	<span style="color:#a6e22e">recvx</span>    <span style="color:#66d9ef">uint</span>
+	<span style="color:#a6e22e">recvq</span>    <span style="color:#a6e22e">waitq</span>
+	<span style="color:#a6e22e">sendq</span>    <span style="color:#a6e22e">waitq</span>
+
+	<span style="color:#a6e22e">lock</span> <span style="color:#a6e22e">mutex</span>
+}
+</code></pre></div><p><a href="https://draveness.me/golang/tree/runtime.hchan"><code>runtime.hchan</code></a> 结构体中的五个字段 <code>qcount</code>、<code>dataqsiz</code>、<code>buf</code>、<code>sendx</code>、<code>recv</code> 构建底层的 <strong>循环队列</strong>：</p>
+<ul>
+<li><code>qcount</code> — Channel 中的元素个数；</li>
+<li><code>dataqsiz</code> — Channel 中的循环队列的长度；</li>
+<li><code>buf</code> — Channel 的缓冲区数据指针；</li>
+<li><code>sendx</code> — Channel 的发送操作处理到的位置；</li>
+<li><code>recvx</code> — Channel 的接收操作处理到的位置；</li>
+</ul>
+<p>除此之外，<code>elemsize</code> 和 <code>elemtype</code> 分别表示当前 Channel 能够收发的元素类型和大小；<code>sendq</code> 和 <code>recvq</code> 存储了当前 Channel 由于缓冲区空间不足而阻塞的 Goroutine 列表，这些等待队列使用双向链表 <a href="https://draveness.me/golang/tree/runtime.waitq"><code>runtime.waitq</code></a> 表示，链表中所有的元素都是 <a href="https://draveness.me/golang/tree/runtime.sudog"><code>runtime.sudog</code></a> 结构：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">waitq</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">first</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sudog</span>
+	<span style="color:#a6e22e">last</span>  <span style="color:#f92672">*</span><span style="color:#a6e22e">sudog</span>
+}
+</code></pre></div><p><a href="https://draveness.me/golang/tree/runtime.sudog"><code>runtime.sudog</code></a> 表示一个在等待列表中的 Goroutine，该结构中存储了两个分别指向前后 <a href="https://draveness.me/golang/tree/runtime.sudog"><code>runtime.sudog</code></a> 的指针以构成链表。</p>
+<hr>
+<p>以下截取自 <a href="https://golang.design/under-the-hood/zh-cn/part1basic/ch01basic/go/#channel">「Go 语言原本」中 Channel</a></p>
+<p>Channel 主要有两种形式：</p>
+<ol>
+<li><strong>有缓存 Channel（buffered channel）</strong>，使用 <code>make(chan T, n)</code> 创建</li>
+<li><strong>无缓存 Channel（unbuffered channel）</strong>，使用 <code>make(chan T)</code> 创建</li>
+</ol>
+<p>其中 <code>T</code> 为 Channel 传递数据的类型，<code>n</code> 为缓存的大小，这两种 Channel 的读写操作都非常简单：</p>
+<p>他们之间的本质区别在于其内存模型的差异，这种内存模型在 Channel 上体现为：</p>
+<ul>
+<li>有缓存 Channel: <code>ch &lt;- v</code> 发生在 <code>v &lt;- ch</code> 之前</li>
+<li>有缓存 Channel: <code>close(ch)</code> 发生在 <code>v &lt;- ch &amp;&amp; v == isZero(v)</code> 之前</li>
+<li>无缓存 Channel: <code>v &lt;- ch</code> 发生在 <code>ch &lt;- v</code> 之前</li>
+<li>无缓存 Channel: 如果 <code>len(ch) == C</code>，则从 Channel 中收到第 k 个值发生在 k+C 个值得发送完成之前</li>
+</ul>
+<p>直观上我们很好理解他们之间的差异：</p>
+<ul>
+<li>对于有缓存 Channel 而言，内部有一个缓冲队列，数据会优先进入缓冲队列，而后才被消费， 即向通道发送数据 <code>ch &lt;- v</code> 发生在从通道接受数据 <code>v &lt;- ch</code> 之前；</li>
+<li>对于无缓存 Channel 而言，内部没有缓冲队列，即向通道发送数据 <code>ch &lt;- v</code> 一旦出现， 通道接受数据 <code>v &lt;- ch</code> 会立即执行， 因此从通道接受数据 <code>v &lt;- ch</code> 发生在向通道发送数据 <code>ch &lt;- v</code> 之前。</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p><strong>队列</strong>（Queue）也是一种操作受限的线性表，只允许入队和出队，特性是 <strong>FIFO</strong> (First In, First Out, 先进先出)。</p>
+<p>队列可以用数组实现<strong>顺序队列</strong>，也可以用链表实现<strong>链式队列</strong>。</p>
+<p>在数组实现队列的时候，会产生数据搬移操作，要想解决数据搬移的问题，我们需要循环队列。你应该可以准确用代码实现 <strong>循环队列</strong>。</p>
+<p>此外，提了几种广泛的队列应用，很多的并发实现底层都应用了队列，若想理解源码，要熟悉队列哦~ 🐶</p>
+<h3 id="阶段总结">阶段总结</h3>
+<p>数据结构 —— 线性表：<a href="/2021/algorithmdatastructure1/">数组</a>、链表（<a href="/2021/algorithmdatastructure2/">上</a>、<a href="/2021/algorithmdatastructure3/">下</a>）、<a href="/2021/algorithmdatastructure4/">栈</a>、<a href="/2021/algorithmdatastructure5/">队列</a> 总算完成了 😂，效率略差</p>
+<p>接下来会开始常见算法的总结（基于线性表），先定如下这些：</p>
+<ul>
+<li>二分（查找）法</li>
+<li>双指针</li>
+<li>排序 —— 插入排序 &amp; 冒泡排序</li>
+<li>排序 —— 快速排序 &amp; 归并排序</li>
+<li>LRU 缓存淘汰算法</li>
+<li>递归</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/algorithmdatastructure5/>https://ftopia2020.github.io/2021/algorithmdatastructure5/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodecollections_16/" class="prev" rel="prev" title="💯【算法面试】Go题解 16. 删除有序数组中的重复项"><i
+                class="iconfont icon-left"></i>&nbsp;💯【算法面试】Go题解 16. 删除有序数组中的重复项</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_001/" class="next" rel="next"
+            title="✍️【每日一题】Go题解 1. 设计停车系统">✍️【每日一题】Go题解 1. 设计停车系统&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/algorithmdatastructure5/" class="leancloud_visitors" data-flag-title="「数据结构&amp;算法」必知必会系列：9. 常见数据结构——队列">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
