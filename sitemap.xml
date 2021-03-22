@@ -2,16 +2,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://ftopia2020.github.io/tags/blog/</loc>
-      
-      <lastmod>2021-03-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://ftopia2020.github.io/categories/</loc>
       
       <lastmod>2021-03-22T00:00:00+00:00</lastmod>
@@ -23,26 +13,6 @@
   
     <url>
       <loc>https://ftopia2020.github.io/posts/</loc>
-      
-      <lastmod>2021-03-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/tags/serverless/</loc>
-      
-      <lastmod>2021-03-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/2021/serverless/</loc>
       
       <lastmod>2021-03-22T00:00:00+00:00</lastmod>
       
@@ -82,26 +52,6 @@
     </url>
   
     <url>
-      <loc>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</loc>
-      
-      <lastmod>2021-03-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/2021/coverpage/</loc>
-      
-      <lastmod>2021-03-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/</loc>
       
       <lastmod>2021-03-22T00:00:00+00:00</lastmod>
@@ -125,26 +75,6 @@
       <loc>https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
       
       <lastmod>2021-03-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/tags/golang/</loc>
-      
-      <lastmod>2021-03-20T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/2021/goproject/</loc>
-      
-      <lastmod>2021-03-20T00:00:00+00:00</lastmod>
       
       
       
@@ -265,6 +195,16 @@
       <loc>https://ftopia2020.github.io/2021/leetcodecollections_8/</loc>
       
       <lastmod>2021-03-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://ftopia2020.github.io/tags/golang/</loc>
+      
+      <lastmod>2021-03-09T00:00:00+00:00</lastmod>
       
       
       
@@ -432,7 +372,27 @@
     </url>
   
     <url>
+      <loc>https://ftopia2020.github.io/tags/blog/</loc>
+      
+      <lastmod>2021-01-26T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://ftopia2020.github.io/2021/10javascript-oneliners/</loc>
+      
+      <lastmod>2021-01-26T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://ftopia2020.github.io/categories/%E5%8D%9A%E5%AE%A2-x-%E4%B8%AA%E4%BA%BA/</loc>
       
       <lastmod>2021-01-26T00:00:00+00:00</lastmod>
       
