@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodedaily_002/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/serverless/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             Serverless 初体验 —— 腾讯云 | Ftopia
+         
+    </title>
+    <meta name="title" content="Serverless 初体验 —— 腾讯云 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Serverless 初体验 —— 腾讯云",
+    "headline" : "Serverless 初体验 —— 腾讯云",
+    "description" : "What HOW 部署 Vue \x2b Express \x2b PostgreSQL 全栈网站 https:\/\/cloud.tencent.com\/document\/product\/1154\/43009 安装 \x26amp; Demo 安装 serverless \x26amp; 查看版本 $ npm install -g serverless #npm 全局安装 serverless $ serverless –v #查看 Serverless Framework 的版本信息 配置 \x26amp; 安装依赖 $ serverless init fullstack #使用serve",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-22 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-22 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/serverless\/",
+    "wordCount" : "341",
+    "keywords" : [ "Serverless","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how-部署-vue--express--postgresql-全栈网站">HOW 部署 Vue + Express + PostgreSQL 全栈网站</a>
+      <ul>
+        <li><a href="#安装--demo">安装 &amp; Demo</a></li>
+        <li><a href="#安装-serverless--查看版本">安装 serverless &amp; 查看版本</a></li>
+        <li><a href="#配置--安装依赖">配置 &amp; 安装依赖</a></li>
+        <li><a href="#部署--查看-demo">部署 &amp; 查看 Demo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Serverless 初体验 —— 腾讯云</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-03-22
+                    itemprop="datePublished">
+                    2021-03-22</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 341 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="what">What</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/sf-video.gif" alt="sf-video" class="lazyload"><figcaption class="image-caption">sf-video</figcaption></figure></p>
+<h2 id="how-部署-vue--express--postgresql-全栈网站">HOW 部署 Vue + Express + PostgreSQL 全栈网站</h2>
+<p><a href="https://cloud.tencent.com/document/product/1154/43009">https://cloud.tencent.com/document/product/1154/43009</a></p>
+<h3 id="安装--demo">安装 &amp; Demo</h3>
+<h3 id="安装-serverless--查看版本">安装 serverless &amp; 查看版本</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ npm install -g serverless <span style="color:#75715e">#npm 全局安装 serverless</span>
+$ serverless –v <span style="color:#75715e">#查看 Serverless Framework 的版本信息</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201230181009922-9323277.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h3 id="配置--安装依赖">配置 &amp; 安装依赖</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ serverless init fullstack  <span style="color:#75715e">#使用serverless init命令，下载相关 template</span>
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201230181802139.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>“在项目模板中找到.env.example 文件，修改名称为.env” 实际没找到类似 .env 文件 &hellip;</p>
+<p>反馈了腾讯云问题，不知何时会改</p>
+</blockquote>
+<p>笔者使用 VSCode 打开了该项目文件夹，新建了 <code>.env</code> 文件，按文档要求加入配置信息</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201230183105060.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<pre><code># .env
+TENCENT_SECRET_ID=xxx  // 您账号的 SecretId
+TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
+
+# 地域可用区配置
+REGION=ap-guangzhou //资源部署区，该项目中指云函数与静态页面部署区
+ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指 DB 部署所在的可用区
+</code></pre><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201230182728538.png" alt=".env 说明" class="lazyload"><figcaption class="image-caption">.env 说明</figcaption></figure></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ npm run bootstrap <span style="color:#75715e">#通过执行以下命令，安装所需依赖</span>
+</code></pre></div><h3 id="部署--查看-demo">部署 &amp; 查看 Demo</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sls deploy --all
+</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201230183723244.png" alt="image-20201230183723244" class="lazyload"><figcaption class="image-caption">image-20201230183723244</figcaption></figure></p>
+<p>访问 Demo，哇哦~</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201230184209253.png" alt="image-20201230184209253" class="lazyload"><figcaption class="image-caption">image-20201230184209253</figcaption></figure></p>
+<p>查看 API 请求，为空，但是 API 服务 200  (<em>^▽^</em>)</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20201230184546417.png" alt="image-20201230184546417" class="lazyload"><figcaption class="image-caption">image-20201230184546417</figcaption></figure></p>
+<p>看到有个 Form 可以 Submit，Just try it~  (～￣▽￣)～</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/Users/fee/Study/blogPicTemp/image-20201230184708399.png" alt="image-20201230184708399" class="lazyload"><figcaption class="image-caption">image-20201230184708399</figcaption></figure></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/serverless/>https://ftopia2020.github.io/2021/serverless/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/serverless/">
+                    #Serverless</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_002/" class="prev" rel="prev" title="✍️【每日一题】Go题解 2. 位1的个数"><i
+                class="iconfont icon-left"></i>&nbsp;✍️【每日一题】Go题解 2. 位1的个数</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/serverless/" class="leancloud_visitors" data-flag-title="Serverless 初体验 —— 腾讯云">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

@@ -6,10 +6,19 @@
     <description>Recent content in golang on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>golang gin 实战开发</title>
+      <link>https://ftopia2020.github.io/2021/goproject/</link>
+      <pubDate>Sat, 20 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goproject/</guid>
+      <description>Golang &amp;amp; go mod 简介 目标： 初步使用 go mod 进行 modules 包管理 go 版本 &amp;amp; gvm go mod init tidy go.mod go.sum //indirect ? 了解 gin，简单 demo /ping =&amp;gt; pong Gin Gin：Golang 的一个微框架，性能极佳。 $</description>
+    </item>
     
     <item>
       <title>【转】对比三款 Go Playground：你喜欢哪款？</title>

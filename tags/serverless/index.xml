@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Serverless on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/serverless/</link>
+    <description>Recent content in Serverless on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Serverless 初体验 —— 腾讯云</title>
+      <link>https://ftopia2020.github.io/2021/serverless/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/serverless/</guid>
+      <description>What HOW 部署 Vue + Express + PostgreSQL 全栈网站 https://cloud.tencent.com/document/product/1154/43009 安装 &amp;amp; Demo 安装 serverless &amp;amp; 查看版本 $ npm install -g serverless #npm 全局安装 serverless $ serverless –v #查看 Serverless Framework 的版本信息 配置 &amp;amp; 安装依赖 $ serverless init fullstack #使用serve</description>
+    </item>
+    
+  </channel>
+</rss>
