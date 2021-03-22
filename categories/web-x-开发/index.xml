@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>🎊 纯 CSS「一行代码」呈现新拟态</title>
+      <link>https://ftopia2020.github.io/2021/simplesoftui/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/simplesoftui/</guid>
+      <description>Demo 废话不多说，直接上代码~ https://codepen.io/ftopia2020/pen/wvzYvox &amp;lt;div class=&amp;#34;container&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;soft-circle&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;soft-circle soft-circle-outset&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;soft-circle soft-circle-inset&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;div class=&amp;#34;soft-circle soft-circle-inset-2&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; .container { background-color: rgb(235, 235, 255); padding: 50px; } .soft-circle { width: 100px; height: 100px; margin-bottom: 20px; border-radius: 50px; box-shadow: -3px -3px 3px rgb(255, 255, 255), 5px 5px 5px rgb(210 210 240); } .soft-circle-outset { box-shadow: -8px -8px 8px rgb(255, 255, 255),</description>
+    </item>
+    
+    <item>
       <title>✍️【每日一题】Go题解 1. 设计停车系统</title>
       <link>https://ftopia2020.github.io/2021/leetcodedaily_001/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
