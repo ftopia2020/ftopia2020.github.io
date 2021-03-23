@@ -6,10 +6,19 @@
     <description>Recent content in Web X 开发 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/categories/web-x-%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>✍️【每日一题】Go题解 3. 扁平化嵌套列表迭代器</title>
+      <link>https://ftopia2020.github.io/2021/leetcodedaily_003/</link>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodedaily_003/</guid>
+      <description>个人评价：设计迭代器 =》DFS递归；嵌套可使用栈；另考验了一定的理解能力和基础建模 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通</description>
+    </item>
     
     <item>
       <title>✍️【每日一题】Go题解 2. 位1的个数</title>
