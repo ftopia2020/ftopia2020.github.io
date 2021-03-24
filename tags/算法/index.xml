@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>✍️【每日一题】Go题解 3. 扁平化嵌套列表迭代器</title>
+      <title>✍️【每日一题】Go题解 5. 132 模式</title>
       <link>https://ftopia2020.github.io/2021/leetcodedaily_003/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2021/leetcodedaily_003/</guid>
-      <description>个人评价：设计迭代器 =》DFS递归；嵌套可使用栈；另考验了一定的理解能力和基础建模 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通</description>
+      <description>个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂</description>
     </item>
     
     <item>
