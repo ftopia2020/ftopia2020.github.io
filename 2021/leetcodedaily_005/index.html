@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodedaily_002/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodedaily_004/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodedaily_005/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             ✍️【每日一题】Go题解 5. 132 模式 | Ftopia
+         
+    </title>
+    <meta name="title" content="✍️【每日一题】Go题解 5. 132 模式 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "✍️【每日一题】Go题解 5. 132 模式",
+    "headline" : "✍️【每日一题】Go题解 5. 132 模式",
+    "description" : "个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-23 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-23 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodedaily_005\/",
+    "wordCount" : "668",
+    "keywords" : [ "算法","原创","每日一题", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#132-模式">132 模式</a>
+      <ul>
+        <li><a href="#题目描述">题目描述</a></li>
+        <li><a href="#解题思路">解题思路</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">✍️【每日一题】Go题解 5. 132 模式</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-03-23
+                    itemprop="datePublished">
+                    2021-03-23</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 668 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解</p>
+<p>题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
+<p>另，通常算法题会考察分析时间复杂度和空间复杂度，可参考笔者之前的文章</p>
+<p><a href="/2021/algorithmbigo2/">「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</a></p>
+</blockquote>
+<h2 id="132-模式">132 模式</h2>
+<h3 id="题目描述">题目描述</h3>
+<p><a href="https://leetcode-cn.com/problems/132-pattern/">456. 132 模式</a></p>
+<p>给你一个整数数组 nums ，数组中共有 n 个整数。132 模式的子序列 由三个整数 nums[i]、nums[j] 和 nums[k] 组成，并同时满足：i &lt; j &lt; k 和 nums[i] &lt; nums[k] &lt; nums[j] 。</p>
+<p>如果 nums 中存在 132 模式的子序列 ，返回 true ；否则，返回 false 。</p>
+<p>进阶：很容易想到时间复杂度为 O(n^2) 的解决方案，你可以设计一个时间复杂度为 O(n logn) 或 O(n) 的解决方案吗？</p>
+<p><strong>示例 1：</strong></p>
+<blockquote>
+<p>输入：nums = [1,2,3,4]</p>
+<p>输出：false</p>
+</blockquote>
+<p>解释：序列中不存在 132 模式的子序列。</p>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：nums = [3,1,4,2]</p>
+<p>输出：true</p>
+</blockquote>
+<p>**解释：**序列中有 1 个 132 模式的子序列： [1, 4, 2] 。</p>
+<p><strong>示例 3：</strong></p>
+<blockquote>
+<p>输入：nums = [-1,3,2,0]</p>
+<p>输出：true</p>
+</blockquote>
+<p>解释：序列中有 3 个 132 模式的的子序列：[-1, 3, 2]、[-1, 3, 0] 和 [-1, 2, 0] 。</p>
+<p>提示：</p>
+<p>n == nums.length
+1 &lt;= n &lt;= 104
+-109 &lt;= nums[i] &lt;= 109</p>
+<h3 id="解题思路">解题思路</h3>
+<h4 id="方法一">方法一</h4>
+<p>暴力破解，其实严格意义上不算</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 从左向右，寻找存在比左边数大的数，返回下标即可
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">findLeftMax</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) (<span style="color:#a6e22e">maxIndex</span> <span style="color:#66d9ef">int</span>) {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">:=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span>&lt;len(<span style="color:#a6e22e">nums</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]&gt;<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] {
+			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">i</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span>
+}
+
+<span style="color:#75715e">// 已知 min、max，验证数组中是否存在 v &gt; min &amp;&amp; v &lt; max
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">checkMid</span>(<span style="color:#a6e22e">min</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">max</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">nums</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> &gt; <span style="color:#a6e22e">min</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">v</span> &lt; <span style="color:#a6e22e">max</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+
+<span style="color:#75715e">// 数组遍历判断是否满足 132 模式
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">find132pattern</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">nums</span>) &lt; <span style="color:#ae81ff">3</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+	}
+	<span style="color:#a6e22e">lMin</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">nums</span>[<span style="color:#ae81ff">0</span>]
+	<span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">nums</span>[<span style="color:#ae81ff">1</span>] 
+	<span style="color:#a6e22e">maxIndex</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span> 
+	<span style="color:#75715e">// maxIndex 移动 &amp; Check
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">maxIndex</span> &lt; len(<span style="color:#a6e22e">nums</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">checkMid</span>(<span style="color:#a6e22e">lMin</span>, <span style="color:#a6e22e">max</span>, <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">maxIndex</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>:]) {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+		}
+		<span style="color:#a6e22e">maxIndex</span><span style="color:#f92672">++</span>
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">maxIndex</span>] &gt; <span style="color:#a6e22e">max</span> {
+			<span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">maxIndex</span>]
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">checkMid</span>(<span style="color:#a6e22e">lMin</span>, <span style="color:#a6e22e">max</span>, <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">maxIndex</span>:]) <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> {
+				<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+			}
+		}
+	}
+	<span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sFind132Pattern</span>(<span style="color:#a6e22e">nums</span>[<span style="color:#ae81ff">1</span>:])
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+}
+</code></pre></div><h4 id="方法二">方法二</h4>
+<h3 id="总结">总结</h3>
+<p>单调栈的使用，有一定的理解难度，有不少题也是用相关方式</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/leetcodedaily_005/>https://ftopia2020.github.io/2021/leetcodedaily_005/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/">
+                    #每日一题</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_002/" class="prev" rel="prev" title="✍️【每日一题】Go题解 2. 位1的个数"><i
+                class="iconfont icon-left"></i>&nbsp;✍️【每日一题】Go题解 2. 位1的个数</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_004/" class="next" rel="next"
+            title="✍️【每日一题】Go题解 5. 132 模式">✍️【每日一题】Go题解 5. 132 模式&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/leetcodedaily_005/" class="leancloud_visitors" data-flag-title="✍️【每日一题】Go题解 5. 132 模式">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

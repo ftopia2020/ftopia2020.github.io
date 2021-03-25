@@ -9,9 +9,9 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2021/simplesoftui/" />
-    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodedaily_005/" />
-    <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodedaily_002/" />
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodedaily_005/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodedaily_003/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodedaily_004/" />
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -24,10 +24,10 @@
     <title>
          
          
-             ✍️【每日一题】Go题解 2. 位1的个数 | Ftopia
+             ✍️【每日一题】Go题解 5. 132 模式 | Ftopia
          
     </title>
-    <meta name="title" content="✍️【每日一题】Go题解 2. 位1的个数 | Ftopia">
+    <meta name="title" content="✍️【每日一题】Go题解 5. 132 模式 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "✍️【每日一题】Go题解 2. 位1的个数",
-    "headline" : "✍️【每日一题】Go题解 2. 位1的个数",
-    "description" : "个人评价：对二进制和位逻辑运算熟悉，是此题优化的关键 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空",
+    "name" : "✍️【每日一题】Go题解 5. 132 模式",
+    "headline" : "✍️【每日一题】Go题解 5. 132 模式",
+    "description" : "个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -56,10 +56,10 @@
     "accountablePerson" : "me",
     "copyrightHolder" : "me",
     "copyrightYear" : "2021",
-    "datePublished": "2021-03-22 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-03-22 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodedaily_002\/",
-    "wordCount" : "1066",
+    "datePublished": "2021-03-23 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-23 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodedaily_004\/",
+    "wordCount" : "542",
     "keywords" : [ "算法","原创","每日一题", "Ftopia"]
 }
 </script>
@@ -73,7 +73,7 @@
     
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#位1的个数">位1的个数</a>
+    <li><a href="#132-模式">132 模式</a>
       <ul>
         <li><a href="#题目描述">题目描述</a></li>
         <li><a href="#解题思路">解题思路</a></li>
@@ -155,7 +155,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">✍️【每日一题】Go题解 2. 位1的个数</h1>
+        <h1 class="post-title" itemprop="name headline">✍️【每日一题】Go题解 5. 132 模式</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -167,22 +167,20 @@
             &nbsp;
             <span class="post-time">
                 <i class="far fa-calendar-alt"></i>
-                <time datetime=2021-03-22
+                <time datetime=2021-03-23
                     itemprop="datePublished">
-                    2021-03-22</time>
+                    2021-03-23</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 1066 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 542 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
         </div>
     </header>
     <div class="post-content">
         
 
-        
-        
         
 
         
@@ -197,81 +195,46 @@
         
 
         <blockquote>
-<p>个人评价：对二进制和位逻辑运算熟悉，是此题优化的关键</p>
-<p>题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
+<p>个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解</p>
+<p>题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
 <p>另，通常算法题会考察分析时间复杂度和空间复杂度，可参考笔者之前的文章</p>
 <p><a href="/2021/algorithmbigo2/">「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</a></p>
 </blockquote>
-<h2 id="位1的个数">位1的个数</h2>
+<h2 id="132-模式">132 模式</h2>
 <h3 id="题目描述">题目描述</h3>
-<p><a href="https://leetcode-cn.com/problems/number-of-1-bits/">191. 位1的个数</a></p>
-<p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 &lsquo;1&rsquo; 的个数（也被称为汉明重量）。</p>
-<p> </p>
-<p><strong>提示：</strong></p>
-<p>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。
-在 Java 中，编译器使用二进制补码记法来表示有符号整数。因此，在上面的 示例 3 中，输入表示有符号整数 -3。</p>
+<p><a href="https://leetcode-cn.com/problems/132-pattern/">456. 132 模式</a></p>
+<p>给你一个整数数组 nums ，数组中共有 n 个整数。132 模式的子序列 由三个整数 nums[i]、nums[j] 和 nums[k] 组成，并同时满足：i &lt; j &lt; k 和 nums[i] &lt; nums[k] &lt; nums[j] 。</p>
+<p>如果 nums 中存在 132 模式的子序列 ，返回 true ；否则，返回 false 。</p>
+<p>**进阶：**很容易想到时间复杂度为 O(n^2) 的解决方案，你可以设计一个时间复杂度为 O(n logn) 或 O(n) 的解决方案吗？</p>
 <p><strong>示例 1：</strong></p>
 <blockquote>
-<p>输入：00000000000000000000000000001011</p>
-<p>输出：3</p>
+<p>输入：nums = [1,2,3,4]</p>
+<p>输出：false</p>
 </blockquote>
-<p>解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 &lsquo;1&rsquo;。</p>
+<p>解释：序列中不存在 132 模式的子序列。</p>
 <p>示例 2：</p>
 <blockquote>
-<p>输入：00000000000000000000000010000000</p>
-<p>输出：1</p>
+<p>输入：nums = [3,1,4,2]</p>
+<p>输出：true</p>
 </blockquote>
-<p>**解释：**输入的二进制串 00000000000000000000000010000000 中，共有一位为 &lsquo;1&rsquo;。</p>
+<p>**解释：**序列中有 1 个 132 模式的子序列： [1, 4, 2] 。</p>
 <p><strong>示例 3：</strong></p>
 <blockquote>
-<p>输入：11111111111111111111111111111101</p>
-<p>输出：31</p>
+<p>输入：nums = [-1,3,2,0]</p>
+<p>输出：true</p>
 </blockquote>
-<p>**解释：**输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &lsquo;1&rsquo;。</p>
+<p>**解释：**序列中有 3 个 132 模式的的子序列：[-1, 3, 2]、[-1, 3, 0] 和 [-1, 2, 0] 。</p>
 <p><strong>提示：</strong></p>
-<p>输入必须是长度为 32 的 二进制串 。</p>
-<p><strong>进阶：</strong></p>
-<p>如果多次调用这个函数，你将如何优化你的算法？</p>
+<p>n == nums.length
+1 &lt;= n &lt;= 104
+-109 &lt;= nums[i] &lt;= 109</p>
 <h3 id="解题思路">解题思路</h3>
 <h4 id="方法一">方法一</h4>
-<p>直接循环检查给定整数 n 的二进制位的每一位是否为 1</p>
-<p>这里其实也需要一点位运算的常识，思路如下：</p>
-<ul>
-<li>二进制每一位上的数值相当于 2 的 n 次方（右移运算符 × 2）</li>
-<li>使用逻辑运算符 &amp; 来判断是否为 1 <code>1&amp;1=1</code></li>
-</ul>
-<p>Golang 实现代码如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">hammingWeight</span>(<span style="color:#a6e22e">num</span> <span style="color:#66d9ef">uint32</span>) (<span style="color:#a6e22e">count</span> <span style="color:#66d9ef">int</span>) {
-    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">32</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-        <span style="color:#66d9ef">if</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">count</span> &gt; <span style="color:#ae81ff">0</span> {
-            <span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
-        }
-    }
-    <span style="color:#66d9ef">return</span>
-}
-</code></pre></div><p>复杂度？🙌 时间 O(n) 固定为 32 位； 空间 O(1)</p>
+<p>暴力破解，其实严格意义上不推荐，复杂度过高，仅说下思路：</p>
+<p>从左向右，遍历寻找数2，存在前置数比其大（即 3）、也存在比其小的数（即 1）</p>
 <h4 id="方法二">方法二</h4>
-<p>方法一，即使 n 的高位都是 0，也会对此进行循环检查。而且高位计算量较大</p>
-<p>因此，另外一个做法是：通过 n &amp; 1 来统计当前 n 的最低位是否为 1，同时每次直接对 n 进行右移</p>
-<p>Golang 实现代码如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">hammingWeight</span>(<span style="color:#a6e22e">num</span> <span style="color:#66d9ef">uint32</span>) (<span style="color:#a6e22e">count</span> <span style="color:#66d9ef">int</span>) {
-    <span style="color:#66d9ef">for</span> ; <span style="color:#a6e22e">num</span> &gt; <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">num</span> <span style="color:#f92672">&gt;&gt;=</span> <span style="color:#ae81ff">1</span> {
-        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
-            <span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>
-        }
-    }
-    <span style="color:#66d9ef">return</span>
-}
-</code></pre></div><p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210322103904908.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
-<blockquote>
-<p>官方解答使用了减法，n&amp;(n - 1)，其预算结果恰为把 n 的二进制位中的最低位的 1 变为 0 之后的结果。</p>
-<p>也可行，但个人觉得位移的可读性更佳，更易理解，性能也更佳~ 啊哈哈</p>
-</blockquote>
-<p>复杂度？🙌 位 1 有多少，遍历多少 O(logn)</p>
-<p>注意！num 原值变了，如果需要不变，建议再加一个变量遍历</p>
 <h3 id="总结">总结</h3>
-<p>二进制&amp;位运算应该是计算机基础中的基础，理应直接「方法二」~</p>
-<p>作为校招面试题筛选不错的</p>
+<p>单调栈的使用，有一定的理解难度，有不少题也是用相关方式</p>
 
     </div>
 
@@ -286,7 +249,7 @@
         
         <p class="copyright-item">
             <span>Link:</span>
-            <a href=https://ftopia2020.github.io/2021/leetcodedaily_002/>https://ftopia2020.github.io/2021/leetcodedaily_002/</span>
+            <a href=https://ftopia2020.github.io/2021/leetcodedaily_004/>https://ftopia2020.github.io/2021/leetcodedaily_004/</span>
         </p>
         
         
@@ -321,12 +284,12 @@
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2021/simplesoftui/" class="prev" rel="prev" title="🎊 纯 CSS「一行代码」呈现新拟态"><i
-                class="iconfont icon-left"></i>&nbsp;🎊 纯 CSS「一行代码」呈现新拟态</a>
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_005/" class="prev" rel="prev" title="✍️【每日一题】Go题解 5. 132 模式"><i
+                class="iconfont icon-left"></i>&nbsp;✍️【每日一题】Go题解 5. 132 模式</a>
         
         
-        <a href="https://ftopia2020.github.io/2021/leetcodedaily_005/" class="next" rel="next"
-            title="✍️【每日一题】Go题解 5. 132 模式">✍️【每日一题】Go题解 5. 132 模式&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_003/" class="next" rel="next"
+            title="✍️【每日一题】Go题解 3. 扁平化嵌套列表迭代器">✍️【每日一题】Go题解 3. 扁平化嵌套列表迭代器&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -334,7 +297,7 @@
         
         
         
-        <span id="/2021/leetcodedaily_002/" class="leancloud_visitors" data-flag-title="✍️【每日一题】Go题解 2. 位1的个数">
+        <span id="/2021/leetcodedaily_004/" class="leancloud_visitors" data-flag-title="✍️【每日一题】Go题解 5. 132 模式">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>
@@ -401,9 +364,8 @@
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
 
 
