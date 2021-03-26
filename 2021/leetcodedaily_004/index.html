@@ -9,7 +9,7 @@
     <meta name="description" content="个人技术博客">
     <meta name="keywords" content="ftopia fei">
     
-    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodedaily_005/" />
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodedaily_002/" />
     <link rel="next" href="https://ftopia2020.github.io/2021/leetcodedaily_003/" />
     <link rel="canonical" href="https://ftopia2020.github.io/2021/leetcodedaily_004/" />
     
@@ -24,10 +24,10 @@
     <title>
          
          
-             ✍️【每日一题】Go题解 5. 132 模式 | Ftopia
+             ✍️【每日一题】Go题解 4.132 模式 | Ftopia
          
     </title>
-    <meta name="title" content="✍️【每日一题】Go题解 5. 132 模式 | Ftopia">
+    <meta name="title" content="✍️【每日一题】Go题解 4.132 模式 | Ftopia">
       
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/ftopia2020.github.io\/"
     },
     "articleSection" : "posts",
-    "name" : "✍️【每日一题】Go题解 5. 132 模式",
-    "headline" : "✍️【每日一题】Go题解 5. 132 模式",
-    "description" : "个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂",
+    "name" : "✍️【每日一题】Go题解 4.132 模式",
+    "headline" : "✍️【每日一题】Go题解 4.132 模式",
+    "description" : "个人评价：枚举遍历需要一定的策略，进阶优化如果不知道单调栈还真很难想到 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考",
     "inLanguage" : "en-us",
     "author" : "me",
     "creator" : "me",
@@ -59,8 +59,8 @@
     "datePublished": "2021-03-23 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-03-23 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2021\/leetcodedaily_004\/",
-    "wordCount" : "542",
-    "keywords" : [ "算法","原创","每日一题", "Ftopia"]
+    "wordCount" : "1406",
+    "keywords" : [ "算法","原创","每日一题","单调栈", "Ftopia"]
 }
 </script>
 
@@ -155,7 +155,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">✍️【每日一题】Go题解 5. 132 模式</h1>
+        <h1 class="post-title" itemprop="name headline">✍️【每日一题】Go题解 4.132 模式</h1>
         <div class="post-meta">
 
             <i class="far fa-folder-open"></i>
@@ -172,9 +172,9 @@
                     2021-03-23</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 542 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1406 字</span>
             &nbsp;
-            <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
+            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
 
         </div>
     </header>
@@ -195,7 +195,7 @@
         
 
         <blockquote>
-<p>个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解</p>
+<p>个人评价：枚举遍历需要一定的策略，进阶优化如果不知道单调栈还真很难想到</p>
 <p>题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ）</p>
 <p>另，通常算法题会考察分析时间复杂度和空间复杂度，可参考笔者之前的文章</p>
 <p><a href="/2021/algorithmbigo2/">「数据结构&amp;算法」必知必会系列：3. 时间 &amp; 空间复杂度（下）</a></p>
@@ -230,11 +230,97 @@
 -109 &lt;= nums[i] &lt;= 109</p>
 <h3 id="解题思路">解题思路</h3>
 <h4 id="方法一">方法一</h4>
-<p>暴力破解，其实严格意义上不推荐，复杂度过高，仅说下思路：</p>
-<p>从左向右，遍历寻找数2，存在前置数比其大（即 3）、也存在比其小的数（即 1）</p>
+<p>枚举遍历，难点在于选择怎么遍历，以及怎么取数，思路如下：</p>
+<p>从左向右，遍历寻找数「2」，存在前置数「 3」&amp; 数「1」时停止</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 验证是否为数 「2」
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">checkMax2</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">index</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">index</span> &lt; <span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+	}
+	<span style="color:#a6e22e">max2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">index</span>]
+	<span style="color:#a6e22e">max</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">max2</span>
+	<span style="color:#a6e22e">min</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">max2</span>
+	<span style="color:#a6e22e">maxIndex</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">:=</span><span style="color:#a6e22e">index</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+		<span style="color:#75715e">//fmt.Printf(&#34;index: %d\n&#34;, index)
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] &gt; <span style="color:#a6e22e">max</span> {
+			<span style="color:#a6e22e">max</span> = <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]
+			<span style="color:#a6e22e">maxIndex</span> = <span style="color:#a6e22e">i</span>
+		}
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] &lt; <span style="color:#a6e22e">min</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">maxIndex</span> &gt; <span style="color:#a6e22e">i</span> { <span style="color:#75715e">// 数「1」 不仅要比 数「2」小，且数「3」得在其之后
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">min</span> = <span style="color:#a6e22e">nums</span> [<span style="color:#a6e22e">i</span>]
+		}
+		<span style="color:#75715e">//fmt.Printf(&#34;i: %d, max: %d, min: %d\n&#34;, i, max, min)
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">max</span> &gt; <span style="color:#a6e22e">max2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">min</span> &lt; <span style="color:#a6e22e">max2</span> {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">find132pattern</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">nums</span>) <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &gt; <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">checkMax2</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">i</span>) {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+		}
+	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+</code></pre></div><p>复杂度？</p>
+<p>🙌 外层 O(n) 里层 O(n)  =&gt; O(n²)   空间复杂度 O(1)</p>
 <h4 id="方法二">方法二</h4>
-<h3 id="总结">总结</h3>
-<p>单调栈的使用，有一定的理解难度，有不少题也是用相关方式</p>
+<p>方法一相当于暴力破解，时间复杂度有点高，那么能否空间换时间？</p>
+<p>这里，引入  <strong>「单调栈」</strong> 这一算法。</p>
+<p>如果熟悉单调栈，应该就不难解，另找到个网友的精辟理解方式🐂🍺，如下：</p>
+<blockquote>
+<p>设定两个变量，从右向左遍历</p>
+<p>right 用于存储最右边的值，即 132 的 2</p>
+<p>mid 用于存储中间和右边的待选项池子</p>
+<p>这个待选项池子什么意思呢？</p>
+<p>咱们首先由题目，确认两点：</p>
+<ol>
+<li>最右边的值一定要小于中间的值</li>
+<li>了让左边能找到小于右边的值，所以咱们要确保右边在小于中间的前提下，要尽可能的大</li>
+</ol>
+<p>咱们可以把中间当作公司大领导，右边当成公司二领导，左边当成大领导的公子，池子当作公司拥有的公车库：</p>
+<ol>
+<li>小领导的车一定不能比大领导的车高端或者新潮，不然不合规矩</li>
+<li>大领导和二领导要么都配车，要么都不配车</li>
+<li>来了新车如果领导都有车了，且新车比二领导的差，那就给大领导的公子，事情就成了！</li>
+<li>来了新车如果比大领导的低端，二领导的高端，二领导先别急，大领导还没换，你换什么，等等吧</li>
+<li>来了新车如果比大领导现有的高端，那么给大领导换车;大领导换车了高兴，把车库里仅次于大领导新车的车，直接换给二领导</li>
+</ol>
+<p>经过上面的讲解，你是不是发现了，如果能找到值比right小，说明就成了</p>
+</blockquote>
+<blockquote>
+<p>作者：bloodborne <a href="https://leetcode-cn.com/problems/132-pattern/solution/golang-gei-ling-dao-men-fen-che-by-bloodborne/">力扣（LeetCode）链接</a><br>
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">find132pattern</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+	<span style="color:#a6e22e">l</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">nums</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">l</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+	}
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mid</span> []<span style="color:#66d9ef">int</span>
+	<span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">MinInt32</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">l</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] &lt; <span style="color:#a6e22e">right</span>  {
+			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+		}
+		<span style="color:#66d9ef">for</span> len(<span style="color:#a6e22e">mid</span>) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">mid</span>[len(<span style="color:#a6e22e">mid</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] &lt;<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] {
+			<span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">mid</span>[len(<span style="color:#a6e22e">mid</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]  <span style="color:#75715e">// 尽量给二领导配好车，前提是比大领导的差一点
+</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">mid</span> = <span style="color:#a6e22e">mid</span>[:len(<span style="color:#a6e22e">mid</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]   <span style="color:#75715e">// 清出刚才的车
+</span><span style="color:#75715e"></span>		}
+		<span style="color:#a6e22e">mid</span> = append(<span style="color:#a6e22e">mid</span>, <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#75715e">// 把最新的好车压入车库
+</span><span style="color:#75715e"></span>	}
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+</code></pre></div><h3 id="总结">总结</h3>
+<p>数组暴力破解使用枚举的方式还真不少是从右向左较优</p>
+<p>单调栈的使用，有一定的理解难度，有不少题也是用相关方式（如 接雨水 等）</p>
+<blockquote>
+<p>对单调栈理解仍不熟练，等下次遇上类似题可总结一番</p>
+</blockquote>
 
     </div>
 
@@ -274,6 +360,9 @@
             <span class="tag"><a href="https://ftopia2020.github.io/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/">
                     #每日一题</a></span>
             
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8D%95%E8%B0%83%E6%A0%88/">
+                    #单调栈</a></span>
+            
         </section>
         
         <section>
@@ -284,8 +373,8 @@
 
     <div class="post-nav">
         
-        <a href="https://ftopia2020.github.io/2021/leetcodedaily_005/" class="prev" rel="prev" title="✍️【每日一题】Go题解 5. 132 模式"><i
-                class="iconfont icon-left"></i>&nbsp;✍️【每日一题】Go题解 5. 132 模式</a>
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_002/" class="prev" rel="prev" title="✍️【每日一题】Go题解 2. 位1的个数"><i
+                class="iconfont icon-left"></i>&nbsp;✍️【每日一题】Go题解 2. 位1的个数</a>
         
         
         <a href="https://ftopia2020.github.io/2021/leetcodedaily_003/" class="next" rel="next"
@@ -297,7 +386,7 @@
         
         
         
-        <span id="/2021/leetcodedaily_004/" class="leancloud_visitors" data-flag-title="✍️【每日一题】Go题解 5. 132 模式">
+        <span id="/2021/leetcodedaily_004/" class="leancloud_visitors" data-flag-title="✍️【每日一题】Go题解 4.132 模式">
             <span class="post-meta-item-text">访问量 </span>
             <span class="leancloud-visitors-count"></span>
             <p></p>

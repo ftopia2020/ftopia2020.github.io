@@ -6,10 +6,28 @@
     <description>Recent content in 算法 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>✍️【每日一题】Go题解 6.删除排序链表中的重复元素</title>
+      <link>https://ftopia2020.github.io/2021/leetcodedaily_006/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodedaily_006/</guid>
+      <description>个人评价：经过昨日中等类似题的洗礼，这题秒解啊哈哈 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂度和空间</description>
+    </item>
+    
+    <item>
+      <title>✍️【每日一题】Go题解 5.删除排序链表中的重复元素 II</title>
+      <link>https://ftopia2020.github.io/2021/leetcodedaily_005/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodedaily_005/</guid>
+      <description>个人评价：链表类题目。。。难点在于指针和头尾处理，调试真难 😂 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间</description>
+    </item>
     
     <item>
       <title>✍️【每日一题】Go题解 3. 扁平化嵌套列表迭代器</title>
@@ -21,21 +39,12 @@
     </item>
     
     <item>
-      <title>✍️【每日一题】Go题解 5. 132 模式</title>
+      <title>✍️【每日一题】Go题解 4.132 模式</title>
       <link>https://ftopia2020.github.io/2021/leetcodedaily_004/</link>
       <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://ftopia2020.github.io/2021/leetcodedaily_004/</guid>
-      <description>个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂</description>
-    </item>
-    
-    <item>
-      <title>✍️【每日一题】Go题解 5. 132 模式</title>
-      <link>https://ftopia2020.github.io/2021/leetcodedaily_005/</link>
-      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/2021/leetcodedaily_005/</guid>
-      <description>个人评价：使用暴力破解会超时，如果不知道单调栈还真没法解 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考察分析时间复杂</description>
+      <description>个人评价：枚举遍历需要一定的策略，进阶优化如果不知道单调栈还真很难想到 题目难度：🌟 🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟 、困难🌟 🌟 🌟 ） 另，通常算法题会考</description>
     </item>
     
     <item>
