@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodedaily_005/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodedaily_006/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/gobuiltin/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】一文告诉你神奇的Go内建函数源码在哪里 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】一文告诉你神奇的Go内建函数源码在哪里 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】一文告诉你神奇的Go内建函数源码在哪里",
+    "headline" : "【转】一文告诉你神奇的Go内建函数源码在哪里",
+    "description" : "原文链接：https:\/\/tonybai.com\/2020\/12\/17\/where-is-the-source-of-builtin-fun",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-26 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-26 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/gobuiltin\/",
+    "wordCount" : "1976",
+    "keywords" : [ "golang","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-何为go内建函数">1. 何为Go内建函数</a></li>
+        <li><a href="#2-预定义标识符可被override">2. 预定义标识符可被override</a></li>
+        <li><a href="#3-预定义标识符的声明源码在哪里">3. 预定义标识符的声明源码在哪里</a></li>
+        <li><a href="#4-内建函数的源码在哪里">4. 内建函数的源码在哪里？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】一文告诉你神奇的Go内建函数源码在哪里</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-03-26
+                    itemprop="datePublished">
+                    2021-03-26</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1976 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>原文链接：<a href="https://tonybai.com/2020/12/17/where-is-the-source-of-builtin-functions/">https://tonybai.com/2020/12/17/where-is-the-source-of-builtin-functions/</a></p>
+</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/where-is-the-source-of-builtin-functions-1.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>Go内建函数源码，我好像在哪里见过你。 – 佚名</p>
+</blockquote>
+<h3 id="1-何为go内建函数">1. 何为Go内建函数</h3>
+<p>众所周知，Go是最简单的主流编程语言之一，截至<a href="https://mp.weixin.qq.com/s/B5onfyP7BPYCh_rMSBtfcQ">Go 1.15版本</a>，Go语言的<a href="https://tip.golang.org/ref/spec#Keywords">关键字</a>的规模依旧保持在25个：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/where-is-the-source-of-builtin-functions-2.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>很多刚入门的gopher可能会问：像bool、byte、error、true、<a href="https://www.imooc.com/read/87/article/2380">iota</a>甚至int都难道都不是关键字？</p>
+<p>没错！和其他语言不同，这些并不是关键字，在Go中它们被称为<a href="https://tip.golang.org/ref/spec#Predeclared_identifiers"><strong>预定义标识符</strong></a>，可以在任何源码位置使用。</p>
+<blockquote>
+<p>这些标识符拥有<strong>universe block作用域</strong>（关于go代码块作用域的详细解析，可参考我的技术专栏：“<a href="https://www.imooc.com/read/87">改善Go语⾔编程质量的50个有效实践</a>”）</p>
+</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/where-is-the-source-of-builtin-functions-3.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>从上图我们看到：所谓的<strong>Go内建函数</strong>也包含在这个预定义标识符集合中，只是这些标识符被用作<strong>函数名称标识符</strong>罢了。</p>
+<h3 id="2-预定义标识符可被override">2. 预定义标识符可被override</h3>
+<p>Go语言的关键字是保留的，我们无法将其用于规范之外的其他场合，比如作为变量的标识符。但是预定义标识符不是关键字，我们可以override它们。下面就是一个对默认表示整型类型的预定义标识符<strong>int</strong>进行override的例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+        <span style="color:#e6db74">&#34;fmt&#34;</span>
+        <span style="color:#e6db74">&#34;unsafe&#34;</span>
+)
+
+<span style="color:#66d9ef">type</span> <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">int8</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">5</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%T\n&#34;</span>, <span style="color:#a6e22e">a</span>) <span style="color:#75715e">// main.int，而不是int
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">unsafe</span>.<span style="color:#a6e22e">Sizeof</span>(<span style="color:#a6e22e">a</span>)) <span style="color:#75715e">// 1，而不是8
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>在上述这个源文件中，预定义标识符int被override为一个自定义类型int，该类型的underlying type为int8，于是当我们输出该类型变量(代码中的变量a)的类型和长度时，我们得到的是main.int和1，而不是int和8。</p>
+<h3 id="3-预定义标识符的声明源码在哪里">3. 预定义标识符的声明源码在哪里</h3>
+<p>Go是开源的编程语言，这些预定义标识符想必也都有自己的“归宿”吧，的确是这样的。Go的每个发行版都带有一份源码，而预定义标识符就在这份源码中。</p>
+<p>以 <a href="https://tonybai.com/2020/03/08/some-changes-in-go-1-14/">Go 1.14</a> 为例，我们可以在下面路径中找到预定义标识符的源码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ GOROOT/src/builtin/builtin.go
+</code></pre></div><p>以string、int、uint这几个代表原生类型的预定义标识符为例，它们的声明代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// $GOROOT/src/builtin/builtin.go
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// string is the set of all strings of 8-bit bytes, conventionally but not
+</span><span style="color:#75715e">// necessarily representing UTF-8-encoded text. A string may be empty, but
+</span><span style="color:#75715e">// not nil. Values of string type are immutable.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#66d9ef">string</span> <span style="color:#66d9ef">string</span>
+
+<span style="color:#75715e">// int is a signed integer type that is at least 32 bits in size. It is a
+</span><span style="color:#75715e">// distinct type, however, and not an alias for, say, int32.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#66d9ef">int</span> <span style="color:#66d9ef">int</span>
+
+<span style="color:#75715e">// uint is an unsigned integer type that is at least 32 bits in size. It is a
+</span><span style="color:#75715e">// distinct type, however, and not an alias for, say, uint32.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#66d9ef">uint</span> <span style="color:#66d9ef">uint</span>
+</code></pre></div><p>同时，我们利用<code>go doc builtin.int</code>也可以查看预定义标识符int的文档：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go doc builtin.int
+package builtin // import <span style="color:#e6db74">&#34;builtin&#34;</span>
+
+type int int
+    int is a signed integer type that is at least <span style="color:#ae81ff">32</span> bits in size. It is a
+    distinct type, however, and not an alias <span style="color:#66d9ef">for</span>, say, int32.
+
+func cap<span style="color:#f92672">(</span>v Type<span style="color:#f92672">)</span> int
+func copy<span style="color:#f92672">(</span>dst, src <span style="color:#f92672">[]</span>Type<span style="color:#f92672">)</span> int
+func len<span style="color:#f92672">(</span>v Type<span style="color:#f92672">)</span> int
+</code></pre></div><h3 id="4-内建函数的源码在哪里">4. 内建函数的源码在哪里？</h3>
+<p>作为预声明标识符子集的内建函数们在builtin.go中也都有自己的位置，比如：以append这个内建函数为例，我们可以在Go安装包的builtin.go中找到它的原型(Go 1.14)：</p>
+<pre><code>// The append built-in function appends elements to the end of a slice. If
+// it has sufficient capacity, the destination is resliced to accommodate the
+// new elements. If it does not, a new underlying array will be allocated.
+// Append returns the updated slice. It is therefore necessary to store the
+// result of append, often in the variable holding the slice itself:
+// slice = append(slice, elem1, elem2)
+// slice = append(slice, anotherSlice...)
+// As a special case, it is legal to append a string to a byte slice, like this:
+// slice = append([]byte(&quot;hello &quot;), &quot;world&quot;...)
+func append(slice []Type, elems ...Type) []Type
+</code></pre><p>但我们惊奇的发现：<strong>这里没有append函数的实现</strong>。那么append内建函数实现的源码究竟在哪里呢？本质上讲append函数，包括其他内建函数其实并没有自己的实现源码。</p>
+<p>内建函数仅仅是一个标识符，在Go源码编译期间，Go编译器遇到内建函数标识符时会将其替换为若干runtime的调用，我们还以append函数为例，我们输出下面代码的汇编代码(Go 1.14)：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// append.go
+</span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">s</span> = []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>}
+    <span style="color:#a6e22e">s</span> = append(<span style="color:#a6e22e">s</span>, <span style="color:#ae81ff">7</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s</span>)
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go tool compile -S append.go &gt; append.s
+</code></pre></div><p>汇编节选如下(append.s)：</p>
+<pre><code>&quot;&quot;.main STEXT size=277 args=0x0 locals=0x58
+ 0x0000 00000 (xxx.go:5) TEXT &quot;&quot;.main(SB), ABIInternal, $88-0
+ 0x0000 00000 (xxx.go:5) MOVQ (TLS), CX
+ 0x0009 00009 (xxx.go:5) CMPQ SP, 16(CX)
+ 0x000d 00013 (xxx.go:5) PCDATA $0, $-2
+ 0x000d 00013 (xxx.go:5) JLS  267
+ 0x0013 00019 (xxx.go:5) PCDATA $0, $-1
+ 0x0013 00019 (xxx.go:5) SUBQ $88, SP
+ 0x0017 00023 (xxx.go:5) MOVQ BP, 80(SP)
+ 0x001c 00028 (xxx.go:5) LEAQ 80(SP), BP
+ 0x0021 00033 (xxx.go:5) PCDATA $0, $-2
+ 0x0021 00033 (xxx.go:5) PCDATA $1, $-2
+ 0x0021 00033 (xxx.go:5) FUNCDATA $0, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+ 0x0021 00033 (xxx.go:5) FUNCDATA $1, gclocals·568470801006e5c0dc3947ea998fe279(SB)
+ 0x0021 00033 (xxx.go:5) FUNCDATA $2, gclocals·bfec7e55b3f043d1941c093912808913(SB)
+ 0x0021 00033 (xxx.go:5) FUNCDATA $3, &quot;&quot;.main.stkobj(SB)
+ 0x0021 00033 (xxx.go:6) PCDATA $0, $1
+ 0x0021 00033 (xxx.go:6) PCDATA $1, $0
+ 0x0021 00033 (xxx.go:6) LEAQ type.[2]int(SB), AX
+ 0x0028 00040 (xxx.go:6) PCDATA $0, $0
+ 0x0028 00040 (xxx.go:6) MOVQ AX, (SP)
+ 0x002c 00044 (xxx.go:6) CALL runtime.newobject(SB)
+ 0x0031 00049 (xxx.go:6) PCDATA $0, $1
+ 0x0031 00049 (xxx.go:6) MOVQ 8(SP), AX
+ 0x0036 00054 (xxx.go:6) MOVQ $5, (AX)
+ 0x003d 00061 (xxx.go:6) MOVQ $6, 8(AX)
+ 0x0045 00069 (xxx.go:7) PCDATA $0, $2
+ 0x0045 00069 (xxx.go:7) LEAQ type.int(SB), CX
+ 0x004c 00076 (xxx.go:7) PCDATA $0, $1
+ 0x004c 00076 (xxx.go:7) MOVQ CX, (SP)
+ 0x0050 00080 (xxx.go:7) PCDATA $0, $0
+ 0x0050 00080 (xxx.go:7) MOVQ AX, 8(SP)
+ 0x0055 00085 (xxx.go:7) MOVQ $2, 16(SP)
+ 0x005e 00094 (xxx.go:7) MOVQ $2, 24(SP)
+ 0x0067 00103 (xxx.go:7) MOVQ $4, 32(SP)
+ 0x0070 00112 (xxx.go:7) CALL runtime.growslice(SB)
+ 0x0075 00117 (xxx.go:7) PCDATA $0, $1
+ 0x0075 00117 (xxx.go:7) MOVQ 40(SP), AX
+ 0x007a 00122 (xxx.go:7) MOVQ 48(SP), CX
+ 0x007f 00127 (xxx.go:7) MOVQ 56(SP), DX
+ 0x0084 00132 (xxx.go:7) MOVQ $7, 16(AX)
+ 0x008c 00140 (xxx.go:7) MOVQ $8, 24(AX)
+ 0x0094 00148 (xxx.go:8) PCDATA $0, $0
+ 0x0094 00148 (xxx.go:8) MOVQ AX, (SP)
+ 0x0098 00152 (xxx.go:7) LEAQ 2(CX), AX
+ 0x009c 00156 (xxx.go:8) MOVQ AX, 8(SP)
+ 0x00a1 00161 (xxx.go:8) MOVQ DX, 16(SP)
+ 0x00a6 00166 (xxx.go:8) CALL runtime.convTslice(SB)
+ ... ...
+</code></pre><p>我们可以看到：append并没有以独立的身份出现在CALL汇编指令的后面，而是被换成：runtime.growslice、runtime.convTslice以及相关汇编指令了。</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/gobuiltin/>https://ftopia2020.github.io/2021/gobuiltin/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/golang/">
+                    #golang</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_005/" class="prev" rel="prev" title="✍️【每日一题】Go题解 5.删除排序链表中的重复元素 II"><i
+                class="iconfont icon-left"></i>&nbsp;✍️【每日一题】Go题解 5.删除排序链表中的重复元素 II</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_006/" class="next" rel="next"
+            title="✍️【每日一题】Go题解 6.删除排序链表中的重复元素">✍️【每日一题】Go题解 6.删除排序链表中的重复元素&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/gobuiltin/" class="leancloud_visitors" data-flag-title="【转】一文告诉你神奇的Go内建函数源码在哪里">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
