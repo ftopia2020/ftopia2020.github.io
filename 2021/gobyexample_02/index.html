@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodedaily_007/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/leetcodedaily_008/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/gobyexample_02/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             💪 三天刷完 Go by Example（中） | Ftopia
+         
+    </title>
+    <meta name="title" content="💪 三天刷完 Go by Example（中） | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "💪 三天刷完 Go by Example（中）",
+    "headline" : "💪 三天刷完 Go by Example（中）",
+    "description" : "本文为系列文章，Go 基础语法可回顾上篇 三天刷完 Go by Example（上） Github 代码：https:\/\/github.com\/ftopia2020\/g",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-30 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-30 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/gobyexample_02\/",
+    "wordCount" : "1520",
+    "keywords" : [ "Golang","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#22-goroutines">22 Goroutines</a>
+      <ul>
+        <li><a href="#引申思考">引申思考</a></li>
+      </ul>
+    </li>
+    <li><a href="#23-channels">23 Channels</a></li>
+    <li><a href="#24-channel-buffering">24 Channel Buffering</a></li>
+    <li><a href="#25-channel-synchronization">25 Channel Synchronization</a></li>
+    <li><a href="#26-channel-directions">26 Channel Directions</a></li>
+    <li><a href="#27-select">27 Select</a></li>
+    <li><a href="#28-timeouts">28 Timeouts</a></li>
+    <li><a href="#29-non-blocking-channel-operations">29 Non-blocking Channel Operations</a>
+      <ul>
+        <li><a href="#引申思考-1">引申思考</a></li>
+      </ul>
+    </li>
+    <li><a href="#30-closing-channels">30 Closing Channels</a></li>
+    <li><a href="#31-range-over-channels">31 Range Over Channels</a></li>
+    <li><a href="#32-timers">32 Timers</a></li>
+    <li><a href="#33-ticker">33 Ticker</a></li>
+    <li><a href="#34-worker-pools">34 Worker Pools</a></li>
+    <li><a href="#35-waitgroups">35 Waitgroups</a></li>
+    <li><a href="#36-rate-limiting">36 Rate Limiting</a></li>
+    <li><a href="#37-atomic-counters">37 Atomic Counters</a></li>
+    <li><a href="#38-mutexes">38 Mutexes</a></li>
+    <li><a href="#39-stateful-goroutines">39 Stateful Goroutines</a></li>
+    <li><a href="#next">Next</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">💪 三天刷完 Go by Example（中）</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-03-30
+                    itemprop="datePublished">
+                    2021-03-30</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1520 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>本文为系列文章，Go 基础语法可回顾上篇 <a href="/2021/gobyexample_01/">三天刷完 Go by Example（上）</a></p>
+<p>Github 代码：<a href="https://github.com/ftopia2020/go_by_examples">https://github.com/ftopia2020/go_by_examples</a></p>
+</blockquote>
+<p>以下仅Go并发的基础语法示例，这些远远不够，你需要结合系统学习其概念和理论、需要大量阅读相关资料和多看多练多理解经典Go并发模式来掌握 Go 并发编程的要义。</p>
+<hr>
+<blockquote>
+<ul>
+<li><strong>Do not communicate by sharing memory; instead, share memory by communicating.</strong></li>
+<li>不要通过共享内存来通信，而要通过通信来实现内存共享。</li>
+</ul>
+</blockquote>
+<p>以上经典的「Go 并发哲学」可先牢记（不懂没关系），不断的尝试应用会使你更能体会「Go 并发哲学」。</p>
+<h2 id="22-goroutines">22 Goroutines</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210329190333252.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>当我们运行这个程序时，可能每次运行的结果不同，如截图 going 打印输出于 <code>f(&quot;goroutine&quot;)</code> 之后</p>
+<p>也可能是两个协程的交替输出。 这种交替的情况表示 Go runtime 是以并发的方式运行协程的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go run goroutines.go
+direct : <span style="color:#ae81ff">0</span>
+direct : <span style="color:#ae81ff">1</span>
+direct : <span style="color:#ae81ff">2</span>
+goroutine : <span style="color:#ae81ff">0</span>
+going
+goroutine : <span style="color:#ae81ff">1</span>
+goroutine : <span style="color:#ae81ff">2</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>对于刚学习 Go 的协程同学来说，可使用 <code>time.Sleep</code> 来使 main 阻塞，使其他协程能够有机会运行完全，但你要注意的是，这并不是推荐的方式（更好的方法是使用 <a href="https://gobyexample-cn.github.io/waitgroups">WaitGroup</a>）</p>
+</blockquote>
+<h3 id="引申思考">引申思考</h3>
+<p>改变 <code>time.Sleep</code> 顺序，多运行几次，为什么结果会有所不同？（有时 goroutine 执行了，有时没有，有时执行了一半？？）</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210329190104426.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>一个 Go 程序的入口通常是 main 函数，程序启动后，main 函数最先运行  <code>main goroutine</code></p>
+<p>在 main 中或者其下调用的代码中才可以使用 <code>go + func()</code> 的方法来启动协程。</p>
+<p><code>func main()</code> 地位相当于主线程，当 main 函数执行完成后，这个线程也就终结了，其下的运行着的所有协程也不管代码是不是还在跑，都得退出。</p>
+</blockquote>
+<h2 id="23-channels">23 Channels</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330135037777.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="24-channel-buffering">24 Channel Buffering</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330135704693.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="25-channel-synchronization">25 Channel Synchronization</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330140758446.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>上例使用阻塞接收的方式，实现了等待另一个协程完成</p>
+<p>如果需要等待多个协程，<a href="https://gobyexample-cn.github.io/waitgroups">WaitGroup</a> 是一个更好的选择</p>
+<p>可以尝试下注释 <code>&lt;-done</code> 程序可能在 worker 开始前就结束了</p>
+</blockquote>
+<h2 id="26-channel-directions">26 Channel Directions</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330142251289.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="27-select">27 Select</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330144817098.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>select 类似用于通信的 switch 语句，配合 case 使用</p>
+<ul>
+<li>case 必须是一个通信操作，写/读</li>
+<li>支持 default （本例未体现，↓ 会有相关示例）</li>
+</ul>
+</blockquote>
+<h2 id="28-timeouts">28 Timeouts</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330152342456.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<ul>
+<li>等待时，只有在等待完成时超时case才被执行，在等待过程中，select 一直在等待所有 case</li>
+<li>在上面的等待过程中（如 1、3s 等待），其余 case 也一直在持续着</li>
+</ul>
+</blockquote>
+<h2 id="29-non-blocking-channel-operations">29 Non-blocking Channel Operations</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330155728224.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h3 id="引申思考-1">引申思考</h3>
+<p>如果将两个注释的协程取消注释，再次运行，会打印什么？如果不加超时 <code>time.After</code> 呢？</p>
+<p>协程并发，不可确定哪个通道先接收，所以是随机的</p>
+<p>非堵塞，default 先行</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330155636006.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="30-closing-channels">30 Closing Channels</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330163822934.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>可尝试向关闭通道写入值看看</p>
+</blockquote>
+<h2 id="31-range-over-channels">31 Range Over Channels</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330165023751.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="32-timers">32 Timers</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330170609022.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="33-ticker">33 Ticker</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330171057931.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="34-worker-pools">34 Worker Pools</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330172636677.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>思考，为什么总共是 2s 左右？如果改写 worker  里面的 time.Sleep 为 2s，总共运行约几秒？</p>
+</blockquote>
+<h2 id="35-waitgroups">35 Waitgroups</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330174344657.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>思考，如果注释掉 <code>wg.Wait()</code> 运行结果会是如何？</p>
+<p>有关 defer 的理解和使用，请参阅相关资料，如：<a href="https://golang.org/ref/spec#Defer_statements">https://golang.org/ref/spec#Defer_statements</a></p>
+<p>后续下篇也有 defer 的相关示例</p>
+</blockquote>
+<h2 id="36-rate-limiting">36 Rate Limiting</h2>
+<blockquote>
+<p><em><a href="http://en.wikipedia.org/wiki/Rate_limiting">速率限制</a></em> 是控制服务资源利用和质量的重要机制。 基于协程、通道和<a href="https://gobyexample-cn.github.io/tickers">打点器</a>，Go 优雅的支持速率限制</p>
+</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330180643732.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>运行程序，我们看到第一批请求，大约每 200ms 处理一次</p>
+<p>第二批请求（Burst request），可观察运行，瞬间出现 3 个请求，之后约每隔 500ms 处理剩余3 个请求</p>
+<p>2500 = 200×5 + 500×3</p>
+</blockquote>
+<h2 id="37-atomic-counters">37 Atomic Counters</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330181555753.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>感受下Go并发的速度吧 🚀  打印 1000×50 = 50000</p>
+</blockquote>
+<h2 id="38-mutexes">38 Mutexes</h2>
+<blockquote>
+<p>对于更加复杂的情况，我们可以使用一个*<a href="http://zh.wikipedia.org/wiki/%E4%BA%92%E6%96%A5%E9%94%81">互斥锁（mutexes）</a>* 来在 Go 协程间安全的访问数据</p>
+</blockquote>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330184234136.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330184253361.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h2 id="39-stateful-goroutines">39 Stateful Goroutines</h2>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330185330758.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210330185419252.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<blockquote>
+<p>共享的 <code>state</code> 跨多个 Goroutines 同步访问，正好契合「通过通信实现共享内存」的「Go并发哲学」</p>
+<p>通过这个例子我们可以看到，基于协程的方法比基于互斥锁的方法要复杂得多。 但是，在某些情况下它可能很有用， 例如，当你涉及其他通道，或者管理多个同类互斥锁时，会很容易出错。 您应该使用最自然的方法，尤其是在理解程序正确性方面。</p>
+</blockquote>
+<h2 id="next">Next</h2>
+<p>以上示例，初步展现了 Golang 并发模式的魅力~</p>
+<p>初学者或者并发编程基础较薄弱的开发理解起来会有点吃力，继续加油 💪</p>
+<p>之后下篇，是一些 Golang 具体开发场景的示例，包含以下内容：</p>
+<ul>
+<li>一些内置包的常用方法（如：sort, time, io, os, fmt 等）</li>
+<li>Panic</li>
+<li>Defer</li>
+<li>单元测试</li>
+<li>命令行操作</li>
+<li>HTTP 基础</li>
+<li>生成进程 / 执行进程</li>
+<li>信号</li>
+<li>退出</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/gobyexample_02/>https://ftopia2020.github.io/2021/gobyexample_02/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/golang/">
+                    #Golang</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_007/" class="prev" rel="prev" title="✍️【每日一题】Go题解 7.颠倒二进制位"><i
+                class="iconfont icon-left"></i>&nbsp;✍️【每日一题】Go题解 7.颠倒二进制位</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodedaily_008/" class="next" rel="next"
+            title="✍️【每日一题】Go题解 8.搜索二维矩阵">✍️【每日一题】Go题解 8.搜索二维矩阵&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/gobyexample_02/" class="leancloud_visitors" data-flag-title="💪 三天刷完 Go by Example（中）">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>
