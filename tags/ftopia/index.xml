@@ -38,5 +38,14 @@
       <description>关于本站 这是一个记录 Web 开发技术的个人博客（Blog），沿用之前的域名 ftopia.cn。 建站初衷，记录工作中解决一些问题的经验、归档原创博文</description>
     </item>
     
+    <item>
+      <title>我该如何运营&amp;管理博客？</title>
+      <link>https://ftopia2020.github.io/1/howiblog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/1/howiblog/</guid>
+      <description>博客的运营</description>
+    </item>
+    
   </channel>
 </rss>

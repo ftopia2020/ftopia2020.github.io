@@ -6,10 +6,19 @@
     <description>Recent content in golang on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>💪 三天刷完 Go by Example（下）</title>
+      <link>https://ftopia2020.github.io/2021/gobyexample_03/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/gobyexample_03/</guid>
+      <description>本文为系列文章，Go 基础语法可回顾上篇 三天刷完 Go by Example（上） Github 代码：https://github.com/ftopia2020/g</description>
+    </item>
     
     <item>
       <title>💪 三天刷完 Go by Example（中）</title>
