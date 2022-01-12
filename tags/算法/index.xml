@@ -6,10 +6,64 @@
     <description>Recent content in 算法 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Dec 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>「数据结构&amp;算法」必知必会系列：排序</title>
+      <link>https://ftopia2020.github.io/2021/algorithmsummary/</link>
+      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmsummary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>打卡「数据结构&amp;算法」必知必会系列：Summary</title>
+      <link>https://ftopia2020.github.io/2021/algorithmsort/</link>
+      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmsort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>打卡「数据结构&amp;算法」必知必会系列：递归</title>
+      <link>https://ftopia2020.github.io/2021/algorithmrecursion/</link>
+      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmrecursion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 4.反转链表</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_30/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_30/</guid>
+      <description>「数据结构&amp;amp;算法」必知必会系列：1. 开篇 反转链表 题目描述 解题思路 方法一 方法二 题目引申 总结</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 那些用内置函数就很方便的题儿</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_20/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_20/</guid>
+      <description>https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/submissions/ https://leetcode-cn.com/problems/qiu-12n-lcof/solution/qiu-12n-by-leetcode-solution/ 天秀 题目描述 解题思路 func sumNums(n int) int { sum := 0 var res func(int) bool res = func(n int) bool { sum += n return n &amp;gt; 0 &amp;amp;&amp;amp; res(n-1) } res(n) return sum } 总结 这种题目其实挺无聊的。。语言特性本来也不是刷题的</description>
+    </item>
+    
+    <item>
+      <title>接口自动化测试框架 HTTPRunner3.0</title>
+      <link>https://ftopia2020.github.io/2021/apitestrunner/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/apitestrunner/</guid>
+      <description>https://github.com/httprunner/httprunner 中文文档：https://www.ontheway.cool/HttpRunner3DocsForCN/ 调研 —— 使用 HTTPRunner 3.0 建议本地开发使用 pyenv</description>
+    </item>
     
     <item>
       <title>✍️【每日一题】Go题解 8.搜索二维矩阵</title>

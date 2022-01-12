@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react动画 on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/react%E5%8A%A8%E7%94%BB/</link>
+    <description>Recent content in react动画 on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/react%E5%8A%A8%E7%94%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React Transition Group 轻松实现基础的CSS动画和过渡</title>
+      <link>https://ftopia2020.github.io/2021/reacttransitiongroup/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/reacttransitiongroup/</guid>
+      <description>Why 动画是非常视觉化的效果，会使你的站点更具生命力、加入柔和的过渡效果会让用户体验提升不少（如，切换时淡入淡出而不是强硬跳转）。 那么，如果是 React</description>
+    </item>
+    
+  </channel>
+</rss>

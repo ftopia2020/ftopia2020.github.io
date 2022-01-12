@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>设计 on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/%E8%AE%BE%E8%AE%A1/</link>
+    <description>Recent content in 设计 on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Apr 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/%E8%AE%BE%E8%AE%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>可拖拽预设小报设计</title>
+      <link>https://ftopia2020.github.io/2021/draggable/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/draggable/</guid>
+      <description>可视化拖拽组件库一些技术要点原理分析 轻松教你搞定组件的拖拽, 缩放, 多控制点伸缩和拖拽数据上报 全屏 =》截屏 / 打印 预设模板 相框设计 贴纸 啦啦啦</description>
+    </item>
+    
+    <item>
+      <title>打造一款自己的思维导图工具</title>
+      <link>https://ftopia2020.github.io/2021/xminddefined/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/xminddefined/</guid>
+      <description>Why https://github.com/ssshooter/mind-elixir-core/tree/master How 商业 processon</description>
+    </item>
+    
+  </channel>
+</rss>

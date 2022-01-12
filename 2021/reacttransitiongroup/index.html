@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/leetcodecollections_30/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/goproject/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/reacttransitiongroup/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             React Transition Group 轻松实现基础的CSS动画和过渡 | Ftopia
+         
+    </title>
+    <meta name="title" content="React Transition Group 轻松实现基础的CSS动画和过渡 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "React Transition Group 轻松实现基础的CSS动画和过渡",
+    "headline" : "React Transition Group 轻松实现基础的CSS动画和过渡",
+    "description" : "Why 动画是非常视觉化的效果，会使你的站点更具生命力、加入柔和的过渡效果会让用户体验提升不少（如，切换时淡入淡出而不是强硬跳转）。 那么，如果是 React",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-04-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-04-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/reacttransitiongroup\/",
+    "wordCount" : "1162",
+    "keywords" : [ "react动画","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">Why</a></li>
+    <li><a href="#what">What</a></li>
+    <li><a href="#how">How</a>
+      <ul>
+        <li><a href="#transition">Transition</a></li>
+        <li><a href="#csstranstion">CSSTranstion</a></li>
+        <li><a href="#总结用法">总结用法</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考文章">参考文章</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">React Transition Group 轻松实现基础的CSS动画和过渡</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-04-05
+                    itemprop="datePublished">
+                    2021-04-05</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1162 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 3 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="why">Why</h2>
+<p>动画是非常视觉化的效果，会使你的站点更具生命力、加入柔和的过渡效果会让用户体验提升不少（如，切换时淡入淡出而不是强硬跳转）。</p>
+<p>那么，如果是 React 实现，如何高效地为组件加入动画？</p>
+<p><a href="https://github.com/reactjs/react-transition-group">React Transition Group</a> 开源库就是解决方案之一。</p>
+<h2 id="what">What</h2>
+<p><a href="https://github.com/reactjs/react-transition-group">React Transition Group</a> 开源库，由 ReactJs 社区的人员开发； Star 和 Fork 数参考如下：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210204182640847.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>目前是 V2 版本（不向下兼容  V1 ）</p>
+<p>官方说明：一组用于管理组件状态（包括安装mounting 和卸载unmounting）的组件，特别为动画而设计的。</p>
+<blockquote>
+<p>A set of components for managing component states (including mounting and unmounting) over time, specifically designed with animation in mind.</p>
+</blockquote>
+<p>官方文档：<a href="https://reactcommunity.org/react-transition-group/"><strong>Main documentation</strong></a></p>
+<p>官方示例：</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/Sandbox---CodeSandbox.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>弹窗消息渐入渐出：<a href="https://codesandbox.io/s/thirsty-pasteur-m77l2vp00x?from-embed">https://codesandbox.io/s/thirsty-pasteur-m77l2vp00x?from-embed</a></p>
+<hr>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/React-App.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>按钮替换动画效果 <a href="https://codesandbox.io/s/switchtransition-component-iqm0d?from-embed">https://codesandbox.io/s/switchtransition-component-iqm0d?from-embed</a></p>
+<hr>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/CodeSandbox2.gif" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>列表的删除加入 <a href="https://codesandbox.io/s/00rqyo26kn?from-embed">https://codesandbox.io/s/00rqyo26kn?from-embed</a></p>
+<hr>
+<h2 id="how">How</h2>
+<p>网上目前没有比较详细的教程，只有官方文档（英文）可参考，文档相对比较精简。</p>
+<p>React Transition Group 中，提供了四个组件，分别是：</p>
+<ul>
+<li><a href="https://reactcommunity.org/react-transition-group/transition">Transition</a></li>
+<li><a href="https://reactcommunity.org/react-transition-group/css-transition">CSSTransition</a></li>
+<li><a href="https://reactcommunity.org/react-transition-group/switch-transition">SwitchTransition</a></li>
+<li><a href="https://reactcommunity.org/react-transition-group/transition-group">TransitionGroup</a></li>
+</ul>
+<p>以下对官方文档做些简单的翻译和理解，也可跳过直接看总结用法即可。</p>
+<h3 id="transition">Transition</h3>
+<p><code>Transition</code> 组件让你可使用简单的声明性API，来描述从一个组件状态到另一组件状态的随时间过渡。常用于组件的安装和卸载动画，但也可以用于描述就地转换状态。</p>
+<p>**注意：**<code>Transition</code>  是与平台无关的基本组件。如果在CSS中使用过渡，则可能需要改用 <code>CSSTransition</code>，后者继承了<code>Transition</code> 的所有功能，但包含一些与CSS完美过渡配合所必需的附加功能（从组件名称也可见其用处）。</p>
+<p>因此，通常我们就直接使用 <code>CSSTranstion</code> 即可。</p>
+<h3 id="csstranstion">CSSTranstion</h3>
+<p>源于 <code>ng-animate</code> 这个出色库的启发，若使用CSS过渡或动画，则应使用 <code>CSSTranstion</code>  。基于 <code>Transition</code> 组件构建，因此继承了前者的所有属性。</p>
+<p><code>CSSTransition</code> 应用了一对类名来过渡 “出现”，”进入“ 和 ”退出“ 这些状态。初始使用第一个（CSS）类名，然后应用第二个名为 <code>* -active</code> 的类来激活CSS过渡。过渡后，将应用匹配的 <code>* -done</code> 类名称来保留过渡状态。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210205144157075.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p>如上例中，<code>CSSTransition</code> 组件适用了名称为 <code>my-node-*</code> 过渡样式效果。</p>
+<p>动画类名应用于出现，进入，退出或已完成过渡的组件。可以提供一个名称，每个阶段后缀将加在该名称后面，例如 <code>classNames =“ fade”</code>  的应用（可以加上列如以下的后缀）：</p>
+<ul>
+<li><code>fade-appear</code>, <code>fade-appear-active</code>, <code>fade-appear-done</code></li>
+<li><code>fade-enter</code>, <code>fade-enter-active</code>, <code>fade-enter-done</code></li>
+<li><code>fade-exit</code>, <code>fade-exit-active</code>, <code>fade-exit-done</code></li>
+</ul>
+<p>结合官方示例：弹窗消息渐入渐出：<a href="https://codesandbox.io/s/thirsty-pasteur-m77l2vp00x?from-embed">https://codesandbox.io/s/thirsty-pasteur-m77l2vp00x?from-embed</a> 来理解，示例中使用了 enter 和 exit 这两个状态</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210205145321345.png" alt="image-20210205145321345" class="lazyload"><figcaption class="image-caption">image-20210205145321345</figcaption></figure></p>
+<h3 id="总结用法">总结用法</h3>
+<p>利用 <code>CSSTransition</code> 进行单个元素的动画开发</p>
+<p><strong>各过渡状态的名词解释及包含类名详见以下：</strong></p>
+<ul>
+<li>enter -&gt; 进入触发之前
+<ul>
+<li>enter</li>
+<li>appear -&gt; appear 系列的类名只在第一次进入时生效</li>
+</ul>
+</li>
+<li>entering -&gt; 进入动画开始到结束的过程中
+<ul>
+<li>enter-active</li>
+<li>appear-active</li>
+</ul>
+</li>
+<li>entered -&gt; 进入动画完成
+<ul>
+<li>enter-done</li>
+<li>appear-done</li>
+</ul>
+</li>
+<li>exit -&gt; 结束动画触发钱
+<ul>
+<li>exit</li>
+</ul>
+</li>
+<li>exiting -&gt; 结束动画开始到结束的过程中
+<ul>
+<li>exit-active</li>
+</ul>
+</li>
+<li>exited -&gt; 结束动画完成
+<ul>
+<li>exit-done</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://juejin.cn/post/6844903922574819342">react-transition-group 实现路由切换过渡效果</a></p>
+<p><a href="https://juejin.cn/post/6844903869894524942">[三元学React]使用react-transition-group开发React动画</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/reacttransitiongroup/>https://ftopia2020.github.io/2021/reacttransitiongroup/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/react%E5%8A%A8%E7%94%BB/">
+                    #react动画</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/leetcodecollections_30/" class="prev" rel="prev" title="💯【算法面试】Go题解 4.反转链表"><i
+                class="iconfont icon-left"></i>&nbsp;💯【算法面试】Go题解 4.反转链表</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/goproject/" class="next" rel="next"
+            title="golang gin 实战开发">golang gin 实战开发&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/reacttransitiongroup/" class="leancloud_visitors" data-flag-title="React Transition Group 轻松实现基础的CSS动画和过渡">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

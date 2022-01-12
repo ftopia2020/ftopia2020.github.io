@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/gobyexample_03/" />
+    <link rel="next" href="https://ftopia2020.github.io/2021/blogplatform/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2021/apitestrunner/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             接口自动化测试框架 HTTPRunner3.0 | Ftopia
+         
+    </title>
+    <meta name="title" content="接口自动化测试框架 HTTPRunner3.0 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "接口自动化测试框架 HTTPRunner3.0",
+    "headline" : "接口自动化测试框架 HTTPRunner3.0",
+    "description" : "https:\/\/github.com\/httprunner\/httprunner 中文文档：https:\/\/www.ontheway.cool\/HttpRunner3DocsForCN\/ 调研 —— 使用 HTTPRunner 3.0 建议本地开发使用 pyenv",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-04-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-04-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2021\/apitestrunner\/",
+    "wordCount" : "450",
+    "keywords" : [ "算法","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#调研--使用-httprunner-30">调研 —— 使用 HTTPRunner 3.0</a>
+      <ul>
+        <li><a href="#安装--执行">安装 &amp; 执行</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">接口自动化测试框架 HTTPRunner3.0</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2021-04-01
+                    itemprop="datePublished">
+                    2021-04-01</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 450 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 1 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p><a href="https://github.com/httprunner/httprunner">https://github.com/httprunner/httprunner</a></p>
+<p>中文文档：https://www.ontheway.cool/HttpRunner3DocsForCN/</p>
+</blockquote>
+<h2 id="调研--使用-httprunner-30">调研 —— 使用 HTTPRunner 3.0</h2>
+<blockquote>
+<p>建议本地开发使用 pyenv + virtualenv 来隔离 python 开发环境</p>
+<p>python 版本：3.7.0（测试使用，&gt;3.6.1 应该可以）</p>
+<p>以下 httprunner 命令均可缩写为 <code>hrun</code></p>
+</blockquote>
+<h3 id="安装--执行">安装 &amp; 执行</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 安装httprunner</span>
+$ pip install httprunner
+<span style="color:#75715e"># 查看httprunner版本</span>  
+$ httprunner -V
+<span style="color:#75715e"># 创建测试项目demo</span>
+$ httprunner startproject demo
+<span style="color:#75715e"># 执行测试项目demo（脚手架项目有几个有效的测试用例，所以可以无需编辑直接运行）</span>
+$ httprunner demo
+</code></pre></div><p>实时打印出运行 Log，项目内 <code>logs</code> 文件夹会有对应 <code>.log</code> 文件记录</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210129183435471.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20210129184358519.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<hr>
+<p>API 服务功能点：</p>
+<ul>
+<li>
+<p>创建测试集 =》httprunner startproject {defined ProjectName}</p>
+</li>
+<li>
+<p>测试集中的测试用例新增/更改 =》对应 <code>testcases</code>  中文件组装&amp;重写</p>
+<blockquote>
+<p>重难点：需根据这个来确定对应的存储方式？</p>
+<p><a href="https://www.ontheway.cool/HttpRunner3DocsForCN/concepts/testcase_structure/">https://www.ontheway.cool/HttpRunner3DocsForCN/concepts/testcase_structure/</a></p>
+</blockquote>
+</li>
+<li></li>
+</ul>
+<p>需要处理的功能项 &amp; 风险点：</p>
+<ul>
+<li>项目名称（实际产生为文件夹目录名称）不允许更改（问题不大，系统可做名称映射 defined ProjectName 唯一性）</li>
+<li>项目（测试集）实际文件会占据服务器硬盘？（未知大小，但感觉总体影响不会大）</li>
+</ul>
+<p>可扩展功能（要收钱的💰）</p>
+<ul>
+<li>报告样式定制</li>
+<li>报告推送邮件</li>
+<li>实时查看运行结果</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2021/apitestrunner/>https://ftopia2020.github.io/2021/apitestrunner/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E7%AE%97%E6%B3%95/">
+                    #算法</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/gobyexample_03/" class="prev" rel="prev" title="💪 三天刷完 Go by Example（下）"><i
+                class="iconfont icon-left"></i>&nbsp;💪 三天刷完 Go by Example（下）</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2021/blogplatform/" class="next" rel="next"
+            title="技术博客/平台对比">技术博客/平台对比&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2021/apitestrunner/" class="leancloud_visitors" data-flag-title="接口自动化测试框架 HTTPRunner3.0">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

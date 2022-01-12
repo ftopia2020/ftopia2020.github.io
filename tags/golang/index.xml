@@ -6,10 +6,37 @@
     <description>Recent content in golang on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Apr 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>golang gin 实战开发</title>
+      <link>https://ftopia2020.github.io/2021/goproject/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goproject/</guid>
+      <description>Golang &amp;amp; go mod 简介 目标： 初步使用 go mod 进行 modules 包管理 go 版本 &amp;amp; gvm go mod init tidy go.mod go.sum //indirect ? 了解 gin，简单 demo /ping =&amp;gt; pong Gin Gin：Golang 的一个微框架，性能极佳。 $</description>
+    </item>
+    
+    <item>
+      <title>go build vs go install</title>
+      <link>https://ftopia2020.github.io/2021/gobuildvsinstall/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/gobuildvsinstall/</guid>
+      <description>更多参考 https://halfrost.com/go_command/ go build 与go install 相同点 都能生成可执行文件 不同点 go build 不能生成包文件, go install 可以生成包文件 go build 生成可执行文件在当前目录下， go install 生成可执行文件</description>
+    </item>
+    
+    <item>
+      <title>go closures 闭包</title>
+      <link>https://ftopia2020.github.io/2021/goclosures/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goclosures/</guid>
+      <description>https://segmentfault.com/a/1190000018689134 https://cloud.tencent.com/developer/article/1659312</description>
+    </item>
     
     <item>
       <title>💪 三天刷完 Go by Example（下）</title>

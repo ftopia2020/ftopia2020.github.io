@@ -6,10 +6,163 @@
     <description>Recent content in 原创 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Dec 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>「数据结构&amp;算法」必知必会系列：排序</title>
+      <link>https://ftopia2020.github.io/2021/algorithmsummary/</link>
+      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmsummary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>打卡「数据结构&amp;算法」必知必会系列：Summary</title>
+      <link>https://ftopia2020.github.io/2021/algorithmsort/</link>
+      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmsort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>打卡「数据结构&amp;算法」必知必会系列：递归</title>
+      <link>https://ftopia2020.github.io/2021/algorithmrecursion/</link>
+      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/algorithmrecursion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>掘金 我的数据简析</title>
+      <link>https://ftopia2020.github.io/2021/juejin/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/juejin/</guid>
+      <description>分析个人数据 收集被推荐至首页的文章（）</description>
+    </item>
+    
+    <item>
+      <title>早教阶段感悟（3~4 岁）</title>
+      <link>https://ftopia2020.github.io/dream/chinese/</link>
+      <pubDate>Mon, 26 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/dream/chinese/</guid>
+      <description>家庭 &amp;raquo; 早教 优秀的「教师」总是稀缺的 家门口早教机构跑路了，一地鸡毛 五花八门的试听课轰炸，拒绝忽悠 成长的烦恼和快乐共存，</description>
+    </item>
+    
+    <item>
+      <title>Serverless 初体验 —— 腾讯云</title>
+      <link>https://ftopia2020.github.io/2021/serverless/</link>
+      <pubDate>Thu, 22 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/serverless/</guid>
+      <description>What HOW 部署 Vue + Express + PostgreSQL 全栈网站 https://cloud.tencent.com/document/product/1154/43009 安装 &amp;amp; Demo 安装 serverless &amp;amp; 查看版本 $ npm install -g serverless #npm 全局安装 serverless $ serverless –v #查看 Serverless Framework 的版本信息 配置 &amp;amp; 安装依赖 $ serverless init fullstack #使用serve</description>
+    </item>
+    
+    <item>
+      <title>博客如何吸引人——你需要张封面图</title>
+      <link>https://ftopia2020.github.io/2021/coverpage/</link>
+      <pubDate>Thu, 22 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/coverpage/</guid>
+      <description>How 网图 神器 —— PPT 小图 &amp;amp; 手机版 最好不要老是编辑，尤其是被推荐到首页的文章 会被审核</description>
+    </item>
+    
+    <item>
+      <title>golang gin 实战开发</title>
+      <link>https://ftopia2020.github.io/2021/goproject/</link>
+      <pubDate>Tue, 20 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goproject/</guid>
+      <description>Golang &amp;amp; go mod 简介 目标： 初步使用 go mod 进行 modules 包管理 go 版本 &amp;amp; gvm go mod init tidy go.mod go.sum //indirect ? 了解 gin，简单 demo /ping =&amp;gt; pong Gin Gin：Golang 的一个微框架，性能极佳。 $</description>
+    </item>
+    
+    <item>
+      <title>React Transition Group 轻松实现基础的CSS动画和过渡</title>
+      <link>https://ftopia2020.github.io/2021/reacttransitiongroup/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/reacttransitiongroup/</guid>
+      <description>Why 动画是非常视觉化的效果，会使你的站点更具生命力、加入柔和的过渡效果会让用户体验提升不少（如，切换时淡入淡出而不是强硬跳转）。 那么，如果是 React</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 4.反转链表</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_30/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_30/</guid>
+      <description>「数据结构&amp;amp;算法」必知必会系列：1. 开篇 反转链表 题目描述 解题思路 方法一 方法二 题目引申 总结</description>
+    </item>
+    
+    <item>
+      <title>💯【算法面试】Go题解 那些用内置函数就很方便的题儿</title>
+      <link>https://ftopia2020.github.io/2021/leetcodecollections_20/</link>
+      <pubDate>Mon, 05 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/leetcodecollections_20/</guid>
+      <description>https://leetcode-cn.com/problems/que-shi-de-shu-zi-lcof/submissions/ https://leetcode-cn.com/problems/qiu-12n-lcof/solution/qiu-12n-by-leetcode-solution/ 天秀 题目描述 解题思路 func sumNums(n int) int { sum := 0 var res func(int) bool res = func(n int) bool { sum += n return n &amp;gt; 0 &amp;amp;&amp;amp; res(n-1) } res(n) return sum } 总结 这种题目其实挺无聊的。。语言特性本来也不是刷题的</description>
+    </item>
+    
+    <item>
+      <title>go build vs go install</title>
+      <link>https://ftopia2020.github.io/2021/gobuildvsinstall/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/gobuildvsinstall/</guid>
+      <description>更多参考 https://halfrost.com/go_command/ go build 与go install 相同点 都能生成可执行文件 不同点 go build 不能生成包文件, go install 可以生成包文件 go build 生成可执行文件在当前目录下， go install 生成可执行文件</description>
+    </item>
+    
+    <item>
+      <title>go closures 闭包</title>
+      <link>https://ftopia2020.github.io/2021/goclosures/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goclosures/</guid>
+      <description>https://segmentfault.com/a/1190000018689134 https://cloud.tencent.com/developer/article/1659312</description>
+    </item>
+    
+    <item>
+      <title>可拖拽预设小报设计</title>
+      <link>https://ftopia2020.github.io/2021/draggable/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/draggable/</guid>
+      <description>可视化拖拽组件库一些技术要点原理分析 轻松教你搞定组件的拖拽, 缩放, 多控制点伸缩和拖拽数据上报 全屏 =》截屏 / 打印 预设模板 相框设计 贴纸 啦啦啦</description>
+    </item>
+    
+    <item>
+      <title>打造一款自己的思维导图工具</title>
+      <link>https://ftopia2020.github.io/2021/xminddefined/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/xminddefined/</guid>
+      <description>Why https://github.com/ssshooter/mind-elixir-core/tree/master How 商业 processon</description>
+    </item>
+    
+    <item>
+      <title>技术博客/平台对比</title>
+      <link>https://ftopia2020.github.io/2021/blogplatform/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/blogplatform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>接口自动化测试框架 HTTPRunner3.0</title>
+      <link>https://ftopia2020.github.io/2021/apitestrunner/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/apitestrunner/</guid>
+      <description>https://github.com/httprunner/httprunner 中文文档：https://www.ontheway.cool/HttpRunner3DocsForCN/ 调研 —— 使用 HTTPRunner 3.0 建议本地开发使用 pyenv</description>
+    </item>
     
     <item>
       <title>💪 三天刷完 Go by Example（下）</title>
