@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2021/algorithmsummary/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2022/gomod/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】深入Go Module之go.mod文件解析 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】深入Go Module之go.mod文件解析 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】深入Go Module之go.mod文件解析",
+    "headline" : "【转】深入Go Module之go.mod文件解析",
+    "description" : "原文链接：https:\/\/colobu.com\/2021\/06\/28\/dive-into-go-module-1\/) 深入Go Module之g",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2022",
+    "datePublished": "2022-01-13 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-01-13 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2022\/gomod\/",
+    "wordCount" : "4047",
+    "keywords" : [ "golang","转载", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#gomod">go.mod</a>
+      <ul>
+        <li><a href="#语义化版本-200">语义化版本 2.0.0</a></li>
+        <li><a href="#module-path">module path</a></li>
+        <li><a href="#go-directive">go directive</a></li>
+        <li><a href="#require">require</a></li>
+        <li><a href="#indirect注释">indirect注释</a></li>
+        <li><a href="#incompatible">incompatible</a></li>
+        <li><a href="#exclude">exclude</a></li>
+        <li><a href="#replace">replace</a></li>
+        <li><a href="#retract">retract</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】深入Go Module之go.mod文件解析</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2022-01-13
+                    itemprop="datePublished">
+                    2022-01-13</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 4047 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 9 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>原文链接：<a href="https://colobu.com/2021/06/28/dive-into-go-module-1/">https://colobu.com/2021/06/28/dive-into-go-module-1/</a>)</p>
+</blockquote>
+<h1 id="深入go-module之gomod文件解析">深入Go Module之go.mod文件解析</h1>
+<p>昨天在GopherChina 2021大会上分享了《深入Go Module》，干货太多了，接下来的分几篇文章详细介绍下。</p>
+<p>现在哪个新编程语言不都是提供库版本工具呢？Java、Python、nonjs、rust都有一套自己的库管理方法和库注册中心，不管它们的叫法如何。Go最初推出来的时候并没有一个库管理方式，而是采用 <strong>GOPATH</strong> 的方式，所有的项目都必须放在GOPATH下，不止一次有从其它语言比如Java转过过来的同学问我:&ldquo;为什么我在我的一个文件夹下建的项目没法编译呢？&quot;,那是因为他的文件夹没有建在GOPATH下，而等他想在GOPATH下建项目的时候，package path他又不知道该怎么写。</p>
+<p>所以GO使用的GOPATH方式确实对新手来说是一件非常令人困惑的事。而随着Go生态圈的快速壮大，另一个经典的库管理的问题也出现了。就是我们项目中的依赖库经常出现API broken的情况，因为依赖的库相关接口改变了，导致我们的项目更新了依赖库后编译不过，我们不得不需要修改自己的代码以便适应依赖库的最新版本。更困难的是，如果多个依赖库分别依赖第三个依赖库的第三个版本，版本冲突就出现了。</p>
+<p>依赖库冲突几乎每个编程语言都有这样的问题，甚至操作系统也有<a href="https://baike.baidu.com/item/DLL%E5%9C%B0%E7%8B%B1">DLL地狱问题</a>,所以各种编程语言都尝试使用自己的方式解决依赖库版本的问题。</p>
+<p>前面说了，Go最初是没有官方的库版本的方式的，都是靠第三方的工具实现，比如godep、glide、dep等,从2012年各种工具分别出现，大海淘沙，浮浮沉沉，最后也就有几个常用的工具大家在使用，dep是2017出现的一个版本，让人眼前一亮，而且也得到了Go官方的支持，项目也放在Golang组织之下<a href="https://github.com/golang/dep">golang/dep</a>。</p>
+<p>但是蜜月期没有多久，2018年Russ Cox经过深思熟虑以及一些早期的试验，决定go库版本的方式需要从头再来，深度集成go的各种工具(go get、go list等)，实现精巧的最小化版本选择算法，解决broken API共存等问题，所以dep就被废弃了，这件事还导致dep的作者相当的失望和数次争辩。</p>
+<p>但是不管怎样，Go官方的库管理方式还是在2018年go 1.11中实验性的推出了，通过设置一个环境变量<code>GO111MODULE=on</code>就可以弃用，并且期望go 1.12正式退出，而环境变量<code>GO111MODULE=on</code>就可以去掉了。可是没有想到的是，go module推出后问题多多，现在每一个go的版本中都有对go module修改，导致这个特性一直没有最终完成，这也是我吐槽它的地方：都快三年了，一个feature都开发那么久，而且未来的go 1.17、go 1.18还有一些改变，同学们，还学的动吗？</p>
+<p>go官方库管理方式叫做go module。 先前，我们的库都是以package来组织的，package以一个文件或者多个文件实现单一的功能，一个项目包含一个package或者多个package。Go module就是一组统一打版和发布的package的集合，在根文件下有go.mod文件定义module path和依赖库的版本，package以子文件夹的形式存在module中，对package path就是 module path +&rdquo;/&ldquo;+ package name的形式。</p>
+<p>一般我们项目都是单module的形式，项目主文件夹下包含go.mod,子文件夹定义package，或者主文件夹也是一个package。但是一个项目也可以包含多个module,只不过这种方式不常用而已。</p>
+<h2 id="gomod">go.mod</h2>
+<p>go module最重要的是go.mod文件的定义，它用来标记一个module和它的依赖库以及依赖库的版本。会放在module的主文件夹下，一般以<code>go.mod</code>命名。</p>
+<p>一个go.mod内容类似下面的格式:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">module</span> <span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">panicthis</span><span style="color:#f92672">/</span><span style="color:#a6e22e">modfile</span>
+
+<span style="color:#66d9ef">go</span> <span style="color:#ae81ff">1.16</span>
+
+<span style="color:#a6e22e">require</span> (
+	<span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">cenk</span><span style="color:#f92672">/</span><span style="color:#a6e22e">backoff</span> <span style="color:#a6e22e">v2</span><span style="color:#ae81ff">.2.1</span><span style="color:#f92672">+</span><span style="color:#a6e22e">incompatible</span>
+	<span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">coreos</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bbolt</span> <span style="color:#a6e22e">v1</span><span style="color:#ae81ff">.3.3</span>
+	<span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">edwingeng</span><span style="color:#f92672">/</span><span style="color:#a6e22e">doublejump</span> <span style="color:#a6e22e">v0</span><span style="color:#ae81ff">.0.0</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20200330080233</span><span style="color:#f92672">-</span><span style="color:#a6e22e">e4ea8bd1cbed</span>
+	<span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">stretchr</span><span style="color:#f92672">/</span><span style="color:#a6e22e">objx</span> <span style="color:#a6e22e">v0</span><span style="color:#ae81ff">.3.0</span> <span style="color:#75715e">// indirect
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">stretchr</span><span style="color:#f92672">/</span><span style="color:#a6e22e">testify</span> <span style="color:#a6e22e">v1</span><span style="color:#ae81ff">.7.0</span>
+	<span style="color:#66d9ef">go</span>.<span style="color:#a6e22e">etcd</span>.<span style="color:#a6e22e">io</span><span style="color:#f92672">/</span><span style="color:#a6e22e">bbolt</span> <span style="color:#a6e22e">v1</span><span style="color:#ae81ff">.3.6</span> <span style="color:#75715e">// indirect
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">go</span>.<span style="color:#a6e22e">etcd</span>.<span style="color:#a6e22e">io</span><span style="color:#f92672">/</span><span style="color:#a6e22e">etcd</span><span style="color:#f92672">/</span><span style="color:#a6e22e">client</span><span style="color:#f92672">/</span><span style="color:#a6e22e">v2</span> <span style="color:#a6e22e">v2</span><span style="color:#ae81ff">.305.0</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rc</span><span style="color:#ae81ff">.1</span>
+	<span style="color:#66d9ef">go</span>.<span style="color:#a6e22e">etcd</span>.<span style="color:#a6e22e">io</span><span style="color:#f92672">/</span><span style="color:#a6e22e">etcd</span><span style="color:#f92672">/</span><span style="color:#a6e22e">client</span><span style="color:#f92672">/</span><span style="color:#a6e22e">v3</span> <span style="color:#a6e22e">v3</span><span style="color:#ae81ff">.5.0</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rc</span><span style="color:#ae81ff">.1</span>
+	<span style="color:#a6e22e">golang</span>.<span style="color:#a6e22e">org</span><span style="color:#f92672">/</span><span style="color:#a6e22e">x</span><span style="color:#f92672">/</span><span style="color:#a6e22e">net</span> <span style="color:#a6e22e">v0</span><span style="color:#ae81ff">.0.0</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20210610132358</span><span style="color:#f92672">-</span><span style="color:#ae81ff">84</span><span style="color:#a6e22e">b48f89b13b</span> <span style="color:#75715e">// indirect
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">golang</span>.<span style="color:#a6e22e">org</span><span style="color:#f92672">/</span><span style="color:#a6e22e">x</span><span style="color:#f92672">/</span><span style="color:#a6e22e">sys</span> <span style="color:#a6e22e">v0</span><span style="color:#ae81ff">.0.0</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20210611083646</span><span style="color:#f92672">-</span><span style="color:#a6e22e">a4fc73990273</span> <span style="color:#75715e">// indirect
+</span><span style="color:#75715e"></span>)
+
+<span style="color:#a6e22e">exclude</span> (
+	<span style="color:#66d9ef">go</span>.<span style="color:#a6e22e">etcd</span>.<span style="color:#a6e22e">io</span><span style="color:#f92672">/</span><span style="color:#a6e22e">etcd</span><span style="color:#f92672">/</span><span style="color:#a6e22e">client</span><span style="color:#f92672">/</span><span style="color:#a6e22e">v2</span> <span style="color:#a6e22e">v2</span><span style="color:#ae81ff">.305.0</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rc</span><span style="color:#ae81ff">.0</span>
+	<span style="color:#66d9ef">go</span>.<span style="color:#a6e22e">etcd</span>.<span style="color:#a6e22e">io</span><span style="color:#f92672">/</span><span style="color:#a6e22e">etcd</span><span style="color:#f92672">/</span><span style="color:#a6e22e">client</span><span style="color:#f92672">/</span><span style="color:#a6e22e">v3</span> <span style="color:#a6e22e">v3</span><span style="color:#ae81ff">.5.0</span><span style="color:#f92672">-</span><span style="color:#a6e22e">rc</span><span style="color:#ae81ff">.0</span>
+)
+
+
+
+<span style="color:#a6e22e">retract</span> (
+    <span style="color:#a6e22e">v1</span><span style="color:#ae81ff">.0.0</span> <span style="color:#75715e">// 废弃的版本，请使用v1.1.0
+</span><span style="color:#75715e"></span>)
+</code></pre></div><p>虽然是一个简单的文件，但是里面的乾坤不少，让我们依次介绍它们。</p>
+<h3 id="语义化版本-200">语义化版本 2.0.0</h3>
+<p>Go module遵循<a href="https://semver.org/lang/zh-CN/">语义化版本规范 2.0.0</a>。语义化版本规范 2.0.0规定了版本号的格式，每个字段的意义以及版本号比较的规则等等。</p>
+<p><a href="https://colobu.com/2021/06/28/dive-into-go-module-1/semver2.png"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/semver2.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+<p>如果你想为你的项目发版，你可以设置tag为上面的格式，比如<code>v1.3.0</code>、<code>v2.0.0-rc.1</code>等等。metadata中在Go版本比较时是不参与运算的，只是一个辅助信息。</p>
+<h3 id="module-path">module path</h3>
+<p>go.mod的第一行是module path, 一般采用仓库+module name的方式定义。这样我们获取一个module的时候，就可以到它的仓库中去查询，或者让go proxy到仓库中去查询。</p>
+<pre><code>module github.com/panicthis/modfile
+</code></pre><p>如果你的版本已经大于等于2.0.0，按照Go的规范，你应该加上major的后缀，module path改成下面的方式:</p>
+<pre><code>module github.com/panicthis/modfile/v2
+module github.com/panicthis/modfile/v3
+</code></pre><p>而且引用代码的时候，也要加上<code>v2</code>、<code>v3</code>、<code>vx</code>后缀，以便和其它major版本进行区分。</p>
+<p>这是一个很奇怪的约定，带来的好处是你一个项目中可以使用依赖库的不同的major版本，它们可以共存。</p>
+<h3 id="go-directive">go directive</h3>
+<p>第二行是go directive。格式是 <code>go 1.xx</code>,它并不是指你当前使用的Go版本，而是指名你的代码所需要的Go的最低版本。</p>
+<pre><code>go 1.16
+</code></pre><p>因为Go的标准库也有所变化，一些新的API也被增加进来，如果你的代码用到了这些新的API,你可能需要指名它依赖的go版本。</p>
+<p>这一行不是必须的，你可以不写。</p>
+<h3 id="require">require</h3>
+<p>require段中列出了项目所需要的各个依赖库以及它们的版本，除了正规的<code>v1.3.0</code>这样的版本外，还有一些奇奇怪怪的版本和注释，那么它们又是什么意思呢？</p>
+<p>正式的版本号我们就不需要介绍了，大家都懂:</p>
+<pre><code>github.com/coreos/bbolt v1.3.3
+</code></pre><h4 id="伪版本号">伪版本号</h4>
+<p><a href="https://colobu.com/2021/06/28/dive-into-go-module-1/version1.png"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/version1.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+<pre><code>github.com/edwingeng/doublejump v0.0.0-20200330080233-e4ea8bd1cbed
+</code></pre><p>上面这个库中的版本号就是一个伪版本号<code>v0.0.0-20200330080233-e4ea8bd1cbed</code>,这是go module为它生成的一个类似符合语义化版本2.0.0版本，实际这个库并没有发布这个版本。</p>
+<p>正式因为这个依赖库没有发布版本，而go module需要指定这个库的一个确定的版本，所以才创建的这样一个伪版本号。</p>
+<p>go module的目的就是在go.mod中标记出这个项目所有的依赖以及它们确定的某个版本。</p>
+<p>这里的<code>20200330080233</code>是这次提交的时间，格式是<code>yyyyMMddhhmmss</code>, 而<code>e4ea8bd1cbed</code>就是这个版本的commit id,通过这个字段，就可以确定这个库的特定的版本。</p>
+<p>而前面的<code>v0.0.0</code>可能有多种生成方式，主要看你这个commit的base version:</p>
+<ul>
+<li>vX.0.0-yyyymmddhhmmss-abcdefabcdef: 如果没有base version,那么就是vX.0.0的形式</li>
+<li>vX.Y.Z-pre.0.yyyymmddhhmmss-abcdefabcdef： 如果base version是一个预发布的版本，比如vX.Y.Z-pre,那么它就用vX.Y.Z-pre.0的形式</li>
+<li>vX.Y.(Z+1)-0.yyyymmddhhmmss-abcdefabcdef: 如果base version是一个正式发布的版本，那么它就patch号加1，如vX.Y.(Z+1)-0</li>
+</ul>
+<h3 id="indirect注释">indirect注释</h3>
+<pre><code>   go.etcd.io/bbolt v1.3.6 // indirect
+golang.org/x/net v0.0.0-20210610132358-84b48f89b13b // indirect
+golang.org/x/sys v0.0.0-20210611083646-a4fc73990273 // indirect
+</code></pre><p>有些库后面加了<code>indirect</code>后缀，这又是什么意思的。</p>
+<p>如果用一句话总结，间接的使用了这个库，但是又没有被列到某个go.mod中，当然这句话也不算太准确，更精确的说法是下面的情况之一就会对这个库加indirect后缀：</p>
+<ul>
+<li>当前项目依赖A,但是A的go.mod遗漏了B, 那么就会在当前项目的go.mod中补充B, 加indirect注释</li>
+<li>当前项目依赖A,但是A没有go.mod,同样就会在当前项目的go.mod中补充B, 加indirect注释</li>
+<li>当前项目依赖A,A又依赖B,当对A降级的时候，降级的A不再依赖B,这个时候B就标记indirect注释</li>
+</ul>
+<h3 id="incompatible">incompatible</h3>
+<p>有些库后面加了incompatible后缀，但是你如果看这些项目，它们只是发布了v2.2.1的tag,并没有<code>+incompatible</code>后缀。</p>
+<pre><code>github.com/cenk/backoff v2.2.1+incompatible
+</code></pre><p>这些库采用了go.mod的管理，但是不幸的是，虽然这些库的版major版本已经大于等于2了，但是他们的module path中依然没有添加v2、v3这样的后缀。</p>
+<p>所以go module把它们标记为<code>incompatible</code>的，虽然可以引用，但是实际它们是不符合规范的。</p>
+<h3 id="exclude">exclude</h3>
+<p>如果你想在你的项目中跳过某个依赖库的某个版本，你就可以使用这个段。</p>
+<pre><code>exclude (
+	go.etcd.io/etcd/client/v2 v2.305.0-rc.0
+	go.etcd.io/etcd/client/v3 v3.5.0-rc.0
+)
+</code></pre><p>这样，Go在版本选择的时候，就会主动跳过这些版本，比如你使用<code>go get -u ......</code>或者<code>go get github.com/xxx/xxx@latest</code>等命令时，会执行version query的动作，这些版本不在考虑的范围之内。</p>
+<h3 id="replace">replace</h3>
+<p>replace也是常用的一个手段，用来解决一些错误的依赖库的引用或者调试依赖库。</p>
+<pre><code>replace github.com/coreos/bbolt =&gt; go.etcd.io/bbolt v1.3.3
+replace github.com/panicthis/A v1.1.0 =&gt; github.com/panicthis/R v1.8.0
+replace github.com/coreos/bbolt =&gt; ../R
+</code></pre><p>比如etcd v3.3.x的版本中错误的使用了<code>github.com/coreos/bbolt</code>作为bbolt的module path,其实这个库在它自己的go.mod中声明的module path是<code>go.etcd.io/bbolt</code>，又比如etcd使用的grpc版本有问题，你也可以通过replace替换成所需的grpc版本。</p>
+<p>甚至你觉得某个依赖库有问题，自己fork到本地做修改，想调试一下，你也可以替换成本地的文件夹。</p>
+<p>replace可以替换某个库的所有版本到另一个库的特定版本，也可以替换某个库的特定版本到另一个库的特定版本。</p>
+<h3 id="retract">retract</h3>
+<p>retract是go 1.16中新增加的内容，借用学术界期刊撤稿的术语，宣布撤回库的某个版本。</p>
+<p>如果你误发布了某个版本，或者事后发现某个版本不成熟，那么你可以推一个新的版本，在新的版本中，声明前面的某个版本被撤回，提示大家都不要用了。</p>
+<p>撤回的版本tag依然还存在，go proxy也存在这个版本，所以你如果强制使用，还是可以使用的，否则这些版本就会被跳过。</p>
+<p>和exclude的区别是retract是这个库的owner定义的， 而exclude是库的使用者在自己的go.mod中定义的。</p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2022/gomod/>https://ftopia2020.github.io/2022/gomod/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/golang/">
+                    #golang</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2021/algorithmsummary/" class="prev" rel="prev" title="「数据结构&amp;算法」必知必会系列：排序"><i
+                class="iconfont icon-left"></i>&nbsp;「数据结构&amp;算法」必知必会系列：排序</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2022/gomod/" class="leancloud_visitors" data-flag-title="【转】深入Go Module之go.mod文件解析">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

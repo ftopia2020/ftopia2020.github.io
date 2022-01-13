@@ -6,10 +6,19 @@
     <description>Recent content in 转载 on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jan 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】深入Go Module之go.mod文件解析</title>
+      <link>https://ftopia2020.github.io/2022/gomod/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2022/gomod/</guid>
+      <description>原文链接：https://colobu.com/2021/06/28/dive-into-go-module-1/) 深入Go Module之g</description>
+    </item>
     
     <item>
       <title>【转】一文告诉你神奇的Go内建函数源码在哪里</title>

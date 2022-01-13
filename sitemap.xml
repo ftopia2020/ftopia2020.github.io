@@ -4,7 +4,17 @@
     <url>
       <loc>https://ftopia2020.github.io/categories/</loc>
       
-      <lastmod>2021-12-15T00:00:00+00:00</lastmod>
+      <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://ftopia2020.github.io/tags/golang/</loc>
+      
+      <lastmod>2022-01-13T00:00:00+00:00</lastmod>
       
       
       
@@ -14,7 +24,7 @@
     <url>
       <loc>https://ftopia2020.github.io/posts/</loc>
       
-      <lastmod>2021-12-15T00:00:00+00:00</lastmod>
+      <lastmod>2022-01-13T00:00:00+00:00</lastmod>
       
       
       
@@ -24,7 +34,7 @@
     <url>
       <loc>https://ftopia2020.github.io/tags/</loc>
       
-      <lastmod>2021-12-15T00:00:00+00:00</lastmod>
+      <lastmod>2022-01-13T00:00:00+00:00</lastmod>
       
       
       
@@ -34,7 +44,27 @@
     <url>
       <loc>https://ftopia2020.github.io/categories/web-x-%E5%BC%80%E5%8F%91/</loc>
       
-      <lastmod>2021-12-15T00:00:00+00:00</lastmod>
+      <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://ftopia2020.github.io/2022/gomod/</loc>
+      
+      <lastmod>2022-01-13T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/</loc>
+      
+      <lastmod>2022-01-13T00:00:00+00:00</lastmod>
       
       
       
@@ -185,16 +215,6 @@
       <loc>https://ftopia2020.github.io/2021/coverpage/</loc>
       
       <lastmod>2021-04-22T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/tags/golang/</loc>
-      
-      <lastmod>2021-04-20T00:00:00+00:00</lastmod>
       
       
       
@@ -403,16 +423,6 @@
   
     <url>
       <loc>https://ftopia2020.github.io/2021/gobuiltin/</loc>
-      
-      <lastmod>2021-03-26T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/</loc>
       
       <lastmod>2021-03-26T00:00:00+00:00</lastmod>
       
