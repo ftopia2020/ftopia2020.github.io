@@ -59,7 +59,7 @@
     "datePublished": "2019-09-09 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-09-09 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/ftopia2020.github.io\/2019\/iframe\/",
-    "wordCount" : "705",
+    "wordCount" : "658",
     "keywords" : [ "HTML","iframe","原创", "Ftopia"]
 }
 </script>
@@ -175,7 +175,7 @@
                     2019-09-09</time>
             </span>
             &nbsp;
-            <i class="far fa-file-word"></i> <span class="post-word-count"> 705 字</span>
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 658 字</span>
             &nbsp;
             <i class="far fa-clock"></i> <span class="more-meta"> 2 分钟</span>
 
@@ -210,19 +210,68 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;./main.html&#34;</span>&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
 
 &lt;<span style="color:#f92672">iframe</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mainIframe&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mainIframe&#34;</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.baidu.com&#34;</span> <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#a6e22e">scrolling</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;auto&#34;</span> &gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
-</code></pre></div><p>以下列举了一些 iframe 常用属性：
-| 属性 | 值 | 描述 |
-| &mdash;&mdash;&mdash;&mdash;&ndash; | &mdash;&mdash;&mdash;&mdash;- | &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; |
-| src | <em>URL</em> | 定义 iframe 中显示的文档的 URL |
-| width | <em>pixels</em> <em>%</em> | 定义 iframe 的宽度 |
-| height | <em>pixels</em> <em>%</em> | 定义 iframe 的高度 |
-| name | <em>frame_name</em> | 定义 iframe 的名称 |
-| frameborder |1 0 | 规定是否显示框架周围的边框 |
-| marginheight |<em>pixels</em> | 定义 iframe 的顶部和底部的边距。 |
-| marginwidth |<em>pixels</em> | 定义 iframe 的左侧和右侧的边距 |
-| scrolling |yes no auto | 规定是否在 iframe 中显示滚动条 |
-| srcdoc (HTML5) | <em>HTML_code</em> | 定义在 <!-- raw HTML omitted --> 中显示的页面的 HTML 内容。 |
-| sandbox (HTML5) | &quot;&rdquo; allow-form sallow-same-origin allow-scripts allow-top-navigation | 启用一系列对 <!-- raw HTML omitted --> 中内容的额外限制 |</p>
+</code></pre></div><p>以下列举了一些 iframe 常用属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>src</td>
+<td><em>URL</em></td>
+<td>定义 iframe 中显示的文档的 URL</td>
+</tr>
+<tr>
+<td>width</td>
+<td><em>pixels</em> <em>%</em></td>
+<td>定义 iframe 的宽度</td>
+</tr>
+<tr>
+<td>height</td>
+<td><em>pixels</em> <em>%</em></td>
+<td>定义 iframe 的高度</td>
+</tr>
+<tr>
+<td>name</td>
+<td><em>frame_name</em></td>
+<td>定义 iframe 的名称</td>
+</tr>
+<tr>
+<td>frameborder</td>
+<td>1 0</td>
+<td>规定是否显示框架周围的边框</td>
+</tr>
+<tr>
+<td>marginheight</td>
+<td><em>pixels</em></td>
+<td>定义 iframe 的顶部和底部的边距。</td>
+</tr>
+<tr>
+<td>marginwidth</td>
+<td><em>pixels</em></td>
+<td>定义 iframe 的左侧和右侧的边距</td>
+</tr>
+<tr>
+<td>scrolling</td>
+<td>yes no auto</td>
+<td>规定是否在 iframe 中显示滚动条</td>
+</tr>
+<tr>
+<td>srcdoc (HTML5)</td>
+<td><em>HTML_code</em></td>
+<td>定义在 <!-- raw HTML omitted --> 中显示的页面的 HTML 内容。</td>
+</tr>
+<tr>
+<td>sandbox (HTML5)</td>
+<td>&quot;&rdquo; allow-form sallow-same-origin allow-scripts allow-top-navigation</td>
+<td>启用一系列对 <!-- raw HTML omitted --> 中内容的额外限制</td>
+</tr>
+</tbody>
+</table>
 <h3 id="显示处理">显示处理</h3>
 <p>通常我们需要对内嵌的 iframe 页面做一些样式上的调整，如下例：</p>
 <p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/iframe_ex1.png" alt="iframe_ex1" class="lazyload"><figcaption class="image-caption">iframe_ex1</figcaption></figure></p>
