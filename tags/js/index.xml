@@ -6,10 +6,19 @@
     <description>Recent content in JS on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/js/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】JavaScript复制内容到剪贴板</title>
+      <link>https://ftopia2020.github.io/2022/jsclipboard/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2022/jsclipboard/</guid>
+      <description>作者：axuebin 链接：https://juejin.cn/post/6844903567480848391 原文链接：github.com</description>
+    </item>
     
     <item>
       <title>JS数组/对象的值为什么变了？你需要深入理解对象的值传递</title>

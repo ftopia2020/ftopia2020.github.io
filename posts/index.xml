@@ -6,18 +6,36 @@
     <description>Recent content in Posts on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Aug 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>webp 图像类型</title>
-      <link>https://ftopia2020.github.io/2022/webpimg/</link>
-      <pubDate>Fri, 28 Jan 2022 00:00:00 +0000</pubDate>
+      <title>react-spring 动画框架初体验</title>
+      <link>https://ftopia2020.github.io/2022/reactspringdemo/</link>
+      <pubDate>Fri, 26 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://ftopia2020.github.io/2022/webpimg/</guid>
-      <description>webp 转 gif https://www.aconvert.com/cn/image/webp-to-gif/</description>
+      <guid>https://ftopia2020.github.io/2022/reactspringdemo/</guid>
+      <description>WHY 最近对 web 端动画的实现产生了不少兴趣（底层实现 CSS3 animation），而现代 web 前端开发离不开三大框架（react, vue, angular）。笔者主</description>
+    </item>
+    
+    <item>
+      <title>【转】JavaScript复制内容到剪贴板</title>
+      <link>https://ftopia2020.github.io/2022/jsclipboard/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2022/jsclipboard/</guid>
+      <description>作者：axuebin 链接：https://juejin.cn/post/6844903567480848391 原文链接：github.com</description>
+    </item>
+    
+    <item>
+      <title>【转】从 loading 的 9 种写法谈 React 业务开发</title>
+      <link>https://ftopia2020.github.io/2022/reactdev/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2022/reactdev/</guid>
+      <description>文章可随意转载，但请保留此 原文链接。 非常欢迎有激情的你加入 ES2049 Studio，简历请发送至 caijun.hcj(at)alibaba-inc.com 前言 这是一篇比较全面讲解 React 的文章，里面很多基础知识希</description>
     </item>
     
     <item>
@@ -468,6 +486,24 @@
       
       <guid>https://ftopia2020.github.io/2021/leetcodecollections_3/</guid>
       <description>个人评价：说简单也简单=》雷同斐波那契，说难也难：如果之前没刷到，面试短时间内还真不一定能想出合适的方式 题目难度：🌟 （参考 LeeCode 简单🌟 、中等🌟 🌟</description>
+    </item>
+    
+    <item>
+      <title>Golang 的 Json 包</title>
+      <link>https://ftopia2020.github.io/2021/gojson/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/gojson/</guid>
+      <description>Golang 的 Json 包 encoding/json</description>
+    </item>
+    
+    <item>
+      <title>从 reflect Kind 反观 golang 数据类型</title>
+      <link>https://ftopia2020.github.io/2021/goreflecttype/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goreflecttype/</guid>
+      <description>Golang 数据类型 Golang 数据类型大体可分为以下几类： 基本类型： 布尔型 true/false，例如 bool := false 字符串类型：由单个字节链接起来，默认为 UTF-8 Unicode 数字类型 整</description>
     </item>
     
     <item>
@@ -999,15 +1035,6 @@
       
       <guid>https://ftopia2020.github.io/2019/yarn/</guid>
       <description>What Yarn 是由 Facebook、Google、Exponent 和 Tilde 联合推出了一个新的 JS包管理工具。 更多的具体特性介绍可参考：Yarn 官网 Why 官网标</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ftopia2020.github.io/1/untitled/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://ftopia2020.github.io/1/untitled/</guid>
-      <description></description>
     </item>
     
     <item>

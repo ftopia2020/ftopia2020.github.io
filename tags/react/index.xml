@@ -6,10 +6,19 @@
     <description>Recent content in react on Ftopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Aug 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ftopia2020.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【转】从 loading 的 9 种写法谈 React 业务开发</title>
+      <link>https://ftopia2020.github.io/2022/reactdev/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2022/reactdev/</guid>
+      <description>文章可随意转载，但请保留此 原文链接。 非常欢迎有激情的你加入 ES2049 Studio，简历请发送至 caijun.hcj(at)alibaba-inc.com 前言 这是一篇比较全面讲解 React 的文章，里面很多基础知识希</description>
+    </item>
     
     <item>
       <title>React AntD 中 Icon 组件使用 iconfont.cn</title>

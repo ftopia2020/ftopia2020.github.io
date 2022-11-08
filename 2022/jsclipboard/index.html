@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2022/reactdev/" />
+    <link rel="next" href="https://ftopia2020.github.io/2022/reactspringdemo/" />
+    <link rel="canonical" href="https://ftopia2020.github.io/2022/jsclipboard/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             【转】JavaScript复制内容到剪贴板 | Ftopia
+         
+    </title>
+    <meta name="title" content="【转】JavaScript复制内容到剪贴板 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "【转】JavaScript复制内容到剪贴板",
+    "headline" : "【转】JavaScript复制内容到剪贴板",
+    "description" : "作者：axuebin 链接：https:\/\/juejin.cn\/post\/6844903567480848391 原文链接：github.com",
+    "inLanguage" : "en-us",
+    "author" : "转载",
+    "creator" : "转载",
+    "publisher": "转载",
+    "accountablePerson" : "转载",
+    "copyrightHolder" : "转载",
+    "copyrightYear" : "2022",
+    "datePublished": "2022-02-11 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-02-11 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2022\/jsclipboard\/",
+    "wordCount" : "1945",
+    "keywords" : [ "js","转载","clipboard","document.execCommand", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#常见方法">常见方法</a></li>
+    <li><a href="#clipboardjs">clipboard.js</a>
+      <ul>
+        <li><a href="#引用">引用</a></li>
+        <li><a href="#使用">使用</a></li>
+        <li><a href="#小结">小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#documentexeccommand方法">document.execCommand()方法</a>
+      <ul>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#兼容性">兼容性</a></li>
+        <li><a href="#使用-1">使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【转】JavaScript复制内容到剪贴板</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By 转载 ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2022-02-11
+                    itemprop="datePublished">
+                    2022-02-11</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1945 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <blockquote>
+<p>作者：axuebin
+链接：https://juejin.cn/post/6844903567480848391</p>
+<p>原文链接：<a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Faxuebin%2Farticles%2Fissues%2F26">github.com/axuebin/art…</a></p>
+</blockquote>
+<hr>
+<p>最近一个活动页面中有一个小需求，用户点击或者长按就可以复制内容到剪贴板，记录一下实现过程和遇到的坑。</p>
+<h2 id="常见方法">常见方法</h2>
+<p>查了一下万能的Google，现在常见的方法主要是以下两种：</p>
+<ul>
+<li>第三方库：clipboard.js</li>
+<li>原生方法：document.execCommand()</li>
+</ul>
+<p>分别来看看这两种方法是如何使用的。</p>
+<h2 id="clipboardjs">clipboard.js</h2>
+<p>这是clipboard的官网：<a href="https://link.juejin.cn?target=https%3A%2F%2Fclipboardjs.com%2F">clipboardjs.com/</a>，看起来就是这么的简单。</p>
+<h3 id="引用">引用</h3>
+<p>直接引用： <code>&lt;script src=&quot;dist/clipboard.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>包： <code>npm install clipboard --save</code> ，然后 <code>import Clipboard from 'clipboard';</code></p>
+<h3 id="使用">使用</h3>
+<h4 id="从输入框复制">从输入框复制</h4>
+<p>现在页面上有一个 <code>&lt;input&gt;</code> 标签，我们需要复制其中的内容，我们可以这样做：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;demoInput&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello world&#34;</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span> <span style="color:#a6e22e">data-clipboard-target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#demoInput&#34;</span>&gt;点我复制&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Clipboard</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;clipboard&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">btnCopy</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Clipboard</span>(<span style="color:#e6db74">&#39;btn&#39;</span>);
+</code></pre></div><p>注意到，在 <code>&lt;button&gt;</code> 标签中添加了一个 <code>data-clipboard-target</code> 属性，它的值是需要复制的 <code>&lt;input&gt;</code> 的 <code>id</code>，顾名思义是从整个标签中复制内容。å</p>
+<h4 id="直接复制">直接复制</h4>
+<p>有的时候，我们并不希望从 <code>&lt;input&gt;</code> 中复制内容，仅仅是直接从变量中取值。如果在 <code>Vue</code> 中我们可以这样做：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span> <span style="color:#a6e22e">:data-clipboard-text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;copyValue&#34;</span>&gt;点我复制&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Clipboard</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;clipboard&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">btnCopy</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Clipboard</span>(<span style="color:#e6db74">&#39;btn&#39;</span>);
+<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">copyValue</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;hello world&#39;</span>;
+</code></pre></div><h4 id="事件">事件</h4>
+<p>有的时候我们需要在复制后做一些事情，这时候就需要回调函数的支持。</p>
+<p>在处理函数中加入以下代码：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// 复制成功后执行的回调函数
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">clipboard</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;success&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;Action:&#39;</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">action</span>); <span style="color:#75715e">// 动作名称，比如：Action: copy
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;Text:&#39;</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">text</span>); <span style="color:#75715e">// 内容，比如：Text：hello word
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;Trigger:&#39;</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">trigger</span>); <span style="color:#75715e">// 触发元素：比如：&lt;button class=&#34;btn&#34; :data-clipboard-text=&#34;copyValue&#34;&gt;点我复制&lt;/button&gt;
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">clearSelection</span>(); <span style="color:#75715e">// 清除选中内容
+</span><span style="color:#75715e"></span>});
+
+<span style="color:#75715e">// 复制失败后执行的回调函数
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">clipboard</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Action:&#39;</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">action</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Trigger:&#39;</span>, <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">trigger</span>);
+});
+</code></pre></div><h3 id="小结">小结</h3>
+<p>文档中还提到，如果在单页面中使用 <code>clipboard</code> ，为了使得生命周期管理更加的优雅，在使用完之后记得 <code>btn.destroy()</code> 销毁一下。</p>
+<p><code>clipboard</code> 使用起来是不是很简单。但是，就为了一个 <code>copy</code> 功能就使用额外的第三方库是不是不够优雅，这时候该怎么办？那就用原生方法实现呗。</p>
+<h2 id="documentexeccommand方法">document.execCommand()方法</h2>
+<p>先看看这个方法在 <code>MDN</code> 上是怎么定义的：</p>
+<blockquote>
+<p>which allows one to run commands to manipulate the contents of the editable region.</p>
+</blockquote>
+<p>意思就是可以允许运行命令来操作可编辑区域的内容，注意，是<strong>可编辑区域</strong>。</p>
+<h3 id="定义">定义</h3>
+<blockquote>
+<p>bool = document.execCommand(aCommandName, aShowDefaultUI, aValueArgument)</p>
+</blockquote>
+<p>方法返回一个 <code>Boolean</code> 值，表示操作是否成功。</p>
+<ul>
+<li><code>aCommandName</code> ：表示命令名称，比如： <code>copy</code>, <code>cut</code> 等（更多命令见<a href="https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FAPI%2FDocument%2FexecCommand%23%E5%91%BD%E4%BB%A4">命令</a>）；</li>
+<li><code>aShowDefaultUI</code>：是否展示用户界面，一般情况下都是 <code>false</code>；</li>
+<li><code>aValueArgument</code>：有些命令需要额外的参数，一般用不到；</li>
+</ul>
+<h3 id="兼容性">兼容性</h3>
+<p>这个方法在之前的兼容性其实是不太好的，但是好在现在已经基本兼容所有主流浏览器了，在移动端也可以使用。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/image-20220211103541521.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<h3 id="使用-1">使用</h3>
+<h4 id="从输入框复制-1">从输入框复制</h4>
+<p>现在页面上有一个 <code>&lt;input&gt;</code> 标签，我们想要复制其中的内容，我们可以这样做：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;demoInput&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hello world&#34;</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span>&gt;点我复制&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">btn</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#btn&#39;</span>);
+<span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, () =&gt; {
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#demoInput&#39;</span>);
+	<span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">select</span>();
+	<span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">execCommand</span>(<span style="color:#e6db74">&#39;copy&#39;</span>)) {
+		document.<span style="color:#a6e22e">execCommand</span>(<span style="color:#e6db74">&#39;copy&#39;</span>);
+		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;复制成功&#39;</span>);
+	}
+})
+</code></pre></div><h4 id="其它地方复制">其它地方复制</h4>
+<p>有的时候页面上并没有 <code>&lt;input&gt;</code> 标签，我们可能需要从一个 <code>&lt;div&gt;</code> 中复制内容，或者直接复制变量。</p>
+<p>还记得在 <code>execCommand()</code> 方法的定义中提到，它只能操作<strong>可编辑区域</strong>，也就是意味着除了 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 这样的输入域以外，是无法使用这个方法的。</p>
+<p>这时候我们需要曲线救国。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn&#34;</span>&gt;点我复制&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">btn</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#btn&#39;</span>);
+<span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,() =&gt; {
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;input&#39;</span>);
+	document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">input</span>);
+ 	<span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#e6db74">&#39;听说你想复制我&#39;</span>);
+	<span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">select</span>();
+	<span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">execCommand</span>(<span style="color:#e6db74">&#39;copy&#39;</span>)) {
+		document.<span style="color:#a6e22e">execCommand</span>(<span style="color:#e6db74">&#39;copy&#39;</span>);
+		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;复制成功&#39;</span>);
+	}
+    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">input</span>);
+})
+</code></pre></div><p>算是曲线救国成功了吧。在使用这个方法时，遇到了几个坑。</p>
+<h4 id="遇到的坑">遇到的坑</h4>
+<p>在Chrome下调试的时候，这个方法时完美运行的。然后到了移动端调试的时候，坑就出来了。</p>
+<p>对，没错，就是你，ios。。。</p>
+<ol>
+<li>
+<p>点击复制时屏幕下方会出现白屏抖动，仔细看是拉起键盘又瞬间收起</p>
+<p>知道了抖动是由于什么产生的就比较好解决了。既然是拉起键盘，那就是聚焦到了输入域，那只要让输入域不可输入就好了，在代码中添加 <code>input.setAttribute('readonly', 'readonly');</code> 使这个 <code>&lt;input&gt;</code> 是只读的，就不会拉起键盘了。</p>
+</li>
+<li>
+<p>无法复制</p>
+<p>这个问题是由于 <code>input.select()</code> 在ios下并没有选中全部内容，我们需要使用另一个方法来选中内容，这个方法就是 <code>input.setSelectionRange(0, input.value.length);</code>。</p>
+</li>
+</ol>
+<p>完整代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">btn</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#btn&#39;</span>);
+<span style="color:#a6e22e">btn</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>,() =&gt; {
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>(<span style="color:#e6db74">&#39;input&#39;</span>);
+    <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;readonly&#39;</span>, <span style="color:#e6db74">&#39;readonly&#39;</span>);
+    <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;value&#39;</span>, <span style="color:#e6db74">&#39;hello world&#39;</span>);
+    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>(<span style="color:#a6e22e">input</span>);
+	<span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">setSelectionRange</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">9999</span>);
+	<span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">execCommand</span>(<span style="color:#e6db74">&#39;copy&#39;</span>)) {
+		document.<span style="color:#a6e22e">execCommand</span>(<span style="color:#e6db74">&#39;copy&#39;</span>);
+		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;复制成功&#39;</span>);
+	}
+    document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">removeChild</span>(<span style="color:#a6e22e">input</span>);
+})
+</code></pre></div><h2 id="总结">总结</h2>
+<p>以上就是关于JavaScript如何实现复制内容到剪贴板，附上几个链接：</p>
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fen-US%2Fdocs%2FWeb%2FAPI%2FDocument%2FexecCommand">execCommand MDN</a></p>
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fcaniuse.com%2F%23search%3DexecCommand">execCommand兼容性</a></p>
+<p><a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fzenorocha%2Fclipboard.js">clipboard.js</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2022/jsclipboard/>https://ftopia2020.github.io/2022/jsclipboard/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/js/">
+                    #js</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E8%BD%AC%E8%BD%BD/">
+                    #转载</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/clipboard/">
+                    #clipboard</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/document.execcommand/">
+                    #document.execCommand</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2022/reactdev/" class="prev" rel="prev" title="【转】从 loading 的 9 种写法谈 React 业务开发"><i
+                class="iconfont icon-left"></i>&nbsp;【转】从 loading 的 9 种写法谈 React 业务开发</a>
+        
+        
+        <a href="https://ftopia2020.github.io/2022/reactspringdemo/" class="next" rel="next"
+            title="react-spring 动画框架初体验">react-spring 动画框架初体验&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2022/jsclipboard/" class="leancloud_visitors" data-flag-title="【转】JavaScript复制内容到剪贴板">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

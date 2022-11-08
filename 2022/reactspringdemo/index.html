@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noodp"/>
+    <meta name="author" content="Faye.Fei">
+    <meta name="description" content="个人技术博客">
+    <meta name="keywords" content="ftopia fei">
+    
+    <link rel="prev" href="https://ftopia2020.github.io/2022/jsclipboard/" />
+    
+    <link rel="canonical" href="https://ftopia2020.github.io/2022/reactspringdemo/" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link href="//use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>
+         
+         
+             react-spring 动画框架初体验 | Ftopia
+         
+    </title>
+    <meta name="title" content="react-spring 动画框架初体验 | Ftopia">
+      
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+    
+    
+ 
+
+<script type="application/ld+json">
+{   "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/ftopia2020.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "react-spring 动画框架初体验",
+    "headline" : "react-spring 动画框架初体验",
+    "description" : "WHY 最近对 web 端动画的实现产生了不少兴趣（底层实现 CSS3 animation），而现代 web 前端开发离不开三大框架（react, vue, angular）。笔者主",
+    "inLanguage" : "en-us",
+    "author" : "me",
+    "creator" : "me",
+    "publisher": "me",
+    "accountablePerson" : "me",
+    "copyrightHolder" : "me",
+    "copyrightYear" : "2022",
+    "datePublished": "2022-08-26 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-08-26 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/ftopia2020.github.io\/2022\/reactspringdemo\/",
+    "wordCount" : "1600",
+    "keywords" : [ "react-spring","原创", "Ftopia"]
+}
+</script>
+
+  </head>
+  
+    
+  
+  
+<aside class="side-toc">
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why">WHY</a></li>
+    <li><a href="#what">WHAT</a>
+      <ul>
+        <li><a href="#platforms">Platforms</a></li>
+        <li><a href="#browser-support">Browser support</a></li>
+        <li><a href="#size">Size</a></li>
+      </ul>
+    </li>
+    <li><a href="#how">HOW</a>
+      <ul>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#why-springs-and-not-durations">Why springs and not durations</a></li>
+        <li><a href="#basic-hooks-apis">Basic Hooks apis</a></li>
+        <li><a href="#common-api">Common API</a></li>
+        <li><a href="#demo-1----usespring-to-fade-in-and-out">Demo 1  - useSpring to fade in and out</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</aside>
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header header-logo">
+            <a href="https://ftopia2020.github.io/" style="margin-left: 20px">
+                <img src="/favicon-32x32.png" style="width: 16px;" />
+                <span> Ftopia </span>
+
+            </a>
+        </div>
+        <div class="menu navbar-right">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+    
+    <div class="top-scroll-bar"></div>
+    
+    <div class="container">
+        <div class="navbar-header">
+            <div> <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a
+                    href="https://ftopia2020.github.io/">Ftopia</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="menu" id="mobile-menu">
+            
+            
+            <a class="menu-item"
+                href="/posts/" title="">Blog</a>
+            
+            <a class="menu-item"
+                href="/categories/" title="">Categories</a>
+            
+            <a class="menu-item"
+                href="/tags/" title="">Tags</a>
+            
+            <a class="menu-item"
+                href="/about/" title="">About</a>
+            
+        </div>
+    </div>
+</nav>
+        
+        
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">react-spring 动画框架初体验</h1>
+        <div class="post-meta">
+
+            <i class="far fa-folder-open"></i>
+            <span class="post-category">
+                
+            </span>
+            &nbsp;
+            By me ♥
+            &nbsp;
+            <span class="post-time">
+                <i class="far fa-calendar-alt"></i>
+                <time datetime=2022-08-26
+                    itemprop="datePublished">
+                    2022-08-26</time>
+            </span>
+            &nbsp;
+            <i class="far fa-file-word"></i> <span class="post-word-count"> 1600 字</span>
+            &nbsp;
+            <i class="far fa-clock"></i> <span class="more-meta"> 4 分钟</span>
+
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+        
+        
+
+        
+        
+
+        
+        
+        
+
+        
+        
+        
+
+        <h2 id="why">WHY</h2>
+<p>最近对 web 端动画的实现产生了不少兴趣（底层实现 CSS3 animation），而现代 web 前端开发离不开三大框架（react, vue, angular）。笔者主要使用 react，自然就想到如何能更好地用 react 呈现动画这一课题。通过 google，找到了 <a href="https://www.react-spring.io/">react-spring</a>，本人对此的初体验还不错，感觉可以解决不少动画渲染的问题~</p>
+<h2 id="what">WHAT</h2>
+<p>使用 spring 动画图元，为你的组件赋予生命（原谅本人蹩脚的英文 ……）</p>
+<blockquote>
+<p><strong>react-spring</strong>：bring your components to life with simple spring animation primitives</p>
+</blockquote>
+<p>官网的简短介绍只觉云里雾里，说人话 &hellip;  🐂🍺 就是了，硬着头皮翻译如下：</p>
+<p><em>react-spring</em> 是一个基于弹簧物理学的动画框架（什么鬼？？好吧，我是学渣 &hellip; ），可满足几乎所有 UI 层动画需要。它提供了足够灵活的工具，让你能成竹于胸地将想法变为动画。</p>
+<p>该库代表了一种前沿的现代化动画方法，灵感来源于 Christopher Chedeau&rsquo;s <a href="https://github.com/animatedjs/animated">animated</a> 和 Cheng Lou&rsquo;s <a href="https://github.com/chenglou/react-motion">react-motion</a> 。其不仅继承了 <em>animated</em> 强大的插值及性能，同样具备 <em>react-motion</em> 的易用性。然而， <em>animated</em> 是命令式的，<em>react-motion</em> 是声明式的，<em>react-spring</em> 建起了两者的桥梁。你会惊讶于静态数据可通过如此简单的显式函数轻松转换为动画效果，而这些函数并不影响你操控视图的呈现。</p>
+<blockquote>
+<p><strong>react-spring</strong> is a spring-physics based animation library that should cover most of your UI related animation needs. It gives you tools flexible enough to confidently cast your ideas into moving interfaces.</p>
+<p>This library represents a modern approach to animation. It is very much inspired by Christopher Chedeau&rsquo;s <a href="https://github.com/animatedjs/animated">animated</a> and Cheng Lou&rsquo;s <a href="https://github.com/chenglou/react-motion">react-motion</a>. It inherits animated&rsquo;s powerful interpolations and performance, as well as react-motion&rsquo;s ease of use. But while animated is mostly imperative and react-motion mostly declarative, react-spring bridges both. You will be surprised how easy static data is cast into motion with small, explicit utility functions that don&rsquo;t necessarily affect how you form your views.</p>
+</blockquote>
+<blockquote>
+<h3 id="platforms">Platforms</h3>
+<p>react-spring is cross platform, it supports the web, react-native, react-native-web and practically any other platform (use the <code>/universal</code> export in that case, which does not carry native elements and color-interpolations).</p>
+<h3 id="browser-support">Browser support</h3>
+<p>The library comes as an es-module compiled for evergreen browsers with the following browserlist config: <a href="https://browserl.ist/?q=%3E1%25%2C+not+dead%2C+not+ie+11%2C+not+op_mini+all"><code>&gt;1%, not dead, not ie 11, not op_mini all</code></a>. If you need to support legacy targets or deal with targets that don&rsquo;t support modules, you can use the commonJS export by simply appending <code>.cjs</code> to your imports.</p>
+<h3 id="size">Size</h3>
+<p>Everything included you end up with currently <code>10.7KB</code> (web), <code>9.7KB</code> (react-native) or <code>6.9KB</code> (/universal export). The size will ultimately depend on your build-chain and can decrease with tree-shaking. For instance, just importing useSpring without color-interpolations (using the /universal export) you will get <code>4.7KB</code>.</p>
+</blockquote>
+<h2 id="how">HOW</h2>
+<blockquote>
+<p>前提：r<em>eact-spring</em> 提供了基于 react hooks 的 API，建议先学习 <a href="https://reactjs.org/docs/hooks-intro.html">React Hooks</a> 相关知识。</p>
+</blockquote>
+<p>官网上 Demo 已然不少，<a href="https://www.react-spring.io/docs/hooks/examples">https://www.react-spring.io/docs/hooks/examples</a> ，并且均有 CodeSandBox 沙盒，如果有明确需求且只想知其然的，可在 Demo 里面找类似的搬运修改下即可 😁 （快速出活必备）</p>
+<h3 id="install">Install</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ npm install react-spring
+</code></pre></div><h3 id="why-springs-and-not-durations">Why springs and not durations</h3>
+<p><em>springs</em> 的概念理解是使用 <em>react-spring</em>  的核心，这和之前使用过的动画概念会很不一样（如，CSS3 animaition 我们会从时间和曲线/路径的角度来考虑）。</p>
+<blockquote>
+<p>这个理念的理解需要弹性物理学的支撑 😭，委实难懂啊。。。</p>
+<p>更多有关 spring 的理解可看视频： <a href="https://youtu.be/1tavDv5hXpo">https://youtu.be/1tavDv5hXpo</a> （ <em>react-motion</em> 的作者 Cheng Lou 2015 做的演讲）</p>
+</blockquote>
+<p>Web 动画通常会趋于永动机实现（如下图弹簧），而这自然界是不存在。</p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://files.ftopia.cn/blog/7CCH51r-20201221144234553-20201221165015608.gif" alt="spring" class="lazyload"><figcaption class="image-caption">spring</figcaption></figure></p>
+<p>基于时间和曲线的动画 API 本质上有悖于连续且流畅的动画交互。——  Andy Matuschak（前苹果 UI-Kit 开发）</p>
+<blockquote>
+<p>As Andy Matuschak (ex Apple UI-Kit developer) <a href="https://twitter.com/andy_matuschak/status/566736015188963328">expressed it once</a>: <em>Animation APIs parameterized by duration and curve are fundamentally opposed to continuous, fluid interactivity</em>.</p>
+</blockquote>
+<p>本文记录初体验，故仅列出 react-spring 的一些基础 Hooks API，并选取几个简单的 Demo 加以阐述。</p>
+<h3 id="basic-hooks-apis">Basic Hooks apis</h3>
+<p>There are 5 hooks in react-spring currently:</p>
+<ul>
+<li><code>useSpring</code> a single spring, moves data from a -&gt; b</li>
+<li><code>useSprings</code> multiple springs, for lists, where each spring moves data from a -&gt; b</li>
+<li><code>useTrail</code> multiple springs with a single dataset, one spring follows or trails behind the other</li>
+<li><code>useTransition</code> for mount/unmount transitions (lists where items are added/removed/updated)</li>
+<li><code>useChain</code> to queue or chain multiple animations together</li>
+</ul>
+<h3 id="common-api">Common API</h3>
+<p>在看 Demo 实现之前，先了解 <code>useSpring</code> 的一些通用配置及参数：</p>
+<p>useSpring 内设置 <a href="https://www.react-spring.io/docs/hooks/api#configs">config</a> 以设置弹簧的参数，参考代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#a6e22e">useSpring</span>({ <span style="color:#a6e22e">config</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">duration</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">250</span> }, ... })
+</code></pre></div><p>仅列出主要的三个参数值，括号内仅个人理解，但。。。还是不懂 😂 ，Just Try ~</p>
+<p>P.S. <a href="https://www.react-spring.io/docs/hooks/api">https://www.react-spring.io/docs/hooks/api</a> 中有对应方块动画可试验</p>
+<ul>
+<li>mass - 弹窗质量</li>
+<li>tension - 弹窗拉力（影响整体速度？）</li>
+<li>friction - 弹簧阻力（控制阻力及其减速的速度？）</li>
+</ul>
+<p>另外，提供了一些 <a href="https://www.react-spring.io/docs/hooks/api#presets">presets (预设值)</a> 可直接使用。</p>
+<p>此外，配合 Hooks API 使用，加入 <a href="https://www.react-spring.io/docs/hooks/api#properties">Properties（属性值）</a> 及 <a href="https://www.react-spring.io/docs/hooks/api#interpolations">Interpolations（插值）</a> ，具体用法参考 Demo。</p>
+<h3 id="demo-1----usespring-to-fade-in-and-out">Demo 1  - useSpring to fade in and out</h3>
+<p><a href="https://codesandbox.io/s/simple-react-spring-demo-1-2ub6x">https://codesandbox.io/s/simple-react-spring-demo-1-2ub6x</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useSpring</span>, <span style="color:#a6e22e">animated</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-spring&#34;</span>;
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ClickToFade</span>() {
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">hide</span>, <span style="color:#a6e22e">setHide</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">spring</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useSpring</span>({
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">opacity</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">hide</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#ffaaee&#34;</span> },
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> [{ <span style="color:#a6e22e">opacity</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">hide</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">color</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#ffaaee&#34;</span> }],
+    <span style="color:#a6e22e">config</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">tension</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span> }
+  });
+
+  <span style="color:#66d9ef">return</span> (
+    &lt;<span style="color:#f92672">div</span>
+      <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{() =&gt; <span style="color:#a6e22e">setHide</span>(<span style="color:#a6e22e">hide</span> =&gt; <span style="color:#f92672">!</span><span style="color:#a6e22e">hide</span>)}
+      <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">cursor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pointer&#34;</span>, <span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1px solid #ffaaee&#34;</span> }}
+    &gt;
+      &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">Click</span> <span style="color:#66d9ef">this</span> <span style="color:#a6e22e">area</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">hide</span> <span style="color:#a6e22e">or</span> <span style="color:#a6e22e">show</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">text</span>&lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;<span style="color:#f92672">animated.h1</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">spring</span>}&gt;<span style="color:#a6e22e">react</span><span style="color:#f92672">-</span><span style="color:#a6e22e">spring</span>&lt;/<span style="color:#f92672">animated.h1</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  );
+}
+</code></pre></div><p>实现了点击后渐入渐出，原理为改变透明度（加入了 useState 控制），对应的参数使用参考如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">from</td>
+<td align="left">obj</td>
+<td align="left">Base values, optional</td>
+</tr>
+<tr>
+<td align="left">to</td>
+<td align="left">obj/fn/array(obj)</td>
+<td align="left">Animates to &hellip;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>from &amp; to：更改对象参数值，初始值 =》目标值</li>
+<li>config - tension：整体速度，可改大改小试下效果</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+        
+        <p class="copyright-item">
+            <span>Author:</span>
+            <span>Faye.Fei </span>
+        </p>
+        
+
+        
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://ftopia2020.github.io/2022/reactspringdemo/>https://ftopia2020.github.io/2022/reactspringdemo/</span>
+        </p>
+        
+        
+        <p class="copyright-item lincese">
+            本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+        </p>
+        
+    </div>
+
+
+    <div class="post-tags">
+        
+        <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/react-spring/">
+                    #react-spring</a></span>
+            
+            <span class="tag"><a href="https://ftopia2020.github.io/tags/%E5%8E%9F%E5%88%9B/">
+                    #原创</a></span>
+            
+        </section>
+        
+        <section>
+            <a href="javascript:window.history.back();">back</a></span> ·
+            <span><a href="https://ftopia2020.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://ftopia2020.github.io/2022/jsclipboard/" class="prev" rel="prev" title="【转】JavaScript复制内容到剪贴板"><i
+                class="iconfont icon-left"></i>&nbsp;【转】JavaScript复制内容到剪贴板</a>
+        
+        
+    </div>
+
+    <div class="post-comment">
+        
+        
+        
+        <span id="/2022/reactspringdemo/" class="leancloud_visitors" data-flag-title="react-spring 动画框架初体验">
+            <span class="post-meta-item-text">访问量 </span>
+            <span class="leancloud-visitors-count"></span>
+            <p></p>
+        </span>
+        <div id="vcomments"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <script type="text/javascript">
+            new Valine({
+                el: '#vcomments',
+                appId: 'QzPcfvLVz747mNHBkSQSSoQ8-gzGzoHsz',
+                appKey: 'qQnhWMSodU0tlOPBVBSYznVU',
+                notify:  false ,
+                verify:  false ,
+                avatar: 'mp',
+                placeholder: '说点什么吧...',
+                visitor:  true 
+             });
+        </script>
+        
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://ftopia2020.github.io/">Faye.Fei</a> </span> 
+         
+         <br />
+         
+            <a href="http://beian.miit.gov.cn/" target="_blank" rel="external nofollow">沪ICP备18041231号 </a> |
+         
+		  <span>
+           Powered by
+           <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a>
+         </span> 
+      </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    var message_Path = "/live2d/"
+    var home_Path = "https://ftopia2020.github.io/"  
+</script>
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+
+
+
+     </div>
+  
+  </body>
+</html>

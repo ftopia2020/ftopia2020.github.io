@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reflect on Ftopia</title>
+    <link>https://ftopia2020.github.io/tags/reflect/</link>
+    <description>Recent content in reflect on Ftopia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Feb 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ftopia2020.github.io/tags/reflect/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>从 reflect Kind 反观 golang 数据类型</title>
+      <link>https://ftopia2020.github.io/2021/goreflecttype/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ftopia2020.github.io/2021/goreflecttype/</guid>
+      <description>Golang 数据类型 Golang 数据类型大体可分为以下几类： 基本类型： 布尔型 true/false，例如 bool := false 字符串类型：由单个字节链接起来，默认为 UTF-8 Unicode 数字类型 整</description>
+    </item>
+    
+  </channel>
+</rss>
